@@ -1,0 +1,1784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course>
+    <title>Programovanie v C++</title>
+    <img src="img/cpp_svk.png" alt="C++ Programming"/>
+    <sections>
+        <section id="1">
+            <title>Úvod do C++</title>
+            <topics>
+                <topic id="1">
+                    <title>Čo je C++?</title>
+                    <content>C++ je veľmi silný programovací jazyk, ktorý vytvoril Bjarne Stroustrup v roku 1979. Je založený na programovacom jazyku C, ale pridáva funkcie pre objektovo-orientované programovanie. C++ je obľúbený, pretože poskytuje dobrý výkon, je flexibilný a umožňuje priamu kontrolu nad hardvérom.
+
+C++ sa často používa na tvorbu systémového softvéru, hier a programov, ktoré musia byť veľmi rýchle. Mnohé veľké spoločnosti, ako Microsoft, Google a Adobe, používajú C++ pre svoje produkty. Známe herné enginy, ako Unreal Engine, sú tiež vytvorené pomocou C++.
+
+Niektoré dôležité vlastnosti C++ sú:
+- Priama správa pamäte pre lepšiu kontrolu.
+- Podpora objektovo-orientovaného programovania, ako sú triedy a objekty.
+- Možnosť šablónového programovania, čo robí kód opakovane použiteľným.
+- Bohatá knižnica s množstvom hotových nástrojov.
+- Spolupráca s kódom v jazyku C, takže môžete používať C aj C++.
+- Veľmi efektívny jazyk, vhodný pre veľké programy alebo hry.
+
+C++ sa neustále zlepšuje s novými verziami, ako C++11, C++14, C++17 a C++20. Tieto verzie pridávajú moderné nástroje a zároveň udržiavajú kompatibilitu so staršími programami.</content>
+                </topic>
+                <topic id="1">
+                    <title>Inštalácia C++</title>
+                    <content>Na používanie C++ si musíte nainštalovať prekladač (kompilátor) a možno aj IDE (integrované vývojové prostredie), v ktorom budete písať a testovať svoje programy. Spôsob inštalácie týchto nástrojov závisí od vášho operačného systému.
+
+Pre Windows:
+1. Stiahnite a nainštalujte Visual Studio Community Edition z webovej stránky Microsoftu.
+2. Počas inštalácie zvoľte možnosť "Desktop development with C++", aby ste získali potrebné nástroje.
+3. Po inštalácii môžete používať kompilátor MSVC a ďalšie nástroje.
+
+Pre Linux:
+Použite terminál na inštaláciu kompilátora GCC:
+
+sudo apt update
+sudo apt install build-essential
+
+
+Pre Mac:
+1. Nainštalujte Xcode z App Store.
+2. Alebo nainštalujte príkazové nástroje zadaním:
+
+xcode-select --install
+
+
+Ak chcete overiť, či bola inštalácia úspešná, zadajte:
+
+g++ --version
+
+
+Obľúbené IDE pre C++ zahŕňajú:
+- Visual Studio (najlepšie pre Windows)
+- CLion (výkonné multiplatformové IDE)
+- Code::Blocks (jednoduché a ľahké)
+- Eclipse s doplnkom pre C/C++
+- VSCode s rozšírením pre C++ (vhodné pre začiatočníkov aj pokročilých)</content>
+                </topic>
+                <topic id="1">
+                    <title>Vývojové prostredie pre C++</title>
+                    <content>Vývojové prostredie pre C++ je sada nástrojov, ktoré vám pomáhajú písať, kompilovať a ladiť vaše programy. Tu sú hlavné časti prostredia pre C++:
+
+1. Kompilátor: Prekladá váš kód do programu, ktorý počítač vie spustiť.
+   - GCC/G++: Populárny open-source kompilátor.
+   - MSVC: Kompilátor od Microsoftu pre Windows.
+   - Clang: Moderný a rýchly kompilátor.
+
+2. Nástroje na zostavenie: Pomáhajú organizovať a kompilovať váš projekt.
+   - Make: Základný nástroj na zostavenie pre jednoduché projekty.
+   - CMake: Pokročilejší nástroj pre veľké projekty.
+   - MSBuild: Nástroj na zostavenie pre Visual Studio projekty.
+
+3. Ladiaci nástroj: Umožňuje nájsť a opraviť chyby v kóde.
+   - GDB: GNU Debugger.
+   - LLDB: Ladiaci nástroj, ktorý dobre spolupracuje s Clang.
+   - Ladiaci nástroj vo Visual Studio: Dodáva sa s Visual Studiom.
+
+Ako pracovať s projektami
+Tu je príklad, ako môžete usporiadať svoj C++ projekt:
+
+my_project/
+    src/
+        main.cpp
+        utils.cpp
+        utils.h
+    build/
+    CMakeLists.txt
+
+
+Základný súbor `CMakeLists.txt` vyzerá takto:
+
+cmake_minimum_required(VERSION 3.10)
+project(MyProject)
+add_executable(my_program src/main.cpp src/utils.cpp)
+
+
+Bežné nastavenia pre C++ projekty:
+- Nastavte štandard C++ na C++11, C++14 alebo novší.
+- Používajte úrovne varovaní na odhalenie chýb.
+- Pridajte optimalizačné príznaky pre rýchlejší program.
+- Používajte konfigurácie Debug alebo Release podľa potreby.</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="2">
+            <title>Základná syntax a dátové typy</title>
+            <topics>
+                <topic id="2">
+                    <title>Premenné a dátové typy</title>
+                    <content><![CDATA[V C++ sú premenné ako kontajnery, ktoré uchovávajú rôzne druhy informácií. Skôr než môžeš premennú použiť, musíš C++ povedať, aký typ informácie bude obsahovať – tomu sa hovorí „typ“. Je to podobné ako v reálnom živote, keď používaš rôzne nádoby na rôzne veci (napr. peňaženku na peniaze, poličku na knihy).
+
+Základné dátové typy  
+Čísla (celé čísla - celé hodnoty):
+
+#include <iostream>
+using namespace std;
+
+// Bežné celé čísla (int)
+int vek = 25;                  // Na počítanie vecí ako vek
+int teplota = -5;              // Môže byť aj záporné
+int populaciaUSA = 331002651;  // Veľké čísla ako populácia
+
+// Malé celé čísla (short) – šetria pamäť, keď nepotrebuješ veľké čísla
+short pocetPoloziekVKosiku = 7;   // Vhodné pre malé počty
+short cisloPoschodia = -1;       // Podzemné poschodie
+
+// Veľké celé čísla (long) – pre veľmi veľké čísla
+long populaciaSvet = 7900000000L;  // 'L' znamená, že ide o long
+long bankovyZostatok = -1000000L;  // Môže byť aj záporný
+
+// Nezáporné celé čísla (unsigned)
+unsigned int kroky = 8449;         // Počet krokov nemôže byť záporný
+unsigned int zhliadnutia = 1000000; // Počet zhliadnutí videa nemôže byť záporný
+
+// Príklad z reálneho života: Jednoduchý skladový systém
+int celkovyPocetProduktov = 150;
+unsigned int predaneDnes = 25;
+int zostava = celkovyPocetProduktov - predaneDnes;
+cout << "Produktov na sklade: " << zostava << endl;
+
+
+Desatinné čísla (reálne čísla):
+
+// Float (jednoduchá presnosť) – na bežné desatinné čísla
+float vyska = 1.75f;           // Výška v metroch (f pre float)
+float telesnaTeplota = 98.6f;  // Telesná teplota
+float cena = 9.99f;            // Cena produktu
+
+// Double (dvojitá presnosť) – pre presnejšie desatinné čísla
+double pi = 3.14159265359;          // Matematické výpočty
+double zostatokUctu = 1234.56;      // Výpočty s peniazmi
+double vedeckeUdaje = 0.000000001;  // Veľmi malé čísla
+
+// Príklad z reálneho života: Nákupný košík
+double cenaPolozky = 29.99;
+int pocet = 3;
+double celkovaCena = cenaPolozky * pocet;
+cout << "Celková cena: $" << celkovaCena << endl;
+
+
+Jednotlivé znaky a pravdivostné hodnoty:
+
+// Char – jednotlivé znaky
+char znamka = 'A';              // Známky v škole
+char smer = 'N';                // Kompasové smery (N/S/E/W)
+char volbaPouzivatela = 'Y';    // Áno/Nie voľby
+
+// Bool – pravda alebo nepravda
+bool jePrihlaseny = true;       // Overenie, či je používateľ prihlásený
+bool maZlavu = false;           // Overenie, či platí zľava
+bool jeVikend = true;           // Overenie, či je víkend
+
+// Príklad z reálneho života: Stav používateľského účtu
+bool jePremiumClen = true;
+char clenstvo = 'G';            // 'G' ako Gold
+if (jePremiumClen && clenstvo == 'G') {
+    cout << "Vitaj, zlatý člen!" << endl;
+}
+
+
+Text (reťazce):
+
+#include <string>
+
+// String – pre text ľubovoľnej dĺžky
+string meno = "John";
+string priezvisko = "Smith";
+string celeMeno = meno + " " + priezvisko;  // Spájanie reťazcov
+
+string adresa = "123 Hlavná ulica";
+string email = "john@email.com";
+
+// Príklad z reálneho života: Profil používateľa
+string uzivatelskeMeno = "jsmith123";
+string stav = "Online";
+cout << "Používateľ: " << uzivatelskeMeno << " je " << stav << endl;
+
+
+Konštanty (hodnoty, ktoré sa nemenia):
+
+// Konštanty – hodnoty, ktoré by sa nikdy nemali meniť
+const int MAX_HRACOV = 4;         // Maximálny počet hráčov v hre
+const double DANOVA_SADZBA = 0.20; // 20% daň
+const string NAZOV_FIRMY = "Tech Corp";
+
+// Vypočítané konštanty (constexpr)
+constexpr double METRE_NA_STOPY = 3.28084;
+constexpr int HODIN_V_TYZDNI = 24 * 7;
+
+// Príklad z reálneho života: Herné nastavenia
+const int MAX_UROVEN = 100;
+const int BODY_NA_UROVEN = 1000;
+const double BONUS_NASOBITEL = 1.5;
+
+
+Kontrola veľkosti pamäte:
+
+// Zistite, koľko pamäte využívajú rôzne typy
+cout << "Pamäť využívaná rôznymi typmi:\n";
+cout << "int: " << sizeof(int) << " bajtov\n";         // Zvyčajne 4 bajty (32 bitov) – môže uložiť hodnoty od -2 147 483 648 do 2 147 483 647
+cout << "char: " << sizeof(char) << " bajtov\n";       // Vždy 1 bajt (8 bitov) – uloží jeden znak alebo číslo od -128 do 127
+cout << "bool: " << sizeof(bool) << " bajtov\n";       // Zvyčajne 1 bajt (aj keď potrebuje len 1 bit)
+cout << "float: " << sizeof(float) << " bajtov\n";     // Zvyčajne 4 bajty (32 bitov) – približne 7 desatinných miest presnosti
+cout << "double: " << sizeof(double) << " bajtov\n";   // Zvyčajne 8 bajtov (64 bitov) – približne 15–17 desatinných miest presnosti
+string menoText = "Ahoj";
+cout << "Tento reťazec používa: " << sizeof(menoText) << " bajtov\n"; // Zvyčajne 24 alebo 32 bajtov – veľkosť objektu string,
+                                                                      // nie samotného textu. String obsahuje ukazovateľ na text a ďalšie dáta
+
+
+Časté chyby, ktorým sa treba vyhnúť:
+1. Použitie float pri výpočtoch s peniazmi (použite radšej double)
+2. Zabudnutie inicializovať premenné pred použitím
+3. Použitie nesprávneho typu (napr. int pre desatinné čísla)
+4. Nezohľadnenie veľkostných limitov typu
+
+Dobré praktiky:
+1. Vyber správny typ pre svoje dáta
+2. Používaj zmysluplné názvy premenných
+3. Inicializuj premenné pri deklarácii
+4. Používaj konštanty pre hodnoty, ktoré sa nemajú meniť
+5. Pri veľkých programoch zváž pamäťovú náročnosť
+
+Modifikátory typov (zväčšovanie alebo zmenšovanie typov):
+
+// Zväčšovanie čísiel
+long long velmiVelkeCislo = 9223372036854775807LL;
+long double velmiPresneCislo = 3.14159265358979323846L;
+
+// Unsigned (žiadne záporné čísla, ale dvojnásobný pozitívny rozsah)
+unsigned int ibaPozitivne = 4294967295;
+
+// Short (menšie čísla, šetria pamäť)
+short maleCislo = 32767;
+
+
+Zapamätaj si:
+- Rôzne typy využívajú rôzne množstvá pamäte
+- Vyber najmenší typ, ktorý vyhovuje tvojim potrebám
+- Použi unsigned, ak čísla nemôžu byť záporné
+- Použi konštanty pre hodnoty, ktoré sa nemajú meniť
+- Pre prácu s reťazcami potrebuješ knižnicu `<string>`
+]]>
+</content>
+                </topic>
+                <topic id="2">
+                    <title>Operátory</title>
+                    <content><![CDATA[Operátory v C++ sú špeciálne symboly, ktoré hovoria počítaču, aby niečo vykonal s hodnotami. Môžeš si ich predstaviť ako matematické znaky, ktoré používaš v bežnom živote, napríklad + na sčítanie alebo - na odčítanie, ale C++ ich má viac pre rôzne úlohy.
+
+Matematické operátory (Aritmetické operátory)
+Tieto operátory ti pomáhajú robiť základné výpočty, ako kalkulačka:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Základné matematické operácie
+    int jablka = 10, pomarance = 3;
+    
+    // Sčítanie (+)
+    int spoluOvocie = jablka + pomarance;
+    cout << "Spolu ovocia: " << spoluOvocie << endl;
+    
+    // Odčítanie (-)
+    int zvysneJablka = jablka - 4;
+    cout << "Zvyšné jablká: " << zvysneJablka << endl;
+    
+    // Násobenie (*)
+    int cenaZaJablko = 2;
+    int celkovaCena = jablka * cenaZaJablko;
+    cout << "Cena jabĺk: $" << celkovaCena << endl;
+    
+    // Delenie (/)
+    int pocetLudi = 3;
+    int jablkaNaOsobu = jablka / pocetLudi;
+    cout << "Jablká na osobu: " << jablkaNaOsobu << endl;
+    
+    // Zvyšok (%)
+    int zostavajuceJablka = jablka % pocetLudi;
+    cout << "Zvyšné jablká: " << zostavajuceJablka << endl;
+    
+    // Pridanie alebo odčítanie o 1
+    int citac = 0;
+    ++citac;
+    cout << "Čítač: " << citac << endl;
+    
+    citac++;
+    cout << "Čítač: " << citac << endl;
+    
+    --citac;
+    cout << "Čítač: " << citac << endl;
+    
+    // Príklad z praxe: nákupný košík
+    int cenaPolozky = 25;
+    int pocetPoloziek = 4;
+    double danovaSadzba = 0.08;
+    
+    int medzisucet = cenaPolozky * pocetPoloziek;
+    double dan = medzisucet * danovaSadzba;
+    double celkom = medzisucet + dan;
+}
+
+
+Porovnávacie operátory (Kontrola rovnosti alebo rozdielnosti)
+Tieto operátory ti pomáhajú porovnávať hodnoty, napríklad ceny alebo vek:
+
+int vek = 18;
+int pozadovanyVek = 21;
+double cena1 = 99.99, cena2 = 79.99;
+
+bool jeDospely = (vek == pozadovanyVek);
+cout << "Je dospelý? " << jeDospely << endl;
+
+bool suOdlisneCeny = (cena1 != cena2);
+cout << "Odlišné ceny? " << suOdlisneCeny << endl;
+
+bool jeDrahe = (cena1 > 100.00);
+cout << "Je drahé? " << jeDrahe << endl;
+
+bool jeNeplnolety = (vek < pozadovanyVek);
+cout << "Je neplnoletý? " << jeNeplnolety << endl;
+
+bool mozeJazdit = (vek >= 16);
+cout << "Môže jazdiť? " << mozeJazdit << endl;
+
+bool jeSoZlavou = (cena2 <= 80.00);
+cout << "Je v zľave? " << jeSoZlavou << endl;
+
+// Príklad z praxe: systém lístkov do kina
+int vekDivaka = 15;
+bool jeStudent = true;
+double cenaListka = 12.00;
+
+if (vekDivaka <= 12) {
+    cenaListka = 8.00;
+} else if (vekDivaka >= 65) {
+    cenaListka = 9.00;
+} else if (jeStudent) {
+    cenaListka = 10.00;
+}
+
+
+Logické operátory (Spájanie podmienok True/False)
+
+bool jePremiumClen = true;
+bool maDostatokBodov = true;
+double sumaObjednavky = 120.00;
+
+bool ziskaZlavu = jePremiumClen && maDostatokBodov;
+cout << "Získa zľavu? " << ziskaZlavu << endl;
+
+bool maDopravuZdarma = (sumaObjednavky >= 100) || jePremiumClen;
+cout << "Doprava zdarma? " << maDopravuZdarma << endl;
+
+bool nieJeNaSklade = false;
+bool mozeObjednat = !nieJeNaSklade;
+
+bool dokoncenaUroven = true;
+bool maDostatokSkore = false;
+int skoreHraca = 850;
+int minimalneSkore = 1000;
+
+bool odomknutUspes = dokoncenaUroven && (maDostatokSkore || skoreHraca >= minimalneSkore);
+
+Bitové operátory (Práca s binárnymi číslami)
+
+int x = 5;
+int y = 3;
+
+int vysledok1 = x & y;
+int vysledok2 = x | y;
+int vysledok3 = x ^ y;
+int vysledok4 = x << 1;
+int vysledok5 = x >> 1;
+
+const int CITANIE = 4;
+const int ZAPIS = 2;
+const int SPUSTENIE = 1;
+
+int opravneniaPouzivatela = CITANIE | ZAPIS;
+bool mozeCitat = (opravneniaPouzivatela & CITANIE) != 0;
+bool mozeZapisovat = (opravneniaPouzivatela & ZAPIS) != 0;
+bool mozeSpustit = (opravneniaPouzivatela & SPUSTENIE) != 0;
+
+
+Časté chyby, ktorým sa vyhnúť:
+1. Používanie = namiesto == pri porovnávaní
+2. Zabudnutie, že celočíselné delenie orezáva desatinné časti
+3. Delenie nulou
+4. Zámena && alebo || s & alebo | (správajú sa inak!)
+
+Dobré praktiky:
+1. Používaj zátvorky pre zrozumiteľnosť
+2. Skontroluj delenie nulou
+3. Používaj zrozumiteľné mená premenných
+4. Komentuj zložité výpočty
+5. Otestuj výpočty s rôznymi hodnotami]]></content>
+                </topic>
+                <topic id="2">
+                    <title>Vstup/Výstup</title>
+                    <content><![CDATA[V C++ používame niečo, čo sa volá „streams“ (prúdy), na spracovanie vstupu (napr. od používateľa alebo zo súborov) a výstupu (zobrazovanie na obrazovku alebo zápis do súborov). Prúdy si môžeš predstaviť ako rúry, cez ktoré tečú údaje.
+
+Základný vstup/výstup na obrazovku:
+
+#include <iostream>  // Umožňuje vstup/výstup
+#include <string>    // Umožňuje pracovať s textom
+
+// Zobrazenie textu na obrazovku (výstup)
+// cout je ako rúra, ktorá posiela dáta na obrazovku
+std::cout << "Hello, World!\n";           
+std::cout << "Hello" << " World!" << std::endl;
+
+// Získavanie čísla od používateľa (vstup)
+int vek;
+std::cout << "How old are you?: ";    
+std::cin >> vek;                      
+std::cout << "You are " << vek << " years old!" << std::endl;
+
+// Získavanie jedného slova ako text
+std::string meno;
+std::cout << "What is your name?: ";
+std::cin >> meno;                     
+
+// Získavanie celého riadku (vrátane medzier)
+std::string celeMeno;
+std::cin.ignore();                    
+std::getline(std::cin, celeMeno);     
+
+// Zobrazovanie chybových hlásení
+std::cerr << "Warning: Something went wrong!" << std::endl;
+
+
+Formátovanie čísel (úprava výstupu):
+
+#include <iomanip>  // Umožňuje formátovať výstup
+
+double cena = 49.9999;
+double pi = 3.14159;
+
+// Rôzne spôsoby zobrazenia čísel:
+std::cout << "Regular price: " << cena << std::endl;
+std::cout << std::fixed;
+std::cout << "Formatted price: " << std::setprecision(2) << cena << std::endl;
+
+// Nastavenie šírky výstupu
+std::cout << std::setw(10) << "Name" << std::setw(5) << "Age" << std::endl;
+std::cout << std::setw(10) << "John" << std::setw(5) << 25 << std::endl;
+
+// Vyplňovanie prázdnych miest
+std::cout << std::setfill('-') << std::setw(20) << "Title" << std::endl;
+
+
+Práca so súbormi:
+
+#include <fstream>   // Práca so súbormi
+
+// Zapisovanie do súboru
+std::ofstream vystupnySubor("diary.txt");
+if (vystupnySubor.is_open()) {
+    vystupnySubor << "Dear Diary," << std::endl;
+    vystupnySubor << "Today was a good day!" << std::endl;
+    vystupnySubor.close();
+} else {
+    std::cerr << "Could not open the file!" << std::endl;
+}
+
+// Čítanie zo súboru
+std::ifstream vstupnySubor("diary.txt");
+std::string riadok;
+
+if (vstupnySubor.is_open()) {
+    while (std::getline(vstupnySubor, riadok)) {
+        std::cout << riadok << std::endl;
+    }
+    vstupnySubor.close();
+} else {
+    std::cerr << "Could not open the file!" << std::endl;
+}
+
+// Pridávanie do existujúceho súboru
+std::ofstream doplnanieSuboru("diary.txt", std::ios::app);
+if (doplnanieSuboru.is_open()) {
+    doplnanieSuboru << "PS: I learned C++ today!" << std::endl;
+    doplnanieSuboru.close();
+}
+
+// Čítanie čísel zo súboru
+std::ifstream suborCisel("numbers.txt");
+int cislo;
+double sucet = 0;
+int pocet = 0;
+
+while (suborCisel >> cislo) {
+    sucet += cislo;
+    pocet++;
+}
+std::cout << "Average: " << sucet / pocet << std::endl;
+
+// Bežné operácie so súborom
+vystupnySubor.flush();     
+vstupnySubor.eof();        
+vstupnySubor.clear();      
+vstupnySubor.seekg(0);     
+
+
+Časté chyby, ktorým sa treba vyhnúť:
+1. Zabudnutie skontrolovať, či sa súbor otvoril
+2. Nezatvorenie súboru po skončení práce
+3. Nevyčistenie vstupného bufferu pred použitím getline()
+4. Nekontrolovanie vstupných chýb
+
+Dobré praktiky:
+1. Vždy zatváraj súbory, keď s nimi skončíš
+2. Skontroluj, či sa súbor otvoril úspešne
+3. Pri práci so súbormi použi ošetrenie chýb
+4. Vyčisti vstupný buffer pri prechode z >> na getline()
+5. Používaj správne dátové typy pre vstup
+]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="3">
+            <title>Riadiace štruktúry</title>
+            <topics>
+                <topic id="3">
+                    <title>Podmienené výroky</title>
+                    <content><![CDATA[Riadiace štruktúry v C++ sú ako dopravné značky pre tvoj program – pomáhajú rozhodovať, ktoré časti kódu sa majú vykonať. Sú veľmi užitočné, keď chceš, aby program robil rôzne veci podľa rôznych situácií.
+
+Rozhodovanie pomocou if podmienok:
+
+#include <iostream>
+using namespace std;  // Toto nám umožňuje písať 'cout' namiesto 'std::cout'
+
+// Jednoduchá podmienka - kontroluje jednu podmienku
+int age = 18;
+if (age >= 18) {
+    cout << "Môžeš voliť!\n";
+}
+
+// Reálny príklad: cena lístka do kina
+int customerAge = 15;
+double ticketPrice = 10.00;
+
+if (customerAge < 12) {
+    ticketPrice = 5.00;
+    cout << "Detský lístok: $" << ticketPrice << endl;
+}
+
+// If-else – dve možnosti
+int temperature = 25;
+if (temperature > 30) {
+    cout << "Je horúco! Nezabudni piť vodu.\n";
+} else {
+    cout << "Počasie je príjemné!\n";
+}
+
+// If-else if-else – viacero možností
+int currentHour = 14;  // 24-hodinový formát
+double mealPrice = 20.00;
+
+if (currentHour < 12) {
+    cout << "Dobré ráno! Aktuálne podávame raňajky.\n";
+    mealPrice = mealPrice * 0.8;  // 20 % zľava na raňajky
+} else if (currentHour >= 12 && currentHour < 15) {
+    cout << "Dobré popoludnie! Máme obedové menu.\n";
+    mealPrice = mealPrice * 0.9;  // 10 % zľava na obed
+} else if (currentHour >= 15 && currentHour < 18) {
+    cout << "Šťastná hodinka!\n";
+    mealPrice = mealPrice * 0.85;  // 15 % zľava
+} else {
+    cout << "Dobrý večer! Podávame večeru.\n";
+}
+cout << "Cena jedla: $" << mealPrice << endl;
+
+// Vnorené if – podmienky v podmienkach
+bool hasLibraryCard = true;
+bool hasOverdueBooks = false;
+
+if (hasLibraryCard) {
+    if (!hasOverdueBooks) {
+        cout << "Môžeš si požičať knihy!\n";
+    } else {
+        cout << "Najprv vráť oneskorené knihy.\n";
+    }
+} else {
+    cout << "Najprv si vybav čitateľský preukaz.\n";
+}
+
+
+Použitie switch – ak máš viacero jasných volieb:
+
+char menuChoice = 'B';
+cout << "Možnosti menu:\n";
+cout << "C - Káva ($3)\n";
+cout << "T - Čaj ($2)\n";
+cout << "B - Bageta ($4)\n";
+cout << "M - Muffin ($3)\n";
+
+double price = 0.0;
+switch (menuChoice) {
+    case 'C':
+    case 'c':
+        price = 3.0;
+        cout << "Objednal si si kávu\n";
+        break;
+    case 'T':
+    case 't':
+        price = 2.0;
+        cout << "Objednal si si čaj\n";
+        break;
+    case 'B':
+    case 'b':
+        price = 4.0;
+        cout << "Objednal si si bagetu\n";
+        break;
+    case 'M':
+    case 'm':
+        price = 3.0;
+        cout << "Objednal si si muffin\n";
+        break;
+    default:
+        cout << "Neplatná voľba! Vyber si z menu.\n";
+        price = 0.0;
+}
+
+if (price > 0) {
+    cout << "Celková cena: $" << price << endl;
+}
+
+
+Rýchle rozhodovanie pomocou podmieneného operátora (? :) :
+
+int score = 75;
+string result;
+if (score >= 60) {
+    result = "Prešiel";
+} else {
+    result = "Neúspešný";
+}
+
+result = (score >= 60) ? "Prešiel" : "Neúspešný";
+
+int battery = 25;
+string batteryStatus = (battery <= 20) ? "Slabá" : "OK";
+
+double cena = 99.99;
+double finalPrice = (cena > 100) ? cena * 0.9 : cena;  // 10 % zľava nad 100
+
+int x = 5, y = 10, z = 15;
+int smallest = (x < y) ? ((x < z) ? x : z) : ((y < z) ? y : z);  // Zbytočne zložité!
+
+
+Časté chyby, ktorým sa vyhnúť:
+1. Zabudnuté break vo switch
+2. Použitie = namiesto == v podmienkach
+3. Príliš zložité podmienky
+4. Zabudnuté zložené zátvorky {} pri viacerých riadkoch
+
+Dobré návyky:
+1. Vždy použi zátvorky {}, aj pri jednom riadku
+2. Podmienky udržuj jednoduché a čitateľné
+3. Použi switch pri viacerých jednoduchých porovnaniach
+4. Nevnáraj if do if – rozdeľ to do funkcií
+5. Používaj výstižné názvy premenných
+]]>
+</content>
+                </topic>
+                <topic id="3">
+                    <title>Cykly</title>
+                    <content><![CDATA[Cykly v jazyku C++ ti pomáhajú vykonať tú istú úlohu viackrát bez toho, aby si musel stále písať ten istý kód. Predstav si cykly ako inštrukcie pre opakujúce sa úlohy, napríklad „umy každý zub“ alebo „počítaj do 10“.
+
+For cykly
+Cyklus `for` je ideálny, keď presne vieš, koľkokrát chceš niečo vykonať:
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Základný for cyklus
+cout << "Počítanie od 1 do 5:\n";
+for (int i = 1; i <= 5; i++) {
+    cout << "Počet: " << i << endl;
+}
+// Výstup: Počet: 1, Počet: 2, ..., Počet: 5
+
+// Reálny príklad: Násobilka
+int number = 7;
+cout << "\nNásobilka čísla " << number << ":\n";
+for (int i = 1; i <= 10; i++) {
+    cout << number << " x " << i << " = " << (number * i) << endl;
+}
+
+// Počítanie dozadu
+cout << "\nOdpočítavanie:\n";
+for (int i = 10; i >= 1; i--) {
+    cout << i << "... ";
+}
+cout << "Štart!" << endl;
+
+// Počítanie po dvoch (párne čísla)
+cout << "\nPárne čísla do 10:\n";
+for (int i = 2; i <= 10; i += 2) {
+    cout << i << " ";
+}
+
+Rozšírený for cyklus (moderný štýl C++)
+Jednoduchší spôsob práce so zoznamami a kolekciami:
+
+// Práca so zoznamom známok
+vector<int> scores = {85, 92, 78, 95, 88};
+int sum = 0;
+
+cout << "\nŠtudentské známky:\n";
+for (const int& score : scores) {
+    cout << score << "% ";
+    sum += score;
+}
+cout << "\nPriemerná známka: " << sum/scores.size() << "%" << endl;
+
+// Reálny príklad: Nákupný košík
+vector<double> prices = {29.99, 19.99, 15.99, 49.99};
+double total = 0.0;
+
+cout << "\nPoložky v košíku:\n";
+for (const double& price : prices) {
+    cout << "$" << price << endl;
+    total += price;
+}
+cout << "Celkom: $" << total << endl;
+
+While cyklus
+Použi while, keď nevieš presne, koľkokrát budeš musieť niečo zopakovať:
+
+// Jednoduchý príklad while cyklu
+int sheep = 1;
+cout << "\nPočítanie ovečiek:\n";
+while (sheep <= 5) {
+    cout << sheep << " ovečka... ";
+    sheep++;
+}
+cout << "Zzz" << endl;
+
+// Reálny príklad: Kontrola hesla
+string password;
+bool isCorrect = false;
+int attempts = 0;
+const int MAX_ATTEMPTS = 3;
+
+while (!isCorrect && attempts < MAX_ATTEMPTS) {
+    cout << "\nZadaj heslo: ";
+    cin >> password;
+
+    if (password == "secret123") {
+        isCorrect = true;
+        cout << "Prihlásenie úspešné!" << endl;
+    } else {
+        attempts++;
+        cout << "Nesprávne heslo. Zostáva pokusov: " << (MAX_ATTEMPTS - attempts) << endl;
+    }
+}
+
+Do-while cyklus
+Tento cyklus sa vždy vykoná aspoň raz, a až potom skontroluje podmienku:
+
+// Jednoduchá hra: hádanie čísla
+int secretNumber = 7;
+int guess;
+int tries = 0;
+
+do {
+    cout << "\nHádať číslo (1-10): ";
+    cin >> guess;
+    tries++;
+
+    if (guess < secretNumber) {
+        cout << "Príliš nízke!" << endl;
+    } else if (guess > secretNumber) {
+        cout << "Príliš vysoké!" << endl;
+    }
+} while (guess != secretNumber);
+
+cout << "Uhádol si na " << tries << ". pokus!" << endl;
+
+// Reálny príklad: Menu systém
+int choice;
+do {
+    cout << "\nMenu:\n";
+    cout << "1. Spustiť hru\n";
+    cout << "2. Nastavenia\n";
+    cout << "3. Ukončiť\n";
+    cout << "Zadaj voľbu (1-3): ";
+    cin >> choice;
+
+    switch (choice) {
+        case 1: cout << "Spúšťam hru...\n"; break;
+        case 2: cout << "Otváram nastavenia...\n"; break;
+        case 3: cout << "Zbohom!\n"; break;
+        default: cout << "Neplatná voľba!\n";
+    }
+} while (choice != 3);
+
+Riadenie toku cyklu
+Špeciálne príkazy na ovládanie správania cyklu:
+
+// Príkaz break – okamžite ukončí cyklus
+cout << "\nHľadanie čísla 5:\n";
+for (int i = 1; i <= 10; i++) {
+    cout << "Kontrola " << i << "... ";
+    if (i == 5) {
+        cout << "\nNašiel som ho! Končím hľadanie." << endl;
+        break;
+    }
+}
+
+// Príkaz continue – preskočí na ďalšiu iteráciu
+cout << "\nTlač čísel okrem 3:\n";
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        cout << "(preskakujem 3) ";
+        continue;
+    }
+    cout << i << " ";
+}
+
+// Reálny príklad: Spracovanie známok
+vector<int> grades = {95, -1, 88, 92, -1, 85};
+cout << "\n\nSpracovanie známok:\n";
+for (int grade : grades) {
+    if (grade == -1) {
+        cout << "Chýbajúca známka, preskakujem...\n";
+        continue;
+    }
+    cout << "Spracovávam známku: " << grade << endl;
+}
+
+Bežné chyby, ktorým sa treba vyhnúť:
+1. Zabudnutie aktualizovať čítač cyklu (nekonečný cyklus)
+2. Použitie <= namiesto < (chyby o jedno číslo)
+3. Zmena premenných cyklu vo vnútri cyklu
+4. Zabudnutie, že väčšina cyklov začína od 0
+
+Dobré praktiky:
+1. Používaj zmysluplné názvy premenných pre čítače
+2. Dávaj pozor na podmienky v cykloch, aby si sa vyhol nekonečným cyklom
+3. Zváž použitie rozšíreného for cyklu pri práci s kolekciami
+4. Pridaj komentáre pri zložitejších cykloch
+5. Buď opatrný s break a continue – môžu zneprehľadniť logiku
+
+Pamätaj si:
+1. For cykly sú najlepšie, keď vieš počet opakovaní
+2. While cykly sú dobré, keď to nevieš
+3. Do-while cykly sa hodia, keď musíš niečo vykonať aspoň raz
+4. Rozšírené for cykly sú ideálne pri práci s kolekciami
+5. Break a continue ti dávajú väčšiu kontrolu nad tokom cyklu
+]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="4">
+            <title>Funkcie</title>
+            <topics>
+                <topic id="4">
+                    <title>Základy funkcií</title>
+                    <content><![CDATA[Funkcie v C++ sú ako recepty v kuchárskej knihe. Umožňujú ti zapúzdriť blok kódu, ktorý vykonáva špecifickú úlohu, čím sa tvoj kód stáva modulárnejším a znovupoužiteľným. Predstav si funkcie ako inštrukcie na úlohy ako „upeč koláč“ alebo „vypočítaj obsah kruhu“.
+
+Definovanie funkcie  
+Na definovanie funkcie musíš určiť návratový typ, názov funkcie a prípadné parametre, ktoré prijíma:
+
+#include <iostream>
+using namespace std;
+
+// Funkcia na sčítanie dvoch čísel
+int add(int a, int b) {
+    return a + b;
+}
+
+// Funkcia na vypísanie správy
+void printMessage() {
+    cout << "Hello, World!" << endl;
+}
+
+Volanie funkcie  
+Keď už máš funkciu definovanú, môžeš ju zavolať kdekoľvek vo svojom kóde:
+
+int main() {
+    int sum = add(5, 3);  // Volanie funkcie add
+    cout << "Súčet: " << sum << endl;
+
+    printMessage();  // Volanie funkcie printMessage
+
+    return 0;
+}
+
+Parametre funkcie  
+Funkcie môžu prijímať parametre, ktoré sú ako ingrediencie v recepte. Môžeš do funkcie odovzdať hodnoty pri jej volaní:
+
+// Funkcia na výpočet obsahu obdĺžnika
+double calculateArea(double length, double width) {
+    return length * width;
+}
+
+int main() {
+    double area = calculateArea(5.0, 3.0);  // Odovzdanie argumentov do funkcie
+    cout << "Obsah: " << area << endl;
+
+    return 0;
+}
+
+Návratový typ  
+Návratový typ funkcie určuje typ hodnoty, ktorú funkcia vráti. Ak funkcia nevracia žiadnu hodnotu, použije sa kľúčové slovo `void`:
+
+// Funkcia na kontrolu, či je číslo párne
+bool isEven(int number) {
+    return (number % 2 == 0);
+}
+
+int main() {
+    int num = 4;
+    if (isEven(num)) {
+        cout << num << " je párne." << endl;
+    } else {
+        cout << num << " je nepárne." << endl;
+    }
+
+    return 0;
+}
+
+Preťažovanie funkcií  
+C++ ti umožňuje definovať viacero funkcií s rovnakým názvom, ale rôznymi parametrami. Toto sa nazýva preťažovanie funkcií:
+
+// Funkcia na vypísanie celého čísla
+void print(int i) {
+    cout << "Celé číslo: " << i << endl;
+}
+
+// Funkcia na vypísanie desatinného čísla
+void print(double d) {
+    cout << "Desatinné číslo: " << d << endl;
+}
+
+int main() {
+    print(5);      // Volá funkciu, ktorá vypisuje celé číslo
+    print(3.14);   // Volá funkciu, ktorá vypisuje desatinné číslo
+
+    return 0;
+}
+
+Bežné chyby, ktorým sa treba vyhnúť  
+1. Zabudnutie na návratovú hodnotu z funkcie, ktorá nemá `void`.  
+2. Nesprávne zodpovedajúci podpis funkcie pri jej volaní.  
+3. Nepoužívanie zmysluplných názvov pre parametre funkcie.  
+4. Preťažovanie funkcií s nejednoznačnými typmi parametrov.
+
+Dobré praktiky  
+1. Používaj zmysluplné názvy funkcií a parametrov.  
+2. Drž funkcie krátke a zamerané na jednu úlohu.  
+3. Používaj komentáre na vysvetlenie zložitej logiky vo funkciách.  
+4. Vyhýbaj sa globálnym premenným; namiesto toho používaj parametre funkcií a návratové hodnoty.
+
+Pamätaj si:  
+- Funkcie ti pomáhajú organizovať kód a robiť ho čitateľnejším.  
+- Používaj parametre funkcií na odovzdanie údajov do funkcie.  
+- Používaj návratové hodnoty na získanie výsledkov z funkcií.  
+- Preťažovanie funkcií ti umožňuje používať rovnaký názov pre rôzne úlohy.
+]]>
+                    </content>
+                </topic>
+                <topic id="4">
+                    <title>Šablóny funkcií</title>
+                    <content><![CDATA[Šablóny funkcií v C++ sú ako výkresy na vytváranie funkcií. Umožňujú ti napísať funkciu raz a použiť ju s rôznymi dátovými typmi bez nutnosti prepisovať celú funkciu. Predstav si šablóny funkcií ako inštrukcie na úlohy ako „zoradiť zoznam“ alebo „nájsť maximálnu hodnotu“, ale použiteľné na akýkoľvek typ zoznamu alebo hodnoty.
+
+Definovanie šablóny funkcie  
+Na definovanie šablóny funkcie použiješ kľúčové slovo `template` nasledované zoznamom parametrov šablóny:
+
+#include <iostream>
+using namespace std;
+
+// Šablóna funkcie na nájdenie maxima z dvoch hodnôt
+template <typename T>
+T findMax(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+// Šablóna funkcie na výmenu dvoch hodnôt
+template <typename T>
+void swapValues(T& a, T& b) {
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+Použitie šablóny funkcie  
+Keď už máš šablónu funkcie definovanú, môžeš ju použiť s rôznymi dátovými typmi:
+
+int main() {
+    // Použitie findMax s celými číslami
+    int int1 = 10, int2 = 20;
+    cout << "Maximum z " << int1 << " a " << int2 << " je " << findMax(int1, int2) << endl;
+
+    // Použitie findMax s desatinnými číslami
+    double double1 = 10.5, double2 = 20.5;
+    cout << "Maximum z " << double1 << " a " << double2 << " je " << findMax(double1, double2) << endl;
+
+    // Použitie swapValues s celými číslami
+    cout << "Pred výmenou: int1 = " << int1 << ", int2 = " << int2 << endl;
+    swapValues(int1, int2);
+    cout << "Po výmene: int1 = " << int1 << ", int2 = " << int2 << endl;
+
+    // Použitie swapValues s desatinnými číslami
+    cout << "Pred výmenou: double1 = " << double1 << ", double2 = " << double2 << endl;
+    swapValues(double1, double2);
+    cout << "Po výmene: double1 = " << double1 << ", double2 = " << double2 << endl;
+
+    return 0;
+}
+
+Špecializácia šablóny  
+Niekedy môžeš potrebovať vytvoriť špecifickú verziu šablóny pre konkrétny dátový typ. Toto sa nazýva špecializácia šablóny:
+
+#include <iostream>
+using namespace std;
+
+// Všeobecná šablóna
+template <typename T>
+void printValue(T value) {
+    cout << "Hodnota: " << value << endl;
+}
+
+// Špecializovaná šablóna pre char
+template <>
+void printValue(char value) {
+    cout << "Znak: " << value << endl;
+}
+
+int main() {
+    printValue(10);       // Volá všeobecnú šablónu
+    printValue(3.14);     // Volá všeobecnú šablónu
+    printValue('A');      // Volá špecializovanú šablónu
+
+    return 0;
+}
+
+Bežné chyby, ktorým sa treba vyhnúť  
+1. Zabudnutie použiť kľúčové slovo `template` pri definovaní šablóny.
+2. Nesúlad parametrov šablóny pri volaní šablónovej funkcie.
+3. Nepoužívanie zmysluplných názvov pre parametre šablóny.
+4. Preťažovanie šablón s nejednoznačnými typmi parametrov.
+
+Dobré praktiky  
+1. Používaj zmysluplné názvy pre parametre šablón.
+2. Drž šablónové funkcie krátke a zamerané na jednu úlohu.
+3. Používaj komentáre na vysvetlenie zložitej logiky v šablónach.
+4. Vyhýbaj sa globálnym premenným; namiesto toho používaj parametre šablón a návratové hodnoty.
+
+Pamätaj si:  
+- Šablóny funkcií ti pomáhajú písať všeobecný a znovupoužiteľný kód.
+- Používaj parametre šablón na vytváranie funkcií, ktoré pracujú s rôznymi dátovými typmi.
+- Špecializácia šablón ti umožňuje vytvoriť konkrétne verzie šablóny pre určité dátové typy.
+]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="5">
+            <title>Objektovo orientované programovanie</title>
+            <topics>
+                <topic id="5">
+                    <title>Triedy a objekty</title>
+                    <content><![CDATA[Triedy a objekty sú základnými stavebnými prvkami objektovo orientovaného programovania (OOP) v jazyku C++. Umožňujú ti vytvárať zložité dátové štruktúry a definovať ich správanie. Predstav si triedy ako výkresy na tvorbu objektov – podobne ako výkres domu definuje jeho štruktúru a vlastnosti.
+
+Definovanie triedy  
+Na definovanie triedy použiješ kľúčové slovo `class`, nasledované názvom triedy a zloženými zátvorkami `{}`. Vo vnútri triedy môžeš definovať členské premenné (atribúty) a členské funkcie (metódy):
+
+#include <iostream>
+using namespace std;
+
+// Definícia triedy
+class Car {
+public:
+    // Členské premenné
+    string brand;
+    string model;
+    int year;
+
+    // Členská funkcia
+    void displayInfo() {
+        cout << "Značka: " << brand << ", Model: " << model << ", Rok: " << year << endl;
+    }
+};
+
+Vytváranie objektov  
+Keď už máš definovanú triedu, môžeš vytvárať objekty (inštancie) tejto triedy:
+
+int main() {
+    // Vytvorenie objektu triedy Car
+    Car car1;
+    car1.brand = "Toyota";
+    car1.model = "Corolla";
+    car1.year = 2020;
+
+    // Volanie členskej funkcie
+    car1.displayInfo();
+
+    return 0;
+}
+
+Konstruktory  
+Konstruktory sú špeciálne členské funkcie, ktoré sa volajú pri vytvorení objektu. Inicializujú členské premenné objektu:
+
+class Car {
+public:
+    string brand;
+    string model;
+    int year;
+
+    // Konstruktor
+    Car(string b, string m, int y) {
+        brand = b;
+        model = m;
+        year = y;
+    }
+
+    void displayInfo() {
+        cout << "Značka: " << brand << ", Model: " << model << ", Rok: " << year << endl;
+    }
+};
+
+int main() {
+    // Vytvorenie objektov pomocou konstruktora
+    Car car1("Toyota", "Corolla", 2020);
+    Car car2("Honda", "Civic", 2019);
+
+    car1.displayInfo();
+    car2.displayInfo();
+
+    return 0;
+}
+
+Prístupové modifikátory  
+Prístupové modifikátory určujú viditeľnosť členov triedy. Tri hlavné modifikátory sú `public`, `private` a `protected`:
+
+class Car {
+private:
+    string brand;
+    string model;
+    int year;
+
+public:
+    // Konstruktor
+    Car(string b, string m, int y) {
+        brand = b;
+        model = m;
+        year = y;
+    }
+
+    // Verejná členská funkcia pre prístup k súkromným členom
+    void displayInfo() {
+        cout << "Značka: " << brand << ", Model: " << model << ", Rok: " << year << endl;
+    }
+};
+
+Dedičnosť  
+Dedičnosť ti umožňuje vytvoriť novú triedu (odvodenú triedu) na základe existujúcej triedy (základnej triedy). Odvodená trieda dedí atribúty a metódy základnej triedy:
+
+// Základná trieda
+class Vehicle {
+public:
+    string brand;
+    void honk() {
+        cout << "Píp píp!" << endl;
+    }
+};
+
+// Odvodená trieda
+class Car : public Vehicle {
+public:
+    string model;
+    int year;
+
+    void displayInfo() {
+        cout << "Značka: " << brand << ", Model: " << model << ", Rok: " << year << endl;
+    }
+};
+
+int main() {
+    Car car1;
+    car1.brand = "Toyota";
+    car1.model = "Corolla";
+    car1.year = 2020;
+
+    car1.honk();  // Zdedené z Vehicle
+    car1.displayInfo();
+
+    return 0;
+}
+
+Bežné chyby, ktorým sa treba vyhnúť:
+1. Zabudnutie inicializovať členské premenné.
+2. Použitie nesprávnych prístupových modifikátorov.
+3. Nepoužívanie konstruktorov na inicializáciu objektov.
+4. Preťažovanie funkcií s nejednoznačnými typmi parametrov.
+
+Dobré praktiky:
+1. Používaj zmysluplné názvy pre triedy a členské premenné.
+2. Udržuj triedy zamerané na jednu zodpovednosť.
+3. Používaj konstruktory na inicializáciu objektov.
+4. Používaj prístupové modifikátory na kontrolu viditeľnosti členov triedy.
+5. Používaj dedičnosť na opätovné použitie kódu a vytváranie prehľadnej hierarchie tried.
+
+Pamätaj si:
+- Triedy sú výkresy na tvorbu objektov.
+- Objekty sú inštancie tried.
+- Konstruktory inicializujú objekty.
+- Prístupové modifikátory riadia viditeľnosť členov triedy.
+- Dedičnosť ti umožňuje vytvárať nové triedy na základe existujúcich.
+]]>
+</content>
+                </topic>
+                <topic id="5">
+                    <title>Štandardná knižnica šablón (STL)</title>
+                    <content><![CDATA[Štandardná knižnica templátov (STL) je silná sada C++ tried využívajúcich šablóny, ktoré poskytujú všeobecne použiteľné triedy a funkcie. Implementujú mnohé populárne a bežne používané algoritmy a dátové štruktúry ako vektory, zoznamy, fronty a zásobníky. Predstav si STL ako sadu nástrojov, ktorá ponúka hotové riešenia pre bežné programátorské úlohy.
+
+Komponenty STL
+STL je rozdelená na štyri hlavné časti:
+1. Kontajnery: Uchovávajú kolekcie objektov.
+2. Algoritmy: Vykonávajú operácie nad prvkami v kontajneroch.
+3. Iterátory: Poskytujú spôsob prístupu k prvkom kontajnerov.
+4. Funkčné objekty (funktory): Objekty, ktoré sa správajú ako funkcie a dajú sa použiť s algoritmami.
+
+Kontajnery
+Kontajnery sú objekty, ktoré uchovávajú kolekcie iných objektov. Najčastejšie používané kontajnery sú:
+- Vector: Dynamické pole, ktoré sa dokáže zväčšovať.
+- List: Dvojito prepojený zoznam.
+- Deque: Obojstranný front.
+- Set: Množina unikátnych prvkov.
+- Map: Kolekcia dvojíc kľúč-hodnota.
+
+Príklad: Použitie Vektora
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+
+    // Pridanie prvkov do vektora
+    numbers.push_back(6);
+    numbers.push_back(7);
+
+    // Prístup k prvkom
+    cout << "Prvý prvok: " << numbers[0] << endl;
+    cout << "Posledný prvok: " << numbers.back() << endl;
+
+    // Iterácia cez vektor
+    cout << "Všetky prvky: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+Algoritmy Algoritmy sú sady postupov, ktoré vykonávajú operácie na kontajneroch. Niektoré často používané algoritmy:
+- sort: Zoradí prvky v rozsahu.
+- find: Vyhľadá prvok v rozsahu.
+- copy: Skopíruje prvky z jedného rozsahu do druhého.
+- accumulate: Spočíta súčet prvkov v rozsahu.
+
+Príklad: Použitie algoritmov
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {5, 3, 8, 1, 2};
+
+    // Zoradenie vektora
+    sort(numbers.begin(), numbers.end());
+    cout << "Zoradené prvky: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    // Hľadanie prvku
+    auto it = find(numbers.begin(), numbers.end(), 3);
+    if (it != numbers.end()) {
+        cout << "Prvok 3 nájdený na indexe: " << distance(numbers.begin(), it) << endl;
+    } else {
+        cout << "Prvok 3 sa nenašiel" << endl;
+    }
+
+    // Súčet prvkov
+    int sum = accumulate(numbers.begin(), numbers.end(), 0);
+    cout << "Súčet prvkov: " << sum << endl;
+
+    return 0;
+}
+
+Iterátory Iterátory sú objekty, ktoré ukazujú na prvky v kontajneri. Používajú sa na prechádzanie prvkov kontajnera. Bežné typy iterátorov:
+- Vstupný iterátor: Číta prvky z kontajnera.
+- Výstupný iterátor: Zapisuje prvky do kontajnera.
+- Iterátor vpred: Pohybuje sa dopredu cez kontajner.
+- Obojsmerný iterátor: Pohybuje sa dopredu aj dozadu.
+- Náhodne prístupný iterátor: Pristupuje k ľubovoľnému prvku.
+
+Príklad: Použitie iterátorov
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {10, 20, 30, 40, 50};
+
+    // Použitie iterátora na prechod vektora
+    cout << "Prvky: ";
+    for (vector<int>::iterator it = numbers.begin(); it != numbers.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+Funktory
+Funktory alebo funkčné objekty sú objekty, ktoré možno volať ako funkcie. Používajú sa na odovzdanie funkcií algoritmom.
+
+Príklad: Použitie funktora
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+// Funktor na kontrolu, či je číslo párne
+class IsEven {
+public:
+    bool operator()(int num) {
+        return num % 2 == 0;
+    }
+};
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5, 6};
+
+    // Použitie funktora s algoritmom find_if
+    auto it = find_if(numbers.begin(), numbers.end(), IsEven());
+    if (it != numbers.end()) {
+        cout << "Prvé párne číslo: " << *it << endl;
+    } else {
+        cout << "Žiadne párne číslo sa nenašlo" << endl;
+    }
+
+    return 0;
+}
+
+Časté chyby, ktorým sa treba vyhnúť
+1. Zabudnutie na includovanie potrebných hlavičkových súborov.
+2. Použitie nesprávnych typov iterátorov.
+3. Neznalosť časovej náročnosti algoritmov STL.
+4. Zmena kontajnera počas iterácie.
+
+Dobré praktiky
+1. Používaj vhodný kontajner podľa typu dát.
+2. Využívaj algoritmy STL na zjednodušenie kódu.
+3. Používaj iterátory efektívne.
+4. Používaj funktory na odovzdanie vlastných funkcií algoritmom.
+5. Vždy kontroluj návratové hodnoty funkcií a algoritmov STL.
+
+Pamätaj si:
+- STL poskytuje silné nástroje pre bežné programovacie úlohy.
+- Kontajnery uchovávajú kolekcie objektov.
+- Algoritmy vykonávajú operácie nad prvkami kontajnerov.
+- Iterátory poskytujú spôsob prístupu k prvkom.
+- Funktory umožňujú odovzdávať funkcie ako argumenty algoritmom. 
+]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+    </sections>
+    <quizes>
+        <quiz id="1">
+            <question id="1">
+                <text>Aký je jeden z hlavných dôvodov, prečo je C++ populárny?</text>
+                <answers id="1">
+                    <answer correct="false">Je ľahký na naučenie</answer>
+                    <answer correct="true">Má dobrý výkon a flexibilitu</answer>
+                    <answer correct="false">Používa sa iba na webový vývoj</answer>
+                    <answer correct="false">Nepodporuje objektovo-orientované programovanie</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Aká je jedna z dôležitých vlastností jazyka C++?</text>
+                <answers id="1">
+                    <answer correct="false">Nepodporuje správu pamäte</answer>
+                    <answer correct="true">Podporuje objektovo-orientované programovanie</answer>
+                    <answer correct="false">Nedá sa použiť s C kódom</answer>
+                    <answer correct="false">Nie je efektívny</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Ktoré IDE je najlepšie pre Windows pri práci s C++?</text>
+                <answers id="1">
+                    <answer correct="false">CLion</answer>
+                    <answer correct="false">Code::Blocks</answer>
+                    <answer correct="true">Visual Studio</answer>
+                    <answer correct="false">Eclipse</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Aký je hlavný účel kompilátora v prostredí na vývoj v C++?</text>
+                <answers id="1">
+                    <answer correct="false">Písať kód</answer>
+                    <answer correct="true">Prekladať kód do programu, ktorý počítač dokáže spustiť</answer>
+                    <answer correct="false">Ladiť kód</answer>
+                    <answer correct="false">Organizovať projekty</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Aký je účel debuggera v prostredí na vývoj v C++?</text>
+                <answers id="1">
+                    <answer correct="false">Písať kód</answer>
+                    <answer correct="false">Prekladať kód do programu, ktorý počítač dokáže spustiť</answer>
+                    <answer correct="false">Organizovať a kompilovať projekty</answer>
+                    <answer correct="true">Nájsť a opraviť chyby v kóde</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="2">
+            <question id="2">
+                <text>Aký je účel určenia typu premennej v jazyku C++?</text>
+                <answers id="2">
+                    <answer correct="false">Na určenie názvu premennej</answer>
+                    <answer correct="true">Na to, aby sme C++ povedali, aký typ informácie bude premenná uchovávať</answer>
+                    <answer correct="false">Na nastavenie počiatočnej hodnoty premennej</answer>
+                    <answer correct="false">Na definovanie rozsahu platnosti premennej</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Aký je rozdiel medzi `float` a `double` v jazyku C++?</text>
+                <answers id="2">
+                    <answer correct="false">`float` je pre celé čísla, `double` je pre desatinné čísla</answer>
+                    <answer correct="true">`float` má jednoduchú presnosť, `double` má dvojnásobnú presnosť</answer>
+                    <answer correct="false">`float` je pre malé čísla, `double` je pre veľké čísla</answer>
+                    <answer correct="false">`float` je pre znaky, `double` je pre reťazce</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Aká je bežná chyba, ktorej sa treba vyhnúť pri používaní operátorov v jazyku C++?</text>
+                <answers id="2">
+                    <answer correct="false">Používanie zmysluplných názvov premenných</answer>
+                    <answer correct="true">Použitie = (priradenie) namiesto == (porovnanie)</answer>
+                    <answer correct="false">Používanie zátvoriek na spresnenie zámeru</answer>
+                    <answer correct="false">Kontrola delenia nulou</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Aká je bežná chyba, ktorej sa treba vyhnúť pri používaní premenných v jazyku C++?</text>
+                <answers id="2">
+                    <answer correct="false">Použitie `double` pre výpočty s peniazmi</answer>
+                    <answer correct="false">Inicializácia premenných pred ich použitím</answer>
+                    <answer correct="false">Používanie zmysluplných názvov premenných</answer>
+                    <answer correct="true">Zabudnutie inicializovať premenné pred ich použitím</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Ktorý logický operátor kontroluje, či sú obe podmienky pravdivé v jazyku C++?</text>
+                <answers id="2">
+                    <answer correct="true"><![CDATA[&& ]]></answer>
+                    <answer correct="false">||</answer>
+                    <answer correct="false">!</answer>
+                    <answer correct="false"><![CDATA[& ]]></answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="3">
+            <question id="3">
+                <text>Ktorý príkaz sa používa na spracovanie viacerých možností v jazyku C++?</text>
+                <answers id="3">
+                    <answer correct="false">if-else</answer>
+                    <answer correct="true">switch</answer>
+                    <answer correct="false">for cyklus</answer>
+                    <answer correct="false">while cyklus</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Aký je účel kľúčového slova `else` v if-else príkaze?</text>
+                <answers id="3">
+                    <answer correct="false">Na overenie ďalšej podmienky</answer>
+                    <answer correct="true">Na vykonanie kódu, ak pôvodná podmienka nie je splnená</answer>
+                    <answer correct="false">Na opakovanie bloku kódu</answer>
+                    <answer correct="false">Na spracovanie vstupu od používateľa</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Aký je hlavný účel cyklov v jazyku C++?</text>
+                <answers id="3">
+                    <answer correct="false">Na vykonávanie aritmetických operácií</answer>
+                    <answer correct="true">Na opakovanie úlohy viackrát bez potreby opakovaného písania rovnakého kódu</answer>
+                    <answer correct="false">Na spracovanie vstupu a výstupu</answer>
+                    <answer correct="false">Na správu pamäte</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Ktorý cyklus je najvhodnejší, keď presne vieš, koľkokrát chceš úlohu opakovať?</text>
+                <answers id="3">
+                    <answer correct="false">while cyklus</answer>
+                    <answer correct="false">do-while cyklus</answer>
+                    <answer correct="true">for cyklus</answer>
+                    <answer correct="false">nekonečný cyklus</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Aký je hlavný rozdiel medzi while cyklom a do-while cyklom v jazyku C++?</text>
+                <answers id="3">
+                    <answer correct="false">while cyklus sa vždy vykoná aspoň raz, do-while sa nemusí vykonať vôbec</answer>
+                    <answer correct="true">do-while cyklus sa vždy vykoná aspoň raz, while cyklus sa nemusí vykonať vôbec</answer>
+                    <answer correct="false">while cyklus sa používa na aritmetické operácie, do-while na vstup a výstup</answer>
+                    <answer correct="false">while cyklus sa používa na správu pamäte, do-while na spracovanie vstupu a výstupu</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="4">
+            <question id="4">
+                <text>Ako sa definuje funkcia v jazyku C++?</text>
+                <answers id="4">
+                    <answer correct="true">Určením návratového typu, názvu funkcie a parametrov, ktoré prijíma</answer>
+                    <answer correct="false">Určením len názvu funkcie a návratového typu</answer>
+                    <answer correct="false">Určením len názvu funkcie a parametrov</answer>
+                    <answer correct="false">Určením len návratového typu a parametrov</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Aký je účel parametrov funkcie v jazyku C++?</text>
+                <answers id="4">
+                    <answer correct="false">Na určenie návratového typu funkcie</answer>
+                    <answer correct="true">Na odovzdanie hodnôt funkcii pri jej volaní</answer>
+                    <answer correct="false">Na určenie názvu funkcie</answer>
+                    <answer correct="false">Na spracovanie vstupu a výstupu</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Ktoré kľúčové slovo sa používa pre funkciu, ktorá nevracia žiadnu hodnotu v jazyku C++?</text>
+                <answers id="4">
+                    <answer correct="false">int</answer>
+                    <answer correct="false">double</answer>
+                    <answer correct="true">void</answer>
+                    <answer correct="false">bool</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Čo je dobrá prax pri používaní funkcií v jazyku C++?</text>
+                <answers id="4">
+                    <answer correct="false">Používanie globálnych premenných</answer>
+                    <answer correct="false">Preťažovanie funkcií s nejasnými typmi parametrov</answer>
+                    <answer correct="true">Vyhýbanie sa globálnym premenným - namiesto toho používať parametre funkcie a návratové hodnoty</answer>
+                    <answer correct="false">Volanie funkcie s nesprávnym podpisom</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Aký je účel šablón funkcií (function templates) v jazyku C++?</text>
+                <answers id="4">
+                    <answer correct="true">Umožniť napísať funkciu raz a použiť ju s rôznymi dátovými typmi bez potreby prepísania celej funkcie</answer>
+                    <answer correct="false">Definovať viacero funkcií s rovnakým názvom, ale rôznymi parametrami</answer>
+                    <answer correct="false">Spracovávať vstup a výstup</answer>
+                    <answer correct="false">Spravovať pamäť</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="5">
+            <question id="5">
+                <text>Aký je účel konštruktora v triede?</text>
+                <answers id="5">
+                    <answer correct="false">Definovať názov triedy</answer>
+                    <answer correct="true">Inicializovať členské premenné objektu pri jeho vytvorení</answer>
+                    <answer correct="false">Vykonávať aritmetické operácie</answer>
+                    <answer correct="false">Spracovávať vstup a výstup</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Čo sú modifikátory prístupu (access modifiers) v jazyku C++?</text>
+                <answers id="5">
+                    <answer correct="true">Kľúčové slová, ktoré určujú viditeľnosť členov triedy</answer>
+                    <answer correct="false">Funkcie, ktoré vykonávajú aritmetické operácie</answer>
+                    <answer correct="false">Nástroje na spracovanie vstupu a výstupu</answer>
+                    <answer correct="false">Metódy na správu pamäte</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Čo je dedičnosť (inheritance) v jazyku C++?</text>
+                <answers id="5">
+                    <answer correct="true">Vytvorenie novej triedy na základe existujúcej triedy</answer>
+                    <answer correct="false">Definovanie viacerých funkcií s rovnakým názvom, ale rôznymi parametrami</answer>
+                    <answer correct="false">Spracovanie vstupu a výstupu</answer>
+                    <answer correct="false">Správa pamäte</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Čo je štandardná šablónová knižnica (STL) v jazyku C++?</text>
+                <answers id="5">
+                    <answer correct="false">Súbor nástrojov na spracovanie vstupu a výstupu</answer>
+                    <answer correct="true">Výkonná množina šablónových tried jazyka C++ pre bežné programátorské úlohy</answer>
+                    <answer correct="false">Metóda na správu pamäte</answer>
+                    <answer correct="false">Funkcia na vykonávanie aritmetických operácií</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Čo sú kontajnery (containers) v STL?</text>
+                <answers id="5">
+                    <answer correct="true">Objekty, ktoré uchovávajú kolekcie iných objektov</answer>
+                    <answer correct="false">Funkcie, ktoré vykonávajú aritmetické operácie</answer>
+                    <answer correct="false">Nástroje na spracovanie vstupu a výstupu</answer>
+                    <answer correct="false">Metódy na správu pamäte</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="6">
+            <question id="6">
+                <text>Aký je jeden z hlavných dôvodov popularity jazyka C++?</text>
+                <answers id="6">
+                    <answer correct="false">Je ľahký na naučenie</answer>
+                    <answer correct="true">Má dobrý výkon a flexibilitu</answer>
+                    <answer correct="false">Používa sa iba na webový vývoj</answer>
+                    <answer correct="false">Nepodporuje objektovo-orientované programovanie</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aká je jedna z dôležitých vlastností jazyka C++?</text>
+                <answers id="6">
+                    <answer correct="false">Nepodporuje správu pamäte</answer>
+                    <answer correct="true">Podporuje objektovo-orientované programovanie</answer>
+                    <answer correct="false">Nedá sa použiť s C kódom</answer>
+                    <answer correct="false">Nie je efektívny</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je účel debuggeru vo vývojovom prostredí C++?</text>
+                <answers id="6">
+                    <answer correct="false">Na písanie kódu</answer>
+                    <answer correct="false">Na preklad kódu do programu, ktorý počítač dokáže spustiť</answer>
+                    <answer correct="false">Na organizovanie a kompiláciu projektov</answer>
+                    <answer correct="true">Na hľadanie a opravu chýb v kóde</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text><![CDATA[Aký je účel špecifikovania typu premennej v jazyku C++?]]></text>
+                <answers id="6">
+                    <answer correct="false"><![CDATA[Na určenie názvu premennej]]></answer>
+                    <answer correct="true">Aby C++ vedelo, aký druh informácií premenná bude obsahovať</answer>
+                    <answer correct="false"><![CDATA[Na nastavenie počiatočnej hodnoty premennej]]></answer>
+                    <answer correct="false"><![CDATA[Na definovanie rozsahu platnosti premennej]]></answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aká je častá chyba, ktorej sa treba vyhnúť pri používaní operátorov v jazyku C++?</text>
+                <answers id="6">
+                    <answer correct="false">Používanie zmysluplných názvov premenných</answer>
+                    <answer correct="true">Použitie = (priradenie) namiesto == (porovnanie)</answer>
+                    <answer correct="false">Používanie zátvoriek na objasnenie zámeru</answer>
+                    <answer correct="false">Kontrola delenia nulou</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorý logický operátor kontroluje, či sú obe podmienky pravdivé v jazyku C++?</text>
+                <answers id="6">
+                    <answer correct="true"><![CDATA[&& ]]></answer>
+                    <answer correct="false">||</answer>
+                    <answer correct="false">!</answer>
+                    <answer correct="false"><![CDATA[& ]]></answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorý príkaz sa používa na riešenie viacerých situácií v jazyku C++?</text>
+                <answers id="6">
+                    <answer correct="false">if-else</answer>
+                    <answer correct="true">switch</answer>
+                    <answer correct="false">for cyklus</answer>
+                    <answer correct="false">while cyklus</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je hlavný účel cyklov v jazyku C++?</text>
+                <answers id="6">
+                    <answer correct="false">Na vykonávanie aritmetických operácií</answer>
+                    <answer correct="true">Na opakovanie úlohy viackrát bez nutnosti opakovania rovnakého kódu</answer>
+                    <answer correct="false">Na spracovanie vstupu a výstupu</answer>
+                    <answer correct="false">Na správu pamäte</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorý cyklus je najvhodnejší, keď presne vieme, koľkokrát chceme úlohu zopakovať?</text>
+                <answers id="6">
+                    <answer correct="false">while cyklus</answer>
+                    <answer correct="false">do-while cyklus</answer>
+                    <answer correct="true">for cyklus</answer>
+                    <answer correct="false">nekonečný cyklus</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ako sa definuje funkcia v jazyku C++?</text>
+                <answers id="6">
+                    <answer correct="true">Uvedením návratového typu, názvu funkcie a jej parametrov</answer>
+                    <answer correct="false">Uvedením názvu funkcie a návratového typu</answer>
+                    <answer correct="false">Uvedením názvu funkcie a parametrov</answer>
+                    <answer correct="false">Uvedením návratového typu a parametrov</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je účel parametrov funkcie v jazyku C++?</text>
+                <answers id="6">
+                    <answer correct="false">Na určenie návratového typu funkcie</answer>
+                    <answer correct="true">Na odovzdanie hodnôt funkcii pri jej volaní</answer>
+                    <answer correct="false">Na špecifikáciu názvu funkcie</answer>
+                    <answer correct="false">Na spracovanie vstupu a výstupu</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktoré kľúčové slovo sa používa pre funkciu, ktorá nevracia žiadnu hodnotu v jazyku C++?</text>
+                <answers id="6">
+                    <answer correct="false">int</answer>
+                    <answer correct="false">double</answer>
+                    <answer correct="true">void</answer>
+                    <answer correct="false">bool</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je účel šablón funkcií (function templates) v jazyku C++?</text>
+                <answers id="6">
+                    <answer correct="true">Na napísanie funkcie raz a jej použitie s rôznymi dátovými typmi bez opakovania kódu</answer>
+                    <answer correct="false">Na definovanie viacerých funkcií s rovnakým názvom, ale rôznymi parametrami</answer>
+                    <answer correct="false">Na spracovanie vstupu a výstupu</answer>
+                    <answer correct="false">Na správu pamäte</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je účel konštruktora v triede?</text>
+                <answers id="6">
+                    <answer correct="false">Na definovanie názvu triedy</answer>
+                    <answer correct="true">Na inicializáciu členských premenných objektu pri jeho vytvorení</answer>
+                    <answer correct="false">Na vykonávanie aritmetických operácií</answer>
+                    <answer correct="false">Na spracovanie vstupu a výstupu</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo je dedičnosť (inheritance) v jazyku C++?</text>
+                <answers id="6">
+                    <answer correct="true">Vytvorenie novej triedy na základe existujúcej triedy</answer>
+                    <answer correct="false">Definovanie viacerých funkcií s rovnakým názvom, ale rôznymi parametrami</answer>
+                    <answer correct="false">Spracovanie vstupu a výstupu</answer>
+                    <answer correct="false">Správa pamäte</answer>
+                </answers>
+            </question>
+        </quiz>
+    </quizes>
+</course>

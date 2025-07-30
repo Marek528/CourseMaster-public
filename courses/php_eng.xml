@@ -1,0 +1,1988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course>
+    <title>PHP Programming</title>
+    <img src="img/php_eng.png" alt="PHP Thumbnail"/>
+    <sections>
+        <section id="1">
+            <title>Getting Started with PHP</title>
+            <topics>
+                <topic id="1">
+                    <title>Introduction to PHP</title>
+                    <content>What is PHP?
+PHP, which stands for "Hypertext Preprocessor," is a widely-used open-source scripting language designed for web development. It is embedded within HTML and is especially suited for creating dynamic web pages and applications. PHP scripts are executed on the server, and the result is sent to the client's browser as plain HTML.
+
+History and Evolution
+PHP was created in 1994 by Rasmus Lerdorf. Initially, it was a set of Common Gateway Interface (CGI) binaries written in the C programming language. Over time, it evolved into a full-fledged scripting language with a rich set of features and functionalities. Today, PHP powers millions of websites and applications, including popular platforms like WordPress, Joomla, and Drupal.
+
+Setting Up the Environment
+To start using PHP, you need to set up a development environment. This typically involves installing a web server (such as Apache or Nginx), a database server (such as MySQL or MariaDB), and PHP itself. Tools like XAMPP, WAMP, and MAMP provide an easy way to set up a local development environment with all these components.
+                    </content>
+                </topic>
+                <topic id="1">
+                    <title>Installing PHP</title>
+                    <content>PHP, or Hypertext Preprocessor, is a popular server-side scripting language used for web development. Before you can start developing with PHP, you need to install it on your system. This guide will walk you through the process of installing PHP on different operating systems.
+
+Installing PHP on Windows
+Download PHP: Visit the official PHP website and download the latest version of PHP for Windows.
+Extract Files: Extract the downloaded ZIP file to a directory of your choice, such as C:\php.
+
+Configure PHP:
+Rename the php.ini-development file to php.ini.
+Open the php.ini file in a text editor and configure the necessary settings, such as enabling extensions.
+
+Add PHP to System Path:
+Right-click on "This PC" or "My Computer" and select "Properties".
+Click on "Advanced system settings" and then "Environment Variables".
+In the "System variables" section, find the "Path" variable and click "Edit".
+Add the path to the PHP directory (e.g., C:\php) to the list of paths.
+Verify Installation: Open a command prompt and type php -v to verify that PHP is installed correctly.
+
+Installing PHP on macOS
+Install Homebrew: Homebrew is a package manager for macOS. If you don't have it installed, open Terminal and run the following command:
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Install PHP: Once Homebrew is installed, run the following command to install PHP:
+brew install php
+
+Verify Installation: After the installation is complete, run php -v in Terminal to verify that PHP is installed correctly.
+Installing PHP on Linux
+
+Update Package List: Open a terminal and update the package list by running:
+sudo apt update
+
+Install PHP: Run the following command to install PHP:
+sudo apt install php
+
+Verify Installation: After the installation is complete, run php -v to verify that PHP is installed correctly.
+
+Setting Up a Local Development Environment
+To develop PHP applications, you need a local development environment that includes a web server and a database server. Tools like XAMPP, WAMP, and MAMP provide an easy way to set up such an environment.
+
+Download and Install XAMPP/WAMP/MAMP:
+Visit the official website of XAMPP, WAMP, or MAMP and download the installer for your operating system.
+Run the installer and follow the on-screen instructions to complete the installation.
+
+Start the Web Server:
+Open the control panel of XAMPP/WAMP/MAMP and start the Apache web server.
+
+Verify Installation:
+Open a web browser and navigate to http://localhost. You should see the welcome page of your local development environment.</content>
+                </topic>
+                <topic id="1">
+                    <title>PHP Syntax</title>
+                    <content><![CDATA[Basic PHP Syntax
+PHP code is embedded within HTML using the `<?php ... ?>` tags. Here's a simple example:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First PHP Page</title>
+</head>
+<body>
+    <h1><?php echo "Hello, World!"; ?></h1>
+</body>
+</html>
+
+In this example, the `<?php echo "Hello, World!"; ?>` line is a PHP script that outputs "Hello, World!" to the browser.
+
+Variables
+
+Variables in PHP are declared using the `$` symbol, followed by the variable name. PHP supports various data types, including integers, floats, strings, arrays, and objects.
+
+Example:
+
+<?php
+$integer = 10;
+$float = 10.5;
+$string = "Hello, World!";
+$array = array(1, 2, 3);
+?>
+
+Operators
+PHP supports a wide range of operators, including:
+
+- Arithmetic Operators: `+`, `-`, `*`, `/`, `%`
+- Comparison Operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- Logical Operators: `&&`, `||`, `!`
+
+Example:
+
+<?php
+$a = 10;
+$b = 20;
+
+$sum = $a + $b; // Arithmetic
+$isEqual = ($a == $b); // Comparison
+$isTrue = ($a < $b && $b > 15); // Logical
+?>
+
+Control Structures
+PHP provides several control structures for managing the flow of the program. These include conditional statements (`if`, `else`, `elseif`, `switch`) and looping structures (`for`, `while`, `do-while`, `foreach`).
+
+Example of a conditional statement:
+
+<?php
+$age = 20;
+if ($age >= 18) {
+    echo "You are an adult.";
+} else {
+    echo "You are a minor.";
+}
+?>
+
+Example of a loop:
+
+<?php
+for ($i = 0; $i < 10; $i++) {
+    echo "Number: $i<br>";
+}
+?>
+
+Functions
+Functions in PHP are blocks of code that perform specific tasks. They can be defined using the `function` keyword and can accept parameters and return values.
+
+Example of a function:
+
+<?php
+function greet($name) {
+    return "Hello, $name!";
+}
+
+echo greet("Alice");
+?>
+
+PHP also provides a wide range of built-in functions for various tasks, such as string manipulation, array handling, and date/time operations.
+
+Arrays
+Arrays in PHP can hold multiple values. There are three types of arrays: indexed arrays, associative arrays, and multidimensional arrays.
+
+Example of an indexed array:
+
+<?php
+$fruits = array("Apple", "Banana", "Cherry");
+echo $fruits[0]; // Outputs: Apple
+?>
+
+Example of an associative array:
+
+<?php
+$ages = array("Alice" => 25, "Bob" => 30, "Charlie" => 35);
+echo $ages["Alice"]; // Outputs: 25
+?>
+
+Example of a multidimensional array:
+
+<?php
+$students = array(
+    array("Alice", 25),
+    array("Bob", 30),
+    array("Charlie", 35)
+);
+echo $students[0][0]; // Outputs: Alice
+?>
+
+Superglobals
+PHP provides several built-in superglobals, which are arrays that hold information about the server, environment, and user input. Some common superglobals include `$_GET`, `$_POST`, `$_SERVER`, `$_SESSION`, and `$_COOKIE`.
+
+Example of using `$_GET`:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="get" action="welcome.php">
+  Name: <input type="text" name="name">
+  <input type="submit">
+</form>
+
+</body>
+</html>
+
+In `welcome.php`:
+
+<?php
+$name = $_GET['name'];
+echo "Welcome, $name!";
+?>
+
+Error Handling
+PHP provides several ways to handle errors and debug code. The `error_reporting` function can be used to set the level of error reporting, and the `try-catch` block can be used to handle exceptions.
+
+Example of error handling:
+
+<?php
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+?>
+
+]]></content>
+                </topic>
+            </topics>
+        </section>
+        <section id="2">
+            <title>Basic PHP Concepts</title>
+            <topics>
+                <topic id="2">
+                    <title>Variables</title>
+                    <content><![CDATA[Introduction
+Variables are fundamental in PHP, as they allow you to store and manipulate data. In PHP, variables are represented by a dollar sign (`$`) followed by the variable name. Variable names are case-sensitive and must start with a letter or an underscore, followed by any number of letters, numbers, or underscores.
+
+Declaring Variables
+To declare a variable in PHP, simply assign a value to it using the assignment operator (`=`). PHP is a loosely typed language, meaning you don't need to specify the data type of a variable. The data type is determined automatically based on the value assigned to the variable.
+
+Example:
+
+<?php
+$integer = 10; // Integer
+$float = 10.5; // Float
+$string = "Hello, World!"; // String
+$array = array(1, 2, 3); // Array
+$boolean = true; // Boolean
+?>
+
+Variable Types
+PHP supports several data types, including:
+
+- Integer: Whole numbers, both positive and negative.
+- Float: Numbers with decimal points.
+- String: Sequences of characters.
+- Boolean: Represents `true` or `false`.
+- Array: Collections of values.
+- Object: Instances of classes.
+- NULL: Represents a variable with no value.
+
+Variable Scope
+The scope of a variable determines where it can be accessed within a script. PHP has three main types of variable scope:
+
+1. Local Scope: Variables declared within a function are local to that function and cannot be accessed outside of it.
+2. Global Scope: Variables declared outside of any function are global and can be accessed anywhere in the script.
+3. Static Scope: Variables declared as static within a function retain their value between function calls.
+
+Example of local and global scope:
+
+<?php
+$globalVar = "I am a global variable";
+
+function myFunction() {
+    $localVar = "I am a local variable";
+    echo $localVar; // Accessible within the function
+    echo $globalVar; // Not accessible within the function
+}
+
+myFunction();
+echo $globalVar; // Accessible outside the function
+echo $localVar; // Not accessible outside the function
+?>
+
+Example of static scope:
+
+<?php
+function myCounter() {
+    static $count = 0;
+    $count++;
+    echo $count;
+}
+
+myCounter(); // Outputs: 1
+myCounter(); // Outputs: 2
+myCounter(); // Outputs: 3
+?>
+
+Variable Variables
+PHP allows you to use variable variables, where the name of a variable can be dynamically set and accessed.
+
+Example:
+
+<?php
+$varName = "hello";
+$$varName = "world";
+
+echo $hello; // Outputs: world
+?>
+
+Constants
+Constants are similar to variables, but their value cannot be changed once defined. Constants are defined using the `define()` function or the `const` keyword.
+
+Example using `define()`:
+
+<?php
+define("PI", 3.14159);
+echo PI; // Outputs: 3.14159
+?>
+
+Example using `const`:
+
+<?php
+const GREETING = "Hello, World!";
+echo GREETING; // Outputs: Hello, World!
+?>
+
+Superglobals
+PHP provides several built-in superglobals, which are arrays that hold information about the server, environment, and user input. Some common superglobals include `$_GET`, `$_POST`, `$_SERVER`, `$_SESSION`, and `$_COOKIE`.
+
+Example of using `$_GET`:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="get" action="welcome.php">
+  Name: <input type="text" name="name">
+  <input type="submit">
+</form>
+
+</body>
+</html>
+
+In `welcome.php`:
+
+<?php
+$name = $_GET['name'];
+echo "Welcome, $name!";
+?>
+]]></content>
+                </topic>
+                <topic id="2">
+                    <title>Data Types</title>
+                    <content><![CDATA[PHP supports several data types that allow you to store and manipulate different kinds of data. Understanding these data types is crucial for effective programming in PHP.
+
+Scalar Types
+1. Integer: Represents whole numbers, both positive and negative.
+   
+   <?php
+   $integer = 42;
+   ?>
+   
+
+2. Float: Represents numbers with decimal points.
+   
+   <?php
+   $float = 3.14;
+   ?>
+   
+
+3. String: Represents sequences of characters.
+   
+   <?php
+   $string = "Hello, World!";
+   ?>
+   
+
+4. Boolean: Represents `true` or `false`.
+   
+   <?php
+   $boolean = true;
+   ?>
+   
+Compound Types
+1. Array: Represents collections of values. Arrays can be indexed or associative.
+   - Indexed Array:
+     
+     <?php
+     $indexedArray = array(1, 2, 3);
+     ?>
+     
+
+   - Associative Array:
+     
+     <?php
+     $associativeArray = array("key1" => "value1", "key2" => "value2");
+     ?>
+     
+2. Object: Represents instances of classes. Objects are used in object-oriented programming.
+   
+   <?php
+   class Car {
+       public $make;
+       public $model;
+
+       public function __construct($make, $model) {
+           $this->make = $make;
+           $this->model = $model;
+       }
+
+       public function display() {
+           echo "Car: " . $this->make . " " . $this->model;
+       }
+   }
+
+   $car = new Car("Toyota", "Corolla");
+   $car->display();
+   ?>
+   
+Special Types
+1. NULL: Represents a variable with no value.
+   
+   <?php
+   $nullVar = NULL;
+   ?>
+   
+2. Resource: Represents a reference to an external resource, such as a database connection. Resources are created and used by special functions in PHP.
+
+Type Casting
+PHP allows you to cast variables from one type to another. This can be done explicitly using type casting operators.
+
+Example of type casting:
+
+<?php
+$var = "10";
+$intVar = (int)$var; // Casts the string "10" to an integer
+?>
+
+Type Juggling
+PHP is a loosely typed language, meaning it automatically converts variables to the appropriate data type based on their context. This is known as type juggling.
+
+Example of type juggling:
+
+<?php
+$var = "10";
+$sum = $var + 5; // PHP automatically converts $var to an integer
+echo $sum; // Outputs: 15
+?>
+]]></content>
+                </topic>
+                <topic id="2">
+                    <title>Operators</title>
+                    <content><![CDATA[Operators are symbols that tell the PHP processor to perform specific actions. They are used to manipulate variables and values. PHP supports a wide range of operators, including arithmetic, assignment, comparison, logical, and more.
+
+Arithmetic Operators
+Arithmetic operators are used to perform common mathematical operations.
+
+- Addition (`+`): Adds two values.
+  
+  <?php
+  $a = 5;
+  $b = 10;
+  $sum = $a + $b; // $sum is 15
+  ?>
+  
+- Subtraction (`-`): Subtracts one value from another.
+  
+  <?php
+  $a = 10;
+  $b = 5;
+  $difference = $a - $b; // $difference is 5
+  ?>
+  
+- Multiplication (`*`): Multiplies two values.
+  
+  <?php
+  $a = 5;
+  $b = 10;
+  $product = $a * $b; // $product is 50
+  ?>
+  
+- Division (`/`): Divides one value by another.
+  
+  <?php
+  $a = 10;
+  $b = 5;
+  $quotient = $a / $b; // $quotient is 2
+  ?>
+  
+- Modulus (`%`): Returns the remainder of a division.
+  
+  <?php
+  $a = 10;
+  $b = 3;
+  $remainder = $a % $b; // $remainder is 1
+  ?>
+  
+Assignment Operators
+Assignment operators are used to assign values to variables.
+
+- Assignment (`=`): Assigns a value to a variable.
+  
+  <?php
+  $a = 5;
+  ?>
+  
+- Addition Assignment (`+=`): Adds a value to a variable.
+  
+  <?php
+  $a = 5;
+  $a += 10; // $a is now 15
+  ?>
+  
+- Subtraction Assignment (`-=`): Subtracts a value from a variable.
+  
+  <?php
+  $a = 10;
+  $a -= 5; // $a is now 5
+  ?>
+  
+- Multiplication Assignment (`*=`): Multiplies a variable by a value.
+  
+  <?php
+  $a = 5;
+  $a *= 10; // $a is now 50
+  ?>
+  
+- Division Assignment (`/=`): Divides a variable by a value.
+  
+  <?php
+  $a = 10;
+  $a /= 5; // $a is now 2
+  ?>
+  
+- Modulus Assignment (`%=`): Applies modulus to a variable.
+  
+  <?php
+  $a = 10;
+  $a %= 3; // $a is now 1
+  ?>
+  
+Comparison Operators
+Comparison operators are used to compare two values.
+
+- Equal (`==`): Checks if two values are equal.
+  
+  <?php
+  $a = 5;
+  $b = 5;
+  $isEqual = ($a == $b); // $isEqual is true
+  ?>
+  
+- Identical (`===`): Checks if two values are equal and of the same type.
+  
+  <?php
+  $a = 5;
+  $b = "5";
+  $isIdentical = ($a === $b); // $isIdentical is false
+  ?>
+  
+- Not Equal (`!=`): Checks if two values are not equal.
+  
+  <?php
+  $a = 5;
+  $b = 10;
+  $isNotEqual = ($a != $b); // $isNotEqual is true
+  ?>
+  
+- Not Identical (`!==`): Checks if two values are not equal or not of the same type.
+  
+  <?php
+  $a = 5;
+  $b = "5";
+  $isNotIdentical = ($a !== $b); // $isNotIdentical is true
+  ?>
+  
+- Greater Than (`>`): Checks if one value is greater than another.
+  
+  <?php
+  $a = 10;
+  $b = 5;
+  $isGreater = ($a > $b); // $isGreater is true
+  ?>
+  
+- Less Than (`<`): Checks if one value is less than another.
+  
+  <?php
+  $a = 5;
+  $b = 10;
+  $isLess = ($a < $b); // $isLess is true
+  ?>
+
+- Greater Than or Equal To (`>=`): Checks if one value is greater than or equal to another.
+  
+  <?php
+  $a = 10;
+  $b = 5;
+  $isGreaterOrEqual = ($a >= $b); // $isGreaterOrEqual is true
+  ?>
+  
+- Less Than or Equal To (`<=`): Checks if one value is less than or equal to another.
+  
+  <?php
+  $a = 5;
+  $b = 10;
+  $isLessOrEqual = ($a <= $b); // $isLessOrEqual is true
+  ?>
+  
+Logical Operators
+Logical operators are used to combine conditional statements.
+
+- And (`&&`): Returns true if both conditions are true.
+  
+  <?php
+  $a = true;
+  $b = false;
+  $result = ($a && $b); // $result is false
+  ?>
+  
+
+- Or (`||`): Returns true if at least one condition is true.
+  
+  <?php
+  $a = true;
+  $b = false;
+  $result = ($a || $b); // $result is true
+  ?>
+  
+- Not (`!`): Returns true if the condition is false.
+  
+  <?php
+  $a = true;
+  $result = !$a; // $result is false
+  ?>
+  
+Increment/Decrement Operators
+Increment and decrement operators are used to increase or decrease the value of a variable by one.
+
+- Increment (`++`): Increases the value of a variable by one.
+  
+  <?php
+  $a = 5;
+  $a++; // $a is now 6
+  ?>
+  
+
+- Decrement (`--`): Decreases the value of a variable by one.
+  
+  <?php
+  $a = 5;
+  $a--; // $a is now 4
+  ?>
+  ]]></content>
+                </topic>
+            </topics>
+        </section>
+        <section id="3">
+            <title>Control Structures</title>
+            <topics>
+                <topic id="3">
+                    <title>If Statements</title>
+                    <content><![CDATA[If statements are a fundamental control structure in PHP that allow you to execute code conditionally. They enable you to make decisions in your code based on certain conditions.
+
+Basic If Statement
+The basic if statement evaluates a condition and executes the code block if the condition is true.
+
+Example:
+
+<?php
+$age = 20;
+if ($age >= 18) {
+    echo "You are an adult.";
+}
+?>
+
+In this example, the condition `$age >= 18` is true, so the code inside the if block is executed, and "You are an adult." is printed.
+
+If-Else Statement
+The if-else statement provides an alternative code block to execute if the condition is false.
+
+Example:
+
+<?php
+$age = 16;
+if ($age >= 18) {
+    echo "You are an adult.";
+} else {
+    echo "You are a minor.";
+}
+?>
+
+In this example, the condition `$age >= 18` is false, so the code inside the else block is executed, and "You are a minor." is printed.
+
+If-Elseif-Else Statement
+The if-elseif-else statement allows you to check multiple conditions in sequence.
+
+Example:
+
+<?php
+$score = 85;
+if ($score >= 90) {
+    echo "Grade: A";
+} elseif ($score >= 80) {
+    echo "Grade: B";
+} elseif ($score >= 70) {
+    echo "Grade: C";
+} else {
+    echo "Grade: F";
+}
+?>
+
+In this example, the condition `$score >= 80` is true, so the code inside the corresponding elseif block is executed, and "Grade: B" is printed.
+
+Nested If Statements
+You can nest if statements within other if statements to create more complex conditions.
+
+Example:
+
+<?php
+$age = 20;
+$hasID = true;
+if ($age >= 18) {
+    if ($hasID) {
+        echo "You can enter.";
+    } else {
+        echo "You need an ID to enter.";
+    }
+} else {
+    echo "You are not old enough to enter.";
+}
+?>
+
+In this example, the outer if statement checks if `$age >= 18`. If true, the inner if statement checks if `$hasID` is true. Depending on the result, the appropriate message is printed.
+
+Ternary Operator
+The ternary operator is a shorthand way of writing an if-else statement. It uses the `?` and `:` symbols.
+
+Example:
+
+<?php
+$age = 20;
+$message = ($age >= 18) ? "You are an adult." : "You are a minor.";
+echo $message;
+?>
+
+In this example, the condition `$age >= 18` is true, so the value "You are an adult." is assigned to the `$message` variable, and it is printed.
+
+Conclusion
+If statements are a powerful tool in PHP for making decisions in your code. By understanding the basic if statement, if-else statement, if-elseif-else statement, nested if statements, and the ternary operator, you can create dynamic and responsive PHP applications.
+
+Feel free to customize this content to suit your specific needs and audience. If you need more detailed content for any of the sections, just let me know!]]>
+</content>
+                </topic>
+                <topic id="3">
+                    <title>Loops</title>
+                    <content><![CDATA[Loops are control structures that allow you to execute a block of code repeatedly based on a condition. PHP supports several types of loops, including `for`, `while`, `do-while`, and `foreach` loops.
+
+For Loop
+The `for` loop is used when you know in advance how many times you want to execute a statement or a block of statements. It consists of three parts: initialization, condition, and increment/decrement.
+
+Example:
+
+<?php
+for ($i = 0; $i < 10; $i++) {
+    echo "Number: $i<br>";
+}
+?>
+
+In this example, the loop starts with `$i` set to 0, and it runs as long as `$i` is less than 10. After each iteration, `$i` is incremented by 1.
+
+While Loop
+The `while` loop executes a block of code as long as the specified condition is true.
+
+Example:
+
+<?php
+$i = 0;
+while ($i < 10) {
+    echo "Number: $i<br>";
+    $i++;
+}
+?>
+
+In this example, the loop runs as long as `$i` is less than 10. After each iteration, `$i` is incremented by 1.
+
+Do-While Loop
+The `do-while` loop is similar to the `while` loop, but it guarantees that the block of code will be executed at least once, even if the condition is false.
+
+Example:
+
+<?php
+$i = 0;
+do {
+    echo "Number: $i<br>";
+    $i++;
+} while ($i < 10);
+?>
+
+In this example, the loop runs at least once, and then it continues to run as long as `$i` is less than 10.
+
+Foreach Loop
+The `foreach` loop is used to iterate over arrays. It loops through each key-value pair in the array.
+
+Example:
+
+<?php
+$fruits = array("Apple", "Banana", "Cherry");
+foreach ($fruits as $fruit) {
+    echo "Fruit: $fruit<br>";
+}
+?>
+
+In this example, the loop iterates over each element in the `$fruits` array and prints it.
+
+Nested Loops
+You can nest loops within other loops to create more complex iterations.
+
+Example:
+
+<?php
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 3; $j++) {
+        echo "i: $i, j: $j<br>";
+    }
+}
+?>
+
+In this example, the outer loop runs three times, and for each iteration of the outer loop, the inner loop runs three times.
+
+Break and Continue
+The `break` statement is used to exit a loop prematurely, while the `continue` statement is used to skip the current iteration and continue with the next iteration.
+
+Example of `break`:
+
+<?php
+for ($i = 0; $i < 10; $i++) {
+    if ($i == 5) {
+        break;
+    }
+    echo "Number: $i<br>";
+}
+?>
+
+In this example, the loop stops when `$i` equals 5.
+
+Example of `continue`:
+
+<?php
+for ($i = 0; $i < 10; $i++) {
+    if ($i == 5) {
+        continue;
+    }
+    echo "Number: $i<br>";
+}
+?>
+
+In this example, the loop skips the iteration when `$i` equals 5 and continues with the next iteration.]]></content>
+                </topic>
+                <topic id="3">
+                    <title>Switch Statements</title>
+                    <content><![CDATA[Switch statements are a control structure that allows you to execute one block of code among many based on the value of a variable or expression. They are an alternative to using multiple if-elseif-else statements and can make your code more readable and efficient.
+
+Basic Syntax
+The basic syntax of a switch statement in PHP is as follows:
+
+<?php
+switch (variable) {
+    case value1:
+        // Code to execute if variable equals value1
+        break;
+    case value2:
+        // Code to execute if variable equals value2
+        break;
+    // Add more cases as needed
+    default:
+        // Code to execute if variable does not match any case
+}
+?>
+
+Example
+Here's an example of a switch statement in action:
+
+<?php
+$day = "Wednesday";
+
+switch ($day) {
+    case "Monday":
+        echo "Today is Monday.";
+        break;
+    case "Tuesday":
+        echo "Today is Tuesday.";
+        break;
+    case "Wednesday":
+        echo "Today is Wednesday.";
+        break;
+    case "Thursday":
+        echo "Today is Thursday.";
+        break;
+    case "Friday":
+        echo "Today is Friday.";
+        break;
+    case "Saturday":
+        echo "Today is Saturday.";
+        break;
+    case "Sunday":
+        echo "Today is Sunday.";
+        break;
+    default:
+        echo "Invalid day.";
+}
+?>
+
+In this example, the value of the `$day` variable is "Wednesday," so the code block for the case "Wednesday" is executed, and "Today is Wednesday." is printed.
+
+Using Multiple Cases
+You can group multiple cases together if they should execute the same code block.
+
+Example:
+
+<?php
+$grade = "B";
+
+switch ($grade) {
+    case "A":
+    case "B":
+    case "C":
+        echo "You passed.";
+        break;
+    case "D":
+    case "F":
+        echo "You failed.";
+        break;
+    default:
+        echo "Invalid grade.";
+}
+?>
+
+In this example, the value of the `$grade` variable is "B," so the code block for the cases "A," "B," and "C" is executed, and "You passed." is printed.
+
+Using Expressions
+You can also use expressions in switch statements.
+
+Example:
+
+<?php
+$number = 10;
+
+switch (true) {
+    case ($number < 0):
+        echo "Negative number.";
+        break;
+    case ($number == 0):
+        echo "Zero.";
+        break;
+    case ($number > 0):
+        echo "Positive number.";
+        break;
+    default:
+        echo "Invalid number.";
+}
+?>
+
+In this example, the switch statement evaluates the expression `true`, and the code block for the case where `$number > 0` is executed, printing "Positive number."]]></content>
+                </topic>
+            </topics>
+        </section>
+        <section id="4">
+            <title>Functions</title>
+            <topics>
+                <topic id="4">
+                    <title>Defining Functions</title>
+                    <content><![CDATA[Functions are reusable blocks of code that perform specific tasks. They help you organize your code, make it more readable, and avoid repetition. In PHP, you can define your own functions using the `function` keyword.
+
+Basic Syntax
+The basic syntax for defining a function in PHP is as follows:
+
+<?php
+function functionName() {
+    // Code to be executed
+}
+?>
+
+Example
+Here's an example of a simple function that prints a greeting message:
+
+<?php
+function greet() {
+    echo "Hello, World!";
+}
+
+greet(); // Calls the function and prints "Hello, World!"
+?>
+
+Function Parameters
+Functions can accept parameters, which are variables passed to the function when it is called. Parameters allow you to pass data to the function and customize its behavior.
+
+Example:
+
+<?php
+function greet($name) {
+    echo "Hello, $name!";
+}
+
+greet("Alice"); // Calls the function and prints "Hello, Alice!"
+greet("Bob"); // Calls the function and prints "Hello, Bob!"
+?>
+
+Default Parameters
+You can define default values for parameters. If a parameter is not provided when the function is called, the default value will be used.
+
+Example:
+
+<?php
+function greet($name = "Guest") {
+    echo "Hello, $name!";
+}
+
+greet(); // Calls the function and prints "Hello, Guest!"
+greet("Alice"); // Calls the function and prints "Hello, Alice!"
+?>
+
+Return Values
+Functions can return values using the `return` keyword. The returned value can be stored in a variable or used directly.
+
+Example:
+
+<?php
+function add($a, $b) {
+    return $a + $b;
+}
+
+$sum = add(5, 10); // Calls the function and stores the result in $sum
+echo $sum; // Prints "15"
+?>
+
+Variable Scope
+Variables defined inside a function have local scope, meaning they are only accessible within that function. Variables defined outside of a function have global scope and are not accessible within functions unless explicitly specified.
+
+Example:
+
+<?php
+$globalVar = "I am a global variable";
+
+function myFunction() {
+    $localVar = "I am a local variable";
+    echo $localVar; // Accessible within the function
+    echo $globalVar; // Not accessible within the function
+}
+
+myFunction();
+echo $globalVar; // Accessible outside the function
+echo $localVar; // Not accessible outside the function
+?>
+
+To access a global variable within a function, you can use the `global` keyword:
+
+<?php
+$globalVar = "I am a global variable";
+
+function myFunction() {
+    global $globalVar;
+    echo $globalVar; // Now accessible within the function
+}
+
+myFunction();
+?>
+
+Static Variables
+Static variables retain their value between function calls. They are declared using the `static` keyword.
+
+Example:
+
+<?php
+function myCounter() {
+    static $count = 0;
+    $count++;
+    echo $count;
+}
+
+myCounter(); // Outputs: 1
+myCounter(); // Outputs: 2
+myCounter(); // Outputs: 3
+?>
+]]></content>
+                </topic>
+                <topic id="4">
+                    <title>Function Parameters</title>
+                    <content><![CDATA[Function parameters are variables that are passed to a function when it is called. They allow you to pass data to the function and customize its behavior. Parameters are defined within the parentheses of the function definition.
+
+Basic Syntax
+The basic syntax for defining a function with parameters in PHP is as follows:
+
+<?php
+function functionName($param1, $param2) {
+    // Code to be executed
+}
+?>
+
+Example
+Here's an example of a function that takes two parameters and prints a greeting message:
+
+<?php
+function greet($firstName, $lastName) {
+    echo "Hello, $firstName $lastName!";
+}
+
+greet("Alice", "Smith"); // Calls the function and prints "Hello, Alice Smith!"
+greet("Bob", "Johnson"); // Calls the function and prints "Hello, Bob Johnson!"
+?>
+
+Default Parameters
+You can define default values for parameters. If a parameter is not provided when the function is called, the default value will be used.
+
+Example:
+
+<?php
+function greet($name = "Guest") {
+    echo "Hello, $name!";
+}
+
+greet(); // Calls the function and prints "Hello, Guest!"
+greet("Alice"); // Calls the function and prints "Hello, Alice!"
+?>
+
+Passing by Value
+By default, function parameters are passed by value, meaning that a copy of the variable is passed to the function. Changes made to the parameter inside the function do not affect the original variable.
+
+Example:
+
+<?php
+function addFive($num) {
+    $num += 5;
+    echo "Inside function: $num<br>";
+}
+
+$number = 10;
+addFive($number); // Calls the function and prints "Inside function: 15"
+echo "Outside function: $number"; // Prints "Outside function: 10"
+?>
+
+Passing by Reference
+You can pass parameters by reference using the `&` symbol. This means that the function will work with the original variable, and changes made to the parameter inside the function will affect the original variable.
+
+Example:
+
+<?php
+function addFive(&$num) {
+    $num += 5;
+    echo "Inside function: $num<br>";
+}
+
+$number = 10;
+addFive($number); // Calls the function and prints "Inside function: 15"
+echo "Outside function: $number"; // Prints "Outside function: 15"
+?>
+
+Variable-Length Argument Lists
+PHP allows you to create functions that accept a variable number of arguments using the `...` (splat) operator. This is useful when you don't know in advance how many parameters will be passed to the function.
+
+Example:
+
+<?php
+function sum(...$numbers) {
+    $total = 0;
+    foreach ($numbers as $number) {
+        $total += $number;
+    }
+    return $total;
+}
+
+echo sum(1, 2, 3); // Prints "6"
+echo sum(4, 5, 6, 7); // Prints "22"
+?>
+]]>
+</content>
+                </topic>
+                <topic id="4">
+                    <title>Returning Values</title>
+                    <content><![CDATA[Functions in PHP can return values using the `return` keyword. The returned value can be stored in a variable or used directly in expressions. Returning values from functions allows you to pass data back to the calling code and use the result in further operations.
+
+Basic Syntax
+The basic syntax for returning a value from a function in PHP is as follows:
+
+<?php
+function functionName() {
+    // Code to be executed
+    return value;
+}
+?>
+
+Example
+Here's an example of a function that returns the sum of two numbers:
+
+<?php
+function add($a, $b) {
+    return $a + $b;
+}
+
+$sum = add(5, 10); // Calls the function and stores the result in $sum
+echo $sum; // Prints "15"
+?>
+
+In this example, the `add` function takes two parameters, adds them together, and returns the result. The returned value is then stored in the `$sum` variable and printed.
+
+Returning Multiple Values
+PHP does not support returning multiple values directly, but you can achieve this by returning an array or an object.
+
+Example using an array:
+
+<?php
+function calculate($a, $b) {
+    $sum = $a + $b;
+    $difference = $a - $b;
+    return array($sum, $difference);
+}
+
+list($sum, $difference) = calculate(10, 5);
+echo "Sum: $sum, Difference: $difference"; // Prints "Sum: 15, Difference: 5"
+?>
+
+Example using an object:
+
+<?php
+function calculate($a, $b) {
+    $result = new stdClass();
+    $result->sum = $a + $b;
+    $result->difference = $a - $b;
+    return $result;
+}
+
+$result = calculate(10, 5);
+echo "Sum: $result->sum, Difference: $result->difference"; // Prints "Sum: 15, Difference: 5"
+?>
+
+Early Return
+You can use the `return` keyword to exit a function early if a certain condition is met.
+
+Example:
+
+<?php
+function divide($a, $b) {
+    if ($b == 0) {
+        return "Division by zero error!";
+    }
+    return $a / $b;
+}
+
+echo divide(10, 2); // Prints "5"
+echo divide(10, 0); // Prints "Division by zero error!"
+?>
+
+In this example, the function checks if the divisor is zero and returns an error message if true. Otherwise, it returns the result of the division.
+
+Returning References
+You can return references from functions using the `&` symbol. This allows you to return a reference to a variable, rather than a copy of its value.
+
+Example:
+
+<?php
+function &getValue(&$var) {
+    return $var;
+}
+
+$value = 10;
+$ref = &getValue($value);
+$ref = 20;
+echo $value; // Prints "20"
+?>
+
+In this example, the `getValue` function returns a reference to the `$value` variable. Changes made to the `$ref` variable also affect the original `$value` variable.]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="5">
+            <title>Advanced PHP</title>
+            <topics>
+                <topic id="5">
+                    <title>Classes and Objects</title>
+                    <content><![CDATA[Object-Oriented Programming (OOP) is a programming paradigm that uses objects and classes to structure code. PHP supports OOP, allowing you to create classes and objects to organize and manage your code more effectively.
+
+Classes
+A class is a blueprint for creating objects. It defines properties (variables) and methods (functions) that the objects created from the class will have.
+
+Example of a class definition:
+
+<?php
+class Car {
+    // Properties
+    public $make;
+    public $model;
+
+    // Constructor
+    public function __construct($make, $model) {
+        $this->make = $make;
+        $this->model = $model;
+    }
+
+    // Method
+    public function display() {
+        echo "Car: " . $this->make . " " . $this->model;
+    }
+}
+?>
+
+In this example, the `Car` class has two properties (`$make` and `$model`) and a method (`display`). The constructor method (`__construct`) is called when an object is created from the class.
+
+Objects
+An object is an instance of a class. You can create multiple objects from a single class, each with its own set of properties and methods.
+
+Example of creating objects:
+
+<?php
+// Create objects
+$car1 = new Car("Toyota", "Corolla");
+$car2 = new Car("Honda", "Civic");
+
+// Call methods
+$car1->display(); // Outputs: Car: Toyota Corolla
+$car2->display(); // Outputs: Car: Honda Civic
+?>
+
+In this example, two objects (`$car1` and `$car2`) are created from the `Car` class, and the `display` method is called for each object.
+
+Access Modifiers
+Access modifiers define the visibility of properties and methods. PHP supports three access modifiers:
+
+- public: The property or method can be accessed from anywhere.
+- protected: The property or method can be accessed within the class and by classes derived from that class.
+- private: The property or method can only be accessed within the class.
+
+Example:
+
+<?php
+class Car {
+    public $make;
+    protected $model;
+    private $year;
+
+    public function __construct($make, $model, $year) {
+        $this->make = $make;
+        $this->model = $model;
+        $this->year = $year;
+    }
+
+    public function display() {
+        echo "Car: " . $this->make . " " . $this->model . " " . $this->year;
+    }
+}
+?>
+
+In this example, the `make` property is public, the `model` property is protected, and the `year` property is private.
+
+Inheritance
+Inheritance allows a class to inherit properties and methods from another class. The class that inherits is called the child class, and the class being inherited from is called the parent class.
+
+Example:
+
+<?php
+class Vehicle {
+    public $make;
+    public $model;
+
+    public function __construct($make, $model) {
+        $this->make = $make;
+        $this->model = $model;
+    }
+
+    public function display() {
+        echo "Vehicle: " . $this->make . " " . $this->model;
+    }
+}
+
+class Car extends Vehicle {
+    public $year;
+
+    public function __construct($make, $model, $year) {
+        parent::__construct($make, $model);
+        $this->year = $year;
+    }
+
+    public function display() {
+        echo "Car: " . $this->make . " " . $this->model . " " . $this->year;
+    }
+}
+
+$car = new Car("Toyota", "Corolla", 2020);
+$car->display(); // Outputs: Car: Toyota Corolla 2020
+?>
+
+In this example, the `Car` class inherits from the `Vehicle` class, and it adds a new property (`$year`) and overrides the `display` method.]]>
+</content>
+                </topic>
+                <topic id="5">
+                    <title>Modules and Namespaces</title>
+                    <content><![CDATA[Modules and namespaces are essential features in PHP that help you organize and manage your code more effectively. They allow you to group related classes, functions, and constants together, and avoid naming conflicts.
+
+Namespaces
+Namespaces are a way to encapsulate items such as classes, interfaces, functions, and constants. They help avoid name collisions and make your code more modular and easier to maintain.
+
+Defining a Namespace
+To define a namespace, use the `namespace` keyword at the top of your PHP file.
+
+Example:
+
+<?php
+namespace MyProject;
+
+class MyClass {
+    public function myMethod() {
+        echo "Hello from MyClass!";
+    }
+}
+?>
+
+In this example, the `MyClass` class is defined within the `MyProject` namespace.
+
+Using Namespaces
+To use a class, function, or constant from a namespace, you can use the `use` keyword.
+
+Example:
+
+<?php
+namespace MyProject;
+
+class MyClass {
+    public function myMethod() {
+        echo "Hello from MyClass!";
+    }
+}
+?>
+
+<?php
+use MyProject\MyClass;
+
+$obj = new MyClass();
+$obj->myMethod(); // Outputs: Hello from MyClass!
+?>
+
+In this example, the `MyClass` class from the `MyProject` namespace is used in another PHP file.
+
+Aliasing Namespaces
+You can create an alias for a namespace using the `as` keyword. This is useful when you have long or complex namespace names.
+
+Example:
+
+<?php
+namespace MyProject\SubNamespace;
+
+class MyClass {
+    public function myMethod() {
+        echo "Hello from MyClass!";
+    }
+}
+?>
+
+<?php
+use MyProject\SubNamespace\MyClass as AliasClass;
+
+$obj = new AliasClass();
+$obj->myMethod(); // Outputs: Hello from MyClass!
+?>
+
+In this example, the `MyClass` class from the `MyProject\SubNamespace` namespace is aliased as `AliasClass`.
+
+Nested Namespaces
+Namespaces can be nested to create a hierarchical structure.
+
+Example:
+
+<?php
+namespace MyProject\SubNamespace;
+
+class MyClass {
+    public function myMethod() {
+        echo "Hello from MyClass!";
+    }
+}
+?>
+
+<?php
+namespace MyProject\AnotherNamespace;
+
+class AnotherClass {
+    public function anotherMethod() {
+        echo "Hello from AnotherClass!";
+    }
+}
+?>
+
+In this example, two classes are defined in different nested namespaces.
+
+Global Namespace
+If you need to access a class, function, or constant from the global namespace, you can use the backslash (`\`) prefix.
+
+Example:
+
+<?php
+namespace MyProject;
+
+class MyClass {
+    public function myMethod() {
+        echo \strlen("Hello"); // Calls the global strlen function
+    }
+}
+?>
+
+In this example, the `strlen` function from the global namespace is called within the `MyClass` class.]]></content>
+                </topic>
+                <topic id="5">
+                    <title>Exception Handling</title>
+                    <content><![CDATA[Exception handling is a mechanism that allows you to manage errors and exceptional conditions in your code gracefully. Instead of letting your program crash when an error occurs, you can catch exceptions and handle them appropriately.
+
+Basic Syntax
+In PHP, you can use the `try`, `catch`, and `finally` blocks to handle exceptions. The basic syntax is as follows:
+
+<?php
+try {
+    // Code that may throw an exception
+} catch (Exception $e) {
+    // Code to handle the exception
+} finally {
+    // Code that will always execute, regardless of whether an exception was thrown
+}
+?>
+
+Example:
+Here's an example of exception handling in PHP:
+
+<?php
+function divide($a, $b) {
+    if ($b == 0) {
+        throw new Exception("Division by zero error!");
+    }
+    return $a / $b;
+}
+
+try {
+    echo divide(10, 2); // Outputs: 5
+    echo divide(10, 0); // Throws an exception
+} catch (Exception $e) {
+    echo "Caught exception: " . $e->getMessage();
+} finally {
+    echo "This will always execute.";
+}
+?>
+
+In this example, the `divide` function throws an exception if the divisor is zero. The `try` block contains code that may throw an exception, and the `catch` block handles the exception by printing an error message. The `finally` block contains code that will always execute, regardless of whether an exception was thrown.
+
+Custom Exception Classes
+You can create custom exception classes by extending the built-in `Exception` class. This allows you to define your own exception types and handle them differently.
+
+Example:
+
+<?php
+class CustomException extends Exception {
+    public function errorMessage() {
+        return "Error on line " . $this->getLine() . " in " . $this->getFile() . ": " . $this->getMessage();
+    }
+}
+
+try {
+    throw new CustomException("A custom error occurred!");
+} catch (CustomException $e) {
+    echo $e->errorMessage();
+}
+?>
+
+In this example, the `CustomException` class extends the `Exception` class and adds a custom error message method. The `try` block throws a `CustomException`, and the `catch` block handles it by calling the custom error message method.
+
+Multiple Catch Blocks
+You can use multiple `catch` blocks to handle different types of exceptions separately.
+
+Example:
+
+<?php
+class DivisionByZeroException extends Exception {}
+class InvalidArgumentException extends Exception {}
+
+function divide($a, $b) {
+    if ($b == 0) {
+        throw new DivisionByZeroException("Division by zero error!");
+    }
+    if (!is_numeric($a) || !is_numeric($b)) {
+        throw new InvalidArgumentException("Invalid argument error!");
+    }
+    return $a / $b;
+}
+
+try {
+    echo divide(10, 2); // Outputs: 5
+    echo divide(10, 0); // Throws DivisionByZeroException
+} catch (DivisionByZeroException $e) {
+    echo "Caught DivisionByZeroException: " . $e->getMessage();
+} catch (InvalidArgumentException $e) {
+    echo "Caught InvalidArgumentException: " . $e->getMessage();
+} catch (Exception $e) {
+    echo "Caught Exception: " . $e->getMessage();
+}
+?>
+
+In this example, the `divide` function can throw different types of exceptions. The `try` block contains code that may throw an exception, and multiple `catch` blocks handle each type of exception separately.]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+    </sections>
+    <quizes>
+        <quiz id="1">
+            <question id="1">
+                <text>What is the primary purpose of PHP as described in the introduction?</text>
+                <answers id="1">
+                    <answer correct="true">It is a scripting language designed for web development</answer>
+                    <answer correct="false">It is a database management system</answer>
+                    <answer correct="false">It is a front-end framework</answer>
+                    <answer correct="false">It is an operating system</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Which tools are mentioned for setting up a local PHP development environment?</text>
+                <answers id="1">
+                    <answer correct="false">NodeJS and React</answer>
+                    <answer correct="false">Docker and Kubernetes</answer>
+                    <answer correct="true">XAMPP, WAMP, and MAMP</answer>
+                    <answer correct="false">Eclipse and NetBeans</answer>
+                </answers>
+            </question>
+
+            <question id="1">
+                <text>How are variables declared in PHP?</text>
+                <answers id="1">
+                    <answer correct="false">Using the 'var' keyword</answer>
+                    <answer correct="false">Using the 'let' keyword</answer>
+                    <answer correct="false">Using the 'dim' keyword</answer>
+                    <answer correct="true">Using the '$' symbol</answer>
+                </answers>
+            </question>
+
+            <question id="1">
+                <text>Which of these is a valid way to embed PHP code within HTML?</text>
+                <answers id="1">
+                    <answer correct="true"><![CDATA[<?php ... ?>]]></answer>
+                    <answer correct="false"><![CDATA[<script php> ... </script>]]></answer>
+                    <answer correct="false"><![CDATA[<php> ... </php>]]></answer>
+                    <answer correct="false"><![CDATA[[php] ... [/php]]]></answer>
+                </answers>
+            </question>
+
+            <question id="1">
+                <text>Who created PHP and in which year?</text>
+                <answers id="1">
+                    <answer correct="true">Rasmus Lerdorf in 1994</answer>
+                    <answer correct="false">Tim Berners-Lee in 1991</answer>
+                    <answer correct="false">Brendan Eich in 1995</answer>
+                    <answer correct="false">James Gosling in 1996</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="2">
+            <question id="2">
+                <text>What happens to the value of a static variable between function calls in PHP?</text>
+                <answers id="2">
+                    <answer correct="true">It retains its value between function calls</answer>
+                    <answer correct="false">It resets to zero each time</answer>
+                    <answer correct="false">It becomes undefined</answer>
+                    <answer correct="false">It gets converted to a string</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Which of these represents a correct way to declare a constant in PHP?</text>
+                <answers id="2">
+                    <answer correct="false">$PI = 3.14159;</answer>
+                    <answer correct="false">constant PI = 3.14159;</answer>
+                    <answer correct="true">define("PI", 3.14159);</answer>
+                    <answer correct="false">let PI = 3.14159;</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>What is the result of using the identical operator (===) to compare 5 and "5" in PHP?</text>
+                <answers id="2">
+                    <answer correct="false">true</answer>
+                    <answer correct="true">false</answer>
+                    <answer correct="false">null</answer>
+                    <answer correct="false">undefined</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Which operator would you use to increment a variable by 1 in PHP?</text>
+                <answers id="2">
+                    <answer correct="false">+=1</answer>
+                    <answer correct="false">add++</answer>
+                    <answer correct="true">++</answer>
+                    <answer correct="false">+1</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>What is the scope of a variable declared inside a PHP function?</text>
+                <answers id="2">
+                    <answer correct="true">Local to that function only</answer>
+                    <answer correct="false">Global across the entire script</answer>
+                    <answer correct="false">Available to all functions</answer>
+                    <answer correct="false">Accessible anywhere in the class</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="3">
+            <question id="3">
+                <text>What is the correct way to write a basic if-else statement in PHP?</text>
+                <answers id="3">
+                    <answer correct="true">if ($age >= 18) { echo "Adult"; } else { echo "Minor"; }</answer>
+                    <answer correct="false">if ($age >= 18): echo "Adult" else: echo "Minor" endif;</answer>
+                    <answer correct="false">when ($age >= 18) { print "Adult" } otherwise { print "Minor" }</answer>
+                    <answer correct="false">if $age >= 18 then echo "Adult" else echo "Minor" end</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>In a switch statement, what happens if you forget to include a 'break' statement after a case?</text>
+                <answers id="3">
+                    <answer correct="true">The code will continue executing into the next case</answer>
+                    <answer correct="false">The switch statement will throw an error</answer>
+                    <answer correct="false">The code will automatically stop at the end of the case</answer>
+                    <answer correct="false">The default case will be executed</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Which loop in PHP is guaranteed to execute at least once?</text>
+                <answers id="3">
+                    <answer correct="false">while loop</answer>
+                    <answer correct="false">for loop</answer>
+                    <answer correct="true">do-while loop</answer>
+                    <answer correct="false">foreach loop</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>What is the purpose of the 'continue' statement in a PHP loop?</text>
+                <answers id="3">
+                    <answer correct="false">To end the loop completely</answer>
+                    <answer correct="false">To restart the loop from the beginning</answer>
+                    <answer correct="true">To skip the current iteration and continue with the next one</answer>
+                    <answer correct="false">To pause the loop execution temporarily</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Which is a valid way to write a ternary operator in PHP?</text>
+                <answers id="3">
+                    <answer correct="true">$message = ($age >= 18) ? "Adult" : "Minor";</answer>
+                    <answer correct="false">$message = if($age >= 18) ? "Adult" | "Minor";</answer>
+                    <answer correct="false">$message = ($age >= 18) -> "Adult" : "Minor";</answer>
+                    <answer correct="false">$message = ($age >= 18) then "Adult" else "Minor";</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="4">
+            <question id="4">
+                <text>What is the correct way to define a function with a default parameter value in PHP?</text>
+                <answers id="4">
+                    <answer correct="true">function greet($name = "Guest") { echo "Hello, $name!"; }</answer>
+                    <answer correct="false">function greet($name : "Guest") { echo "Hello, $name!"; }</answer>
+                    <answer correct="false">function greet($name || "Guest") { echo "Hello, $name!"; }</answer>
+                    <answer correct="false">function greet($name default "Guest") { echo "Hello, $name!"; }</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>When passing a parameter by reference in PHP, which symbol is used?</text>
+                <answers id="4">
+                    <answer correct="false">*</answer>
+                    <answer correct="true"><![CDATA[& ]]></answer>
+                    <answer correct="false">@</answer>
+                    <answer correct="false">$</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>What happens to a static variable in a PHP function between function calls?</text>
+                <answers id="4">
+                    <answer correct="false">It is reset to its initial value</answer>
+                    <answer correct="false">It becomes undefined</answer>
+                    <answer correct="true">It retains its last value</answer>
+                    <answer correct="false">It is converted to null</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Which operator is used to create a function that accepts a variable number of arguments in PHP?</text>
+                <answers id="4">
+                    <answer correct="false">*</answer>
+                    <answer correct="false">++</answer>
+                    <answer correct="false"><![CDATA[&& ]]></answer>
+                    <answer correct="true">...</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>What is the scope of a variable declared inside a PHP function without using the 'global' keyword?</text>
+                <answers id="4">
+                    <answer correct="true">Local to that function only</answer>
+                    <answer correct="false">Global across the entire script</answer>
+                    <answer correct="false">Accessible in all functions</answer>
+                    <answer correct="false">Available throughout the current file</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="5">
+            <question id="5">
+                <text>What are the three access modifiers available in PHP for class properties and methods?</text>
+                <answers id="5">
+                    <answer correct="true">public, protected, and private</answer>
+                    <answer correct="false">global, local, and protected</answer>
+                    <answer correct="false">public, private, and static</answer>
+                    <answer correct="false">open, closed, and restricted</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Which keyword is used to create a new instance of a class in PHP?</text>
+                <answers id="5">
+                    <answer correct="false">create</answer>
+                    <answer correct="false">instance</answer>
+                    <answer correct="true">new</answer>
+                    <answer correct="false">class</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>What is the primary purpose of namespaces in PHP?</text>
+                <answers id="5">
+                    <answer correct="false">To improve code performance</answer>
+                    <answer correct="false">To create private variables</answer>
+                    <answer correct="true">To avoid name collisions and organize code</answer>
+                    <answer correct="false">To implement inheritance</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>In PHP exception handling, which block will always execute regardless of whether an exception was thrown?</text>
+                <answers id="5">
+                    <answer correct="false">try</answer>
+                    <answer correct="false">catch</answer>
+                    <answer correct="true">finally</answer>
+                    <answer correct="false">throw</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>What is the correct way to define a custom exception class in PHP?</text>
+                <answers id="5">
+                    <answer correct="true">class CustomException extends Exception</answer>
+                    <answer correct="false">class CustomException implements Exception</answer>
+                    <answer correct="false">class CustomException uses Exception</answer>
+                    <answer correct="false">class CustomException inherits Exception</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="6">
+            <question id="6">
+                <text>What is the primary purpose of PHP as described in the introduction?</text>
+                <answers id="6">
+                    <answer correct="true">It is a scripting language designed for web development</answer>
+                    <answer correct="false">It is a database management system</answer>
+                    <answer correct="false">It is a front-end framework</answer>
+                    <answer correct="false">It is an operating system</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which symbol must be used before variable names in PHP?</text>
+                <answers id="6">
+                    <answer correct="true">$</answer>
+                    <answer correct="false">#</answer>
+                    <answer correct="false">@</answer>
+                    <answer correct="false"><![CDATA[&]]></answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the correct way to start a PHP block of code?</text>
+                <answers id="6">
+                    <answer correct="true"><![CDATA[<?php]]></answer>
+                    <answer correct="false"><![CDATA[<php>]]></answer>
+                    <answer correct="false"><![CDATA[<script php>]]></answer>
+                    <answer correct="false"><![CDATA[<start php>]]></answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which of these is a valid way to create a constant in PHP?</text>
+                <answers id="6">
+                    <answer correct="true">define("PI", 3.14159)</answer>
+                    <answer correct="false">constant PI = 3.14159</answer>
+                    <answer correct="false">$PI = const(3.14159)</answer>
+                    <answer correct="false">const = PI(3.14159)</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the correct way to create a function in PHP?</text>
+                <answers id="6">
+                    <answer correct="true">function myFunction() {}</answer>
+                    <answer correct="false">new function myFunction() {}</answer>
+                    <answer correct="false">def myFunction() {}</answer>
+                    <answer correct="false">create function myFunction() {}</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which loop type in PHP is guaranteed to execute at least once?</text>
+                <answers id="6">
+                    <answer correct="true">do-while</answer>
+                    <answer correct="false">while</answer>
+                    <answer correct="false">for</answer>
+                    <answer correct="false">foreach</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the correct way to create an object from a class in PHP?</text>
+                <answers id="6">
+                    <answer correct="true">$obj = new MyClass();</answer>
+                    <answer correct="false">$obj = create MyClass();</answer>
+                    <answer correct="false">$obj = class MyClass();</answer>
+                    <answer correct="false">$obj = construct MyClass();</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which access modifier in PHP makes class members only accessible within the declaring class?</text>
+                <answers id="6">
+                    <answer correct="true">private</answer>
+                    <answer correct="false">public</answer>
+                    <answer correct="false">protected</answer>
+                    <answer correct="false">internal</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>How do you properly handle exceptions in PHP?</text>
+                <answers id="6">
+                    <answer correct="true">try { } catch (Exception $e) { }</answer>
+                    <answer correct="false">try { } except Exception { }</answer>
+                    <answer correct="false">try { } catch { }</answer>
+                    <answer correct="false">try { } finally { }</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which operator is used for concatenating strings in PHP?</text>
+                <answers id="6">
+                    <answer correct="true">.</answer>
+                    <answer correct="false">+</answer>
+                    <answer correct="false"><![CDATA[&]]></answer>
+                    <answer correct="false">,</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the correct way to define a namespace in PHP?</text>
+                <answers id="6">
+                    <answer correct="true">namespace MyProject;</answer>
+                    <answer correct="false">using namespace MyProject;</answer>
+                    <answer correct="false">define namespace MyProject;</answer>
+                    <answer correct="false">package MyProject;</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which superglobal variable in PHP is used to collect form data after submitting an HTML form with method="post"?</text>
+                <answers id="6">
+                    <answer correct="true">$_POST</answer>
+                    <answer correct="false">$_GET</answer>
+                    <answer correct="false">$GLOBALS</answer>
+                    <answer correct="false">$_REQUEST</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>How do you pass a variable by reference in a function parameter?</text>
+                <answers id="6">
+                    <answer correct="true"><![CDATA[&$variable]]></answer>
+                    <answer correct="false">*$variable</answer>
+                    <answer correct="false">@$variable</answer>
+                    <answer correct="false">ref $variable</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which statement is used to exit a loop prematurely in PHP?</text>
+                <answers id="6">
+                    <answer correct="true">break;</answer>
+                    <answer correct="false">exit;</answer>
+                    <answer correct="false">stop;</answer>
+                    <answer correct="false">return;</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the purpose of the final keyword in PHP?</text>
+                <answers id="6">
+                    <answer correct="true">To prevent class inheritance</answer>
+                    <answer correct="false">To end a script execution</answer>
+                    <answer correct="false">To declare a constant variable</answer>
+                    <answer correct="false">To close a database connection</answer>
+                </answers>
+            </question>
+        </quiz>
+    </quizes>
+</course>

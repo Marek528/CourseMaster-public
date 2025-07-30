@@ -1,0 +1,1984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course>
+    <title>Programovanie v PHP</title>
+    <img src="img/php_svk.png" alt="PHP Thumbnail"/>
+    <sections>
+        <section id="1">
+            <title>Začíname s PHP</title>
+            <topics>
+                <topic id="1">
+                    <title>Úvod do jazyka PHP</title>
+                    <content>Čo je PHP?
+PHP, čo je skratka pre „Hypertext Preprocessor“, je široko používaný skriptovací jazyk s otvoreným zdrojovým kódom určený na vývoj webových stránok. Je vložený do jazyka HTML a je vhodný najmä na vytváranie dynamických webových stránok a aplikácií. Skripty PHP sa vykonávajú na serveri a výsledok sa posiela do prehliadača klienta ako obyčajné HTML.
+
+História a vývoj
+PHP vytvoril v roku 1994 Rasmus Lerdorf. Spočiatku išlo o súbor binárnych súborov Common Gateway Interface (CGI) napísaných v programovacom jazyku C. Postupom času sa vyvinul na plnohodnotný skriptovací jazyk s bohatou sadou vlastností a funkcií. Dnes PHP poháňa milióny webových stránok a aplikácií vrátane populárnych platforiem, ako sú WordPress, Joomla a Drupal.
+
+Nastavenie prostredia
+Ak chcete začať používať jazyk PHP, musíte nastaviť vývojové prostredie. To zvyčajne zahŕňa inštaláciu webového servera (napríklad Apache alebo Nginx), databázového servera (napríklad MySQL alebo MariaDB) a samotného jazyka PHP. Nástroje ako XAMPP, WAMP a MAMP poskytujú jednoduchý spôsob, ako nastaviť miestne vývojové prostredie so všetkými týmito komponentmi.
+                    </content>
+                </topic>
+                <topic id="1">
+                    <title>Installing PHP</title>
+                    <content>PHP alebo Hypertext Preprocessor je populárny skriptovací jazyk na strane servera používaný na vývoj webových stránok. Skôr ako začnete vyvíjať pomocou PHP, musíte ho nainštalovať do systému. Táto príručka vás prevedie procesom inštalácie PHP v rôznych operačných systémoch.
+
+Inštalácia PHP v systéme Windows
+Stiahnite si PHP: Navštívte oficiálnu webovú lokalitu PHP a stiahnite si najnovšiu verziu PHP pre systém Windows.
+Rozbaľte súbory: Rozbaľte stiahnutý súbor ZIP do zvoleného adresára, napríklad C:\php.
+
+Nakonfigurujte PHP:
+Premenujte súbor php.ini-development na php.ini.
+Otvorte súbor php.ini v textovom editore a nakonfigurujte potrebné nastavenia, napríklad povolenie rozšírení.
+
+Pridajte PHP do systémovej cesty:
+Kliknite pravým tlačidlom myši na „Tento počítač“ alebo „Môj počítač“ a vyberte „Vlastnosti“.
+Kliknite na „Rozšírené nastavenia systému“ a potom na „Premenné prostredia“.
+V časti „Systémové premenné“ nájdite premennú „Cesta“ a kliknite na tlačidlo „Upraviť“.
+Do zoznamu ciest pridajte cestu k adresáru PHP (napr. C:\php).
+Overte inštaláciu: Otvorte príkazový riadok a zadajte príkaz php -v, aby ste overili, či je PHP správne nainštalované.
+
+Inštalácia PHP v systéme macOS
+Nainštalujte Homebrew: Homebrew je správca balíkov pre systém macOS. Ak ho nemáte nainštalovaný, otvorte terminál a zadajte nasledujúci príkaz:
+(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)": /bin/bash -c ‚$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)‘.
+
+Nainštalujte PHP: Po nainštalovaní Homebrew spustite nasledujúci príkaz na inštaláciu PHP:
+brew install php
+
+Overenie inštalácie: Po dokončení inštalácie spustite v termináli príkaz php -v, aby ste overili, či je PHP správne nainštalované.
+
+Inštalácia PHP v systéme Linux
+Aktualizujte zoznam balíkov: Otvorte terminál a aktualizujte zoznam balíkov spustením:
+sudo apt update
+
+Nainštalujte PHP: Spustite nasledujúci príkaz na inštaláciu PHP:
+sudo apt install php
+
+Overte inštaláciu: Po dokončení inštalácie spustite príkaz php -v, aby ste overili, či je PHP správne nainštalované.
+
+Nastavenie lokálneho vývojového prostredia
+Na vývoj aplikácií PHP potrebujete lokálne vývojové prostredie, ktoré obsahuje webový server a databázový server. Nástroje ako XAMPP, WAMP a MAMP poskytujú jednoduchý spôsob nastavenia takéhoto prostredia.
+
+Stiahnite si a nainštalujte XAMPP/WAMP/MAMP:
+Navštívte oficiálnu webovú lokalitu XAMPP, WAMP alebo MAMP a stiahnite si inštalačný program pre váš operačný systém.
+Spustite inštalačný program a podľa pokynov na obrazovke dokončite inštaláciu.
+
+Spustite webový server:
+Otvorte ovládací panel XAMPP/WAMP/MAMP a spustite webový server Apache.
+
+Overte inštaláciu:
+Otvorte webový prehliadač a prejdite na stránku http://localhost. Mala by sa zobraziť uvítacia stránka vášho lokálneho vývojového prostredia.</content>
+                </topic>
+                <topic id="1">
+                    <title>PHP Syntax</title>
+                    <content><![CDATA[Základná syntax PHP
+PHP kód je vložený do HTML pomocou značiek `<?php ... ?>`. Tu je jednoduchý príklad:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moja prvá PHP stránka</title>
+</head>
+<body>
+    <h1><?php echo "Ahoj, svet!"; ?></h1>
+</body>
+</html>
+
+V tomto príklade riadok `<?php echo "Ahoj, svet!"; ?>` je PHP skript, ktorý vypíše "Ahoj, svet!" do prehliadača.
+
+Premenné
+
+Premenné v PHP sa deklarujú pomocou symbolu `$`, za ktorým nasleduje názov premennej. PHP podporuje rôzne dátové typy vrátane celých čísel, desatinných čísel, reťazcov, polí a objektov.
+
+Príklad:
+
+<?php
+$integer = 10;
+$float = 10.5;
+$string = "Ahoj, svet!";
+$array = array(1, 2, 3);
+?>
+
+Operátory
+PHP podporuje širokú škálu operátorov vrátane:
+
+- Aritmetické operátory: `+`, `-`, `*`, `/`, `%`
+- Porovnávacie operátory: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- Logické operátory: `&&`, `||`, `!`
+
+Príklad:
+
+<?php
+$a = 10;
+$b = 20;
+
+$sum = $a + $b; // Aritmetika
+$isEqual = ($a == $b); // Porovnanie
+$isTrue = ($a < $b && $b > 15); // Logika
+?>
+
+Riadiace štruktúry
+PHP poskytuje niekoľko riadiacich štruktúr na ovládanie toku programu. Patrí sem podmienkové vyhodnocovanie (`if`, `else`, `elseif`, `switch`) a cykly (`for`, `while`, `do-while`, `foreach`).
+
+Príklad podmienky:
+
+<?php
+$vek = 20;
+if ($vek >= 18) {
+    echo "Si dospelý.";
+} else {
+    echo "Si neplnoletý.";
+}
+?>
+
+Príklad cyklu:
+
+<?php
+for ($i = 0; $i < 10; $i++) {
+    echo "Číslo: $i<br>";
+}
+?>
+
+Funkcie
+Funkcie v PHP sú bloky kódu, ktoré vykonávajú špecifické úlohy. Definujú sa pomocou kľúčového slova `function` a môžu prijímať parametre a vracať hodnoty.
+
+Príklad funkcie:
+
+<?php
+function pozdrav($meno) {
+    return "Ahoj, $meno!";
+}
+
+echo pozdrav("Alica");
+?>
+
+PHP tiež poskytuje veľké množstvo vstavaných funkcií na rôzne úlohy, ako napríklad manipulácia s reťazcami, spracovanie polí a operácie s dátumom/časom.
+
+Polia
+Polia v PHP môžu obsahovať viacero hodnôt. Existujú tri typy polí: indexované polia, asociatívne polia a viacrozmerné polia.
+
+Príklad indexovaného poľa:
+
+<?php
+$ovocie = array("Jablko", "Banán", "Čerešňa");
+echo $ovocie[0]; // Výstup: Jablko
+?>
+
+Príklad asociatívneho poľa:
+
+<?php
+$vek = array("Alica" => 25, "Bob" => 30, "Karol" => 35);
+echo $vek["Alica"]; // Výstup: 25
+?>
+
+Príklad viacrozmerného poľa:
+
+<?php
+$studenti = array(
+    array("Alica", 25),
+    array("Bob", 30),
+    array("Karol", 35)
+);
+echo $studenti[0][0]; // Výstup: Alica
+?>
+
+Superglobálne premenné
+PHP poskytuje niekoľko vstavaných superglobálnych premenných, čo sú polia obsahujúce informácie o serveri, prostredí a vstupoch používateľa. Niektoré bežné superglobálne premenné sú `$_GET`, `$_POST`, `$_SERVER`, `$_SESSION` a `$_COOKIE`.
+
+Príklad použitia `$_GET`:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="get" action="welcome.php">
+  Meno: <input type="text" name="name">
+  <input type="submit">
+</form>
+
+</body>
+</html>
+
+Vo `welcome.php`:
+
+<?php
+$name = $_GET['name'];
+echo "Vitaj, $name!";
+?>
+
+Ošetrenie chýb
+PHP poskytuje viacero spôsobov ako ošetriť chyby a debugovať kód. Funkcia `error_reporting` umožňuje nastaviť úroveň zobrazovania chýb a blok `try-catch` sa používa na spracovanie výnimiek.
+
+Príklad ošetrenia chyby:
+
+<?php
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Pripojenie bolo úspešné";
+} catch (PDOException $e) {
+    echo "Pripojenie zlyhalo: " . $e->getMessage();
+}
+?>
+
+]]></content>
+                </topic>
+            </topics>
+        </section>
+        <section id="2">
+    <title>Základné PHP koncepty</title>
+    <topics>
+        <topic id="2">
+            <title>Premenné</title>
+            <content><![CDATA[Úvod
+Premenné sú základom v PHP, pretože umožňujú ukladať a manipulovať s údajmi. V PHP sa premenné označujú znakom dolára (`$`), za ktorým nasleduje názov premennej. Názvy premenných rozlišujú veľkosť písmen a musia začínať písmenom alebo podčiarkovníkom, po ktorom môže nasledovať ľubovoľný počet písmen, číslic alebo podčiarkovníkov.
+
+Deklarovanie premenných
+Na deklarovanie premennej v PHP jednoducho priraď hodnotu pomocou priraďovacieho operátora (`=`). PHP je dynamicky typovaný jazyk, čo znamená, že nie je potrebné špecifikovať dátový typ premennej. Dátový typ sa určuje automaticky na základe priradenej hodnoty.
+
+Príklad:
+
+<?php
+$integer = 10; // Celé číslo
+$float = 10.5; // Desatinné číslo
+$string = "Ahoj, svet!"; // Reťazec
+$array = array(1, 2, 3); // Pole
+$boolean = true; // Boolean
+?>
+
+Typy premenných
+PHP podporuje niekoľko dátových typov vrátane:
+
+- Integer: Celé čísla, kladné aj záporné.
+- Float: Čísla s desatinnou čiarkou.
+- String: Sekvencie znakov.
+- Boolean: Reprezentuje `true` alebo `false`.
+- Array: Kolekcie hodnôt.
+- Object: Inštancie tried.
+- NULL: Reprezentuje premennú bez hodnoty.
+
+Rozsah premenných
+Rozsah premennej určuje, kde je premenná prístupná v rámci skriptu. PHP má tri hlavné typy rozsahu:
+
+1. Lokálny rozsah: Premenné deklarované vo funkcii sú lokálne a nie sú prístupné mimo nej.
+2. Globálny rozsah: Premenné deklarované mimo funkcií sú globálne a prístupné kdekoľvek v skripte.
+3. Statický rozsah: Premenné deklarované ako statické vo funkcii si zachovávajú svoju hodnotu medzi volaniami.
+
+Príklad lokálneho a globálneho rozsahu:
+
+<?php
+$globalVar = "Som globálna premenná";
+
+function myFunction() {
+    $localVar = "Som lokálna premenná";
+    echo $localVar; // Prístupné vo funkcii
+    echo $globalVar; // Nie je prístupné vo funkcii
+}
+
+myFunction();
+echo $globalVar; // Prístupné mimo funkcie
+echo $localVar; // Nie je prístupné mimo funkcie
+?>
+
+Príklad statického rozsahu:
+
+<?php
+function myCounter() {
+    static $count = 0;
+    $count++;
+    echo $count;
+}
+
+myCounter(); // Vypíše: 1
+myCounter(); // Vypíše: 2
+myCounter(); // Vypíše: 3
+?>
+
+Premenné premenné
+PHP umožňuje používať premenné, ktorých názov je určený hodnotou inej premennej.
+
+Príklad:
+
+<?php
+$varName = "hello";
+$$varName = "world";
+
+echo $hello; // Vypíše: world
+?>
+
+Konštanty
+Konštanty sú podobné premenným, ale ich hodnota sa po definovaní nedá zmeniť. Konštanty sa definujú pomocou funkcie `define()` alebo kľúčového slova `const`.
+
+Príklad s `define()`:
+
+<?php
+define("PI", 3.14159);
+echo PI; // Vypíše: 3.14159
+?>
+
+Príklad s `const`:
+
+<?php
+const GREETING = "Ahoj, svet!";
+echo GREETING; // Vypíše: Ahoj, svet!
+?>
+
+Superglobálne premenné
+PHP poskytuje niekoľko vstavaných superglobálnych polí, ktoré uchovávajú informácie o serveri, prostredí a vstupoch používateľa. Medzi najčastejšie patria `$_GET`, `$_POST`, `$_SERVER`, `$_SESSION` a `$_COOKIE`.
+
+Príklad s `$_GET`:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="get" action="welcome.php">
+  Meno: <input type="text" name="name">
+  <input type="submit">
+</form>
+
+</body>
+</html>
+
+Vo `welcome.php`:
+
+<?php
+$name = $_GET['name'];
+echo "Vitaj, $name!";
+?>
+]]></content>
+        </topic>
+        <topic id="2">
+            <title>Dátové typy</title>
+            <content><![CDATA[PHP podporuje viacero dátových typov, ktoré umožňujú ukladať a spracovávať rôzne druhy údajov. Porozumenie týmto typom je kľúčové pre efektívne programovanie v PHP.
+
+Skalárne typy
+1. Integer: Reprezentuje celé čísla, kladné aj záporné.
+   
+   <?php
+   $integer = 42;
+   ?>
+
+2. Float: Reprezentuje desatinné čísla.
+   
+   <?php
+   $float = 3.14;
+   ?>
+
+3. String: Reťazce znakov.
+   
+   <?php
+   $string = "Ahoj, svet!";
+   ?>
+
+4. Boolean: Pravda (`true`) alebo nepravda (`false`).
+   
+   <?php
+   $boolean = true;
+   ?>
+
+Zložené typy
+1. Pole (Array): Kolekcia hodnôt. Môže byť indexované alebo asociatívne.
+   - Indexované pole:
+     
+     <?php
+     $indexedArray = array(1, 2, 3);
+     ?>
+
+   - Asociatívne pole:
+     
+     <?php
+     $associativeArray = array("kluc1" => "hodnota1", "kluc2" => "hodnota2");
+     ?>
+
+2. Objekt (Object): Inštancia triedy. Používa sa v objektovo-orientovanom programovaní.
+   
+   <?php
+   class Car {
+       public $make;
+       public $model;
+
+       public function __construct($make, $model) {
+           $this->make = $make;
+           $this->model = $model;
+       }
+
+       public function display() {
+           echo "Auto: " . $this->make . " " . $this->model;
+       }
+   }
+
+   $car = new Car("Toyota", "Corolla");
+   $car->display();
+   ?>
+
+Špeciálne typy
+1. NULL: Reprezentuje premennú bez hodnoty.
+   
+   <?php
+   $nullVar = NULL;
+   ?>
+
+2. Resource: Odkaz na externý zdroj, ako napríklad databázové spojenie. Vytvárajú sa pomocou špeciálnych funkcií.
+
+Typové pretypovanie
+PHP umožňuje meniť typ premennej pomocou operátorov pretypovania.
+
+Príklad:
+
+<?php
+$var = "10";
+$intVar = (int)$var; // Pretypuje reťazec "10" na celé číslo
+?>
+
+Automatické pretypovanie
+PHP je dynamicky typovaný jazyk, čo znamená, že automaticky konvertuje premenné podľa potreby. Tomu sa hovorí typové žonglovanie.
+
+Príklad:
+
+<?php
+$var = "10";
+$sum = $var + 5; // PHP automaticky pretypuje $var na celé číslo
+echo $sum; // Vypíše: 15
+?>
+]]></content>
+        </topic>
+        <topic id="2">
+            <title>Operátory</title>
+            <content><![CDATA[Operátory sú symboly, ktoré inštruujú PHP vykonať konkrétne operácie. Používajú sa na manipuláciu s premennými a hodnotami. PHP podporuje širokú škálu operátorov vrátane aritmetických, priraďovacích, porovnávacích, logických a ďalších.
+
+Aritmetické operátory
+Používajú sa na bežné matematické výpočty.
+
+- Sčítanie (`+`):
+  
+  <?php
+  $a = 5;
+  $b = 10;
+  $sum = $a + $b; // $sum je 15
+  ?>
+
+- Odčítanie (`-`):
+  
+  <?php
+  $a = 10;
+  $b = 5;
+  $difference = $a - $b; // $difference je 5
+  ?>
+
+- Násobenie (`*`):
+  
+  <?php
+  $a = 5;
+  $b = 10;
+  $product = $a * $b; // $product je 50
+  ?>
+
+- Delenie (`/`):
+  
+  <?php
+  $a = 10;
+  $b = 5;
+  $quotient = $a / $b; // $quotient je 2
+  ?>
+
+- Zvyšok po delení (`%`):
+  
+  <?php
+  $a = 10;
+  $b = 3;
+  $remainder = $a % $b; // $remainder je 1
+  ?>
+
+Priraďovacie operátory
+Priraďovacie operátory sa používajú na priradenie hodnôt premenným.
+
+- Priradenie (`=`): Priradí hodnotu premennej.
+
+<?php
+$a = 5;
+?>
+
+- Sčítacie priradenie (`+=`): Pripočíta hodnotu k premennej.
+
+<?php
+$a = 5;
+$a += 10; // $a je teraz 15
+?>
+
+- Odčítacie priradenie (`-=`): Odpočíta hodnotu od premennej.
+
+<?php
+$a = 10;
+$a -= 5; // $a je teraz 5
+?>
+
+- Násobiace priradenie (`*=`): Vynásobí premennú hodnotou.
+
+<?php
+$a = 5;
+$a *= 10; // $a je teraz 50
+?>
+
+- Deliace priradenie (`/=`): Vydelí premennú hodnotou.
+
+<?php
+$a = 10;
+$a /= 5; // $a je teraz 2
+?>
+
+- Priradenie zvyšku (`%=`): Aplikuje zvyšok po delení na premennú.
+
+<?php
+$a = 10;
+$a %= 3; // $a je teraz 1
+?>
+
+Porovnávacie operátory
+Porovnávacie operátory sa používajú na porovnanie dvoch hodnôt.
+
+- Rovnosť (`==`): Skontroluje, či sú dve hodnoty rovnaké.
+
+<?php
+$a = 5;
+$b = 5;
+$isEqual = ($a == $b); // $isEqual je true
+?>
+
+- Identita (`===`): Skontroluje, či sú dve hodnoty rovnaké a rovnakého typu.
+
+<?php
+$a = 5;
+$b = "5";
+$isIdentical = ($a === $b); // $isIdentical je false
+?>
+
+- Nerovnosť (`!=`): Skontroluje, či sa dve hodnoty nerovnajú.
+
+<?php
+$a = 5;
+$b = 10;
+$isNotEqual = ($a != $b); // $isNotEqual je true
+?>
+
+- Neidentita (`!==`): Skontroluje, či sa hodnoty nerovnajú alebo nie sú rovnakého typu.
+
+<?php
+$a = 5;
+$b = "5";
+$isNotIdentical = ($a !== $b); // $isNotIdentical je true
+?>
+
+- Väčší ako (`>`): Skontroluje, či je jedna hodnota väčšia ako druhá.
+
+<?php
+$a = 10;
+$b = 5;
+$isGreater = ($a > $b); // $isGreater je true
+?>
+
+- Menší ako (`<`): Skontroluje, či je jedna hodnota menšia ako druhá.
+
+<?php
+$a = 5;
+$b = 10;
+$isLess = ($a < $b); // $isLess je true
+?>
+
+- Väčší alebo rovný (`>=`): Skontroluje, či je jedna hodnota väčšia alebo rovná druhej.
+
+<?php
+$a = 10;
+$b = 5;
+$isGreaterOrEqual = ($a >= $b); // $isGreaterOrEqual je true
+?>
+
+- Menší alebo rovný (`<=`): Skontroluje, či je jedna hodnota menšia alebo rovná druhej.
+
+<?php
+$a = 5;
+$b = 10;
+$isLessOrEqual = ($a <= $b); // $isLessOrEqual je true
+?>
+
+Logické operátory
+Logické operátory sa používajú na kombinovanie podmienok.
+
+- A (`&&`): Vráti true, ak sú obe podmienky pravdivé.
+
+<?php
+$a = true;
+$b = false;
+$result = ($a && $b); // $result je false
+?>
+
+- Alebo (`||`): Vráti true, ak je aspoň jedna podmienka pravdivá.
+
+<?php
+$a = true;
+$b = false;
+$result = ($a || $b); // $result je true
+?>
+
+- Negácia (`!`): Vráti true, ak je podmienka nepravdivá.
+
+<?php
+$a = true;
+$result = !$a; // $result je false
+?>
+
+Inkrementačné/dekrementačné operátory
+Tieto operátory zvyšujú alebo znižujú hodnotu premennej o jedna.
+
+- Inkrementácia (`++`): Zvýši hodnotu premennej o 1.
+
+<?php
+$a = 5;
+$a++; // $a je teraz 6
+?>
+
+- Dekrementácia (`--`): Zníži hodnotu premennej o 1.
+
+<?php
+$a = 5;
+$a--; // $a je teraz 4
+?>
+    ]]></content>
+
+                </topic>
+            </topics>
+        </section>
+        <section id="3">
+            <title>Control Structures</title>
+            <topics>
+                <topic id="3">
+                    <title>Podmienky</title>
+                    <content><![CDATA[Podmienky sú základnou riadiacou štruktúrou v PHP, ktorá umožňuje vykonávať kód podmienečne. Umožňujú ti robiť rozhodnutia v kóde na základe určitých podmienok.
+
+Základný If príkaz
+Základný `if` príkaz vyhodnotí podmienku a vykoná blok kódu, ak je podmienka pravdivá.
+
+Príklad:
+
+<?php
+$age = 20;
+if ($age >= 18) {
+    echo "Si dospelý.";
+}
+?>
+
+V tomto príklade je podmienka `$age >= 18` pravdivá, preto sa vykoná kód vo vnútri bloku `if` a vypíše sa "Si dospelý.".
+
+If-Else príkaz  
+`if-else` príkaz poskytuje alternatívny blok kódu, ktorý sa vykoná, ak je podmienka nepravdivá.
+
+Príklad:
+
+<?php
+$age = 16;
+if ($age >= 18) {
+    echo "Si dospelý.";
+} else {
+    echo "Si neplnoletý.";
+}
+?>
+
+V tomto príklade je podmienka `$age >= 18` nepravdivá, preto sa vykoná blok `else` a vypíše sa "Si neplnoletý.".
+
+If-Elseif-Else príkaz  
+`if-elseif-else` príkaz umožňuje overiť viacero podmienok za sebou.
+
+Príklad:
+
+<?php
+$score = 85;
+if ($score >= 90) {
+    echo "Známka: A";
+} elseif ($score >= 80) {
+    echo "Známka: B";
+} elseif ($score >= 70) {
+    echo "Známka: C";
+} else {
+    echo "Známka: F";
+}
+?>
+
+V tomto príklade je podmienka `$score >= 80` pravdivá, preto sa vykoná zodpovedajúci `elseif` blok a vypíše sa "Známka: B".
+
+Vnorené If príkazy  
+Môžeš vkladať `if` príkazy do iných `if` príkazov pre vytvorenie zložitejších podmienok.
+
+Príklad:
+
+<?php
+$age = 20;
+$hasID = true;
+if ($age >= 18) {
+    if ($hasID) {
+        echo "Môžeš vstúpiť.";
+    } else {
+        echo "Na vstup potrebuješ doklad.";
+    }
+} else {
+    echo "Nie si dosť starý na vstup.";
+}
+?>
+
+V tomto príklade vonkajší `if` kontroluje, či `$age >= 18`. Ak áno, vnútorný `if` kontroluje, či `$hasID` je pravda. Na základe výsledku sa vypíše príslušná správa.
+
+Ternárny operátor  
+Ternárny operátor je skrátený spôsob zápisu `if-else` príkazu. Používa symboly `?` a `:`.
+
+Príklad:
+
+<?php
+$age = 20;
+$message = ($age >= 18) ? "Si dospelý." : "Si neplnoletý.";
+echo $message;
+?>
+
+V tomto príklade je podmienka `$age >= 18` pravdivá, preto sa hodnota "Si dospelý." priradí premennej `$message` a vypíše sa.
+
+Záver  
+If príkazy sú silný nástroj v PHP pre vykonávanie rozhodnutí v kóde. Pochopením základného `if`, `if-else`, `if-elseif-else`, vnorených if príkazov a ternárneho operátora môžeš vytvárať dynamické a flexibilné PHP aplikácie.
+]]>
+</content>
+                </topic>
+                <topic id="3">
+                    <title>Cykly</title>
+                    <content><![CDATA[Cykly sú riadiace štruktúry, ktoré umožňujú opakovane vykonávať blok kódu na základe určitej podmienky. PHP podporuje niekoľko typov cyklov, vrátane `for`, `while`, `do-while` a `foreach`.
+
+For cyklus  
+`for` cyklus sa používa vtedy, keď vopred vieš, koľkokrát chceš vykonať určitý príkaz alebo blok príkazov. Pozostáva z troch častí: inicializácia, podmienka a prírastok/úbytok.
+
+Príklad:
+
+<?php
+for ($i = 0; $i < 10; $i++) {
+    echo "Číslo: $i<br>";
+}
+?>
+
+V tomto príklade cyklus začína s `$i` nastaveným na 0 a pokračuje, pokiaľ je `$i` menšie ako 10. Po každej iterácii sa `$i` zväčší o 1.
+
+While cyklus  
+`while` cyklus vykonáva blok kódu, pokiaľ je špecifikovaná podmienka pravdivá.
+
+Príklad:
+
+<?php
+$i = 0;
+while ($i < 10) {
+    echo "Číslo: $i<br>";
+    $i++;
+}
+?>
+
+V tomto príklade cyklus pokračuje, pokiaľ je `$i` menšie ako 10. Po každej iterácii sa `$i` zväčší o 1.
+
+Do-While cyklus  
+`do-while` cyklus je podobný `while` cyklu, ale zaručuje, že blok kódu sa vykoná aspoň raz, aj keď je podmienka nepravdivá.
+
+Príklad:
+
+<?php
+$i = 0;
+do {
+    echo "Číslo: $i<br>";
+    $i++;
+} while ($i < 10);
+?>
+
+V tomto príklade sa cyklus vykoná minimálne raz a potom pokračuje, pokiaľ je `$i` menšie ako 10.
+
+Foreach cyklus  
+`foreach` cyklus sa používa na iterovanie cez polia. Prechádza každý pár kľúč-hodnota v poli.
+
+Príklad:
+
+<?php
+$fruits = array("Jablko", "Banán", "Čerešňa");
+foreach ($fruits as $fruit) {
+    echo "Ovocie: $fruit<br>";
+}
+?>
+
+V tomto príklade cyklus prechádza všetky prvky poľa `$fruits` a vypisuje ich.
+
+Vnorené cykly  
+Cyklus môžeš vnoriť do iného cyklu na vytváranie zložitejších iterácií.
+
+Príklad:
+
+<?php
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 3; $j++) {
+        echo "i: $i, j: $j<br>";
+    }
+}
+?>
+
+V tomto príklade vonkajší cyklus beží trikrát a pre každú iteráciu vnútri sa spustí vnútorný cyklus tiež trikrát.
+
+Break a Continue  
+Príkaz `break` slúži na predčasné ukončenie cyklu, zatiaľ čo `continue` preskočí aktuálnu iteráciu a pokračuje ďalšou.
+
+Príklad pre `break`:
+
+<?php
+for ($i = 0; $i < 10; $i++) {
+    if ($i == 5) {
+        break;
+    }
+    echo "Číslo: $i<br>";
+}
+?>
+
+V tomto príklade sa cyklus zastaví, keď `$i` dosiahne hodnotu 5.
+
+Príklad pre `continue`:
+
+<?php
+for ($i = 0; $i < 10; $i++) {
+    if ($i == 5) {
+        continue;
+    }
+    echo "Číslo: $i<br>";
+}
+?>
+
+V tomto príklade cyklus preskočí iteráciu, keď `$i` je rovné 5, a pokračuje ďalšou iteráciou.]]></content>
+                </topic>
+                <topic id="3">
+                    <title>Switch príkazy</title>
+                    <content><![CDATA[Switch príkazy sú riadiaca štruktúra, ktorá umožňuje vykonať jeden blok kódu z viacerých možností na základe hodnoty premennej alebo výrazu. Sú alternatívou k viacerým if-elseif-else príkazom a môžu zlepšiť čitateľnosť a efektivitu kódu.
+
+Základná syntax  
+Základná syntax `switch` príkazu v PHP vyzerá nasledovne:
+
+<?php
+switch (variable) {
+    case value1:
+        // Kód, ktorý sa vykoná, ak je premenná rovná value1
+        break;
+    case value2:
+        // Kód, ktorý sa vykoná, ak je premenná rovná value2
+        break;
+    // Pridaj ďalšie prípady podľa potreby
+    default:
+        // Kód, ktorý sa vykoná, ak premenná nezodpovedá žiadnemu prípadu
+}
+?>
+
+Príklad  
+Tu je príklad použitia switch príkazu:
+
+<?php
+$day = "Streda";
+
+switch ($day) {
+    case "Pondelok":
+        echo "Dnes je pondelok.";
+        break;
+    case "Utorok":
+        echo "Dnes je utorok.";
+        break;
+    case "Streda":
+        echo "Dnes je streda.";
+        break;
+    case "Štvrtok":
+        echo "Dnes je štvrtok.";
+        break;
+    case "Piatok":
+        echo "Dnes je piatok.";
+        break;
+    case "Sobota":
+        echo "Dnes je sobota.";
+        break;
+    case "Nedeľa":
+        echo "Dnes je nedeľa.";
+        break;
+    default:
+        echo "Neplatný deň.";
+}
+?>
+
+V tomto príklade je hodnota premennej `$day` „Streda“, takže sa vykoná kód pre prípad "Streda" a vypíše sa "Dnes je streda.".
+
+Použitie viacerých prípadov  
+Môžeš zoskupiť viaceré prípady, ak majú vykonávať ten istý blok kódu.
+
+Príklad:
+
+<?php
+$znamka = "B";
+
+switch ($znamka) {
+    case "A":
+    case "B":
+    case "C":
+        echo "Prešiel si.";
+        break;
+    case "D":
+    case "F":
+        echo "Neúspešný pokus.";
+        break;
+    default:
+        echo "Neplatná známka.";
+}
+?>
+
+V tomto príklade je hodnota premennej `$znamka` "B", takže sa vykoná blok kódu pre prípady "A", "B" a "C" a vypíše sa "Prešiel si.".
+
+Použitie výrazov  
+V switch príkazoch môžeš použiť aj výrazy.
+
+Príklad:
+
+<?php
+$cislo = 10;
+
+switch (true) {
+    case ($cislo < 0):
+        echo "Záporné číslo.";
+        break;
+    case ($cislo == 0):
+        echo "Nula.";
+        break;
+    case ($cislo > 0):
+        echo "Kladné číslo.";
+        break;
+    default:
+        echo "Neplatné číslo.";
+}
+?>
+
+V tomto príklade `switch` vyhodnocuje výraz `true` a vykoná sa kód pre prípad, kde `$cislo > 0`, teda sa vypíše "Kladné číslo.".]]></content>
+                </topic>
+            </topics>
+        </section>
+        <section id="4">
+            <title>Funkcie</title>
+            <topics>
+                <topic id="4">
+                    <title>Definovanie Funkcií</title>
+                    <content><![CDATA[Funkcie sú opakovane použiteľné bloky kódu, ktoré vykonávajú špecifické úlohy. Pomáhajú ti organizovať kód, zlepšiť jeho čitateľnosť a vyhnúť sa opakovaniu. V PHP môžeš definovať vlastné funkcie pomocou kľúčového slova `function`.
+
+Základná syntax  
+Základná syntax pre definovanie funkcie v PHP vyzerá takto:
+
+<?php
+function nazovFunkcie() {
+    // Kód, ktorý sa má vykonať
+}
+?>
+
+Príklad  
+Tu je príklad jednoduchej funkcie, ktorá vypíše pozdrav:
+
+<?php
+function pozdrav() {
+    echo "Ahoj, svet!";
+}
+
+pozdrav(); // Zavolá funkciu a vypíše "Ahoj, svet!"
+?>
+
+Parametre funkcie  
+Funkcie môžu prijímať parametre, čo sú premenné odovzdané funkcii pri jej volaní. Parametre umožňujú odovzdať funkcii údaje a prispôsobiť jej správanie.
+
+Príklad:
+
+<?php
+function pozdrav($meno) {
+    echo "Ahoj, $meno!";
+}
+
+pozdrav("Alice"); // Zavolá funkciu a vypíše "Ahoj, Alice!"
+pozdrav("Bob");   // Zavolá funkciu a vypíše "Ahoj, Bob!"
+?>
+
+Predvolené hodnoty parametrov  
+Môžeš definovať predvolené hodnoty pre parametre. Ak parameter nie je zadaný pri volaní funkcie, použije sa predvolená hodnota.
+
+Príklad:
+
+<?php
+function pozdrav($meno = "Hosť") {
+    echo "Ahoj, $meno!";
+}
+
+pozdrav();        // Zavolá funkciu a vypíše "Ahoj, Hosť!"
+pozdrav("Alice"); // Zavolá funkciu a vypíše "Ahoj, Alice!"
+?>
+
+Návratové hodnoty  
+Funkcie môžu vracať hodnoty pomocou kľúčového slova `return`. Vrátená hodnota sa môže uložiť do premennej alebo použiť priamo.
+
+Príklad:
+
+<?php
+function sucet($a, $b) {
+    return $a + $b;
+}
+
+$suma = sucet(5, 10); // Zavolá funkciu a uloží výsledok do $suma
+echo $suma; // Vypíše "15"
+?>
+
+Rozsah premenných (scope)  
+Premenné definované vo vnútri funkcie majú lokálny rozsah, čo znamená, že sú prístupné len v rámci tejto funkcie. Premenné definované mimo funkcie majú globálny rozsah a nie sú prístupné vo vnútri funkcie, pokiaľ to nie je výslovne uvedené.
+
+Príklad:
+
+<?php
+$globalnaPremenna = "Som globálna premenná";
+
+function mojaFunkcia() {
+    $lokalnaPremenna = "Som lokálna premenná";
+    echo $lokalnaPremenna; // Prístupná vo vnútri funkcie
+    echo $globalnaPremenna; // Nie je prístupná vo vnútri funkcie
+}
+
+mojaFunkcia();
+echo $globalnaPremenna; // Prístupná mimo funkcie
+echo $lokalnaPremenna;  // Nie je prístupná mimo funkcie
+?>
+
+Ak chceš získať prístup ku globálnej premennej vo vnútri funkcie, použi kľúčové slovo `global`:
+
+<?php
+$globalnaPremenna = "Som globálna premenná";
+
+function mojaFunkcia() {
+    global $globalnaPremenna;
+    echo $globalnaPremenna; // Teraz je prístupná vo funkcii
+}
+
+mojaFunkcia();
+?>
+
+Statické premenné  
+Statické premenné si uchovávajú svoju hodnotu medzi volaniami funkcie. Deklarujú sa pomocou kľúčového slova `static`.
+
+Príklad:
+
+<?php
+function mojePocitadlo() {
+    static $pocet = 0;
+    $pocet++;
+    echo $pocet;
+}
+
+mojePocitadlo(); // Výstup: 1
+mojePocitadlo(); // Výstup: 2
+mojePocitadlo(); // Výstup: 3
+?>
+]]></content>
+                </topic>
+                <topic id="4">
+                    <title>Parametre Funkcie</title>
+                    <content><![CDATA[Parametre funkcie sú premenné, ktoré sa odovzdávajú funkcii pri jej volaní. Umožňujú ti odovzdať údaje do funkcie a prispôsobiť jej správanie. Parametre sa definujú v zátvorkách pri definícii funkcie.
+
+Základná syntax  
+Základná syntax pre definovanie funkcie s parametrami v PHP vyzerá takto:
+
+<?php
+function nazovFunkcie($param1, $param2) {
+    // Kód, ktorý sa má vykonať
+}
+?>
+
+Príklad  
+Tu je príklad funkcie, ktorá prijíma dva parametre a vypíše pozdrav:
+
+<?php
+function pozdrav($krstneMeno, $priezvisko) {
+    echo "Ahoj, $krstneMeno $priezvisko!";
+}
+
+pozdrav("Alice", "Smith"); // Zavolá funkciu a vypíše "Ahoj, Alice Smith!"
+pozdrav("Bob", "Johnson"); // Zavolá funkciu a vypíše "Ahoj, Bob Johnson!"
+?>
+
+Predvolené hodnoty parametrov  
+Môžeš definovať predvolené hodnoty pre parametre. Ak parameter nie je zadaný pri volaní funkcie, použije sa predvolená hodnota.
+
+Príklad:
+
+<?php
+function pozdrav($meno = "Hosť") {
+    echo "Ahoj, $meno!";
+}
+
+pozdrav();        // Zavolá funkciu a vypíše "Ahoj, Hosť!"
+pozdrav("Alice"); // Zavolá funkciu a vypíše "Ahoj, Alice!"
+?>
+
+Prenos hodnotou  
+Predvolene sa parametre funkcie prenášajú hodnotou, čo znamená, že sa do funkcie odovzdáva kópia premennej. Zmeny vykonané na parametri vo vnútri funkcie neovplyvnia pôvodnú premennú.
+
+Príklad:
+
+<?php
+function prictiPat($cislo) {
+    $cislo += 5;
+    echo "Vo funkcii: $cislo<br>";
+}
+
+$hodnota = 10;
+prictiPat($hodnota); // Zavolá funkciu a vypíše "Vo funkcii: 15"
+echo "Mimo funkcie: $hodnota"; // Vypíše "Mimo funkcie: 10"
+?>
+
+Prenos referenciou  
+Môžeš odovzdať parameter referenciou pomocou znaku `&`. To znamená, že funkcia bude pracovať s pôvodnou premennou a zmeny vykonané vo funkcii ovplyvnia pôvodnú hodnotu.
+
+Príklad:
+
+<?php
+function prictiPat(&$cislo) {
+    $cislo += 5;
+    echo "Vo funkcii: $cislo<br>";
+}
+
+$hodnota = 10;
+prictiPat($hodnota); // Zavolá funkciu a vypíše "Vo funkcii: 15"
+echo "Mimo funkcie: $hodnota"; // Vypíše "Mimo funkcie: 15"
+?>
+
+Premenný počet argumentov  
+PHP umožňuje vytvárať funkcie, ktoré prijímajú variabilný počet argumentov pomocou operátora `...` (tzv. "splat"). Je to užitočné, keď vopred nevieš, koľko parametrov bude funkcii odovzdaných.
+
+Príklad:
+
+<?php
+function sucet(...$cisla) {
+    $spolu = 0;
+    foreach ($cisla as $cislo) {
+        $spolu += $cislo;
+    }
+    return $spolu;
+}
+
+echo sucet(1, 2, 3);       // Vypíše "6"
+echo sucet(4, 5, 6, 7);    // Vypíše "22"
+?>
+]]>
+</content>
+                </topic>
+                <topic id="4">
+                    <title>Návratové hodnoty</title>
+                    <content><![CDATA[Funkcie v PHP môžu vracať hodnoty pomocou kľúčového slova `return`. Vrátená hodnota môže byť uložená do premennej alebo priamo použitá vo výrazoch. Vracanie hodnôt z funkcií vám umožňuje posielať dáta späť do volajúceho kódu a používať výsledok v ďalších operáciách.
+
+Základná syntax
+Základná syntax pre vrátenie hodnoty z funkcie v PHP je nasledovná:
+
+<?php
+function názovFunkcie() {
+    // Kód, ktorý sa má vykonať
+    return hodnota;
+}
+?>
+
+Príklad
+
+Tu je príklad funkcie, ktorá vracia súčet dvoch čísel:
+
+<?php
+function sčítaj($a, $b) {
+    return $a + $b;
+}
+
+$súčet = sčítaj(5, 10); // Volá funkciu a ukladá výsledok do $súčet
+echo $súčet; // Vypíše "15"
+?>
+
+V tomto príklade funkcia sčítaj prijíma dva parametre, sčíta ich a vráti výsledok. Vrátená hodnota je potom uložená do premennej $súčet a vypísaná.
+
+Vrátenie viacerých hodnôt
+PHP nepodporuje priame vrátenie viacerých hodnôt, ale môžete to dosiahnuť vrátením poľa alebo objektu.
+
+Príklad použitia poľa:
+
+<?php
+function vypočítaj($a, $b) {
+    $súčet = $a + $b;
+    $rozdiel = $a - $b;
+    return array($súčet, $rozdiel);
+}
+
+list($súčet, $rozdiel) = vypočítaj(10, 5);
+echo "Súčet: $súčet, Rozdiel: $rozdiel"; // Vypíše "Súčet: 15, Rozdiel: 5"
+?>
+
+Príklad použitia objektu:
+
+<?php
+function vypočítaj($a, $b) {
+    $výsledok = new stdClass();
+    $výsledok->súčet = $a + $b;
+    $výsledok->rozdiel = $a - $b;
+    return $výsledok;
+}
+
+$výsledok = vypočítaj(10, 5);
+echo "Súčet: $výsledok->súčet, Rozdiel: $výsledok->rozdiel"; // Vypíše "Súčet: 15, Rozdiel: 5"
+?>
+
+Predčasný návrat
+Kľúčové slovo return môžete použiť na predčasné ukončenie funkcie, ak je splnená určitá podmienka.
+
+Príklad:
+
+<?php
+function deliť($a, $b) {
+    if ($b == 0) {
+        return "Chyba: Delenie nulou!";
+    }
+    return $a / $b;
+}
+
+echo deliť(10, 2); // Vypíše "5"
+echo deliť(10, 0); // Vypíše "Chyba: Delenie nulou!"
+?>
+
+V tomto príklade funkcia kontroluje, či je deliteľ nula a vráti chybovú správu, ak je to pravda. V opačnom prípade vráti výsledok delenia.
+
+Vrátenie referencií
+Z funkcií môžete vracať referencie pomocou symbolu &. To vám umožňuje vrátiť referenciu na premennú, nie kópiu jej hodnoty.
+
+Príklad:
+
+<?php
+function &getHodnota(&$var) {
+    return $var;
+}
+
+$hodnota = 10;
+$ref = &getHodnota($hodnota);
+$ref = 20;
+echo $hodnota; // Vypíše "20"
+?>
+
+V tomto príklade funkcia getHodnota vracia referenciu na premennú $hodnota. Zmeny vykonané na premennej $ref ovplyvňujú aj pôvodnú premennú $hodnota.]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="5">
+            <title>Pokročilé PHP</title>
+            <topics>
+                <topic id="5">
+                    <title>Triedy a objekty</title>
+                    <content><![CDATA[Objektovo orientované programovanie (OOP) je programovacia paradigma, ktorá používa objekty a triedy na štruktúrovanie kódu. PHP podporuje OOP, čo vám umožňuje vytvárať triedy a objekty na efektívnejšiu organizáciu a správu vášho kódu.
+
+Triedy
+Trieda je šablóna pre vytváranie objektov. Definuje vlastnosti (premenné) a metódy (funkcie), ktoré budú mať objekty vytvorené z triedy.
+
+Príklad definície triedy:
+
+<?php
+class Auto {
+    // Vlastnosti
+    public $značka;
+    public $model;
+
+    // Konštruktor
+    public function __construct($značka, $model) {
+        $this->značka = $značka;
+        $this->model = $model;
+    }
+
+    // Metóda
+    public function zobraz() {
+        echo "Auto: " . $this->značka . " " . $this->model;
+    }
+}
+?>
+
+V tomto príklade má trieda Auto dve vlastnosti ($značka a $model) a metódu (zobraz). Metóda konštruktora (__construct) je volaná pri vytvorení objektu z triedy.
+
+Objekty
+Objekt je inštancia triedy. Z jednej triedy môžete vytvoriť viacero objektov, pričom každý má svoj vlastný súbor vlastností a metód.
+
+Príklad vytvárania objektov:
+
+<?php
+// Vytvorenie objektov
+$auto1 = new Auto("Toyota", "Corolla");
+$auto2 = new Auto("Honda", "Civic");
+
+// Volanie metód
+$auto1->zobraz(); // Vypíše: Auto: Toyota Corolla
+$auto2->zobraz(); // Vypíše: Auto: Honda Civic
+?>
+
+V tomto príklade sú z triedy Auto vytvorené dva objekty ($auto1 a $auto2) a pre každý objekt je volaná metóda zobraz.
+
+Modifikátory prístupu
+Modifikátory prístupu definujú viditeľnosť vlastností a metód. PHP podporuje tri modifikátory prístupu:
+
+public: K vlastnosti alebo metóde je možné pristupovať odkiaľkoľvek.
+protected: K vlastnosti alebo metóde je možné pristupovať v rámci triedy a triedami odvodenými z tejto triedy.
+private: K vlastnosti alebo metóde je možné pristupovať iba v rámci triedy.
+
+Príklad:
+
+<?php
+class Auto {
+    public $značka;
+    protected $model;
+    private $rok;
+
+    public function __construct($značka, $model, $rok) {
+        $this->značka = $značka;
+        $this->model = $model;
+        $this->rok = $rok;
+    }
+
+    public function zobraz() {
+        echo "Auto: " . $this->značka . " " . $this->model . " " . $this->rok;
+    }
+}
+?>
+
+V tomto príklade je vlastnosť značka verejná (public), vlastnosť model je chránená (protected) a vlastnosť rok je súkromná (private).
+
+Dedičnosť
+Dedičnosť umožňuje triede zdediť vlastnosti a metódy z inej triedy. Trieda, ktorá dedí, sa nazýva podtrieda (detská trieda), a trieda, od ktorej sa dedí, sa nazýva nadtrieda (rodičovská trieda).
+
+Príklad:
+
+<?php
+class Vozidlo {
+    public $značka;
+    public $model;
+
+    public function __construct($značka, $model) {
+        $this->značka = $značka;
+        $this->model = $model;
+    }
+
+    public function zobraz() {
+        echo "Vozidlo: " . $this->značka . " " . $this->model;
+    }
+}
+
+class Auto extends Vozidlo {
+    public $rok;
+
+    public function __construct($značka, $model, $rok) {
+        parent::__construct($značka, $model);
+        $this->rok = $rok;
+    }
+
+    public function zobraz() {
+        echo "Auto: " . $this->značka . " " . $this->model . " " . $this->rok;
+    }
+}
+
+$auto = new Auto("Toyota", "Corolla", 2020);
+$auto->zobraz(); // Vypíše: Auto: Toyota Corolla 2020
+?>
+
+V tomto príklade trieda Auto dedí z triedy Vozidlo a pridáva novú vlastnosť ($rok) a prepíše metódu zobraz.]]>
+</content>
+                </topic>
+                <topic id="5">
+                    <title>Moduly a menné priestory</title>
+                    <content><![CDATA[Moduly a menné priestory sú základné funkcie v PHP, ktoré pomáhajú efektívnejšie organizovať a spravovať váš kód. Umožňujú zoskupiť súvisiace triedy, funkcie a konštanty a vyhnúť sa konfliktom názvov.
+
+Menné priestory
+Menné priestory (namespaces) sú spôsob, ako zapuzdriť položky ako triedy, rozhrania, funkcie a konštanty. Pomáhajú predchádzať kolíziám názvov a robia váš kód modulárnejším a ľahšie udržiavateľným.
+
+Definovanie menného priestoru
+Na definovanie menného priestoru použite kľúčové slovo namespace na začiatku vášho PHP súboru.
+
+Príklad:
+
+<?php
+namespace MojProjekt;
+
+class MojaTrieda {
+    public function mojaMetoda() {
+        echo "Ahoj z MojaTrieda!";
+    }
+}
+?>
+
+V tomto príklade je trieda MojaTrieda definovaná v rámci menného priestoru MojProjekt.
+
+Používanie menných priestorov
+Na použitie triedy, funkcie alebo konštanty z menného priestoru môžete použiť kľúčové slovo use.
+
+Príklad:
+
+<?php
+namespace MojProjekt;
+
+class MojaTrieda {
+    public function mojaMetoda() {
+        echo "Ahoj z MojaTrieda!";
+    }
+}
+?>
+
+<?php
+use MojProjekt\MojaTrieda;
+
+$obj = new MojaTrieda();
+$obj->mojaMetoda(); // Vypíše: Ahoj z MojaTrieda!
+?>
+
+V tomto príklade sa trieda MojaTrieda z menného priestoru MojProjekt používa v inom PHP súbore.
+
+Aliasy menných priestorov
+Môžete vytvoriť alias pre menný priestor pomocou kľúčového slova as. To je užitočné, keď máte dlhé alebo komplexné názvy menných priestorov.
+
+Príklad:
+
+<?php
+namespace MojProjekt\SubMennyPriestor;
+
+class MojaTrieda {
+    public function mojaMetoda() {
+        echo "Ahoj z MojaTrieda!";
+    }
+}
+?>
+
+<?php
+use MojProjekt\SubMennyPriestor\MojaTrieda as AliasTrieda;
+
+$obj = new AliasTrieda();
+$obj->mojaMetoda(); // Vypíše: Ahoj z MojaTrieda!
+?>
+
+V tomto príklade je trieda MojaTrieda z menného priestoru MojProjekt\SubMennyPriestor označená ako AliasTrieda.
+
+Vnorené menné priestory
+Menné priestory môžu byť vnorené na vytvorenie hierarchickej štruktúry.
+
+Príklad:
+
+<?php
+namespace MojProjekt\SubMennyPriestor;
+
+class MojaTrieda {
+    public function mojaMetoda() {
+        echo "Ahoj z MojaTrieda!";
+    }
+}
+?>
+
+<?php
+namespace MojProjekt\InyMennyPriestor;
+
+class InaTrieda {
+    public function inaMetoda() {
+        echo "Ahoj z InaTrieda!";
+    }
+}
+?>
+
+V tomto príklade sú dve triedy definované v rôznych vnorených menných priestoroch.
+
+Globálny menný priestor
+Ak potrebujete pristupovať k triede, funkcii alebo konštante z globálneho menného priestoru, môžete použiť predponu spätného lomítka (\).
+
+Príklad:
+
+<?php
+namespace MojProjekt;
+
+class MojaTrieda {
+    public function mojaMetoda() {
+        echo \strlen("Ahoj"); // Volá globálnu funkciu strlen
+    }
+}
+?>
+
+V tomto príklade je funkcia strlen z globálneho menného priestoru volaná v rámci triedy MojaTrieda.]]></content>
+                </topic>
+                <topic id="5">
+                    <title>Spracovanie výnimiek</title>
+                    <content><![CDATA[Spracovanie výnimiek je mechanizmus, ktorý vám umožňuje elegantne spravovať chyby a výnimočné stavy vo vašom kóde. Namiesto toho, aby váš program spadol pri výskyte chyby, môžete zachytiť výnimky a vhodne ich spracovať.
+
+Základná syntax
+V PHP môžete na spracovanie výnimiek použiť bloky try, catch a finally. Základná syntax je nasledovná:
+
+<?php
+try {
+    // Kód, ktorý môže vyhodiť výnimku
+} catch (Exception $e) {
+    // Kód na spracovanie výnimky
+} finally {
+    // Kód, ktorý sa vždy vykoná, bez ohľadu na to, či bola vyhodená výnimka
+}
+?>
+
+Príklad:
+
+Tu je príklad spracovania výnimiek v PHP:
+
+<?php
+function vydeliť($a, $b) {
+    if ($b == 0) {
+        throw new Exception("Chyba: delenie nulou!");
+    }
+    return $a / $b;
+}
+
+try {
+    echo vydeliť(10, 2); // Vypíše: 5
+    echo vydeliť(10, 0); // Vyhodí výnimku
+} catch (Exception $e) {
+    echo "Zachytená výnimka: " . $e->getMessage();
+} finally {
+    echo "Toto sa vždy vykoná.";
+}
+?>
+
+V tomto príklade funkcia vydeliť vyhodí výnimku, ak je deliteľ nula. Blok try obsahuje kód, ktorý môže vyhodiť výnimku, a blok catch spracováva výnimku vypísaním chybovej správy. Blok finally obsahuje kód, ktorý sa vždy vykoná, bez ohľadu na to, či bola vyhodená výnimka.
+
+Vlastné triedy výnimiek
+Môžete vytvoriť vlastné triedy výnimiek rozšírením vbudovanej triedy Exception. To vám umožňuje definovať vlastné typy výnimiek a spracovávať ich rôzne.
+
+Príklad:
+
+<?php
+class VlastnáVýnimka extends Exception {
+    public function chybováSpráva() {
+        return "Chyba na riadku " . $this->getLine() . " v " . $this->getFile() . ": " . $this->getMessage();
+    }
+}
+
+try {
+    throw new VlastnáVýnimka("Vyskytla sa vlastná chyba!");
+} catch (VlastnáVýnimka $e) {
+    echo $e->chybováSpráva();
+}
+?>
+
+V tomto príklade trieda VlastnáVýnimka rozširuje triedu Exception a pridáva vlastnú metódu chybovej správy. Blok try vyhadzuje VlastnáVýnimka a blok catch ju spracováva volaním vlastnej metódy chybovej správy.
+
+Viacnásobné bloky catch
+Môžete použiť viacero blokov catch na oddelené spracovanie rôznych typov výnimiek.
+
+Príklad:
+
+<?php
+class VýnimkaDeleniaNulou extends Exception {}
+class VýnimkaNeplatnéhoArgumentu extends Exception {}
+
+function vydeliť($a, $b) {
+    if ($b == 0) {
+        throw new VýnimkaDeleniaNulou("Chyba: delenie nulou!");
+    }
+    if (!is_numeric($a) || !is_numeric($b)) {
+        throw new VýnimkaNeplatnéhoArgumentu("Chyba: neplatný argument!");
+    }
+    return $a / $b;
+}
+
+try {
+    echo vydeliť(10, 2); // Vypíše: 5
+    echo vydeliť(10, 0); // Vyhodí VýnimkaDeleniaNulou
+} catch (VýnimkaDeleniaNulou $e) {
+    echo "Zachytená VýnimkaDeleniaNulou: " . $e->getMessage();
+} catch (VýnimkaNeplatnéhoArgumentu $e) {
+    echo "Zachytená VýnimkaNeplatnéhoArgumentu: " . $e->getMessage();
+} catch (Exception $e) {
+    echo "Zachytená Exception: " . $e->getMessage();
+}
+?>
+
+V tomto príklade môže funkcia vydeliť vyhodiť rôzne typy výnimiek. Blok try obsahuje kód, ktorý môže vyhodiť výnimku, a viacero blokov catch spracováva každý typ výnimky samostatne.]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+    </sections>
+    <quizes>
+        <quiz id="1">
+            <question id="1">
+                <text>Aký je hlavný účel PHP, ako je popísaný v úvode?</text>
+                <answers id="1">
+                    <answer correct="true">Je to skriptovací jazyk navrhnutý pre vývoj webových stránok</answer>
+                    <answer correct="false">Je to systém na správu databáz</answer>
+                    <answer correct="false">Je to front-end framework</answer>
+                    <answer correct="false">Je to operačný systém</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Ktoré nástroje sú spomenuté pre nastavenie lokálneho PHP vývojového prostredia?</text>
+                <answers id="1">
+                    <answer correct="false">NodeJS a React</answer>
+                    <answer correct="false">Docker a Kubernetes</answer>
+                    <answer correct="true">XAMPP, WAMP a MAMP</answer>
+                    <answer correct="false">Eclipse a NetBeans</answer>
+                </answers>
+            </question>
+
+            <question id="1">
+                <text>Ako sa deklarujú premenné v PHP?</text>
+                <answers id="1">
+                    <answer correct="false">Pomocou kľúčového slova 'var'</answer>
+                    <answer correct="false">Pomocou kľúčového slova 'let'</answer>
+                    <answer correct="false">Pomocou kľúčového slova 'dim'</answer>
+                    <answer correct="true">Pomocou symbolu '$'</answer>
+                </answers>
+            </question>
+
+            <question id="1">
+                <text>Ktorý z týchto je platný spôsob vloženia PHP kódu do HTML?</text>
+                <answers id="1">
+                    <answer correct="true"><![CDATA[<?php ... ?>]]></answer>
+                    <answer correct="false"><![CDATA[<script php> ... </script>]]></answer>
+                    <answer correct="false"><![CDATA[<php> ... </php>]]></answer>
+                    <answer correct="false"><![CDATA[[php] ... [/php]]]></answer>
+                </answers>
+            </question>
+
+            <question id="1">
+                <text>Kto vytvoril PHP a v ktorom roku?</text>
+                <answers id="1">
+                    <answer correct="true">Rasmus Lerdorf v roku 1994</answer>
+                    <answer correct="false">Tim Berners-Lee v roku 1991</answer>
+                    <answer correct="false">Brendan Eich v roku 1995</answer>
+                    <answer correct="false">James Gosling v roku 1996</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="2">
+            <question id="2">
+                <text>Čo sa stane s hodnotou statickej premennej medzi volaniami funkcie v PHP?</text>
+                <answers id="2">
+                    <answer correct="true">Zachová si svoju hodnotu medzi volaniami funkcie</answer>
+                    <answer correct="false">Resetuje sa na nulu zakaždým</answer>
+                    <answer correct="false">Stane sa nedefinovanou</answer>
+                    <answer correct="false">Prekonvertuje sa na reťazec</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Ktorý z týchto predstavuje správny spôsob deklarácie konštanty v PHP?</text>
+                <answers id="2">
+                    <answer correct="false">$PI = 3.14159;</answer>
+                    <answer correct="false">constant PI = 3.14159;</answer>
+                    <answer correct="true">define("PI", 3.14159);</answer>
+                    <answer correct="false">let PI = 3.14159;</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Aký je výsledok použitia operátora totožnosti (===) na porovnanie 5 a "5" v PHP?</text>
+                <answers id="2">
+                    <answer correct="false">true</answer>
+                    <answer correct="true">false</answer>
+                    <answer correct="false">null</answer>
+                    <answer correct="false">undefined</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Ktorý operátor by ste použili na zvýšenie premennej o 1 v PHP?</text>
+                <answers id="2">
+                    <answer correct="false">+=1</answer>
+                    <answer correct="false">add++</answer>
+                    <answer correct="true">++</answer>
+                    <answer correct="false">+1</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Aký je rozsah platnosti premennej deklarovanej vo vnútri PHP funkcie?</text>
+                <answers id="2">
+                    <answer correct="true">Lokálny iba pre túto funkciu</answer>
+                    <answer correct="false">Globálny v celom skripte</answer>
+                    <answer correct="false">Dostupný pre všetky funkcie</answer>
+                    <answer correct="false">Prístupný kdekoľvek v triede</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="3">
+            <question id="3">
+                <text>Aký je správny spôsob zápisu základného if-else príkazu v PHP?</text>
+                <answers id="3">
+                    <answer correct="true">if ($age >= 18) { echo "Dospelý"; } else { echo "Maloletý"; }</answer>
+                    <answer correct="false">if ($age >= 18): echo "Dospelý" else: echo "Maloletý" endif;</answer>
+                    <answer correct="false">when ($age >= 18) { print "Dospelý" } otherwise { print "Maloletý" }</answer>
+                    <answer correct="false">if $age >= 18 then echo "Dospelý" else echo "Maloletý" end</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Čo sa stane v príkaze switch, ak zabudnete uviesť príkaz 'break' po case?</text>
+                <answers id="3">
+                    <answer correct="true">Kód bude pokračovať vo vykonávaní do ďalšieho case</answer>
+                    <answer correct="false">Príkaz switch vyhodí chybu</answer>
+                    <answer correct="false">Kód sa automaticky zastaví na konci case</answer>
+                    <answer correct="false">Vykoná sa default case</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Ktorý cyklus v PHP sa zaručene vykoná aspoň raz?</text>
+                <answers id="3">
+                    <answer correct="false">while cyklus</answer>
+                    <answer correct="false">for cyklus</answer>
+                    <answer correct="true">do-while cyklus</answer>
+                    <answer correct="false">foreach cyklus</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Aký je účel príkazu 'continue' v PHP cykle?</text>
+                <answers id="3">
+                    <answer correct="false">Úplne ukončiť cyklus</answer>
+                    <answer correct="false">Reštartovať cyklus od začiatku</answer>
+                    <answer correct="true">Preskočiť aktuálnu iteráciu a pokračovať s ďalšou</answer>
+                    <answer correct="false">Dočasne pozastaviť vykonávanie cyklu</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Ktorý je platný spôsob zápisu ternárneho operátora v PHP?</text>
+                <answers id="3">
+                    <answer correct="true">$message = ($age >= 18) ? "Dospelý" : "Maloletý";</answer>
+                    <answer correct="false">$message = if($age >= 18) ? "Dospelý" | "Maloletý";</answer>
+                    <answer correct="false">$message = ($age >= 18) -> "Dospelý" : "Maloletý";</answer>
+                    <answer correct="false">$message = ($age >= 18) then "Dospelý" else "Maloletý";</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="4">
+            <question id="4">
+                <text>Aký je správny spôsob definovania funkcie s predvolenou hodnotou parametra v PHP?</text>
+                <answers id="4">
+                    <answer correct="true">function pozdrav($meno = "Hosť") { echo "Ahoj, $meno!"; }</answer>
+                    <answer correct="false">function pozdrav($meno : "Hosť") { echo "Ahoj, $meno!"; }</answer>
+                    <answer correct="false">function pozdrav($meno || "Hosť") { echo "Ahoj, $meno!"; }</answer>
+                    <answer correct="false">function pozdrav($meno default "Hosť") { echo "Ahoj, $meno!"; }</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Aký symbol sa používa pri odovzdávaní parametra pomocou referencie v PHP?</text>
+                <answers id="4">
+                    <answer correct="false">*</answer>
+                    <answer correct="true"><![CDATA[& ]]></answer>
+                    <answer correct="false">@</answer>
+                    <answer correct="false">$</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Čo sa stane so statickou premennou v PHP funkcii medzi volaniami funkcie?</text>
+                <answers id="4">
+                    <answer correct="false">Resetuje sa na svoju počiatočnú hodnotu</answer>
+                    <answer correct="false">Stane sa nedefinovanou</answer>
+                    <answer correct="true">Zachová si svoju poslednú hodnotu</answer>
+                    <answer correct="false">Konvertuje sa na null</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Ktorý operátor sa používa na vytvorenie funkcie, ktorá prijíma premenný počet argumentov v PHP?</text>
+                <answers id="4">
+                    <answer correct="false">*</answer>
+                    <answer correct="false">++</answer>
+                    <answer correct="false"><![CDATA[&& ]]></answer>
+                    <answer correct="true">...</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Aký je rozsah platnosti premennej deklarovanej vo vnútri PHP funkcie bez použitia kľúčového slova 'global'?</text>
+                <answers id="4">
+                    <answer correct="true">Lokálny iba pre túto funkciu</answer>
+                    <answer correct="false">Globálny v celom skripte</answer>
+                    <answer correct="false">Prístupný vo všetkých funkciách</answer>
+                    <answer correct="false">Dostupný v celom aktuálnom súbore</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="5">
+            <question id="5">
+                <text>Aké sú tri modifikátory prístupu dostupné v PHP pre vlastnosti a metódy tried?</text>
+                <answers id="5">
+                    <answer correct="true">public, protected a private</answer>
+                    <answer correct="false">global, local a protected</answer>
+                    <answer correct="false">public, private a static</answer>
+                    <answer correct="false">open, closed a restricted</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Ktoré kľúčové slovo sa používa na vytvorenie novej inštancie triedy v PHP?</text>
+                <answers id="5">
+                    <answer correct="false">create</answer>
+                    <answer correct="false">instance</answer>
+                    <answer correct="true">new</answer>
+                    <answer correct="false">class</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Aký je hlavný účel menných priestorov (namespaces) v PHP?</text>
+                <answers id="5">
+                    <answer correct="false">Zlepšiť výkon kódu</answer>
+                    <answer correct="false">Vytvoriť privátne premenné</answer>
+                    <answer correct="true">Zabrániť kolíziám názvov a organizovať kód</answer>
+                    <answer correct="false">Implementovať dedičnosť</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Pri spracovaní výnimiek v PHP, ktorý blok sa vždy vykoná bez ohľadu na to, či bola vyhodená výnimka?</text>
+                <answers id="5">
+                    <answer correct="false">try</answer>
+                    <answer correct="false">catch</answer>
+                    <answer correct="true">finally</answer>
+                    <answer correct="false">throw</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Aký je správny spôsob definovania vlastnej triedy výnimky v PHP?</text>
+                <answers id="5">
+                    <answer correct="true">class CustomException extends Exception</answer>
+                    <answer correct="false">class CustomException implements Exception</answer>
+                    <answer correct="false">class CustomException uses Exception</answer>
+                    <answer correct="false">class CustomException inherits Exception</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="6">
+            <question id="6">
+                <text>Aký je hlavný účel PHP, ako je popísaný v úvode?</text>
+                <answers id="6">
+                    <answer correct="true">Je to skriptovací jazyk navrhnutý pre vývoj webových stránok</answer>
+                    <answer correct="false">Je to systém správy databáz</answer>
+                    <answer correct="false">Je to front-end framework</answer>
+                    <answer correct="false">Je to operačný systém</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký symbol musí byť použitý pred názvami premenných v PHP?</text>
+                <answers id="6">
+                    <answer correct="true">$</answer>
+                    <answer correct="false">#</answer>
+                    <answer correct="false">@</answer>
+                    <answer correct="false"><![CDATA[&]]></answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je správny spôsob začatia bloku kódu PHP?</text>
+                <answers id="6">
+                    <answer correct="true"><![CDATA[<?php]]></answer>
+                    <answer correct="false"><![CDATA[<php>]]></answer>
+                    <answer correct="false"><![CDATA[<script php>]]></answer>
+                    <answer correct="false"><![CDATA[<start php>]]></answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorá z týchto možností je platný spôsob vytvorenia konštanty v PHP?</text>
+                <answers id="6">
+                    <answer correct="true">define("PI", 3.14159)</answer>
+                    <answer correct="false">constant PI = 3.14159</answer>
+                    <answer correct="false">$PI = const(3.14159)</answer>
+                    <answer correct="false">const = PI(3.14159)</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je správny spôsob vytvorenia funkcie v PHP?</text>
+                <answers id="6">
+                    <answer correct="true">function myFunction() {}</answer>
+                    <answer correct="false">new function myFunction() {}</answer>
+                    <answer correct="false">def myFunction() {}</answer>
+                    <answer correct="false">create function myFunction() {}</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorý typ cyklu v PHP sa vykoná aspoň raz?</text>
+                <answers id="6">
+                    <answer correct="true">do-while</answer>
+                    <answer correct="false">while</answer>
+                    <answer correct="false">for</answer>
+                    <answer correct="false">foreach</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je správny spôsob vytvorenia objektu z triedy v PHP?</text>
+                <answers id="6">
+                    <answer correct="true">$obj = new MyClass();</answer>
+                    <answer correct="false">$obj = create MyClass();</answer>
+                    <answer correct="false">$obj = class MyClass();</answer>
+                    <answer correct="false">$obj = construct MyClass();</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorý modifikátor prístupu v PHP robí členov triedy prístupnými len v rámci deklarujúcej triedy?</text>
+                <answers id="6">
+                    <answer correct="true">private</answer>
+                    <answer correct="false">public</answer>
+                    <answer correct="false">protected</answer>
+                    <answer correct="false">internal</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ako správne spracovať výnimky v PHP?</text>
+                <answers id="6">
+                    <answer correct="true">try { } catch (Exception $e) { }</answer>
+                    <answer correct="false">try { } except Exception { }</answer>
+                    <answer correct="false">try { } catch { }</answer>
+                    <answer correct="false">try { } finally { }</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorý operátor sa používa na spájanie reťazcov v PHP?</text>
+                <answers id="6">
+                    <answer correct="true">.</answer>
+                    <answer correct="false">+</answer>
+                    <answer correct="false"><![CDATA[&]]></answer>
+                    <answer correct="false">,</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je správny spôsob definovania menného priestoru (namespace) v PHP?</text>
+                <answers id="6">
+                    <answer correct="true">namespace MyProject;</answer>
+                    <answer correct="false">using namespace MyProject;</answer>
+                    <answer correct="false">define namespace MyProject;</answer>
+                    <answer correct="false">package MyProject;</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorá superglobálna premenná v PHP sa používa na zhromažďovanie údajov z formulára po odoslaní HTML formulára s method="post"?</text>
+                <answers id="6">
+                    <answer correct="true">$_POST</answer>
+                    <answer correct="false">$_GET</answer>
+                    <answer correct="false">$GLOBALS</answer>
+                    <answer correct="false">$_REQUEST</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ako odovzdáte premennú odkazom (by reference) v parametri funkcie?</text>
+                <answers id="6">
+                    <answer correct="true"><![CDATA[&$variable]]></answer>
+                    <answer correct="false">*$variable</answer>
+                    <answer correct="false">@$variable</answer>
+                    <answer correct="false">ref $variable</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorý príkaz sa používa na predčasné ukončenie cyklu v PHP?</text>
+                <answers id="6">
+                    <answer correct="true">break;</answer>
+                    <answer correct="false">exit;</answer>
+                    <answer correct="false">stop;</answer>
+                    <answer correct="false">return;</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je účel kľúčového slova final v PHP?</text>
+                <answers id="6">
+                    <answer correct="true">Zabrániť dedičnosti triedy</answer>
+                    <answer correct="false">Ukončiť vykonávanie skriptu</answer>
+                    <answer correct="false">Vyhlásiť konštantnú premennú</answer>
+                    <answer correct="false">Uzavrieť pripojenie k databáze</answer>
+                </answers>
+            </question>
+        </quiz>
+    </quizes>
+</course>

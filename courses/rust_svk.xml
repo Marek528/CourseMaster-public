@@ -1,0 +1,1810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course>
+    <title>Programovanie Rust</title>
+    <img src="img/rust_svk.png" alt="Rust Programming"/>
+    <sections>
+        <section id="1">
+            <title>Úvod do Rustu</title>
+            <topics>
+                <topic id="1">
+                    <title>Čo je Rust?</title>
+                    <content>Rust je systémový programovací jazyk, ktorý pôvodne vyvinul Mozilla Research, s verziou 1.0 vydanou v roku 2015. Vytvoril ho Graydon Hoare a neskôr ho vyvinul tím Rust, rieši mnohé výzvy, ktorým vývojári čelia pri jazykoch nižšej úrovne, ako sú C a C++. Rust je od základov navrhnutý tak, aby poskytoval bezpečnosť pamäte bez obetovania výkonu.
+
+Na rozdiel od mnohých iných programovacích jazykov, Rust presadzuje bezpečnosť pamäte prostredníctvom svojho jedinečného systému vlastníctva. To znamená, že programy Rust nemôžu zaznamenať zlyhania v dôsledku visiacich ukazovateľov, pretečenia vyrovnávacej pamäte alebo iných chýb súvisiacich s pamäťou, ktoré trápia aplikácie v C a C++. Kompilátor zachytí tieto problémy skôr v čase kompilácie ako v čase behu, čím poskytuje bezpečnosť aj efektivitu.
+
+Hrdza vyniká v situáciách, kde je rozhodujúci vysoký výkon. Dosahuje rýchlosti porovnateľné s C a C++ a zároveň poskytuje funkcie moderného jazyka, ako je porovnávanie vzorov, odvodzovanie typu a abstrakcie s nulovými nákladmi. Vďaka tomu je Rust vhodný pre výkonovo kritické aplikácie, ako sú herné motory, operačné systémy, komponenty prehliadačov a vstavané systémy.
+
+Jednou z výnimočných vlastností Rustu je jeho súbežný model. Systém vlastníctva a kontrola typu pomáhajú predchádzať pretekom údajov a iným chybám súbežnosti v čase kompilácie. To znamená, že môžete písať viacvláknový kód s istotou, že nebude mať bežné úskalia súbežného programovania.
+
+Ekosystém Rust rýchlo rastie so správcom balíkov s názvom Cargo a úložiskom komunitných balíkov s názvom crates.io. Veľké spoločnosti ako Microsoft, Google, Amazon a Dropbox prijali Rust pre rôzne projekty. Mozilla použila Rust na vývoj Servo, experimentálneho prehliadača, ktorý ovplyvnil Firefox. Amazon Web Services používa Rust pre komponenty kritické pre výkon a Microsoft skúmal Rust pre systémové programovanie na zlepšenie bezpečnosti.
+
+Rust má v porovnaní s jazykmi ako Python strmú krivku učenia, predovšetkým kvôli svojmu modelu vlastníctva a prísnemu kompilátoru. Táto investícia sa však vypláca vďaka vysoko spoľahlivému a efektívnemu kódu. Kompilátor poskytuje podrobné chybové hlásenia, ktoré vás vedú k vyriešeniu problémov, vďaka čomu je proces učenia lepšie zvládnuteľný.
+
+Komunita Rust je hrdá na to, že je ústretová a nápomocná. Oficiálna dokumentácia, známa ako „Kniha“, je komplexná a voľne dostupná online. Existujú aj aktívne fóra, vyhradený subreddit a mnoho kanálov Discord, kde môžu začiatočníci získať pomoc.</content>
+                </topic>
+                <topic id="1">
+                    <title>Inštalácia Rustu</title>
+                    <content>Inštalácia Rustu na váš počítač je jednoduchá vďaka rustup, oficiálnemu inštalačnému programu Rust toolchain. Tento nástroj spravuje kompletné vývojové prostredie Rust bez ohľadu na váš operačný systém.
+            
+For Windows users:
+1. Navštívte oficiálnu webovú stránku Rust (https://www.rust-lang.org/tools/install)
+2. Stiahnite si súbor rustup-init.exe
+3. Spustite inštalačný program
+4. Postupujte podľa pokynov na obrazovke a prijmite predvolené nastavenia pre štandardnú inštaláciu
+5. Po inštalácii reštartujte príkazový riadok
+
+Pri inštalácii Rust na Windows budete možno potrebovať nástroje na zostavenie Microsoft C++. Ak inštalátor zistí, že chýbajú, poskytne pokyny na ich inštaláciu. Po inštalácii otvorte príkazový riadok alebo PowerShell a overte inštaláciu pomocou týchto príkazov:
+
+rustc --version
+cargo --version
+
+
+Pre používateľov systémov MacOS a Linux sa inštalácia zvyčajne vykonáva prostredníctvom terminálu:
+1. Otvorte okno terminálu
+2. Spustite nasledujúci príkaz:
+   
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   
+3. Postupujte podľa pokynov a vyberte predvolenú možnosť inštalácie
+4. Spustite `source $HOME/.cargo/env` alebo reštartujte svoj terminál
+
+Inštalácia Rust obsahuje niekoľko dôležitých komponentov:
+- `rustc`: Kompilátor Rust, ktorý premení váš kód Rust na spustiteľné programy
+- `cargo`: Správca balíkov a zostavovací systém pre projekty Rust
+- `rustup`: Samotný inštalátor toolchainu, ktorý vám umožňuje spravovať verzie Rust
+- Štandardná dokumentácia knižnice, ku ktorej máte prístup offline
+
+Po inštalácii Rustu by ste sa mali zoznámiť s možnosťami projektového manažmentu Cargo. Na vytvorenie nového projektu môžete použiť:
+
+cargo new my_project
+
+
+Tým sa vytvorí nový adresár so základnou štruktúrou projektu, vrátane súboru `Cargo.toml` (podobný požiadavkám Pythonu.txt) a adresára src so súborom main.rs.
+
+Bežné problémy, s ktorými sa môžete stretnúť počas inštalácie:
+- Problémy s cestou: Uistite sa, že binárne súbory Rust sú vo vašom systéme PATH
+- Problémy s povoleniami: Možno budete potrebovať administrátorské práva v systéme Windows alebo `sudo` v systémoch založených na Unixe
+- Problémy so sieťou: Počas inštalácie sa uistite, že máte stabilné internetové pripojenie
+- Konflikty Toolchain: Ak vyvíjate s viacerými verziami Rust, naučte sa používať `rustup` na prepínanie medzi nimi
+
+Pre správu závislostí vo vašich projektoch Cargo zjednodušuje pridávanie externých knižníc. Stačí upraviť súbor `Cargo.toml` a pridať závislosti a potom spustiť `cargo build`, aby ste ich stiahli a skompilovali.
+
+Na rozdiel od virtuálnych prostredí Pythonu, Rust zvláda závislosti na projektovej úrovni cez Cargo. Každý projekt má svoj vlastný súbor `Cargo.toml` špecifikujúci jeho závislosti a Cargo zaisťuje, že sú správne spravované bez konfliktu s inými projektmi.</content>
+                </topic>
+                <topic id="1">
+                    <title>Ekosystém and Komunita</title>
+<content>Ekosystém Rust sa od stabilného vydania jazyka výrazne rozrástol a poskytuje vývojárom rozsiahlu kolekciu nástrojov, knižníc a zdrojov. Pochopenie tohto ekosystému je kľúčové pre to, aby ste sa stali efektívnym programátorom Rust.
+
+V centre Rustovho ekosystému je Cargo, Rustov správca balíkov a zostavovací systém. Cargo sa stará o správu závislostí, kompiláciu, testovanie, generovanie dokumentácie a dokonca aj publikovanie vašich vlastných balíkov. Na rozdiel od správcov balíkov v niektorých iných jazykoch sa Cargo hlboko integruje do vývojového pracovného postupu Rust:
+
+cargo build    # Compile your project
+cargo run      # Run your program
+cargo test     # Run tests
+cargo doc      # Generate documentation
+cargo publish  # Share your library on crates.io
+
+
+Crates.io je centrálny register balíkov spoločnosti Rust, kde vývojári zdieľajú knižnice s otvoreným zdrojom (nazývané „prepravky“). Od roku 2024 hostí viac ako 100 000 balíkov pokrývajúcich oblasti od vývoja webu až po vstavané systémy. Medzi najobľúbenejšie prepravky patria:
+- serde: Pre serializáciu a deserializáciu
+- tokio: Asynchrónny runtime pre sieťové aplikácie
+- actix-web: Výkonný webový rámec
+- diesel: tvorca ORM a dotazov
+- raketa: Webový rámec zameraný na jednoduchosť použitia
+- rayon: Pre paralelné výpočty
+
+Štandardná knižnica Rust je zámerne minimálna a zameriava sa skôr na základné funkcie než na poskytovanie riešení pre každý prípad použitia. Táto filozofia dizajnu podporuje živý ekosystém špecializovaných, dobre udržiavaných prepraviek, ktoré si používatelia môžu vybrať na základe svojich špecifických potrieb.
+
+Dokumentačný ekosystém Rustu je výnimočný. Každý projekt vytvorený pomocou Cargo dokáže vytvoriť dokumentáciu profesionálnej kvality jednoduchým príkazom. Táto dokumentácia zahŕňa:
+- Signatúry a popisy funkcií
+- Príklady, ktoré sa testujú automaticky
+- Vzťahy medzi modulmi a hierarchia typov
+- Prehľadateľné indexy a krížové odkazy
+
+Okrem kódu a dokumentácie vyvinul Rust silnú komunitu, ktorá je známa tým, že je vítaná a nápomocná. Medzi kľúčové zdroje komunity patria:
+- Kniha Rust Programming Language (s láskavým názvom "The Book"): Oficiálna príručka pre začiatočníkov
+- Rust by Example: Zbierka spustiteľných príkladov demonštrujúcich koncepty Rust
+- This Week in Rust: Týždenný bulletin, ktorý sumarizuje vývoj vo svete Rust
+- Kurz Rustlings: Interaktívne cvičenia na učenie sa hrdze
+- Fórum Rust a r/rust subreddit: Miesta, kde môžete klásť otázky a diskutovať o témach Rust
+
+Vývoj Rustu riadia tímy zamerané na rôzne aspekty jazyka a ekosystému. Tieto tímy pracujú otvorene a diskutujú o návrhoch prostredníctvom Request for Comments (RFC), kde sa môžu zúčastniť členovia komunity. Tento model riadenia zaisťuje, že sa Rust vyvíja spôsobmi, z ktorých majú úžitok jeho používatelia, a nie podľa agendy jednej spoločnosti.
+
+Nadácia Rust, založená v roku 2021, poskytuje organizačnú a finančnú podporu pre rozvoj Rust. Medzi jeho členov patria významné technologické spoločnosti ako Google, Microsoft, AWS a Mozilla, čo dokazuje, že priemysel verí v budúcnosť Rustu.
+
+Pre začiatočníkov sa Rustov ekosystém môže zdať ohromujúci, ale existujú jasné vstupné body:
+1. Začnite s „Knihou“, aby ste sa naučili základné pojmy
+2. Využite kurz Rustlings na praktické precvičenie
+3. Vytvárajte malé projekty pomocou populárnych prepraviek
+4. Pripojte sa na server alebo fórum Rust Discord a získajte pomoc v prípade potreby
+5. Preskúmajte úložisko GitHub „Awesome Rust“, kde nájdete vybrané zoznamy kvalitných zdrojov
+
+Komunita Rust kladie veľký dôraz na kvalitu a údržbu kódu. Mnoho populárnych prepraviek prísne dodržiava sémantické verzie, poskytuje komplexnú dokumentáciu a zachováva si spätnú kompatibilitu. Vďaka tejto spoľahlivosti je Rust obzvlášť vhodný pre výrobné systémy, kde je stabilita rozhodujúca.
+
+Každoročné prieskumy Rust neustále ukazujú vysokú spokojnosť medzi používateľmi, pričom viac ako 90 % respondentov uviedlo, že by Rust opäť použili pre svoj ďalší projekt. Táto spokojnosť pramení tak zo samotného jazyka, ako aj z podporného ekosystému, ktorý ho obklopuje.
+
+Keď sa ponoríte hlbšie do programovania Rust, zapojenie sa do tohto ekosystému vám pomôže objaviť osvedčené postupy, vyhnúť sa bežným nástrahám a stať sa súčasťou komunity, ktorá si cení spoluprácu a technickú dokonalosť.</content>                </topic>
+            </topics>
+        </section>
+        <section id="2">
+            <title>Základy Rustu</title>
+            <topics>
+                <topic id="2">
+                    <title>Premenné a dátove typy</title>
+                    <content>Rust obsahuje bohatý typový systém navrhnutý tak, aby poskytoval bezpečnosť a výkon. Pochopenie premenných a dátových typov Rustu je základom pre písanie efektívneho kódu.
+
+Premenné v Rust sú štandardne nemenné, čo znamená, že akonáhle je hodnota priradená, nie je možné ju zmeniť. Táto voľba dizajnu zvyšuje bezpečnosť kódu a podporuje Rustov model súbežnosti:
+
+
+let x = 5; // Predvolene nemenné
+// x = 10; // Spôsobilo by to chybu kompilátora
+
+// Ak chcete zmeniť premennú, použite kľúčové slovo 'mut'
+let mut y = 5;
+y = 10; // Funguje to dobre
+
+
+Keď potrebujete tieňovať premennú (opätovne použiť jej názov s potenciálne odlišnými typmi), môžete znova použiť kľúčové slovo „let“:
+
+
+let spaces = "   "; // Toto je reťazec
+let spaces = spaces.len(); // Teraz je medzera číslo
+
+
+Rust's základné typy zahrňujú:
+
+Typy celých čísel s explicitnými veľkosťami:
+- Celé čísla so znamienkom: "i8", "i16", "i32", "i64", "i128", "isize" (závisí od architektúry)
+- Celé čísla bez znamienka: "u8", "u16", "u32", "u64", "u128", "usize" (závisí od architektúry)
+- Predvolený typ celého čísla je `i32`, ktorý ponúka dobrú rovnováhu medzi rýchlosťou a dosahom
+
+Typy s pohyblivou rádovou čiarkou:
+- "f32" (jednoduchá presnosť)
+- `f64` (dvojitá presnosť, predvolené)
+
+Booleovský typ:
+- "bool" s hodnotami "true" a "false".
+
+Typ postavy:
+- „char“ predstavuje skalárnu hodnotu Unicode pomocou jednoduchých úvodzoviek
+- Príklad: `let c = 'z';`
+
+Typy zlúčenín v Rust zahŕňajú:
+
+Tuples - kolekcie s pevnou dĺžkou súvisiacich hodnôt, ktoré môžu mať rôzne typy:
+
+let coordinates = (10.5, 20.8);
+let (x, y) = coordinates; // Zničenie
+let latitude = coordinates.0; // Prístup cez index
+
+
+Polia - kolekcie prvkov rovnakého typu s pevnou dĺžkou:
+
+let months = ["January", "February", "March"];
+let first_month = months[0];
+let numbers: [i32; 5] = [1, 2, 3, 4, 5]; // Explicitný typ a veľkosť
+let zeros = [0; 10]; // Vytvorí [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+
+Strings - Rust má dva hlavné typy string:
+- Reťazcové rezy (`&#38;str`): nemenné odkazy na údaje reťazca
+- `String`: typ reťazca s možnosťou rastu a prideleným haldou
+
+let string_slice = "Hello"; // &#38;str type
+let owned_string = String::from("World"); // String typ
+let combined = format!("{} {}", string_slice, owned_string);
+
+
+Rust tiež podporuje konverziu typov prostredníctvom:
+- Implicitný nátlak v obmedzených kontextoch
+- Explicitné prenášanie pomocou kľúčového slova `as`.
+
+let decimal = 65.4321;
+let integer = decimal as u8; // Explicitné obsadenie do u8
+
+
+Pri definovaní premenných sú anotácie typu vo väčšine prípadov voliteľné kvôli Rustovmu odvodeniu typu, ale môžu byť pridané kvôli prehľadnosti:
+
+let inferred_type = 5; // Kompilátor odvodzuje i32
+let explicit_type: u32 = 5; // Explicitne napísané ako u32
+
+
+Konštanty musia mať deklarovaný svoj typ a sú definované pomocou kľúčového slova `const`:
+
+const MAX_POINTS: u32 = 100_000; // Podčiarknutia pre čitateľnosť
+
+
+Pochopenie systému typu Rust pomáha predchádzať bežným programovým chybám v čase kompilácie namiesto behu, čo je hlavná výhoda jazyka. Prísnosť sa môže spočiatku zdať obmedzujúca, ale vedie k robustnejšiemu a predvídateľnejšiemu kódu.</content>
+                </topic>
+                <topic id="2">
+                    <title>Operátory a výrazy</title>
+                    <content>Operátory v Ruste poskytujú spôsoby na vykonávanie výpočtov, porovnávanie hodnôt a vytváranie logických výrazov. Výrazy Rust sa vyhodnotia na hodnotu a tvoria stavebné kamene kódu Rust.
+
+Aritmetické operátory pracujú s číselnými typmi:
+
+let sum = 5 + 10;
+let difference = 95.5 - 4.3;
+let product = 4 * 30;
+let quotient = 56.7 / 32.2; // delenie
+let remainder = 43 % 5;     // Modulo/zvysok
+
+
+Porovnávacie operátory vracajú boolovské hodnoty:
+
+let is_equal = 10 == 10;        // true
+let is_not_equal = 3 != 5;      // true
+let is_greater = 20 > 5;        // true
+let is_less = 5 &lt; 10;           // true
+let is_greater_equal = 10 >= 10; // true
+let is_less_equal = 5 &lt;= 10;    // true
+
+
+Logické operátory kombinujú boolovské výrazy:
+
+let condition1 = true;
+let condition2 = false;
+
+let both = condition1 &#38;&#38; condition2; // Logical AND
+let either = condition1 || condition2; // Logical OR
+let not_cond = !condition1;         // Logical NOT
+
+
+Bitové operátory manipulujú s jednotlivými bitmi v celočíselných typoch:
+
+let bitwise_and = 0b1010 &#38; 0b1100;    // 0b1000 (8 v desiatkovej)
+let bitwise_or = 0b1010 | 0b1100;     // 0b1110 (14 v desiatkovej)
+let bitwise_xor = 0b1010 ^ 0b1100;    // 0b0110 (6 v desiatkovej)
+let left_shift = 0b0010 &lt;&lt; 2;         // 0b1000 (8 v desiatkovej)
+let right_shift = 0b1000 >> 1;        // 0b0100 (4 v desiatkovej)
+
+
+Operátory priradenia kombinujú operáciu s priradením:
+
+let mut value = 5;
+value += 10;  // Rovnak0 ako: value = value + 10
+value -= 3;   // Rovnak0 ako: value = value - 3
+value *= 2;   // Rovnak0 ako: value = value * 2
+value /= 3;   // Rovnak0 ako: value = value / 3
+value %= 4;   // Rovnak0 ako: value = value % 4
+
+
+Rust používa výrazy vo veľkej miere. Na rozdiel od mnohých iných jazykov väčšina konštrukcií v Ruste sú výrazy, ktoré vracajú hodnoty:
+
+Ak výrazy vrátia hodnotu vykonanej vetvy:
+
+let condition = true;
+let number = if condition { 5 } else { 6 };
+// number bude 5
+
+
+Blokové výrazy sa vyhodnotia podľa posledného výrazu v bloku:
+
+let result = {
+    let x = 3;
+    let y = 4;
+    x + y  // Poznámka: žiadna bodkočiarka znamená, že táto hodnota sa vráti
+};
+// výsledok bude 7
+
+
+Výrazy zhody poskytujú výkonné porovnávanie vzorov:
+
+let dice_roll = 6;
+let result = match dice_roll {
+    1 => "Critical failure",
+    2..=5 => "Common result",
+    6 => "Critical success",
+    _ => "Invalid roll",
+};
+// výsledok bude "Critical success"
+
+
+Výrazy rozsahu vytvárajú iterátory:
+
+for i in 1..5 {  // Exclusive range (1, 2, 3, 4)
+    println!("Value: {}", i);
+}
+
+for i in 1..=5 { // Inclusive range (1, 2, 3, 4, 5)
+    println!("Value: {}", i);
+}
+
+
+Rustova povaha orientovaná na výraz robí kód stručnejším a podporuje funkčný štýl programovania. Výsledkom tohto prístupu v kombinácii s výkonným typovým systémom Rust je kód, ktorý je expresívny aj bezpečný.
+
+Priraďovanie vzorov je v Ruste obzvlášť výkonné a presahuje rámec jednoduchých príkazov prepínačov, ktoré sa nachádzajú v iných jazykoch:
+
+let pair = (0, -2);
+match pair {
+    (0, y) => println!("First is 0, second is {}", y),
+    (x, 0) => println!("First is {}, second is 0", x),
+    _ => println!("Neither value is 0"),
+}
+
+
+Pochopenie Rustových operátorov a výrazov poskytuje základ pre písanie jasného, ​​idiomatického Rust kódu, ktorý využíva bezpečnostné funkcie jazyka pri zachovaní čitateľnosti.</content>
+                </topic>
+                <topic id="2">
+                    <title>Funkcie a Moduly</title>
+                    <content>Funkcie sú stavebnými kameňmi opätovne použiteľného kódu v Ruste, zatiaľ čo moduly poskytujú organizáciu a kontrolu viditeľnosti. Spoločne umožňujú dobre štruktúrované programy.
+
+Funkcie v Ruste sú definované pomocou kľúčového slova `fn`. Každý program Rust má aspoň jednu funkciu, „hlavnú“, ktorá slúži ako vstupný bod:
+
+
+fn main() {
+    println!("Hello, world!");
+    
+    // zavolanie druhej funkciu
+    greet("Rustacean");
+}
+
+// Funkcia s parametrami
+fn greet(name: &#38;str) {
+    println!("Hello, {}!", name);
+}
+
+
+Funkcie môžu mať parametre (s povinnými typovými anotáciami) a vracať hodnoty:
+
+fn add(a: i32, b: i32) -> i32 {
+    a + b  // Žiadna bodkočiarka znamená, že tento výraz sa vráti
+}
+
+// Explicitné použitie kľúčového slova return (užitočné pre skoré návraty)
+fn absolute_value(x: i32) -> i32 {
+    if x >= 0 {
+        return x;
+    }
+    -x
+}
+
+
+Funkcie Rust môžu vrátiť viacero hodnôt pomocou n-tic:
+
+fn calculate_statistics(numbers: &#38;[i32]) -> (i32, i32, i32) {
+    let sum: i32 = numbers.iter().sum();
+    let min = *numbers.iter().min().unwrap_or(&#38;0);
+    let max = *numbers.iter().max().unwrap_or(&#38;0);
+    
+    (sum, min, max)
+}
+
+fn main() {
+    let numbers = [10, 20, 30, 40, 50];
+    let (sum, min, max) = calculate_statistics(&#38;numbers);
+    println!("Sum: {}, Min: {}, Max: {}", sum, min, max);
+}
+
+
+Functions can be generic, working with different types:
+
+fn largest&lt;T: PartialOrd>(list: &#38;[T]) -> &#38;T {
+    let mut largest = &#38;list[0];
+    
+    for item in list {
+        if item > largest {
+            largest = item;
+        }
+    }
+    
+    largest
+}
+
+
+Rust organizuje kód pomocou modulov. Moduly riadia súkromie a poskytujú priestory názvov pre funkcie a typy. Moduly môžete definovať niekoľkými spôsobmi:
+
+Definícia inline modulu:
+
+mod math {
+    // Private funkcia (prístupná iba v rámci tohto modulu)
+        fn square(x: i32) -> i32 {
+        x * x
+    }
+    
+    // Public funkcia (prístupná aj mimo modulu)
+    pub fn double(x: i32) -> i32 {
+        x * 2
+    }
+    
+    // Nested modul
+    pub mod trigonometry {
+        pub fn sin(x: f64) -> f64 {
+            x.sin()
+        }
+    }
+}
+
+fn main() {
+    // Prístup k verejnej funkcii z modulu
+    let doubled = math::double(5);
+    
+    // Prístup k funkcii z vnoreného modulu
+    let sine = math::trigonometry::sin(1.57);
+}
+
+
+Moduly môžu byť definované aj v samostatných súboroch. Pre štruktúru súborov ako:
+
+src/
+├── main.rs
+└── math.rs
+
+
+V `math.rs`:
+
+// Všetko v tomto súbore patrí do "math" modulu
+pub fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+pub fn subtract(a: i32, b: i32) -> i32 {
+    a - b
+}
+
+
+V `main.rs`:
+
+// Vyhlásime, že používame matematický modul z iného súboru
+mod math;
+
+fn main() {
+    let sum = math::add(10, 5);
+    println!("Sum: {}", sum);
+}
+
+
+Rust tiež podporuje použitie príkazov `use` na uvedenie položiek do rozsahu:
+
+mod shapes {
+    pub struct Rectangle {
+        pub width: f64,
+        pub height: f64,
+    }
+    
+    impl Rectangle {
+        pub fn area(&#38;self) -> f64 {
+            self.width * self.height
+        }
+    }
+}
+
+// Prenesie obdĺžnik do rozsahu
+use shapes::Rectangle;
+
+fn main() {
+    let rect = Rectangle {
+        width: 10.0,
+        height: 5.0,
+    };
+    
+    println!("Area: {}", rect.area());
+}
+
+
+Pre väčšie projekty používa Rust debny ako kompilačné jednotky. Prepravka môže byť binárna (spustiteľný súbor) alebo knižnica. Projekty sú riadené pomocou Cargo, ktoré spracováva závislosti špecifikované v súbore `Cargo.toml`:
+
+toml
+[package]
+name = "my_project"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = "1.0"
+reqwest = "0.11"
+
+
+Vo vašom kóde potom možno použiť externé závislosti:
+
+// Uveďte externú prepravku do rozsahu
+use reqwest;
+use serde::Deserialize;
+
+#[derive(Deserialize)]
+struct User {
+    name: String,
+    email: String,
+}
+
+async fn get_user() -> Result&lt;User, reqwest::Error> {
+    let user: User = reqwest::get("https://api.example.com/user")
+        .await?
+        .json()
+        .await?;
+    
+    Ok(user)
+}
+
+
+Modulový systém Rustu pomáha spravovať veľké databázy kódov:
+- Predchádzanie konfliktom mien s mennými priestormi
+- Zapuzdrenie podrobností o implementácii s pravidlami ochrany osobných údajov
+- Umožnenie prehľadnej organizácie kódu so štruktúrou založenou na súborovom systéme
+- Podpora opätovnej použiteľnosti prostredníctvom balíkov a prepraviek
+
+Tento organizačný systém sa dá škálovať od malých skriptov až po veľké projekty s viacerými prepravkami, vďaka čomu je Rust vhodný pre všetko od jednoduchých nástrojov až po zložité systémy kritické z hľadiska výkonu.</content>                </topic>
+            </topics>
+        </section>
+        <section id="3">
+            <title>Kontrola Štruktúr</title>
+            <topics>
+                <topic id="3">
+                    <title>Podmienené výrazy</title>
+                    <content>Podmienené príkazy v Ruste pomáhajú vášmu programu rozhodovať sa na základe podmienok. Na rozdiel od mnohých iných jazykov, ak príkazy v Ruste sú výrazy, čo znamená, že môžu vrátiť hodnoty.
+Základné If tvrdenia:
+
+// Jednoduché If tvrdenie
+let age = 18;
+if age >= 18 {
+    println!("You are an adult");
+}
+
+// If-else tvrdenie
+let temperature = 25;
+if temperature > 30 {
+    println!("It's hot today");
+} else {
+    println!("It's not too hot");
+}
+
+// If-else if-else (viacero podmienok)
+let score = 85;
+if score >= 90 {
+    println!("You got an A");
+} else if score >= 80 {
+    println!("You got a B");
+} else if score >= 70 {
+    println!("You got a C");
+} else {
+    println!("You need to study more");
+}
+
+
+If výrazy, ktoré vracajú hodnoty:
+
+let age = 20;
+let status = if age >= 18 { "adult" } else { "minor" };
+println!("Status: {}", status);  // Vypíše: Status: adult
+
+// Rátanie hodnoty s if
+let score = 85;
+let grade = if score >= 90 { 'A' }
+           else if score >= 80 { 'B' }
+           else if score >= 70 { 'C' }
+           else { 'F' };
+println!("Grade: {}", grade);  // Prints: Grade: B
+
+
+Poznámka: Pri použití if ako výrazu musia všetky vetvy vrátiť rovnaký typ.
+
+Práca s viacerými podmienkami:
+
+// Using &#38;&#38; (and)
+let age = 25;
+let has_license = true;
+if age >= 18 &#38;&#38; has_license {
+    println!("You can drive");
+}
+
+// Using || (or)
+let is_weekend = true;
+let is_holiday = false;
+if is_weekend || is_holiday {
+    println!("You can sleep late");
+}
+
+// Using ! (not)
+let is_busy = false;
+if !is_busy {
+    println!("Let's go to the movies");
+}
+
+
+Príklady zo skutočného sveta:
+
+1. Jednoduché rozhodnutie hry:
+
+let player_health = 100;
+let has_weapon = true;
+let sees_enemy = true;
+
+if player_health > 0 {
+    if has_weapon &#38;&#38; sees_enemy {
+        println!("Ready to fight!");
+    } else if sees_enemy {
+        println!("Run away!");
+    } else {
+        println!("Keep exploring");
+    }
+} else {
+    println!("Game Over");
+}
+
+
+2. Nákupné akcie:
+
+let total_price = 100.0;
+let is_member = true;
+let is_sale_day = true;
+
+let discount = if is_sale_day {
+    if is_member { 20.0 } else { 10.0 }
+} else {
+    if is_member { 10.0 } else { 0.0 }
+};
+
+let final_price = total_price * (100.0 - discount) / 100.0;
+println!("Final price: ${:.2}", final_price);
+
+
+Časté chyby, ktorým sa treba vyhnúť:
+
+1. Zabúdanie zátvoriek:
+
+// Chyba - nezkompiluje
+if age >= 18
+    println!("Adult");
+
+// Správne
+if age >= 18 {
+    println!("Adult");
+}
+
+
+2. Použitie priradenia namiesto porovnávania:
+
+// Chyba - nezkompiluje v Ruste
+if age = 18 {
+    println!("You're 18");
+}
+
+// Správne
+if age == 18 {
+    println!("You're 18");
+}
+
+
+3. Nezhodné typy vo výrazoch If:
+
+// Nesprávne – nezhodné typy
+let value = if condition { 5 } else { "five" };  // Error!
+
+// Správne - zhondé types
+let value = if condition { 5 } else { 10 };
+
+
+Tipy na používanie príkazov If v jazyku Rust:
+
+1. Udržujte podmienky jednoduché a jasné
+
+// Náročné na prečítanie
+if age >= 18 &#38;&#38; has_license &#38;&#38; car_available &#38;&#38; !is_tired {
+    println!("You can drive");
+}
+
+// Lepšie - rozdeľ to
+let can_legally_drive = age >= 18 &#38;&#38; has_license;
+let car_is_ready = car_available &#38;&#38; !is_tired;
+
+if can_legally_drive &#38;&#38; car_is_ready {
+    println!("You can drive");
+}
+
+
+2. Pre čistejší kód použite výrazový formulár
+
+// Podrobný spôsob
+let message;
+if score > 90 {
+    message = "Excellent";
+} else {
+    message = "Good job";
+}
+
+// Lepšie - použite if ako výraz
+let message = if score > 90 { "Excellent" } else { "Good job" };
+
+
+Pamätajte:
+1. Hrdza používa zložené zátvorky {} okolo blokov kódu
+2. Podmienky nepotrebujú zátvorky v Rust
+3. Všetky vetvy výrazu if musia vrátiť rovnaký typ
+4. Výrazy if v príkazoch let môžete použiť na priradenie hodnôt</content>
+                </topic>
+                <topic id="3">
+                <title>Slučky a iterátory</title>
+                    <content>Rust poskytuje niekoľko konštrukcií cyklu, ktoré vám pomôžu opakovať operácie, s výkonnými metódami iterátora na efektívne spracovanie kolekcií.
+
+Typy slučiek:
+
+1. "slučka" - Nekonečná slučka:
+
+// Základná nekonečná slučka s prerušenímlet mut counter = 0;
+loop {
+    println!("Count: {}", counter);
+    counter += 1;
+    if counter >= 5 {
+        break;
+    }
+}
+
+// Slučka, ktorá vracia hodnotu
+let result = loop {
+    counter += 1;
+    if counter == 10 {
+        break counter * 2;  // Returns 20
+    }
+};
+println!("Result: {}", result);
+
+
+2. `while` - Podmienená Slučka:
+
+// Odpočítavaj od 5
+let mut count = 5;
+while count > 0 {
+    println!("{}", count);
+    count -= 1;
+}
+println!("Blast off!");
+
+
+3. `for` – iterácia kolekcií::
+
+// Iterácia v rozsahu
+for i in 0..5 {
+    println!("{}", i);  // Vypíše 0 až 4
+}
+
+// Opakujte kolekciu
+let animals = vec!["Dog", "Cat", "Bird"];
+for animal in animals.iter() {
+    println!("Animal: {}", animal);
+}
+
+// Using enumerate() to get index and value
+let fruits = vec!["Apple", "Banana", "Orange"];
+for (index, fruit) in fruits.iter().enumerate() {
+    println!("{}: {}", index, fruit);
+}
+
+Pokročilé metódy iterátora:
+
+Rustove iterátory ponúkajú mnoho užitočných metód:
+let numbers = vec![1, 2, 3, 4, 5];
+
+// Map - premení každý element
+let doubled: Vec&lt;i32> = numbers.iter().map(|&#38;x| x * 2).collect();
+println!("{:?}", doubled);  // [2, 4, 6, 8, 10]
+
+// Filter - ponechať prvky, ktoré zodpovedajú podmienke
+let even: Vec&lt;&#38;i32> = numbers.iter().filter(|&#38;&#38;x| x % 2 == 0).collect();
+println!("{:?}", even);  // [2, 4]
+
+// Find - získať prvý zodpovedajúci prvok
+if let Some(&#38;first_even) = numbers.iter().find(|&#38;&#38;x| x % 2 == 0) {
+    println!("First even number: {}", first_even);  // 2
+}
+
+// Fold - akumulovať hodnoty
+let sum: i32 = numbers.iter().fold(0, |acc, &#38;x| acc + x);
+println!("Sum: {}", sum);  // 15
+
+Príklady zo skutočného sveta:
+
+1. Spracovanie zbierky:
+
+struct User {
+    name: String,
+    age: u32,
+    active: bool,
+}
+
+let users = vec![
+    User { name: String::from("Alice"), age: 28, active: true },
+    User { name: String::from("Bob"), age: 17, active: true },
+    User { name: String::from("Charlie"), age: 32, active: false },
+    User { name: String::from("Diana"), age: 22, active: true },
+];
+
+// Nájsť všetkých aktívnych dospelých používateľov
+let adult_active_users: Vec&lt;&#38;User> = users.iter()
+    .filter(|user| user.age >= 18 &#38;&#38; user.active)
+    .collect();
+
+println!("Active adult users count: {}", adult_active_users.len());
+
+
+Slučkové štítky:
+
+Rust umožňuje označovanie slučiek, čo je užitočné na vylomenie vnorených slučiek:
+
+
+'outer: for x in 0..5 {
+    for y in 0..5 {
+        if x * y > 10 {
+            println!("Breaking out at x={}, y={}", x, y);
+            break 'outer;  // Breaks the outer loop
+        }
+        println!("({}, {})", x, y);
+    }
+}
+
+
+Časté chyby, ktorým sa treba vyhnúť:
+
+1. Nekonečné slučky bez prestávky:
+
+// Nesprávne - bude bežať navždy
+loop {
+    println!("This is infinite!");
+}
+
+// Lepšie - má spôsob, ako skončiť
+let mut count = 0;
+loop {
+    println!("{}", count);
+    count += 1;
+    if count >= 5 {
+        break;
+    }
+}
+
+
+2. Ak je to vhodné, nepoužívajte iterátory:
+
+// Menej idiomatický Rust
+let numbers = vec![1, 2, 3, 4, 5];
+let mut sum = 0;
+for i in 0..numbers.len() {
+    sum += numbers[i];
+}
+
+// Idiomatickejší Rust
+let numbers = vec![1, 2, 3, 4, 5];
+let sum: i32 = numbers.iter().sum();
+
+
+3. Zbieranie bez typovej poznámky:
+
+// Nesprávne – chýba anotácia typu
+let doubled = numbers.iter().map(|&#38;x| x * 2).collect();  // Error!
+
+// Správne - s anotáciou typu
+let doubled: Vec&lt;i32> = numbers.iter().map(|&#38;x| x * 2).collect();
+
+
+Tipy na používanie slučiek a iterátorov:
+
+1. Vyberte si správnu slučku pre úlohu:
+   - Použite `loop` pre nekonečné cykly alebo keď potrebujete vrátiť hodnotu
+   - Použite „pričom“ vtedy, keď chcete skontrolovať jednoduchú podmienku
+   - Pri opakovaní kolekcií použite `for`
+
+2. Uprednostňujte iterátory pred manuálnym indexovaním:
+   - Sú stručnejšie a výraznejšie
+   - Často sú optimalizované kompilátorom
+   - Zabraňujú bežným chybám, ako je prístup mimo jedného alebo mimo hraníc
+
+3. Metódy reťazového iterátora pre zložité operácie:
+
+let result: Vec&lt;i32> = numbers.iter()
+    .filter(|&#38;&#38;x| x % 2 == 0)  // Ponechá párne čísla
+    .map(|&#38;x| x * 3)          // Vynásobiť 3
+    .collect();               // Zhromaždiť do vektora
+
+
+Pamätajte:
+1. "loop" môže vrátiť hodnoty pri použití "break výraz;".
+2. Rozsah „0..5“ nezahŕňa 5, zatiaľ čo rozsah „0..=5“ zahŕňa 5
+3. Väčšina operácií iterátora je lenivá, kým nezavoláte `collect()` alebo náročnú operáciu
+4. Použite `iter()` na iteráciu odkazov, `into_iter()` na použitie kolekcie</content>
+                </topic>
+                <topic id="3">
+                    <title>Zhoda výrazov</title>
+                    <content>Zhoda výrazu v Ruste je výkonný operátor riadiaceho toku, ktorý umožňuje porovnávanie vzorov s hodnotami a zaisťuje, že sa vyriešia všetky možné prípady.
+
+Základné použitie zhody:
+
+let number = 3;
+
+match number {
+    1 => println!("One!"),
+    2 => println!("Two!"),
+    3 => println!("Three!"),
+    _ => println!("Something else!"),
+}
+// Vypíše: "Three!"
+
+
+`_` je univerzálny vzor, ​​ktorý zodpovedá akejkoľvek hodnote, ktorá nie je špecificky spracovaná.
+
+Zhoda s viacerými vzormi:
+
+let day = 3;
+
+match day {
+    1 | 2 | 3 | 4 | 5 => println!("Weekday"),
+    6 | 7 => println!("Weekend"),
+    _ => println!("Invalid day"),
+}
+// Vypíše: "Weekday"
+
+
+Zhoda s rozsahmi:
+
+let score = 85;
+
+match score {
+    0..=59 => println!("F"),
+    60..=69 => println!("D"),
+    70..=79 => println!("C"),
+    80..=89 => println!("B"),
+    90..=100 => println!("A"),
+    _ => println!("Invalid score"),
+}
+// Vypíše: "B"
+
+
+Zhoda s deštrukciou:
+
+enum Color {
+    RGB(u8, u8, u8),
+    HSV(u8, u8, u8),
+    Name(String),
+}
+
+let color = Color::RGB(255, 0, 0);
+
+match color {
+    Color::RGB(255, 0, 0) => println!("This is pure red!"),
+    Color::RGB(r, g, b) => println!("RGB color: {}, {}, {}", r, g, b),
+    Color::HSV(h, s, v) => println!("HSV color: {}, {}, {}", h, s, v),
+    Color::Name(name) => println!("Named color: {}", name),
+}
+// Vypíše: "This is pure red!"
+
+
+Zhoda s Guards:
+
+let pair = (2, -2);
+
+match pair {
+    (x, y) if x == y => println!("Equal parts"),
+    (x, y) if x + y == 0 => println!("Sum to zero"),
+    (x, _) if x % 2 == 0 => println!("First is even"),
+    _ => println!("No special case"),
+}
+// Vypíše: "Sum to zero"
+
+
+Zhoda, ktorá vráti hodnoty:
+
+let input = 'x';
+
+let category = match input {
+    'a'..='z' | 'A'..='Z' => "letter",
+    '0'..='9' => "digit",
+    ' ' | '\t' | '\n' => "whitespace",
+    _ => "other",
+};
+
+println!("'{}' is a {}", input, category);
+// Vypíše: "'x' is a letter"
+
+
+Zhoda s možnosťou a výsledkom:
+
+Práca s možnosťou:
+
+let maybe_value: Option&lt;i32> = Some(42);
+
+match maybe_value {
+    Some(value) => println!("Got a value: {}", value),
+    None => println!("No value"),
+}
+
+// Skratka s if let
+if let Some(value) = maybe_value {
+    println!("Got a value: {}", value);
+}
+
+
+Práca s Result:
+
+let result: Result&lt;i32, &#38;str> = Ok(200);
+
+match result {
+    Ok(value) => println!("Success: {}", value),
+    Err(e) => println!("Error: {}", e),
+}
+
+// Skrátene s if let
+if let Ok(value) = result {
+    println!("Success: {}", value);
+}
+
+
+Príklad zo skutočného sveta – Spracovanie chýb:
+
+use std::fs::File;
+use std::io::ErrorKind;
+
+fn open_file(path: &#38;str) {
+    let result = File::open(path);
+    
+    match result {
+        Ok(file) => {
+            println!("File opened successfully: {:?}", file);
+            // Process file...
+        },
+        Err(error) => match error.kind() {
+            ErrorKind::NotFound => {
+                println!("File not found, creating it...");
+                match File::create(path) {
+                    Ok(file) => println!("File created: {:?}", file),
+                    Err(e) => println!("Failed to create file: {}", e),
+                }
+            },
+            ErrorKind::PermissionDenied => {
+                println!("Permission denied, check file permissions");
+            },
+            other_error => {
+                println!("Other error: {:?}", other_error);
+            }
+        },
+    }
+}
+
+
+Časté chyby, ktorým sa treba vyhnúť:
+
+1. Zabudnutie vzoru Catch-All:
+
+// Nesprávne - nespracúva všetky prípady (neskompiluje sa)
+match number {
+    1 => println!("One"),
+    2 => println!("Two"),
+}
+
+// Right - handling all cases
+match number {
+    1 => println!("One"),
+    2 => println!("Two"),
+    _ => println!("Other number"),
+}
+
+
+2. Nedosiahnuteľné vzory:
+
+// Nesprávne - nedostupný vzor (neskompiluje sa)
+match number {
+    n if n > 0 => println!("Positive"),
+    _ => println!("Non-positive"),
+    5 => println!("Five"),  // This will never be reached
+}
+
+// Správne - vzory v správnom poradí
+match number {
+    5 => println!("Five"),
+    n if n > 0 => println!("Positive"),
+    _ => println!("Non-positive"),
+}
+
+Tipy na používanie funkcie Match:
+
+1. Ak potrebujete spracovať viacero možných hodnôt alebo vzorov, použite `match`.
+
+2. Pamätajte, že „zápas“ je vyčerpávajúci – musíte zvládnuť všetky možné prípady.
+
+3. Pre jednoduché porovnávanie s jedným vzorom zvážte použitie „if let“:
+
+// S match
+match some_option {
+    Some(value) => println!("Got {}", value),
+    None => (),  // Do nothing
+}
+
+// S if let (stručnejšie)
+if let Some(value) = some_option {
+    println!("Got {}", value);
+}
+
+
+4. Použite väzbu `@` na otestovanie hodnoty a jej prepojenie:
+
+match temperature {
+    t @ 0..=32 => println!("Freezing at {}°F", t),
+    t @ 33..=65 => println!("Cold at {}°F", t),
+    t @ 66..=80 => println!("Comfortable at {}°F", t),
+    t => println!("Warm at {}°F", t),
+}
+
+
+Pamätajte:
+1. Zápas je vyčerpávajúci – musíte pokryť všetky možné hodnoty
+2. Vzory sa kontrolujú v poradí zhora nadol
+3. Použite `_` ako univerzálny vzor pre hodnoty, ktoré nepotrebujete použiť
+4. Ramená zhody môžu obsahovať bloky s viacerými príkazmi
+5. Výrazy zhody môžu vrátiť hodnoty, ktoré možno priradiť premenným</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="4">
+            <title>Vlastníctvo a pôžičky</title>
+            <topics>
+                <topic id="4">
+                    <title>Pravidlá vlastníctva</title>
+                    <content>Vlastnícky systém Rust zaisťuje bezpečnosť pamäte a zabraňuje pretekom údajov bez potreby zberača odpadu. Každá hodnota v Ruste má jedného vlastníka a keď vlastník prekročí rozsah, Rust automaticky uvoľní pamäť.
+
+Kľúčové pravidlá vlastníctva:
+1. Každá hodnota v Ruste má jedného vlastníka.
+2. Keď vlastník prekročí rozsah, hodnota sa zruší.
+3. Vlastníctvo je možné previesť (presunúť), ale nemožno ho zdieľať, pokiaľ nie je výslovne požičané.
+
+Príklad:
+
+fn main() {
+    let s1 = String::from("Hello");
+    let s2 = s1; // Vlastníctvo sa presúva na s2, s1 už neplatí
+    // println!("{}", s1); // Chyba: hodnota požičaná po presune
+}
+
+
+Kopírovať vlastnosť:
+Niektoré typy implementujú vlastnosť „Kopírovať“, čo znamená, že ich možno duplikovať a nie presúvať.
+
+fn main() {
+    let x = 5;
+    let y = x; // x je stále platné, pretože celé čísla implementujú Copy
+    println!("{}", x);
+}
+
+
+Bežné chyby vo vlastníctve:
+- Pokus o použitie hodnoty po jej presunutí
+- Zabúdame, že typy, ktoré nie sú kópiou, nemožno po presune znova priradiť</content>
+                </topic>
+                <topic id="4">
+                    <title>Referencie a pôžičky</title>
+                    <content>Výpožička umožňuje použitie referencií bez prevodu vlastníctva. Rust presadzuje prísne pravidlá vypožičiavania, aby bola zaistená bezpečnosť.
+
+Pravidlá požičiavania:
+1. Môžete mať viacero nemenných odkazov (`&#38;T`).
+2. Naraz môžete mať iba jednu meniteľnú referenciu (`&#38;mut T`).
+3. Referencie musia byť vždy platné.
+
+Príklad:
+
+fn main() {
+    let s = String::from("Hello");
+    print_length(&#38;s); // Požičiavanie s bez prevodu vlastníctva
+    println!("{}", s); // s stále platí
+}
+
+fn print_length(s: &#38;String) {
+    println!("Length: {}", s.len());
+}
+
+
+Premenlivé pôžičky:
+
+fn main() {
+    let mut s = String::from("Hello");
+    change(&#38;mut s);
+    println!("{}", s);
+}
+
+fn change(s: &#38;mut String) {
+    s.push_str(", world!");
+}
+
+
+Bežné chyby pri pôžičkách:
+- Snažiť sa mať premenlivú a nemennú referenciu zároveň
+- Držanie referencie po jej životnosti</content>
+                </topic>
+                <topic id="4">
+                    <title>Životnosť</title>
+                    <content>Životnosti zaisťujú, že referencie sú platné počas doby, počas ktorej sa používajú, čím sa zabráni visiacim ukazovateľom.
+
+Pochopenie životov:
+Rust vyžaduje explicitné anotácie životnosti, keď sa v parametroch funkcií používajú odkazy.
+
+fn longest&lt;'a>(s1: &#38;'a str, s2: &#38;'a str) -> &#38;'a str {
+    if s1.len() > s2.len() {
+        s1
+    } else {
+        s2
+    }
+}
+
+
+Životnosť v Structs:
+
+struct Book&lt;'a> {
+    title: &#38;'a str,
+}
+
+fn main() {
+    let title = String::from("Rust Programming");
+    let book = Book { title: &#38;title };
+    println!("{}", book.title);
+}
+
+
+Časté Lifetime chyby:
+- Vracanie odkazov na lokálne premenné (visiace odkazy)
+- Zabudnutie špecifikovať životnosť v štruktúrach alebo funkciách</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="5">
+            <title>Pokročilé témy</title>
+            <topics>
+                <topic id="5">
+                    <title>Súbežnosť a vlákna</title>
+                    <content>Rust poskytuje robustnú podporu pre súbežnosť, čím zaisťuje, že viaceré úlohy môžu bežať súčasne bez toho, aby spôsobovali problémy, ako sú preteky v údajoch. Využíva nástroje, ako sú mutexy, atómové typy a vlastnosti odosielania a synchronizácie, aby zabezpečila bezpečnosť v čase kompilácie.
+
+Kľúčové pojmy v súbehu hrdze:
+1. Mutexy: Mutex (skratka pre vzájomné vylúčenie) zaisťuje, že k údajom môže naraz pristupovať iba jedno vlákno, čím sa predchádza rasovým podmienkam.
+
+    use std::sync::{Arc, Mutex};
+    use std::thread;
+
+    let counter = Arc::new(Mutex::new(0));
+
+    let handles: Vec&#38;_> = (0..10).map(|_| {
+        let counter = Arc::clone(&#38;counter);
+        thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+            *num += 1;
+        })
+    }).collect();
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+    println!("Result: {}", *counter.lock().unwrap());
+    
+
+2. Typy atómov: Tieto typy (ako `AtomicBool`, `AtomicI32`) umožňujú atómové operácie bez uzamknutia a sú užitočné pre zdieľanie údajov medzi vláknami.
+
+    use std::sync::atomic::{AtomicUsize, Ordering};
+    use std::thread;
+
+    let counter = AtomicUsize::new(0);
+
+    let handles: Vec&lt;_> = (0..10).map(|_| {
+        thread::spawn(|| {
+            counter.fetch_add(1, Ordering::SeqCst);
+        })
+    }).collect();
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", counter.load(Ordering::SeqCst));
+    
+
+3. Vlastnosti odosielania a synchronizácie: Tieto vlastnosti označujú, či je možné typ bezpečne prenášať medzi vláknami (Odoslať) alebo bezpečne zdieľať medzi vláknami (Synchronizácia).
+    - `Send`: Typy, ktoré je možné presúvať medzi vláknami.
+    - `Sync`: Typy, ku ktorým môže súčasne pristupovať viacero vlákien.
+
+Dôležité úvahy:
+- Vlastníctvo: Systém vlastníctva spoločnosti Rust zaisťuje, že údaje sú vo vlastníctve jedného vlákna alebo sú bezpečne zdieľané.
+- Zablokovanie: Zablokovanie môže nastať, keď dve vlákna na seba čakajú na uvoľnenie prostriedkov. Starostlivý dizajn tomu môže zabrániť.
+
+Súvisiace témy:
+- Paralelnosť v hrdze
+- Závitové bazény
+- Komunikácia medzi vláknami založená na kanáloch</content>
+                </topic>
+                <topic id="5">
+                    <title>Error Handling</title>
+                    <content>Rust používa jedinečný a výkonný model spracovania chýb, ktorý zahŕňa typy „Výsledok“ a „Možnosť“. Tento prístup povzbudzuje vývojárov, aby explicitne riešili chyby, čo vedie k spoľahlivejším a predvídateľnejším programom.
+
+Základné spracovanie chýb s „Výsledkom“:
+- Typ `Výsledok` sa používa pre funkcie, ktoré môžu byť úspešné (`Ok`) alebo zlyhať (`Err`).
+    
+    fn divide(a: i32, b: i32) -> Result&lt;i32, String> {
+        if b == 0 {
+            Err("Cannot divide by zero".to_string())
+        } else {
+            Ok(a / b)
+        }
+    }
+
+    let result = divide(10, 2);
+    match result {
+        Ok(value) => println!("Result: {}", value),
+        Err(e) => println!("Error: {}", e),
+    }
+    
+
+Error Propagation with `?`:
+- Rust poskytuje operátorovi `?` na jednoduché šírenie chýb, čím sa zmenšuje štandardná úroveň.
+
+    fn read_file(path: &#38;str) -> Result&lt;String, std::io::Error> {
+        let content = std::fs::read_to_string(path)?;
+        Ok(content)
+    }
+    
+
+Bežné chyby:
+– „Možnosť“: Používa sa v prípadoch, keď hodnota môže alebo nemusí byť prítomná (napr. `None` vs. `Some`).
+
+    fn get_username() -> Option&lt;String> {
+        Some("Alice".to_string()) // Or None ak nenájdené
+    }
+
+    match get_username() {
+        Some(name) => println!("Found user: {}", name),
+        None => println!("No user found"),
+    }
+    
+
+Vytváranie vlastných chýb:
+Rust vám tiež umožňuje definovať vlastné typy chýb na spracovanie chýb špecifických pre aplikáciu:
+
+use std::fmt;
+
+#[derive(Debug)]
+enum MyError {
+    NotFound,
+    InvalidInput,
+}
+
+impl fmt::Display for MyError {
+    fn fmt(&#38;self, f: &#38;mut fmt::Formatter&lt;'_>) -> fmt::Result {
+        match self {
+            MyError::NotFound => write!(f, "Item not found"),
+            MyError::InvalidInput => write!(f, "Invalid input"),
+        }
+    }
+}
+
+
+Dôležité veci na zapamätanie:
+- Vždy explicitne spracovávajte typy „Výsledok“ a „Možnosť“.
+- Operátor `?` je skvelý na šírenie chýb v zásobníku hovorov.
+- Výraz `match` je výkonný nástroj na vyčerpávajúce spracovanie chýb.
+
+Súvisiace témy:
+- metódy „rozbaliť“ a „očakávať“ (používajú sa na rýchle spracovanie chýb)
+- Vlastnosť „Chyba“ a vlastné typy chýb
+- Zhoda vzoru hrdze pri spracovaní chýb</content>
+                </topic>
+                <topic id="5">
+                    <title>Unsafe Rust</title>
+                    <content>Unsafe Rust umožňuje vývojárom písať kód, ktorý dokáže obísť niektoré prísne bezpečnostné pravidlá Rustu, no s veľkou silou prichádza veľká zodpovednosť. Nebezpečný kód môže interagovať priamo s nespracovanými ukazovateľmi a Rust poskytuje spôsob, ako definovať jasné hranice okolo nebezpečných blokov kódu.
+Čo je to Unsafe Rust?
+- Unsafe kód môže robiť veci ako dereferencovanie nespracovaných ukazovateľov alebo volanie funkcií, ktoré kompilátor nemôže overiť. Je označený kľúčovým slovom `unsafe`, čo signalizuje, že vývojár preberá zodpovednosť za zaistenie bezpečnosti pamäte.
+
+    let x: i32 = 42;
+    let r: *const i32 = &#38;x;
+
+    unsafe {
+        println!("Dereferenced pointer: {}", *r); // Unsafe operation
+    }
+    
+
+Bežné použitia Unsafe Rust:
+1. Práca s neupravenými ukazovateľmi: Rust zvyčajne zabezpečuje bezpečný prístup k pamäti prostredníctvom svojho systému vlastníctva. Nebezpečný kód môže manuálne spravovať pamäť a pristupovať k miestam, ktoré bežne nie sú dostupné.
+
+    let x: i32 = 42;
+    let r: *const i32 = &#38;x;
+    
+    unsafe {
+        let y = *r; // Dereferencing a raw pointer is unsafe
+    }
+    
+
+2. FFI (Foreign Function Interface): Rust vám umožňuje volať funkcie napísané v iných jazykoch (napríklad C) prostredníctvom nebezpečného kódu. Toto sa bežne používa pri prepojení s nízkoúrovňovými systémovými API alebo knižnicami.
+
+    extern "C" {
+        fn c_function(arg: i32) -> i32;
+    }
+    
+
+Prečo používať nebezpečnú hrdzu?
+- Unsafe Rust môže byť užitočný, keď potrebujete napísať nízkoúrovňový kód alebo rozhranie s hardvérom alebo inými jazykmi. Umožňuje optimalizácie a operácie, ktoré nie sú možné s bezpečným Rustom.
+- Je však dôležité zabezpečiť, aby nebezpečný kód neporušoval pravidlá bezpečnosti pamäte, pretože to môže viesť k nedefinovanému správaniu, poškodeniu pamäte a pádom.
+
+Dôležité úvahy:
+- Používanie nebezpečných látok by sa malo minimalizovať a jasne zdokumentovať.
+- Systém vlastníctva Rustu a sledovanie životnosti sú vypnuté v nebezpečných blokoch, takže vývojár musí manuálne zaobchádzať s bezpečnosťou pamäte.
+
+Súvisiace témy:
+- Použitie kľúčového slova „nebezpečné“.
+- Správa pamäte v Rust
+- Prepojenie s C a inými jazykmi cez FFI</content>
+                </topic>
+            </topics>
+        </section>
+    </sections>
+    <quizes>
+        <quiz id="1">
+             <question id="1">
+                <text>Čo je hlavným cieľom jazyka Rust?</text>
+                <answers id="1">
+                    <answer correct="true">Poskytovať bezpečnosť pamäte bez obetovania výkonu</answer>
+                    <answer correct="false">Byť čo najjednoduchší pre začiatočníkov</answer>
+                    <answer correct="false">Nahradiť jazyk Java v mobilných aplikáciách</answer>
+                    <answer correct="false">Slúžiť ako skriptovací jazyk pre web</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Ako Rust zabezpečuje bezpečnosť pamäte?</text>
+                <answers id="1">
+                    <answer correct="true">Pomocou systému vlastníctva a kontroly typov</answer>
+                    <answer correct="false">Používa garbage collector ako Java</answer>
+                    <answer correct="false">Komprimuje všetky premenné do jedného segmentu pamäte</answer>
+                    <answer correct="false">Ukladá všetky premenné na disk</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Ktorý nástroj slúži na správu balíkov a projektov v Rust?</text>
+                <answers id="1">
+                    <answer correct="true">Cargo</answer>
+                    <answer correct="false">Rustup</answer>
+                    <answer correct="false">Crates.io</answer>
+                    <answer correct="false">Rakieta</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Čo je crates.io?</text>
+                <answers id="1">
+                    <answer correct="true">Centrálne úložisko pre balíky Rust</answer>
+                    <answer correct="false">Systém na sledovanie chýb v Rust</answer>
+                    <answer correct="false">Oficiálny editor pre Rust</answer>
+                    <answer correct="false">Webový framework pre Rust</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Aký príkaz vytvorí nový projekt Rust pomocou Cargo?</text>
+                <answers id="1">
+                    <answer correct="true"><![CDATA[cargo new my_project]]></answer>
+                    <answer correct="false"><![CDATA[cargo init project]]></answer>
+                    <answer correct="false"><![CDATA[rustc new project]]></answer>
+                    <answer correct="false"><![CDATA[cargo build new]]></answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="2">
+            <question id="2">
+                <text>Aký je predvolený stav premenných v jazyku Rust?</text>
+                <answers id="2">
+                    <answer correct="true">Premenné sú nemenné (immutable)</answer>
+                    <answer correct="false">Premenné sú vždy mutovateľné</answer>
+                    <answer correct="false">Premenné musia byť inicializované ako konštanty</answer>
+                    <answer correct="false">Premenné nemôžu byť tieňované</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Ktorý z nasledovných typov predstavuje celé číslo bez znamienka v jazyku Rust?</text>
+                <answers id="2">
+                    <answer correct="true">u32</answer>
+                    <answer correct="false">i64</answer>
+                    <answer correct="false">f32</answer>
+                    <answer correct="false">bool</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Ako v Ruste zapíšete mutovateľnú premennú?</text>
+                <answers id="2">
+                    <answer correct="true">let mut x = 5;</answer>
+                    <answer correct="false">mut x = 5;</answer>
+                    <answer correct="false">let x := 5;</answer>
+                    <answer correct="false">var x = 5;</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Čo označuje kľúčové slovo fn v jazyku Rust?</text>
+                <answers id="2">
+                    <answer correct="true">Definíciu funkcie</answer>
+                    <answer correct="false">Definíciu modulu</answer>
+                    <answer correct="false">Definíciu konštanty</answer>
+                    <answer correct="false">Importovanie závislosti</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Ktorý z nasledovných výrokov je pravdivý o typoch v jazyku Rust?</text>
+                <answers id="2">
+                    <answer correct="true">Rust vyžaduje anotácie typu iba v niektorých prípadoch</answer>
+                    <answer correct="false">Rust nemá typové odvodzovanie</answer>
+                    <answer correct="false">Rust podporuje iba celočíselné typy</answer>
+                    <answer correct="false">Premenné v Ruste musia mať vždy explicitný typ</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="3">
+            <question id="3">
+                <text>Čo sa stane, ak vetvy if výrazu vracajú rôzne typy?</text>
+                <answers id="3">
+                    <answer correct="true">Program sa neskončí prekladom, pretože typy musia byť zhodné</answer>
+                    <answer correct="false">Rust automaticky skonvertuje hodnoty na rovnaký typ</answer>
+                    <answer correct="false">Program sa vykoná, ale môže vyvolať chybu počas behu</answer>
+                    <answer correct="false">Rust vyberie typ podľa väčšiny vetiev</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Ktorý z nasledujúcich cyklov v jazyku Rust môže vracať hodnotu?</text>
+                <answers id="3">
+                    <answer correct="true">loop</answer>
+                    <answer correct="false">for</answer>
+                    <answer correct="false">while</answer>
+                    <answer correct="false">match</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Čo je pravda o použití metódy collect() pri iterátoroch v Ruste?</text>
+                <answers id="3">
+                    <answer correct="true">Spúšťa vyhodnotenie iterátora a zbiera výsledky do kolekcie</answer>
+                    <answer correct="false">Ukazuje chybu, ak sa použije bez cyklu</answer>
+                    <answer correct="false">Nahrádza map() a filter()</answer>
+                    <answer correct="false">Je potrebné ju používať len pri slučke loop</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Čo znamená znak _ v príkaze match v jazyku Rust?</text>
+                <answers id="3">
+                    <answer correct="true">Zodpovedá akejkoľvek hodnote, ktorá nebola špecificky spracovaná</answer>
+                    <answer correct="false">Znamená chybu vo vzore</answer>
+                    <answer correct="false">Je použitý len pri enumoch</answer>
+                    <answer correct="false">Zastaví vykonávanie bloku match</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Čo sa stane, ak v príkaze match nie sú pokryté všetky možné hodnoty?</text>
+                <answers id="3">
+                    <answer correct="true">Kód sa neskopiluje, pretože príkaz match musí byť vyčerpávajúci</answer>
+                    <answer correct="false">Program beží, ale preskočí nezhodné prípady</answer>
+                    <answer correct="false">Rust automaticky doplní _ ako zálohu</answer>
+                    <answer correct="false">Zobrazí sa výstraha, ale kód sa spustí</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="4">
+            <question id="4">
+                <text>Čo sa stane s hodnotou v jazyku Rust, keď jej vlastník prekročí rozsah?</text>
+                <answers id="4">
+                    <answer correct="true">Pamäť sa automaticky uvoľní</answer>
+                    <answer correct="false">Hodnota sa prenesie do globálneho priestoru</answer>
+                    <answer correct="false">Hodnota sa uloží na zásobník</answer>
+                    <answer correct="false">Vlastník sa resetuje na predvolenú hodnotu</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Čo spôsobí tento kód v jazyku Rust?
+
+let s1 = String::from("Hello");
+let s2 = s1;
+println!("{}", s1);</text>
+                <answers id="4">
+                    <answer correct="true">Chybu kompilácie, pretože s1 už nie je platné po presune vlastníctva</answer>
+                    <answer correct="false">Program vypíše „Hello“</answer>
+                    <answer correct="false">Hodnota s1 sa automaticky obnoví</answer>
+                    <answer correct="false">Program vytvorí kópiu s1 a vypíše ju</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Ktoré tvrdenie o referenciách v jazyku Rust je správne?</text>
+                <answers id="4">
+                    <answer correct="true">V jednom okamihu môže existovať buď viacero nemenných referencií, alebo jedna meniteľná referencia</answer>
+                    <answer correct="false">Môžete mať viacero meniteľných referencií súčasne</answer>
+                    <answer correct="false">Referencie sa správajú ako vlastníctvo</answer>
+                    <answer correct="false">Meniteľné referencie musia byť vždy statické</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Na čo slúžia životnosti (lifetimes) v jazyku Rust?</text>
+                <answers id="4">
+                    <answer correct="true">Zaisťujú, že referencie sú platné počas celej doby ich používania</answer>
+                    <answer correct="false">Zabraňujú použitiu match s referenciami</answer>
+                    <answer correct="false">Určujú, ako dlho zostane hodnota na zásobníku</answer>
+                    <answer correct="false">Pomáhajú kompilátoru optimalizovať výkon</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Prečo tento kód spôsobí chybu?
+
+fn longest&lt;'a>(s1: &amp;'a str, s2: &amp;'a str) -&gt; &amp;'a str { ... }</text>
+                <answers id="4">
+                    <answer correct="true">Ak nie je uvedená životnosť 'a, kompilátor nevie, ako dlho majú odkazy platiť</answer>
+                    <answer correct="false">Funkcie nemôžu vracať odkazy</answer>
+                    <answer correct="false">Nie je možné porovnávať reťazce podľa dĺžky</answer>
+                    <answer correct="false">Životnosť môže byť uvedená iba pre štruktúry, nie pre funkcie</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="5">
+            <question id="5">
+                <text>Čo zabezpečuje použitie mutexu (`Mutex`) v Ruste?</text>
+                <answers id="5">
+                    <answer correct="true">Zabezpečuje, že k údajom môže naraz pristupovať iba jedno vlákno</answer>
+                    <answer correct="false">Umožňuje všetkým vláknam pristupovať k údajom naraz</answer>
+                    <answer correct="false">Zaručuje, že údaje sú neustále aktualizované</answer>
+                    <answer correct="false">Zabraňuje akémukoľvek prístupu k zdieľaným údajom</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Na čo slúžia atómové typy ako `AtomicUsize` v Ruste?</text>
+                <answers id="5">
+                    <answer correct="true">Umožňujú atómové operácie bez potreby uzamknutia</answer>
+                    <answer correct="false">Automaticky vytvárajú nové vlákna</answer>
+                    <answer correct="false">Používajú sa na zápis do súborov</answer>
+                    <answer correct="false">Slúžia na šifrovanie údajov medzi vláknami</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Čo označuje vlastnosť `Send` v Ruste?</text>
+                <answers id="5">
+                    <answer correct="true">Typ môže byť bezpečne presunutý medzi vláknami</answer>
+                    <answer correct="false">Typ musí byť zničený pred koncom vlákna</answer>
+                    <answer correct="false">Typ môže byť čítaný iba v hlavnom vlákne</answer>
+                    <answer correct="false">Typ sa používa iba pre atómové operácie</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Aký je hlavný dôvod používania operátora `?` pri práci s typom `Result`?</text>
+                <answers id="5">
+                    <answer correct="true">Zjednodušuje šírenie chýb v kóde</answer>
+                    <answer correct="false">Zvyšuje bezpečnosť vlákien</answer>
+                    <answer correct="false">Používa sa na zmenu vlastníctva premenných</answer>
+                    <answer correct="false">Deklaruje funkcie ako nebezpečné</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Aký je rozdiel medzi `Option` a `Result` v Ruste?</text>
+                <answers id="5">
+                    <answer correct="true">`Option` reprezentuje možnú prítomnosť hodnoty, `Result` reprezentuje úspech alebo chybu</answer>
+                    <answer correct="false">`Result` sa používa len v testoch, `Option` v produkcii</answer>
+                    <answer correct="false">`Option` sa používa pre číselné typy, `Result` pre reťazce</answer>
+                    <answer correct="false">Oba sú rovnaké a používajú sa zameniteľne</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="6">
+            <question id="6">
+                <text>Čo označuje vlastnosť `Send` v Ruste?</text>
+                <answers id="6">
+                    <answer correct="true">Typ môže byť bezpečne presunutý medzi vláknami</answer>
+                    <answer correct="false">Typ musí byť zničený pred koncom vlákna</answer>
+                    <answer correct="false">Typ môže byť čítaný iba v hlavnom vlákne</answer>
+                    <answer correct="false">Typ sa používa iba pre atómové operácie</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo spôsobí tento kód v jazyku Rust?
+
+let s1 = String::from("Hello");
+let s2 = s1;
+println!("{}", s1);</text>
+                <answers id="6">
+                    <answer correct="true">Chybu kompilácie, pretože s1 už nie je platné po presune vlastníctva</answer>
+                    <answer correct="false">Program vypíše „Hello“</answer>
+                    <answer correct="false">Hodnota s1 sa automaticky obnoví</answer>
+                    <answer correct="false">Program vytvorí kópiu s1 a vypíše ju</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo zabezpečuje použitie mutexu (`Mutex`) v Ruste?</text>
+                <answers id="6">
+                    <answer correct="true">Zabezpečuje, že k údajom môže naraz pristupovať iba jedno vlákno</answer>
+                    <answer correct="false">Umožňuje všetkým vláknam pristupovať k údajom naraz</answer>
+                    <answer correct="false">Zaručuje, že údaje sú neustále aktualizované</answer>
+                    <answer correct="false">Zabraňuje akémukoľvek prístupu k zdieľaným údajom</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo sa stane, ak vetvy if výrazu vracajú rôzne typy?</text>
+                <answers id="6">
+                    <answer correct="true">Program sa neskončí prekladom, pretože typy musia byť zhodné</answer>
+                    <answer correct="false">Rust automaticky skonvertuje hodnoty na rovnaký typ</answer>
+                    <answer correct="false">Program sa vykoná, ale môže vyvolať chybu počas behu</answer>
+                    <answer correct="false">Rust vyberie typ podľa väčšiny vetiev</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo je crates.io?</text>
+                <answers id="6">
+                    <answer correct="true">Centrálne úložisko pre balíky Rust</answer>
+                    <answer correct="false">Systém na sledovanie chýb v Rust</answer>
+                    <answer correct="false">Oficiálny editor pre Rust</answer>
+                    <answer correct="false">Webový framework pre Rust</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorý z nasledovných typov predstavuje celé číslo bez znamienka v jazyku Rust?</text>
+                <answers id="6">
+                    <answer correct="true">u32</answer>
+                    <answer correct="false">i64</answer>
+                    <answer correct="false">f32</answer>
+                    <answer correct="false">bool</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo znamená znak _ v príkaze match v jazyku Rust?</text>
+                <answers id="6">
+                    <answer correct="true">Zodpovedá akejkoľvek hodnote, ktorá nebola špecificky spracovaná</answer>
+                    <answer correct="false">Znamená chybu vo vzore</answer>
+                    <answer correct="false">Je použitý len pri enumoch</answer>
+                    <answer correct="false">Zastaví vykonávanie bloku match</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo označuje kľúčové slovo fn v jazyku Rust?</text>
+                <answers id="6">
+                    <answer correct="true">Definíciu funkcie</answer>
+                    <answer correct="false">Definíciu modulu</answer>
+                    <answer correct="false">Definíciu konštanty</answer>
+                    <answer correct="false">Importovanie závislosti</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je predvolený stav premenných v jazyku Rust?</text>
+                <answers id="6">
+                    <answer correct="true">Premenné sú nemenné (immutable)</answer>
+                    <answer correct="false">Premenné sú vždy mutovateľné</answer>
+                    <answer correct="false">Premenné musia byť inicializované ako konštanty</answer>
+                    <answer correct="false">Premenné nemôžu byť tieňované</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký príkaz vytvorí nový projekt Rust pomocou Cargo?</text>
+                <answers id="6">
+                    <answer correct="true"><![CDATA[cargo new my_project]]></answer>
+                    <answer correct="false"><![CDATA[cargo init project]]></answer>
+                    <answer correct="false"><![CDATA[rustc new project]]></answer>
+                    <answer correct="false"><![CDATA[cargo build new]]></answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo je pravda o použití metódy collect() pri iterátoroch v Ruste?</text>
+                <answers id="6">
+                    <answer correct="true">Spúšťa vyhodnotenie iterátora a zbiera výsledky do kolekcie</answer>
+                    <answer correct="false">Ukazuje chybu, ak sa použije bez cyklu</answer>
+                    <answer correct="false">Nahrádza map() a filter()</answer>
+                    <answer correct="false">Je potrebné ju používať len pri slučke loop</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Na čo slúžia životnosti (lifetimes) v jazyku Rust?</text>
+                <answers id="6">
+                    <answer correct="true">Zaisťujú, že referencie sú platné počas celej doby ich používania</answer>
+                    <answer correct="false">Zabraňujú použitiu match s referenciami</answer>
+                    <answer correct="false">Určujú, ako dlho zostane hodnota na zásobníku</answer>
+                    <answer correct="false">Pomáhajú kompilátoru optimalizovať výkon</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo sa stane, ak v príkaze match nie sú pokryté všetky možné hodnoty?</text>
+                <answers id="6">
+                    <answer correct="true">Kód sa neskopiluje, pretože príkaz match musí byť vyčerpávajúci</answer>
+                    <answer correct="false">Program beží, ale preskočí nezhodné prípady</answer>
+                    <answer correct="false">Rust automaticky doplní _ ako zálohu</answer>
+                    <answer correct="false">Zobrazí sa výstraha, ale kód sa spustí</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je rozdiel medzi `Option` a `Result` v Ruste?</text>
+                <answers id="6">
+                    <answer correct="true">`Option` reprezentuje možnú prítomnosť hodnoty, `Result` reprezentuje úspech alebo chybu</answer>
+                    <answer correct="false">`Result` sa používa len v testoch, `Option` v produkcii</answer>
+                    <answer correct="false">`Option` sa používa pre číselné typy, `Result` pre reťazce</answer>
+                    <answer correct="false">Oba sú rovnaké a používajú sa zameniteľne</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký je hlavný dôvod používania operátora `?` pri práci s typom `Result`?</text>
+                <answers id="6">
+                    <answer correct="true">Zjednodušuje šírenie chýb v kóde</answer>
+                    <answer correct="false">Zvyšuje bezpečnosť vlákien</answer>
+                    <answer correct="false">Používa sa na zmenu vlastníctva premenných</answer>
+                    <answer correct="false">Deklaruje funkcie ako nebezpečné</answer>
+                </answers>
+            </question>
+        </quiz>
+    </quizes>
+</course>

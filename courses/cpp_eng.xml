@@ -1,0 +1,1874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course>
+    <title>C++ Programming</title>
+    <img src="img/cpp_eng.png" alt="C++ Programming"/>
+    <sections>
+        <section id="1">
+            <title>Introduction to C++</title>
+            <topics>
+                <topic id="1">
+                    <title>What is C++?</title>
+                    <content>C++ is a very strong programming language made by Bjarne Stroustrup in 1979. It is based on the C programming language but adds features for object-oriented programming. C++ is popular because it gives good performance, is flexible, and lets you control hardware directly.
+
+C++ is often used for making systems software, games, and programs that need to run very fast. Many big companies, like Microsoft, Google, and Adobe, use C++ for their products. Famous game engines like Unreal Engine are also created with C++.
+
+Some important features of C++ are:
+- Managing memory directly for better control.
+- Supporting object-oriented programming, like using classes and objects.
+- Allowing template programming, which makes your code more reusable.
+- Providing a rich library that has many ready-to-use tools.
+- Working together with C code, so you can use both C and C++.
+- Being very efficient, which makes it great for big programs or games.
+
+C++ keeps improving with new versions, like C++11, C++14, C++17, and C++20. These versions add modern tools while keeping old programs working.</content>
+                </topic>
+                <topic id="1">
+                    <title>Installing C++</title>
+                    <content>To use C++, you need to install a compiler and maybe an IDE (Integrated Development Environment) to write and test your programs. The way to install these tools is different depending on your operating system.
+
+For Windows:
+1. Download and install Visual Studio Community Edition from Microsoft’s website.
+2. During installation, choose "Desktop development with C++" to get the right tools.
+3. After installing, you can use the MSVC compiler and tools.
+
+For Linux:
+Use the terminal to install the GCC compiler:
+
+sudo apt update
+sudo apt install build-essential
+
+
+For Mac:
+1. Install Xcode from the App Store.
+2. Or, install the command line tools by typing:
+
+xcode-select --install
+
+
+To check if the installation was successful, type:
+
+g++ --version
+
+
+Popular IDEs for C++ include:
+- Visual Studio (best for Windows)
+- CLion (a powerful cross-platform IDE)
+- Code::Blocks (simple and lightweight)
+- Eclipse with the C/C++ plugin
+- VSCode with the C++ extension (good for beginners and advanced users)</content>
+                </topic>
+                <topic id="1">
+                    <title>C++ Development Environment</title>
+                    <content>A development environment for C++ is a set of tools that helps you write, compile, and debug your programs. Here are the main parts of a C++ environment:
+
+1. Compiler: Converts your code into a program the computer can run.
+   - GCC/G++: A popular open-source compiler.
+   - MSVC: Microsoft’s compiler for Windows.
+   - Clang: A modern and fast compiler.
+
+2. Build Tools: These tools help organize and compile your project.
+   - Make: A basic build tool for simple projects.
+   - CMake: A more advanced tool for big projects.
+   - MSBuild: A build tool for Visual Studio projects.
+
+3. Debugger: Lets you find and fix problems in your code.
+   - GDB: The GNU Debugger.
+   - LLDB: A debugger that works well with Clang.
+   - Visual Studio Debugger: Comes with Visual Studio.
+
+How to Work with Projects
+Here is an example of how you can organize your C++ project:
+
+my_project/
+    src/
+        main.cpp
+        utils.cpp
+        utils.h
+    build/
+    CMakeLists.txt
+
+
+A basic `CMakeLists.txt` file looks like this:
+
+cmake_minimum_required(VERSION 3.10)
+project(MyProject)
+add_executable(my_program src/main.cpp src/utils.cpp)
+
+
+Common Settings for C++ Projects
+- Set the C++ Standard to C++11, C++14, or newer.
+- Use warning levels to catch mistakes.
+- Add optimization flags for faster programs.
+- Use Debug or Release configurations depending on your needs.</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="2">
+            <title>Basic Syntax and Data Types</title>
+            <topics>
+                <topic id="2">
+                    <title>Variables and Data Types</title>
+                    <content><![CDATA[In C++, variables are like containers that store different kinds of information. Before you can use a variable, you need to tell C++ what kind of information it will hold - this is called its "type". This is similar to how in real life, you use different containers for different things (like a wallet for money, a bookshelf for books).
+
+Basic Data Types
+Numbers (Integers - Whole Numbers):
+
+#include <iostream>
+using namespace std;
+
+// Regular integers (int)
+int age = 25;                  // For counting things like age
+int temperature = -5;          // Can be negative
+int populationUSA = 331002651; // Big numbers for population
+
+// Small integers (short) - for saving memory when you don't need big numbers
+short itemsInCart = 7;         // Good for small counts
+short floorNumber = -1;        // Basement floor
+
+// Big integers (long) - for very large numbers
+long worldPopulation = 7900000000L;  // The 'L' tells C++ it's a long number
+long bankBalance = -1000000L;        // Can be negative too
+
+// Unsigned integers (only positive numbers)
+unsigned int steps = 8449;           // Step counter can't be negative
+unsigned int views = 1000000;        // Video views can't be negative
+
+// Real-world example: Simple inventory system
+int totalProducts = 150;
+unsigned int soldToday = 25;
+int remaining = totalProducts - soldToday;
+cout << "Products left in stock: " << remaining << endl;
+
+
+Decimal Numbers (Floating-Point):
+
+// Float (single precision) - for normal decimal numbers
+float height = 1.75f;          // Height in meters (f for float)
+float temperature = 98.6f;     // Body temperature
+float price = 9.99f;          // Product price
+
+// Double (double precision) - for more precise decimal numbers
+double pi = 3.14159265359;    // Mathematical calculations
+double accountBalance = 1234.56; // Money calculations
+double scientificData = 0.000000001; // Very small numbers
+
+// Real-world example: Shopping cart
+double itemPrice = 29.99;
+int quantity = 3;
+double totalPrice = itemPrice * quantity;
+cout << "Total cost: $" << totalPrice << endl;
+
+
+Single Characters and True/False Values:
+
+// Char - single characters
+char grade = 'A';             // School grades
+char direction = 'N';         // Compass direction (N/S/E/W)
+char userChoice = 'Y';        // Yes/No choices
+
+// Bool - true or false values
+bool isLoggedIn = true;       // Check if user is logged in
+bool hasDiscount = false;     // Check if discount applies
+bool isWeekend = true;        // Check if it's weekend
+
+// Real-world example: User account status
+bool isPremiumMember = true;
+char membershipTier = 'G';    // 'G' for Gold
+if (isPremiumMember && membershipTier == 'G') {
+    cout << "Welcome Gold Member!" << endl;
+}
+
+
+Text (Strings):
+
+#include <string>
+
+// String - for text of any length
+string firstName = "John";
+string lastName = "Smith";
+string fullName = firstName + " " + lastName;  // Combining strings
+
+string address = "123 Main Street";
+string email = "john@email.com";
+
+// Real-world example: User profile
+string username = "jsmith123";
+string status = "Online";
+cout << "User: " << username << " is " << status << endl;
+
+
+Constants (Values That Never Change):
+
+// Constants - values that should never change
+const int MAX_PLAYERS = 4;    // Maximum players in a game
+const double TAX_RATE = 0.20; // 20% tax rate
+const string COMPANY_NAME = "Tech Corp";
+
+// Calculated constants (constexpr)
+constexpr double METERS_TO_FEET = 3.28084;
+constexpr int HOURS_IN_WEEK = 24 * 7;
+
+// Real-world example: Game settings
+const int MAX_LEVEL = 100;
+const int POINTS_PER_LEVEL = 1000;
+const double BONUS_MULTIPLIER = 1.5;
+
+
+Checking Memory Sizes:
+
+// Find out how much memory each type uses
+cout << "Memory used by different types:\n";
+cout << "int: " << sizeof(int) << " bytes\n";         // Usually 4 bytes (32 bits) - can store numbers from -2,147,483,648 to 2,147,483,647
+cout << "char: " << sizeof(char) << " bytes\n";       // Always 1 byte (8 bits) - can store numbers from -128 to 127 or one character
+cout << "bool: " << sizeof(bool) << " bytes\n";       // Usually 1 byte (even though it only needs 1 bit for true/false)
+cout << "float: " << sizeof(float) << " bytes\n";     // Usually 4 bytes (32 bits) - has about 7 decimal digits of precision
+cout << "double: " << sizeof(double) << " bytes\n";   // Usually 8 bytes (64 bits) - has about 15-17 decimal digits of precision
+string name = "Hello";
+cout << "This string uses: " << sizeof(name) << " bytes\n";  // Usually 24 or 32 bytes - this is the size of the string OBJECT, 
+                                                             // not the actual text content. The string object contains a pointer 
+                                                             // to the text and other management data
+
+
+Common Mistakes to Avoid:
+1. Using float for money calculations (use double instead)
+2. Forgetting to initialize variables before using them
+3. Using the wrong type for your data (like int for decimal numbers)
+4. Not considering the size limits of each type
+
+Good Practices:
+1. Choose the right type for your data
+2. Use meaningful variable names
+3. Initialize variables when you declare them
+4. Use constants for values that shouldn't change
+5. Consider memory usage for large programs
+
+Type Modifiers (Making Types Bigger or Smaller):
+
+// Making numbers bigger
+long long veryBigNumber = 9223372036854775807LL;
+long double veryPreciseNumber = 3.14159265358979323846L;
+
+// Unsigned (no negative numbers, but twice the positive range)
+unsigned int positiveOnly = 4294967295;
+
+// Short (smaller numbers, saves memory)
+short smallNumber = 32767;
+
+
+Remember:
+- Different types use different amounts of memory
+- Choose the smallest type that fits your needs
+- Use unsigned when you know numbers can't be negative
+- Use constants for values that shouldn't change
+- String operations need the `<string>` library
+]]>
+</content>
+                </topic>
+                <topic id="2">
+                    <title>Operators</title>
+                    <content><![CDATA[Operators in C++ are special symbols that tell the computer to do something with values. Think of them like math symbols you use in everyday life, like + for adding or - for subtracting, but C++ has more types for different tasks.
+
+Math Operators (Arithmetic Operators)
+These operators help you do basic math, just like a calculator:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Basic math operations
+    int apples = 10, oranges = 3;
+    
+    // Addition (+)
+    int totalFruit = apples + oranges;    // 10 + 3 = 13
+    cout << "Total fruit: " << totalFruit << endl;
+    
+    // Subtraction (-)
+    int leftoverApples = apples - 4;      // 10 - 4 = 6
+    cout << "Apples left: " << leftoverApples << endl;
+    
+    // Multiplication (*)
+    int pricePerApple = 2;
+    int totalCost = apples * pricePerApple;  // 10 * 2 = 20
+    cout << "Cost of apples: $" << totalCost << endl;
+    
+    // Division (/)
+    int peopleCount = 3;
+    int applesPerPerson = apples / peopleCount;  // 10 / 3 = 3 (not 3.33!)
+    cout << "Apples per person: " << applesPerPerson << endl;
+    
+    // Remainder (%) - shows what's left after division
+    int remainingApples = apples % peopleCount;  // 10 % 3 = 1
+    cout << "Leftover apples: " << remainingApples << endl;
+    
+    // Adding or subtracting by 1
+    int counter = 0;
+    ++counter;    // Add 1 before using the value
+    cout << "Counter: " << counter << endl;  // Shows 1
+    
+    counter++;    // Add 1 after using the value
+    cout << "Counter: " << counter << endl;  // Shows 2
+    
+    --counter;    // Subtract 1 before using the value
+    cout << "Counter: " << counter << endl;  // Shows 1
+    
+    // Real-world example: Shopping cart
+    int itemPrice = 25;
+    int itemCount = 4;
+    double taxRate = 0.08;  // 8% tax
+    
+    int subtotal = itemPrice * itemCount;
+    double tax = subtotal * taxRate;
+    double total = subtotal + tax;
+}
+
+
+Comparison Operators (Checking if Things are Equal or Different)
+These operators help you compare values, like checking prices or ages:
+
+int age = 18;
+int requiredAge = 21;
+double price1 = 99.99, price2 = 79.99;
+
+// Equal to (==)
+bool isAdult = (age == requiredAge);    // False, 18 is not equal to 21
+cout << "Is adult? " << isAdult << endl;
+
+// Not equal to (!=)
+bool isDifferentPrice = (price1 != price2);  // True, prices are different
+cout << "Different prices? " << isDifferentPrice << endl;
+
+// Greater than (>)
+bool isExpensive = (price1 > 100.00);    // False, 99.99 is not more than 100
+cout << "Is expensive? " << isExpensive << endl;
+
+// Less than (<)
+bool isUnderage = (age < requiredAge);   // True, 18 is less than 21
+cout << "Is underage? " << isUnderage << endl;
+
+// Greater than or equal to (>=)
+bool canRide = (age >= 16);              // True, 18 is more than or equal to 16
+cout << "Can ride? " << canRide << endl;
+
+// Less than or equal to (<=)
+bool isDiscounted = (price2 <= 80.00);   // True, 79.99 is less than or equal to 80
+cout << "Is on discount? " << isDiscounted << endl;
+
+// Real-world example: Movie ticket system
+int viewerAge = 15;
+bool isStudent = true;
+double ticketPrice = 12.00;
+
+if (viewerAge <= 12) {
+    ticketPrice = 8.00;  // Child price
+} else if (viewerAge >= 65) {
+    ticketPrice = 9.00;  // Senior price
+} else if (isStudent) {
+    ticketPrice = 10.00; // Student price
+}
+
+
+Logical Operators (Combining True/False Conditions)
+These help you check multiple conditions at once:
+
+// Real-world example: Online shopping system
+bool isPremiumMember = true;
+bool hasEnoughPoints = true;
+double orderTotal = 120.00;
+
+// AND operator (&&) - both conditions must be true
+bool canGetDiscount = isPremiumMember && hasEnoughPoints;
+cout << "Can get discount? " << canGetDiscount << endl;  // True
+
+// OR operator (||) - at least one condition must be true
+bool qualifiesForFreeShipping = (orderTotal >= 100) || isPremiumMember;
+cout << "Gets free shipping? " << qualifiesForFreeShipping << endl;  // True
+
+// NOT operator (!) - makes true become false and vice versa
+bool isOutOfStock = false;
+bool canOrder = !isOutOfStock;  // True because item is not out of stock
+
+// Complex example: Game achievement system
+bool hasCompletedLevel = true;
+bool hasEnoughScore = false;
+int playerScore = 850;
+int minimumScore = 1000;
+
+bool unlockAchievement = hasCompletedLevel && 
+                        (hasEnoughScore || playerScore >= minimumScore);
+
+
+Bitwise Operators (Working with Binary Numbers)
+These are special operators that work with numbers at the binary level (0s and 1s):
+
+int x = 5;  // In binary: 0101
+int y = 3;  // In binary: 0011
+
+// Bitwise AND (&) - keeps 1 only if both numbers have 1 in that position
+int result1 = x & y;    // Result: 0001 (1 in decimal)
+
+// Bitwise OR (|) - keeps 1 if either number has 1 in that position
+int result2 = x | y;    // Result: 0111 (7 in decimal)
+
+// Bitwise XOR (^) - keeps 1 if numbers have different bits in that position
+int result3 = x ^ y;    // Result: 0110 (6 in decimal)
+
+// Left shift (<<) - moves all bits left
+int result4 = x << 1;   // 0101 becomes 1010 (10 in decimal)
+
+// Right shift (>>) - moves all bits right
+int result5 = x >> 1;   // 0101 becomes 0010 (2 in decimal)
+
+// Real-world example: Permission system (like file permissions in computers)
+const int READ = 4;    // 100 in binary
+const int WRITE = 2;   // 010 in binary
+const int EXECUTE = 1; // 001 in binary
+
+int userPermissions = READ | WRITE;  // User can read and write
+bool canRead = (userPermissions & READ) != 0;    // True
+bool canWrite = (userPermissions & WRITE) != 0;  // True
+bool canExecute = (userPermissions & EXECUTE) != 0;  // False
+
+
+Common Mistakes to Avoid:
+1. Using = (assignment) instead of == (comparison)
+2. Forgetting that integer division drops decimal parts
+3. Not considering division by zero
+4. Using && or || when & or | was meant (they work differently!)
+
+Good Practices:
+1. Use parentheses to make your intentions clear
+2. Check for division by zero before dividing
+3. Use meaningful variable names
+4. Comment complex calculations
+5. Test your calculations with different values]]></content>
+                </topic>
+                <topic id="2">
+                    <title>Input/Output</title>
+                    <content><![CDATA[In C++, we use something called "streams" to handle input (getting data from users or files) and output (showing data on the screen or saving it to files). Think of streams like pipes that data flows through.
+
+Basic Screen Input/Output:
+
+#include <iostream>  // This lets us use input/output features
+#include <string>    // This lets us work with text
+
+// Showing text on the screen (Output)
+// cout is like a pipe that sends data to your screen
+std::cout << "Hello, World!\n";           // \n makes a new line
+std::cout << "Hello" << " World!" << std::endl;  // endl also makes a new line
+
+// Getting numbers from the user (Input)
+int age;
+std::cout << "How old are you?: ";    // First, ask the question
+std::cin >> age;                      // Then, wait for the answer
+std::cout << "You are " << age << " years old!" << std::endl;
+
+// Getting text from the user
+std::string name;
+std::cout << "What is your name?: ";
+std::cin >> name;                     // Note: This only gets one word!
+
+// Getting a full line of text (including spaces)
+std::string fullName;
+std::cin.ignore();                    // Clear any leftover input
+std::getline(std::cin, fullName);     // This gets the whole line
+
+// Showing error messages
+// cerr is special - it's meant for error messages
+std::cerr << "Warning: Something went wrong!" << std::endl;
+
+
+Making Numbers Look Nice (Formatting):
+
+#include <iomanip>  // This gives us formatting tools
+
+double price = 49.9999;
+double pi = 3.14159;
+
+// Different ways to show numbers:
+std::cout << "Regular price: " << price << std::endl;
+// Makes the number always show decimal point
+std::cout << std::fixed;
+// Shows exactly 2 numbers after decimal point
+std::cout << "Formatted price: " << std::setprecision(2) << price << std::endl;
+
+// Setting the width of output
+std::cout << std::setw(10) << "Name" << std::setw(5) << "Age" << std::endl;
+std::cout << std::setw(10) << "John" << std::setw(5) << 25 << std::endl;
+
+// Filling empty spaces
+std::cout << std::setfill('-') << std::setw(20) << "Title" << std::endl;
+
+
+Working with Files:
+
+#include <fstream>   // This lets us work with files
+
+// Saving data to a file (Writing)
+std::ofstream outFile("diary.txt");  // Create or open a file
+if (outFile.is_open()) {  // Check if file opened successfully
+    outFile << "Dear Diary," << std::endl;
+    outFile << "Today was a good day!" << std::endl;
+    outFile.close();  // Always close files when done!
+} else {
+    std::cerr << "Could not open the file!" << std::endl;
+}
+
+// Reading data from a file
+std::ifstream inFile("diary.txt");
+std::string line;
+
+if (inFile.is_open()) {
+    // Read file line by line
+    while (std::getline(inFile, line)) {
+        std::cout << line << std::endl;
+    }
+    inFile.close();
+} else {
+    std::cerr << "Could not open the file!" << std::endl;
+}
+
+// Adding to a file (without erasing old content)
+std::ofstream appendFile("diary.txt", std::ios::app);
+if (appendFile.is_open()) {
+    appendFile << "PS: I learned C++ today!" << std::endl;
+    appendFile.close();
+}
+
+// Reading numbers from a file
+std::ifstream numberFile("numbers.txt");
+int number;
+double total = 0;
+int count = 0;
+
+while (numberFile >> number) {  // Read numbers one at a time
+    total += number;
+    count++;
+}
+std::cout << "Average: " << total/count << std::endl;
+
+// Common file operations
+outFile.flush();          // Force write to file right away
+inFile.eof();            // Check if we reached end of file
+inFile.clear();          // Clear any error flags
+inFile.seekg(0);         // Go back to start of file
+
+
+Common Mistakes to Avoid:
+1. Forgetting to check if file opened successfully
+2. Not closing files after using them
+3. Not clearing the input buffer before using getline()
+4. Not checking for input errors
+
+Good Practices:
+1. Always close files when you're done with them
+2. Check if files opened successfully before using them
+3. Use error handling when working with files
+4. Clear input buffer when switching between >> and getline()
+5. Use appropriate data types for input
+]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="3">
+            <title>Control Structures</title>
+            <topics>
+                <topic id="3">
+                    <title>Conditional Statements</title>
+                    <content><![CDATA[Control structures in C++ are like traffic signs for your program - they help you make decisions and control which parts of your code should run. They're very useful for making your program do different things based on different situations.
+
+Making Decisions with If Statements:
+
+#include <iostream>
+using namespace std;  // This lets us write 'cout' instead of 'std::cout'
+
+// Simple if statement - checks one condition
+int age = 18;
+if (age >= 18) {
+    cout << "You can vote!\n";
+}
+
+// Real-world example: Movie ticket pricing
+int customerAge = 15;
+double ticketPrice = 10.00;
+
+if (customerAge < 12) {
+    ticketPrice = 5.00;
+    cout << "Child ticket: $" << ticketPrice << endl;
+}
+
+// If-else statement - handles two possible situations
+int temperature = 25;
+if (temperature > 30) {
+    cout << "It's hot today! Remember to drink water.\n";
+} else {
+    cout << "The weather is nice!\n";
+}
+
+// If-else if-else - handles multiple situations
+// Real-world example: Restaurant discount system
+int currentHour = 14;  // 24-hour format
+double mealPrice = 20.00;
+
+if (currentHour < 12) {
+    cout << "Good morning! Breakfast menu is active.\n";
+    mealPrice = mealPrice * 0.8;  // 20% breakfast discount
+} else if (currentHour >= 12 && currentHour < 15) {
+    cout << "Good afternoon! Lunch specials available.\n";
+    mealPrice = mealPrice * 0.9;  // 10% lunch discount
+} else if (currentHour >= 15 && currentHour < 18) {
+    cout << "Happy hour!\n";
+    mealPrice = mealPrice * 0.85;  // 15% happy hour discount
+} else {
+    cout << "Good evening! Dinner menu is active.\n";
+}
+cout << "Your meal price: $" << mealPrice << endl;
+
+// Nested if statements - putting if statements inside other if statements
+bool hasLibraryCard = true;
+bool hasOverdueBooks = false;
+
+if (hasLibraryCard) {
+    if (!hasOverdueBooks) {
+        cout << "You can borrow books!\n";
+    } else {
+        cout << "Please return overdue books first.\n";
+    }
+} else {
+    cout << "Please get a library card first.\n";
+}
+
+
+Using Switch Statements (When You Have Multiple Clear Choices):
+
+// Switch statements are good when you're checking one value against several options
+// Real-world example: Simple cafe ordering system
+char menuChoice = 'B';
+cout << "Menu Options:\n";
+cout << "C - Coffee ($3)\n";
+cout << "T - Tea ($2)\n";
+cout << "B - Bagel ($4)\n";
+cout << "M - Muffin ($3)\n";
+
+double price = 0.0;
+switch (menuChoice) {
+    case 'C':
+    case 'c':  // Accept both uppercase and lowercase
+        price = 3.0;
+        cout << "You ordered Coffee\n";
+        break;  // Don't forget break! It's like hitting the brakes.
+    
+    case 'T':
+    case 't':
+        price = 2.0;
+        cout << "You ordered Tea\n";
+        break;
+    
+    case 'B':
+    case 'b':
+        price = 4.0;
+        cout << "You ordered a Bagel\n";
+        break;
+    
+    case 'M':
+    case 'm':
+        price = 3.0;
+        cout << "You ordered a Muffin\n";
+        break;
+    
+    default:  // Like an 'else' - handles anything that doesn't match
+        cout << "Invalid choice! Please select from the menu.\n";
+        price = 0.0;
+}
+
+if (price > 0) {
+    cout << "Your total is: $" << price << endl;
+}
+
+
+Quick Decision Making with the Conditional Operator (? :):
+
+// The conditional operator is like a quick, one-line if-else
+// It's useful for simple decisions
+
+// Regular if-else way:
+int score = 75;
+string result;
+if (score >= 60) {
+    result = "Pass";
+} else {
+    result = "Fail";
+}
+
+// Same thing with conditional operator:
+result = (score >= 60) ? "Pass" : "Fail";
+
+// Real-world examples:
+int battery = 25;
+string batteryStatus = (battery <= 20) ? "Low" : "OK";
+
+double price = 99.99;
+double finalPrice = (price > 100) ? price * 0.9 : price;  // 10% discount over $100
+
+// You can nest them, but try not to - it gets confusing!
+int x = 5, y = 10, z = 15;
+int smallest = (x < y) ? ((x < z) ? x : z) : ((y < z) ? y : z);  // Don't do this!
+
+
+Common Mistakes to Avoid:
+1. Forgetting break statements in switch cases
+2. Using = (assignment) instead of == (comparison) in conditions
+3. Making conditions too complicated
+4. Forgetting curly braces {} when using multiple lines in if statements
+
+Good Practices:
+1. Always use curly braces {}, even for single-line statements
+2. Keep conditions simple and readable
+3. Use switch statements when you have many simple equality checks
+4. Don't nest too many if statements - break into separate functions if needed
+5. Use meaningful variable names that explain what you're checking
+]]>
+</content>
+                </topic>
+                <topic id="3">
+                    <title>Loops</title>
+                    <content><![CDATA[Loops in C++ help you do the same task many times without writing the same code over and over. Think of loops like instructions for repetitive tasks, like "brush each tooth" or "count to 10."
+
+For Loops
+The 'for' loop is perfect when you know exactly how many times you want to do something:
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Basic for loop
+cout << "Counting from 1 to 5:\n";
+for (int i = 1; i <= 5; i++) {
+    cout << "Count: " << i << endl;
+}
+// This will show: Count: 1, Count: 2, Count: 3, Count: 4, Count: 5
+
+// Real-world example: Times table
+int number = 7;
+cout << "\nMultiplication table for " << number << ":\n";
+for (int i = 1; i <= 10; i++) {
+    cout << number << " x " << i << " = " << (number * i) << endl;
+}
+
+// Counting backwards
+cout << "\nCountdown:\n";
+for (int i = 10; i >= 1; i--) {
+    cout << i << "... ";
+}
+cout << "Blast off!" << endl;
+
+// Counting by twos (even numbers)
+cout << "\nEven numbers up to 10:\n";
+for (int i = 2; i <= 10; i += 2) {
+    cout << i << " ";
+}
+
+
+Range-Based For Loop (Modern C++ Style)
+This is a simpler way to work with collections of items:
+
+
+// Working with a list of numbers
+vector<int> scores = {85, 92, 78, 95, 88};
+int sum = 0;
+
+cout << "\nStudent scores:\n";
+for (const int& score : scores) {
+    cout << score << "% ";
+    sum += score;
+}
+cout << "\nAverage score: " << sum/scores.size() << "%" << endl;
+
+// Real-world example: Shopping cart
+vector<double> prices = {29.99, 19.99, 15.99, 49.99};
+double total = 0.0;
+
+cout << "\nShopping Cart Items:\n";
+for (const double& price : prices) {
+    cout << "$" << price << endl;
+    total += price;
+}
+cout << "Total: $" << total << endl;
+
+
+While Loop
+Use a while loop when you don't know exactly how many times you need to repeat something:
+
+
+// Simple while loop example
+int sheep = 1;
+cout << "\nCounting sheep:\n";
+while (sheep <= 5) {
+    cout << sheep << " sheep... ";
+    sheep++;
+}
+cout << "Zzz" << endl;
+
+// Real-world example: Password checker
+string password;
+bool isCorrect = false;
+int attempts = 0;
+const int MAX_ATTEMPTS = 3;
+
+while (!isCorrect && attempts < MAX_ATTEMPTS) {
+    cout << "\nEnter password: ";
+    cin >> password;
+    
+    if (password == "secret123") {
+        isCorrect = true;
+        cout << "Login successful!" << endl;
+    } else {
+        attempts++;
+        cout << "Wrong password. Attempts left: " << (MAX_ATTEMPTS - attempts) << endl;
+    }
+}
+
+
+Do-While Loop
+This loop always runs at least once, then checks if it should continue:
+
+
+// Simple number guessing game
+int secretNumber = 7;
+int guess;
+int tries = 0;
+
+do {
+    cout << "\nGuess the number (1-10): ";
+    cin >> guess;
+    tries++;
+    
+    if (guess < secretNumber) {
+        cout << "Too low!" << endl;
+    } else if (guess > secretNumber) {
+        cout << "Too high!" << endl;
+    }
+} while (guess != secretNumber);
+
+cout << "You got it in " << tries << " tries!" << endl;
+
+// Real-world example: Menu system
+int choice;
+do {
+    cout << "\nMenu:\n";
+    cout << "1. Start Game\n";
+    cout << "2. Settings\n";
+    cout << "3. Exit\n";
+    cout << "Enter choice (1-3): ";
+    cin >> choice;
+    
+    switch (choice) {
+        case 1: cout << "Starting game...\n"; break;
+        case 2: cout << "Opening settings...\n"; break;
+        case 3: cout << "Goodbye!\n"; break;
+        default: cout << "Invalid choice!\n";
+    }
+} while (choice != 3);
+
+
+Loop Control Statements
+Special commands to control how loops work:
+
+
+// Break statement - stops the loop immediately
+cout << "\nSearching for the number 5:\n";
+for (int i = 1; i <= 10; i++) {
+    cout << "Checking " << i << "... ";
+    if (i == 5) {
+        cout << "\nFound it! Stopping search." << endl;
+        break;  // Exit loop when we find 5
+    }
+}
+
+// Continue statement - skips to the next iteration
+cout << "\nPrinting numbers except 3:\n";
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        cout << "(skipping 3) ";
+        continue;  // Skip the rest of this loop
+    }
+    cout << i << " ";
+}
+
+// Real-world example: Processing grades
+vector<int> grades = {95, -1, 88, 92, -1, 85};
+cout << "\n\nProcessing grades:\n";
+for (int grade : grades) {
+    if (grade == -1) {
+        cout << "Missing grade, skipping...\n";
+        continue;
+    }
+    cout << "Processing grade: " << grade << endl;
+}
+
+
+Common Mistakes to Avoid:
+1. Forgetting to update the loop counter (infinite loop)
+2. Using <= when you should use < (off-by-one errors)
+3. Modifying loop variables inside the loop
+4. Forgetting that loops start at 0 in most cases
+
+Good Practices:
+1. Use meaningful variable names for counters
+2. Be careful with loop conditions to avoid infinite loops
+3. Consider using range-based for loops when working with collections
+4. Add comments to explain complex loop logic
+5. Be careful with break and continue - they can make code harder to follow
+
+Remember:
+- For loops are best when you know the number of iterations
+- While loops are good when you don't know how many iterations you need
+- Do-while loops are useful when you need to run the code at least once
+- Range-based for loops are great for working with collections
+- Break and continue give you more control over loop flow
+]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="4">
+            <title>Functions</title>
+            <topics>
+                <topic id="4">
+                    <title>Function Basics</title>
+                    <content><![CDATA[Functions in C++ are like recipes in a cookbook. They allow you to encapsulate a block of code that performs a specific task, making your code more modular and reusable. Think of functions as instructions for tasks like "bake a cake" or "calculate the area of a circle."
+
+Defining a Function
+To define a function, you need to specify the return type, the function name, and any parameters it takes:
+
+
+#include <iostream>
+using namespace std;
+
+// Function to add two numbers
+int add(int a, int b) {
+    return a + b;
+}
+
+// Function to print a message
+void printMessage() {
+    cout << "Hello, World!" << endl;
+}
+
+
+Calling a Function
+Once you've defined a function, you can call it from anywhere in your code:
+
+
+int main() {
+    int sum = add(5, 3);  // Calling the add function
+    cout << "Sum: " << sum << endl;
+
+    printMessage();  // Calling the printMessage function
+
+    return 0;
+}
+
+
+Function Parameters
+Functions can take parameters, which are like ingredients in a recipe. You can pass values to a function when you call it:
+
+
+// Function to calculate the area of a rectangle
+double calculateArea(double length, double width) {
+    return length * width;
+}
+
+int main() {
+    double area = calculateArea(5.0, 3.0);  // Passing arguments to the function
+    cout << "Area: " << area << endl;
+
+    return 0;
+}
+
+
+Return Type
+The return type of a function specifies the type of value the function will return. If a function doesn't return a value, you use the `void` keyword:
+
+
+// Function to check if a number is even
+bool isEven(int number) {
+    return (number % 2 == 0);
+}
+
+int main() {
+    int num = 4;
+    if (isEven(num)) {
+        cout << num << " is even." << endl;
+    } else {
+        cout << num << " is odd." << endl;
+    }
+
+    return 0;
+}
+
+
+Function Overloading
+C++ allows you to define multiple functions with the same name but different parameters. This is called function overloading:
+
+
+// Function to print an integer
+void print(int i) {
+    cout << "Integer: " << i << endl;
+}
+
+// Function to print a double
+void print(double d) {
+    cout << "Double: " << d << endl;
+}
+
+int main() {
+    print(5);      // Calls the function that prints an integer
+    print(3.14);   // Calls the function that prints a double
+
+    return 0;
+}
+
+
+Common Mistakes to Avoid
+1. Forgetting to return a value from a non-void function.
+2. Mismatching the function signature when calling a function.
+3. Not using meaningful names for function parameters.
+4. Overloading functions with ambiguous parameter types.
+
+Good Practices
+1. Use meaningful names for functions and parameters.
+2. Keep functions short and focused on a single task.
+3. Use comments to explain complex logic within functions.
+4. Avoid global variables; use function parameters and return values instead.
+
+Remember:
+- Functions help you organize your code and make it more readable.
+- Use function parameters to pass data to functions.
+- Return values from functions to get results.
+- Function overloading allows you to use the same function name for different tasks.
+
+---
+]]>
+                    </content>
+                </topic>
+                <topic id="4">
+                    <title>Function Templates</title>
+                    <content><![CDATA[Function templates in C++ are like blueprints for creating functions. They allow you to write a function once and use it with different data types without rewriting the entire function. Think of function templates as instructions for tasks like "sort a list" or "find the maximum value," but applicable to any type of list or value.
+
+Defining a Function Template
+To define a function template, you use the `template` keyword followed by a template parameter list:
+
+
+#include <iostream>
+using namespace std;
+
+// Function template to find the maximum of two values
+template <typename T>
+T findMax(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+// Function template to swap two values
+template <typename T>
+void swapValues(T& a, T& b) {
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+
+Using a Function Template
+Once you've defined a function template, you can use it with different data types:
+
+
+int main() {
+    // Using findMax with integers
+    int int1 = 10, int2 = 20;
+    cout << "Max of " << int1 << " and " << int2 << " is " << findMax(int1, int2) << endl;
+
+    // Using findMax with doubles
+    double double1 = 10.5, double2 = 20.5;
+    cout << "Max of " << double1 << " and " << double2 << " is " << findMax(double1, double2) << endl;
+
+    // Using swapValues with integers
+    cout << "Before swap: int1 = " << int1 << ", int2 = " << int2 << endl;
+    swapValues(int1, int2);
+    cout << "After swap: int1 = " << int1 << ", int2 = " << int2 << endl;
+
+    // Using swapValues with doubles
+    cout << "Before swap: double1 = " << double1 << ", double2 = " << double2 << endl;
+    swapValues(double1, double2);
+    cout << "After swap: double1 = " << double1 << ", double2 = " << double2 << endl;
+
+    return 0;
+}
+
+
+Template Specialization
+Sometimes, you may need to write a specific version of a template for a particular data type. This is called template specialization:
+
+
+#include <iostream>
+using namespace std;
+
+// Generic template
+template <typename T>
+void printValue(T value) {
+    cout << "Value: " << value << endl;
+}
+
+// Template specialization for char
+template <>
+void printValue(char value) {
+    cout << "Character: " << value << endl;
+}
+
+int main() {
+    printValue(10);       // Calls the generic template
+    printValue(3.14);     // Calls the generic template
+    printValue('A');      // Calls the specialized template
+
+    return 0;
+}
+
+
+Common Mistakes to Avoid
+1. Forgetting to use the `template` keyword when defining a template.
+2. Mismatching template parameters when calling a template function.
+3. Not using meaningful names for template parameters.
+4. Overloading templates with ambiguous parameter types.
+
+Good Practices
+1. Use meaningful names for template parameters.
+2. Keep template functions short and focused on a single task.
+3. Use comments to explain complex logic within templates.
+4. Avoid global variables; use template parameters and return values instead.
+
+Remember:
+- Function templates help you write generic and reusable code.
+- Use template parameters to create functions that work with different data types.
+- Template specialization allows you to write specific versions of a template for particular data types.
+
+---
+]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="5">
+            <title>Object-Oriented Programming</title>
+            <topics>
+                <topic id="5">
+                    <title>Classes and Objects</title>
+                    <content><![CDATA[Classes and objects are the building blocks of object-oriented programming (OOP) in C++. They allow you to create complex data structures and define the behavior of those structures. Think of classes as blueprints for creating objects, similar to how a blueprint for a house defines its structure and features.
+
+Defining a Class
+To define a class, you use the `class` keyword followed by the class name and a set of curly braces `{}`. Inside the class, you can define member variables (attributes) and member functions (methods):
+
+
+#include <iostream>
+using namespace std;
+
+// Class definition
+class Car {
+public:
+    // Member variables
+    string brand;
+    string model;
+    int year;
+
+    // Member function
+    void displayInfo() {
+        cout << "Brand: " << brand << ", Model: " << model << ", Year: " << year << endl;
+    }
+};
+
+
+Creating Objects
+Once you've defined a class, you can create objects (instances) of that class:
+
+
+int main() {
+    // Creating an object of the Car class
+    Car car1;
+    car1.brand = "Toyota";
+    car1.model = "Corolla";
+    car1.year = 2020;
+
+    // Calling the member function
+    car1.displayInfo();
+
+    return 0;
+}
+
+
+Constructors
+Constructors are special member functions that are called when an object is created. They initialize the object's member variables:
+
+
+class Car {
+public:
+    string brand;
+    string model;
+    int year;
+
+    // Constructor
+    Car(string b, string m, int y) {
+        brand = b;
+        model = m;
+        year = y;
+    }
+
+    void displayInfo() {
+        cout << "Brand: " << brand << ", Model: " << model << ", Year: " << year << endl;
+    }
+};
+
+int main() {
+    // Creating objects using the constructor
+    Car car1("Toyota", "Corolla", 2020);
+    Car car2("Honda", "Civic", 2019);
+
+    car1.displayInfo();
+    car2.displayInfo();
+
+    return 0;
+}
+
+
+Access Modifiers
+Access modifiers control the visibility of class members. The three main access modifiers are `public`, `private`, and `protected`:
+
+
+class Car {
+private:
+    string brand;
+    string model;
+    int year;
+
+public:
+    // Constructor
+    Car(string b, string m, int y) {
+        brand = b;
+        model = m;
+        year = y;
+    }
+
+    // Public member function to access private members
+    void displayInfo() {
+        cout << "Brand: " << brand << ", Model: " << model << ", Year: " << year << endl;
+    }
+};
+
+
+Inheritance
+Inheritance allows you to create a new class (derived class) based on an existing class (base class). The derived class inherits the attributes and methods of the base class:
+
+
+// Base class
+class Vehicle {
+public:
+    string brand;
+    void honk() {
+        cout << "Beep beep!" << endl;
+    }
+};
+
+// Derived class
+class Car : public Vehicle {
+public:
+    string model;
+    int year;
+
+    void displayInfo() {
+        cout << "Brand: " << brand << ", Model: " << model << ", Year: " << year << endl;
+    }
+};
+
+int main() {
+    Car car1;
+    car1.brand = "Toyota";
+    car1.model = "Corolla";
+    car1.year = 2020;
+
+    car1.honk();  // Inherited from Vehicle
+    car1.displayInfo();
+
+    return 0;
+}
+
+
+Common Mistakes to Avoid
+1. Forgetting to initialize member variables.
+2. Using incorrect access modifiers.
+3. Not using constructors to initialize objects.
+4. Overloading functions with ambiguous parameter types.
+
+Good Practices
+1. Use meaningful names for classes and member variables.
+2. Keep classes focused on a single responsibility.
+3. Use constructors to initialize objects.
+4. Use access modifiers to control the visibility of class members.
+5. Use inheritance to reuse code and create a clear class hierarchy.
+
+Remember:
+- Classes are blueprints for creating objects.
+- Objects are instances of classes.
+- Constructors initialize objects.
+- Access modifiers control the visibility of class members.
+- Inheritance allows you to create new classes based on existing ones.
+]]>
+</content>
+                </topic>
+                <topic id="5">
+                    <title>Standard Template Library (STL)</title>
+                    <content><![CDATA[The Standard Template Library (STL) is a powerful set of C++ template classes to provide general-purpose classes and functions with templates that implement many popular and commonly used algorithms and data structures like vectors, lists, queues, and stacks. Think of STL as a toolbox that provides ready-made solutions for common programming tasks.
+
+Components of STL
+STL is divided into four main components:
+1. Containers: Store collections of objects.
+2. Algorithms: Perform operations on the elements of containers.
+3. Iterators: Provide a way to access elements of containers.
+4. Functors: Function objects that can be used with algorithms.
+
+Containers
+Containers are objects that store collections of other objects. The most commonly used containers are:
+- Vector: A dynamic array that can grow in size.
+- List: A doubly linked list.
+- Deque: A double-ended queue.
+- Set: A collection of unique elements.
+- Map: A collection of key-value pairs.
+
+Example: Using a Vector
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+
+    // Adding elements to the vector
+    numbers.push_back(6);
+    numbers.push_back(7);
+
+    // Accessing elements
+    cout << "First element: " << numbers[0] << endl;
+    cout << "Last element: " << numbers.back() << endl;
+
+    // Iterating through the vector
+    cout << "All elements: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+Algorithms
+Algorithms are a set of procedures that perform operations on containers. Some commonly used algorithms are:
+- sort: Sorts the elements in a range.
+- find: Searches for an element in a range.
+- copy: Copies elements from one range to another.
+- accumulate: Computes the sum of elements in a range.
+
+Example: Using Algorithms
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {5, 3, 8, 1, 2};
+
+    // Sorting the vector
+    sort(numbers.begin(), numbers.end());
+    cout << "Sorted elements: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    // Finding an element
+    auto it = find(numbers.begin(), numbers.end(), 3);
+    if (it != numbers.end()) {
+        cout << "Element 3 found at index: " << distance(numbers.begin(), it) << endl;
+    } else {
+        cout << "Element 3 not found" << endl;
+    }
+
+    // Accumulating the sum of elements
+    int sum = accumulate(numbers.begin(), numbers.end(), 0);
+    cout << "Sum of elements: " << sum << endl;
+
+    return 0;
+}
+
+
+Iterators
+Iterators are objects that point to elements within a container. They are used to traverse the elements of a container. Common types of iterators are:
+- Input Iterator: Reads elements from a container.
+- Output Iterator: Writes elements to a container.
+- Forward Iterator: Moves forward through a container.
+- Bidirectional Iterator: Moves both forward and backward through a container.
+- Random Access Iterator: Accesses elements at any position in a container.
+
+Example: Using Iterators
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {10, 20, 30, 40, 50};
+
+    // Using an iterator to traverse the vector
+    cout << "Elements: ";
+    for (vector<int>::iterator it = numbers.begin(); it != numbers.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+Functors
+Functors, or function objects, are objects that can be called as if they were functions. They are used to pass functions as arguments to algorithms.
+
+Example: Using Functors
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+// Functor to check if a number is even
+class IsEven {
+public:
+    bool operator()(int num) {
+        return num % 2 == 0;
+    }
+};
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5, 6};
+
+    // Using the functor with the find_if algorithm
+    auto it = find_if(numbers.begin(), numbers.end(), IsEven());
+    if (it != numbers.end()) {
+        cout << "First even number: " << *it << endl;
+    } else {
+        cout << "No even number found" << endl;
+    }
+
+    return 0;
+}
+
+
+Common Mistakes to Avoid
+1. Forgetting to include the necessary headers for STL components.
+2. Using incorrect iterator types for container operations.
+3. Not understanding the complexity of STL algorithms.
+4. Modifying a container while iterating through it.
+
+Good Practices
+1. Use the appropriate container for your data.
+2. Take advantage of STL algorithms to simplify your code.
+3. Use iterators to traverse containers efficiently.
+4. Use functors to pass custom functions to algorithms.
+5. Always check the return values of STL functions and algorithms.
+
+Remember:
+- STL provides a set of powerful tools for common programming tasks.
+- Containers store collections of objects.
+- Algorithms perform operations on container elements.
+- Iterators provide a way to access container elements.
+- Functors allow you to pass functions as arguments to algorithms.
+]]>
+</content>
+                </topic>
+            </topics>
+        </section>
+    </sections>
+    <quizes>
+        <quiz id="1">
+            <question id="1">
+                <text>What is one of the main reasons C++ is popular?</text>
+                <answers id="1">
+                    <answer correct="false">It is easy to learn</answer>
+                    <answer correct="true">It has good performance and flexibility</answer>
+                    <answer correct="false">It is only used for web development</answer>
+                    <answer correct="false">It does not support object-oriented programming</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>What is one of the important features of C++?</text>
+                <answers id="1">
+                    <answer correct="false">It does not support memory management</answer>
+                    <answer correct="true">It supports object-oriented programming</answer>
+                    <answer correct="false">It cannot be used with C code</answer>
+                    <answer correct="false">It is not efficient</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Which IDE is best for Windows when using C++?</text>
+                <answers id="1">
+                    <answer correct="false">CLion</answer>
+                    <answer correct="false">Code::Blocks</answer>
+                    <answer correct="true">Visual Studio</answer>
+                    <answer correct="false">Eclipse</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>What is the main purpose of a compiler in a C++ development environment?</text>
+                <answers id="1">
+                    <answer correct="false">To write code</answer>
+                    <answer correct="true">To convert code into a program the computer can run</answer>
+                    <answer correct="false">To debug code</answer>
+                    <answer correct="false">To organize projects</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>What is the purpose of a debugger in a C++ development environment?</text>
+                <answers id="1">
+                    <answer correct="false">To write code</answer>
+                    <answer correct="false">To convert code into a program the computer can run</answer>
+                    <answer correct="false">To organize and compile projects</answer>
+                    <answer correct="true">To find and fix problems in code</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="2">
+            <question id="2">
+                <text><![CDATA[What is the purpose of specifying a variable's type in C++?]]></text>
+                <answers id="2">
+                    <answer correct="false"><![CDATA[To determine the variable's name]]></answer>
+                    <answer correct="true">To tell C++ what kind of information the variable will hold</answer>
+                    <answer correct="false"><![CDATA[To set the variable's initial value]]></answer>
+                    <answer correct="false"><![CDATA[To define the variable's scope]]></answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>What is the difference between `float` and `double` in C++?</text>
+                <answers id="2">
+                    <answer correct="false">`float` is for integers, `double` is for decimals</answer>
+                    <answer correct="true">`float` is single precision, `double` is double precision</answer>
+                    <answer correct="false">`float` is for small numbers, `double` is for large numbers</answer>
+                    <answer correct="false">`float` is for characters, `double` is for strings</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>What is a common mistake to avoid when using operators in C++?</text>
+                <answers id="2">
+                    <answer correct="false">Using meaningful variable names</answer>
+                    <answer correct="true">Using = (assignment) instead of == (comparison)</answer>
+                    <answer correct="false">Using parentheses to make intentions clear</answer>
+                    <answer correct="false">Checking for division by zero</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>What is a common mistake to avoid when using variables in C++?</text>
+                <answers id="2">
+                    <answer correct="false">Using `double` for money calculations</answer>
+                    <answer correct="false">Initializing variables before using them</answer>
+                    <answer correct="false">Using meaningful variable names</answer>
+                    <answer correct="true">Forgetting to initialize variables before using them</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Which logical operator checks if both conditions are true in C++?</text>
+                <answers id="2">
+                    <answer correct="true"><![CDATA[&& ]]></answer>
+                    <answer correct="false">||</answer>
+                    <answer correct="false">!</answer>
+                    <answer correct="false"><![CDATA[& ]]></answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="3">
+            <question id="3">
+                <text>Which statement is used to handle multiple situations in C++?</text>
+                <answers id="3">
+                    <answer correct="false">if-else</answer>
+                    <answer correct="true">switch</answer>
+                    <answer correct="false">for loop</answer>
+                    <answer correct="false">while loop</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>What is the purpose of the `else` keyword in an if-else statement?</text>
+                <answers id="3">
+                    <answer correct="false">To check another condition</answer>
+                    <answer correct="true">To execute code if the initial condition is false</answer>
+                    <answer correct="false">To repeat a block of code</answer>
+                    <answer correct="false">To handle input from the user</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>What is the main purpose of loops in C++?</text>
+                <answers id="3">
+                    <answer correct="false">To perform arithmetic operations</answer>
+                    <answer correct="true">To repeat a task multiple times without writing the same code over and over</answer>
+                    <answer correct="false">To handle input and output</answer>
+                    <answer correct="false">To manage memory</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Which loop is best when you know exactly how many times you want to repeat a task?</text>
+                <answers id="3">
+                    <answer correct="false">while loop</answer>
+                    <answer correct="false">do-while loop</answer>
+                    <answer correct="true">for loop</answer>
+                    <answer correct="false">infinite loop</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>What is the key difference between a while loop and a do-while loop in C++?</text>
+                <answers id="3">
+                    <answer correct="false">A while loop always runs at least once, a do-while loop may not run at all</answer>
+                    <answer correct="true">A do-while loop always runs at least once, a while loop may not run at all</answer>
+                    <answer correct="false">A while loop is used for arithmetic operations, a do-while loop is used for input and output</answer>
+                    <answer correct="false">A while loop is used for managing memory, a do-while loop is used for handling input and output</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="4">
+            <question id="4">
+                <text>How do you define a function in C++?</text>
+                <answers id="4">
+                    <answer correct="true">By specifying the return type, function name, and any parameters it takes</answer>
+                    <answer correct="false">By specifying the function name and return type only</answer>
+                    <answer correct="false">By specifying the function name and parameters only</answer>
+                    <answer correct="false">By specifying the return type and parameters only</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>What is the purpose of function parameters in C++?</text>
+                <answers id="4">
+                    <answer correct="false">To define the return type of the function</answer>
+                    <answer correct="true">To pass values to the function when it is called</answer>
+                    <answer correct="false">To specify the function name</answer>
+                    <answer correct="false">To handle input and output</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>What keyword is used for a function that does not return a value in C++?</text>
+                <answers id="4">
+                    <answer correct="false">int</answer>
+                    <answer correct="false">double</answer>
+                    <answer correct="true">void</answer>
+                    <answer correct="false">bool</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>What is a good practice when using functions in C++?</text>
+                <answers id="4">
+                    <answer correct="false">Using global variables</answer>
+                    <answer correct="false">Overloading functions with ambiguous parameter types</answer>
+                    <answer correct="true">Avoiding global variables -> using function parameters and return values instead</answer>
+                    <answer correct="false">Mismatching the function signature when calling a function</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>What is the purpose of function templates in C++?</text>
+                <answers id="4">
+                    <answer correct="true">To write a function once and use it with different data types without rewriting the entire function</answer>
+                    <answer correct="false">To define multiple functions with the same name but different parameters</answer>
+                    <answer correct="false">To handle input and output</answer>
+                    <answer correct="false">To manage memory</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="5">
+            <question id="5">
+                <text>What is the purpose of a constructor in a class?</text>
+                <answers id="5">
+                    <answer correct="false">To define the class name</answer>
+                    <answer correct="true">To initialize the object's member variables when an object is created</answer>
+                    <answer correct="false">To perform arithmetic operations</answer>
+                    <answer correct="false">To handle input and output</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>What are access modifiers in C++?</text>
+                <answers id="5">
+                    <answer correct="true">Keywords that control the visibility of class members</answer>
+                    <answer correct="false">Functions that perform arithmetic operations</answer>
+                    <answer correct="false">Tools for handling input and output</answer>
+                    <answer correct="false">Methods for managing memory</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>What is inheritance in C++?</text>
+                <answers id="5">
+                    <answer correct="true">Creating a new class based on an existing class</answer>
+                    <answer correct="false">Defining multiple functions with the same name but different parameters</answer>
+                    <answer correct="false">Handling input and output</answer>
+                    <answer correct="false">Managing memory</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>What is the Standard Template Library (STL) in C++?</text>
+                <answers id="5">
+                    <answer correct="false">A set of tools for handling input and output</answer>
+                    <answer correct="true">A powerful set of C++ template classes for common programming tasks</answer>
+                    <answer correct="false">A method for managing memory</answer>
+                    <answer correct="false">A function for performing arithmetic operations</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>What are containers in the STL?</text>
+                <answers id="5">
+                    <answer correct="true">Objects that store collections of other objects</answer>
+                    <answer correct="false">Functions that perform arithmetic operations</answer>
+                    <answer correct="false">Tools for handling input and output</answer>
+                    <answer correct="false">Methods for managing memory</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="6">
+            <question id="6">
+                <text>What is one of the main reasons C++ is popular?</text>
+                <answers id="6">
+                    <answer correct="false">It is easy to learn</answer>
+                    <answer correct="true">It has good performance and flexibility</answer>
+                    <answer correct="false">It is only used for web development</answer>
+                    <answer correct="false">It does not support object-oriented programming</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is one of the important features of C++?</text>
+                <answers id="6">
+                    <answer correct="false">It does not support memory management</answer>
+                    <answer correct="true">It supports object-oriented programming</answer>
+                    <answer correct="false">It cannot be used with C code</answer>
+                    <answer correct="false">It is not efficient</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the purpose of a debugger in a C++ development environment?</text>
+                <answers id="6">
+                    <answer correct="false">To write code</answer>
+                    <answer correct="false">To convert code into a program the computer can run</answer>
+                    <answer correct="false">To organize and compile projects</answer>
+                    <answer correct="true">To find and fix problems in code</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text><![CDATA[What is the purpose of specifying a variable's type in C++?]]></text>
+                <answers id="6">
+                    <answer correct="false"><![CDATA[To determine the variable's name]]></answer>
+                    <answer correct="true">To tell C++ what kind of information the variable will hold</answer>
+                    <answer correct="false"><![CDATA[To set the variable's initial value]]></answer>
+                    <answer correct="false"><![CDATA[To define the variable's scope]]></answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is a common mistake to avoid when using operators in C++?</text>
+                <answers id="6">
+                    <answer correct="false">Using meaningful variable names</answer>
+                    <answer correct="true">Using = (assignment) instead of == (comparison)</answer>
+                    <answer correct="false">Using parentheses to make intentions clear</answer>
+                    <answer correct="false">Checking for division by zero</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which logical operator checks if both conditions are true in C++?</text>
+                <answers id="6">
+                    <answer correct="true"><![CDATA[&& ]]></answer>
+                    <answer correct="false">||</answer>
+                    <answer correct="false">!</answer>
+                    <answer correct="false"><![CDATA[& ]]></answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which statement is used to handle multiple situations in C++?</text>
+                <answers id="6">
+                    <answer correct="false">if-else</answer>
+                    <answer correct="true">switch</answer>
+                    <answer correct="false">for loop</answer>
+                    <answer correct="false">while loop</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the main purpose of loops in C++?</text>
+                <answers id="6">
+                    <answer correct="false">To perform arithmetic operations</answer>
+                    <answer correct="true">To repeat a task multiple times without writing the same code over and over</answer>
+                    <answer correct="false">To handle input and output</answer>
+                    <answer correct="false">To manage memory</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Which loop is best when you know exactly how many times you want to repeat a task?</text>
+                <answers id="6">
+                    <answer correct="false">while loop</answer>
+                    <answer correct="false">do-while loop</answer>
+                    <answer correct="true">for loop</answer>
+                    <answer correct="false">infinite loop</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>How do you define a function in C++?</text>
+                <answers id="6">
+                    <answer correct="true">By specifying the return type, function name, and any parameters it takes</answer>
+                    <answer correct="false">By specifying the function name and return type only</answer>
+                    <answer correct="false">By specifying the function name and parameters only</answer>
+                    <answer correct="false">By specifying the return type and parameters only</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the purpose of function parameters in C++?</text>
+                <answers id="6">
+                    <answer correct="false">To define the return type of the function</answer>
+                    <answer correct="true">To pass values to the function when it is called</answer>
+                    <answer correct="false">To specify the function name</answer>
+                    <answer correct="false">To handle input and output</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What keyword is used for a function that does not return a value in C++?</text>
+                <answers id="6">
+                    <answer correct="false">int</answer>
+                    <answer correct="false">double</answer>
+                    <answer correct="true">void</answer>
+                    <answer correct="false">bool</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the purpose of function templates in C++?</text>
+                <answers id="6">
+                    <answer correct="true">To write a function once and use it with different data types without rewriting the entire function</answer>
+                    <answer correct="false">To define multiple functions with the same name but different parameters</answer>
+                    <answer correct="false">To handle input and output</answer>
+                    <answer correct="false">To manage memory</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is the purpose of a constructor in a class?</text>
+                <answers id="6">
+                    <answer correct="false">To define the class name</answer>
+                    <answer correct="true">To initialize the object's member variables when an object is created</answer>
+                    <answer correct="false">To perform arithmetic operations</answer>
+                    <answer correct="false">To handle input and output</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>What is inheritance in C++?</text>
+                <answers id="6">
+                    <answer correct="true">Creating a new class based on an existing class</answer>
+                    <answer correct="false">Defining multiple functions with the same name but different parameters</answer>
+                    <answer correct="false">Handling input and output</answer>
+                    <answer correct="false">Managing memory</answer>
+                </answers>
+            </question>
+        </quiz>
+    </quizes>
+</course>

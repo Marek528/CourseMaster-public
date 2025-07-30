@@ -1,0 +1,2420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course>
+    <title>Python Programming</title>
+    <img src="img/python_eng.png" alt="Python Programming"/>
+    <sections>
+        <section id="1">
+            <title>Introduction to Python</title>
+            <topics>
+                <topic id="1">
+                    <title>What is Python?</title>
+                    <content>Python is a popular programming language that was created in 1991 by Guido van Rossum. It is known for being easy to read and write. Unlike other programming languages that use lots of special symbols, Python uses simple English words and spaces to organize code. This makes it easier for beginners to learn and understand.
+
+Python can be used for many different things. You can make websites with it using tools like Django and Flask. Many scientists use Python to work with data using special tools like NumPy and Pandas. It's also very popular for creating artificial intelligence programs. Big companies like Google, Netflix, and Instagram use Python every day.
+
+One of the best things about Python is that you don't need to prepare code before running it. You can write a line of code and see the result right away. This makes it great for learning and testing new ideas. Python also comes with many useful tools already built in, so you can start making programs quickly without downloading extra software.
+
+The Python community is very helpful and friendly. There are thousands of free tools (called packages) that other people have made, which you can use in your own programs. You can find these packages on a website called PyPI. If you ever have questions or problems, there are many websites, forums, and groups where you can get help.
+
+Python is used by both small and large companies. You can use it to make small programs that help you with daily tasks, or big programs that millions of people use. The language keeps getting better with new updates, but old programs still work with new versions of Python. This makes it a safe choice for learning programming.</content>
+                </topic>
+                <topic id="1">
+                    <title>Installing Python</title>
+                    <content>Installing Python on your computer is not difficult, but there are some important things to know. Each computer system (Windows, Mac, or Linux) has its own way of installing Python.
+
+For Windows users:
+1. Go to the Python website (https://www.python.org/downloads/)
+2. Download the latest version for Windows
+3. Run the installer
+4. Make sure to check the box that says "Add Python to PATH" - this is very important!
+5. Click Install Now
+
+When you install Python on Windows, you get two important things: the Python program itself and a tool called pip that helps you install extra Python packages. After installing, you should open the Command Prompt (you can find it by searching "cmd" in the start menu) and type these commands to make sure everything works:
+
+python --version
+pip --version
+
+
+If you have a Mac, Python might already be installed, but it's usually an old version. To get the newest version, you can:
+1. Download it from python.org, or
+2. Use a program called Homebrew by typing "brew install python" in the Terminal
+
+For Linux users, Python usually comes with your system. To get the newest version on Ubuntu, you can open the Terminal and type:
+
+sudo apt update
+sudo apt install python3
+
+
+After installing Python, you should know about virtual environments. These are special folders that keep your Python projects separate from each other. This is helpful when different projects need different versions of tools. To create a virtual environment, type:
+
+python -m venv my_project
+
+
+Common problems you might face:
+- Python commands don't work: Check if you added Python to PATH
+- Permission errors: Try running the command with 'sudo' on Mac/Linux
+- Can't install packages: Make sure you have internet connection
+- Multiple Python versions: Be clear about which version you're using
+
+If you have any problems, you can:
+1. Check if Python is in your system's PATH
+2. Make sure you have permission to install programs
+3. Check your internet connection
+4. Ask for help on Python forums</content>
+                </topic>
+                <topic id="1">
+                    <title>Python IDEs</title>
+                    <content>An IDE (Integrated Development Environment) is a program that helps you write Python code. It's like a special text editor with extra tools for programming. Choosing the right IDE can make programming much easier and more enjoyable.
+
+PyCharm is one of the most popular Python IDEs. It comes in two versions:
+1. Community Edition (free)
+2. Professional Edition (you need to pay)
+
+PyCharm helps you write code by:
+- Finishing code for you as you type
+- Finding and fixing errors automatically
+- Helping you organize your files
+- Making it easy to test your code
+- Showing you where you made mistakes
+The only downside is that PyCharm needs a fairly powerful computer to run well, and it can take some time to learn all its features.
+
+Visual Studio Code (VS Code) is another popular choice. It's free and works well even on less powerful computers. With VS Code, you can:
+- Write Python code with helpful suggestions
+- Find errors in your code
+- Run and debug your programs
+- Work with Git (a tool for saving different versions of your code)
+- Add more features by installing extensions
+VS Code is a good middle ground - it's not as complicated as PyCharm but still has many useful features.
+
+Jupyter Notebook is special because it lets you:
+- Write code in small chunks (called cells)
+- See the results right away
+- Add text explanations between your code
+- Create graphs and visualizations
+- Share your work easily with others
+It's especially good for:
+- Learning Python
+- Working with data
+- Creating reports that mix text and code
+- Teaching others about programming
+
+When choosing an IDE, think about:
+1. How powerful your computer is
+2. Whether you want a simple or advanced tool
+3. If you need special features for your projects
+4. Whether you want to pay or use a free program
+
+For beginners, here are some good choices:
+- Thonny: Very simple and good for learning
+- VS Code: Good balance of features
+- PyCharm Community: More features but still free
+
+Each IDE has its own good points. Try a few different ones to find what works best for you. Remember, you can always switch to a different IDE later as you learn more about programming.</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="2">
+            <title>Basic Syntax and Data Types</title>
+            <topics>
+                <topic id="2">
+                    <title>Variables and Data Types</title>
+                    <content>In Python, variables are like containers that store different types of information. You don't need to tell Python what kind of information you're storing - it figures that out by itself. This makes Python easier to use than many other programming languages.
+
+The main types of information you can store in Python are:
+
+Numbers:
+- Whole numbers (integers): Like 5, -17, 1000
+- Decimal numbers (floats): Like 3.14, -0.001, 99.9
+Examples:
+
+age = 25
+height = 1.75
+temperature = -5
+
+
+Text (strings):
+- Any text between quotes: "Hello", 'Python', "123"
+- You can use single quotes (') or double quotes (")
+- You can even store multiple lines of text using three quotes
+Examples:
+
+name = "John"
+message = 'Hello, World!'
+long_text = """This is a long
+piece of text that takes up
+multiple lines"""
+
+
+True/False values (booleans):
+- Used for yes/no or true/false situations
+- Very useful in making decisions in your code
+Examples:
+
+is_student = True
+has_license = False
+is_raining = True
+
+
+Some important things to remember:
+1. Variable names can't start with numbers
+2. They can use letters, numbers, and underscores
+3. They are case-sensitive (name and Name are different)
+4. You can't use Python's special words (like 'if' or 'for')
+
+Good variable names:
+
+user_age = 25
+first_name = "Maria"
+is_valid = True
+
+
+Bad variable names:
+
+1st_name = "John"  # Can't start with number
+my-name = "Pete"   # Can't use dash
+if = "something"   # Can't use Python keywords
+
+
+You can also change what's stored in a variable:
+
+score = 0        # Start with 0
+score = 10       # Change to 10
+score = score + 5  # Add 5 to current value
+
+
+Python is flexible with variables, but it's important to use them in ways that make sense:
+
+# This works, but isn't a good practice
+x = 5          # Start with a number
+x = "Hello"    # Change to text
+x = True       # Change to boolean
+
+
+It's better to:
+1. Give variables clear, meaningful names
+2. Keep the same type of information in a variable
+3. Use new variables for different types of information
+
+Understanding variables and data types is very important because they are the building blocks of any Python program. With these basics, you can start writing programs that work with different kinds of information.</content>
+                </topic>
+                <topic id="2">
+                    <title>Basic Operators</title>
+                    <content>Operators in Python are special symbols that help you work with values and variables. They're like the basic math symbols you use every day, plus some extra ones for programming. Let's learn about the different types of operators and how to use them.
+
+Math Operators:
+These work just like a calculator:
+
+# Addition (+)
+total = 5 + 3        # equals 8
+name = "Hello " + "World"  # equals "Hello World"
+
+# Subtraction (-)
+difference = 10 - 4  # equals 6
+
+# Multiplication (*)
+product = 4 * 3      # equals 12
+repeated = "Ha" * 3  # equals "HaHaHa"
+
+# Division (/)
+result = 15 / 3      # equals 5.0 (always gives a decimal)
+
+# Integer Division (//)
+whole_number = 17 // 5  # equals 3 (cuts off decimal part)
+
+# Remainder (%)
+remainder = 17 % 5   # equals 2 (what's left after division)
+
+# Power (**)
+squared = 4 ** 2     # equals 16 (4 times 4)
+cubed = 2 ** 3      # equals 8 (2 times 2 times 2)
+
+
+Comparison Operators:
+These help you compare values and give True or False answers:
+
+# Equal to (==)
+5 == 5    # True
+5 == 6    # False
+
+# Not equal to (!=)
+5 != 6    # True
+5 != 5    # False
+
+# Greater than (>)
+7 > 5     # True
+5 > 7     # False
+
+# Less than (&lt;)
+5 &lt; 7     # True
+7 &lt; 5     # False
+
+# Greater than or equal to (>=)
+7 >= 7    # True
+6 >= 7    # False
+
+# Less than or equal to (&lt;=)
+5 &lt;= 5    # True
+6 &lt;= 5    # False
+
+
+Logical Operators:
+These help you combine True and False values:
+
+# and (both must be True)
+True and True    # True
+True and False   # False
+5 > 3 and 6 &lt; 10  # True
+
+# or (at least one must be True)
+True or False    # True
+False or False   # False
+5 &lt; 3 or 6 &lt; 10  # True
+
+# not (makes True into False and False into True)
+not True         # False
+not False        # True
+not 5 > 10      # True
+
+
+Assignment Operators:
+These help you change variable values quickly:
+
+# Basic assignment (=)
+x = 5
+
+# Add and assign (+=)
+x += 3      # Same as: x = x + 3
+score += 10  # Add 10 to score
+
+# Subtract and assign (-=)
+x -= 2      # Same as: x = x - 2
+score -= 5  # Subtract 5 from score
+
+# Multiply and assign (*=)
+x *= 4      # Same as: x = x * 4
+
+# Divide and assign (/=)
+x /= 2      # Same as: x = x / 2
+
+
+Common Examples:
+
+# Calculating total price
+price = 10
+quantity = 3
+total = price * quantity
+
+# Checking if you can buy something
+money = 100
+cost = 75
+can_buy = money >= cost
+
+# Adding points in a game
+score = 0
+score += 10  # Got 10 points
+score += 5   # Got 5 more points
+
+# Checking game conditions
+is_alive = True
+has_key = False
+can_open_door = is_alive and has_key
+
+
+Tips for Using Operators:
+1. Remember that math operators follow the usual order (PEMDAS)
+2. Use parentheses () to make your calculations clear
+3. Be careful with = and == (= is for assigning, == is for comparing)
+4. When in doubt, test your operators with simple values first
+
+Common Mistakes to Avoid:
+1. Using = when you mean == for comparison
+2. Forgetting that / always gives a decimal
+3. Trying to use + with different types (like number + text)
+4. Not using parentheses when combining multiple operations</content>
+                </topic>
+                <topic id="2">
+                    <title>Strings and String Methods</title>
+                    <content>Strings in Python are sequences of text characters. They can include letters, numbers, spaces, and special characters. Python gives us many useful tools (called methods) to work with strings. Let's learn how to create and manipulate text in Python.
+
+Creating Strings:
+
+# Different ways to create strings
+name = "Alice"
+message = 'Hello, World!'
+address = """123 Main Street
+New York, NY 10001"""
+
+# Strings with quotes inside
+text1 = "He said 'Hello'"
+text2 = 'She said "Goodbye"'
+
+
+Basic String Operations:
+
+# Getting the length of a string
+name = "Alice"
+length = len(name)    # equals 5
+
+# Joining strings together
+first = "Hello"
+last = "World"
+full = first + " " + last  # "Hello World"
+
+# Repeating strings
+laugh = "ha" * 3     # equals "hahaha"
+
+# Getting individual characters
+name = "Python"
+first_letter = name[0]   # equals "P"
+last_letter = name[-1]   # equals "n"
+
+
+Common String Methods:
+1. Changing Case:
+
+text = "Hello, World!"
+upper_text = text.upper()      # "HELLO, WORLD!"
+lower_text = text.lower()      # "hello, world!"
+title_text = text.title()      # "Hello, World!"
+
+
+2. Removing Extra Spaces:
+
+text = "   Hello, World!   "
+cleaned = text.strip()         # "Hello, World!"
+left_clean = text.lstrip()     # "Hello, World!   "
+right_clean = text.rstrip()    # "   Hello, World!"
+
+
+3. Finding Text:
+
+message = "Hello, World!"
+position = message.find("World")   # equals 7
+has_hello = "Hello" in message     # True
+has_python = "Python" in message   # False
+
+
+4. Replacing Text:
+
+text = "I like cats"
+new_text = text.replace("cats", "dogs")  # "I like dogs"
+fixed = text.replace(" ", "-")           # "I-like-cats"
+
+
+5. Splitting and Joining:
+
+# Splitting string into list
+text = "apple,banana,orange"
+fruits = text.split(",")    # ["apple", "banana", "orange"]
+
+# Joining list into string
+words = ["Hello", "World"]
+text = " ".join(words)      # "Hello World"
+
+
+String Formatting:
+There are three main ways to put variables into strings:
+
+1. F-strings (easiest way):
+
+name = "Alice"
+age = 25
+message = f"My name is {name} and I am {age} years old"
+
+
+2. Format method:
+
+name = "Bob"
+age = 30
+message = "My name is {} and I am {} years old".format(name, age)
+
+
+3. Old style % formatting:
+
+name = "Charlie"
+age = 35
+message = "My name is %s and I am %d years old" % (name, age)
+
+
+Working with Parts of Strings:
+
+text = "Hello, World!"
+
+# Getting parts of strings (slicing)
+first_five = text[0:5]    # "Hello"
+last_five = text[-5:]     # "orld!"
+every_other = text[::2]   # "Hlo ol!"
+
+
+Useful String Methods for Programs:
+
+# Checking string content
+text = "Python123"
+text.isalpha()    # False (has numbers)
+text.isdigit()    # False (has letters)
+text.isalnum()    # True (has letters and numbers)
+
+# Checking string start/end
+filename = "document.txt"
+filename.startswith("doc")    # True
+filename.endswith(".txt")     # True
+
+# Counting occurrences
+text = "hello hello hello"
+count = text.count("hello")   # equals 3
+
+
+Common Problems and Solutions:
+1. Working with Different Types:
+
+age = 25
+# This will cause an error:
+# message = "I am " + age
+# Fix it by converting to string:
+message = "I am " + str(age)
+
+
+2. Working with Special Characters:
+
+# Use \n for new line
+message = "Line 1\nLine 2"
+
+# Use \t for tab
+message = "Name:\tJohn"
+
+# Use \\ for backslash
+path = "C:\\Users\\John"
+
+
+Tips for Working with Strings:
+1. Strings are immutable (can't be changed after creation)
+2. Always use meaningful variable names for strings
+3. Be careful with case sensitivity
+4. Remember that string positions start at 0
+5. Use f-strings for easy formatting</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="3">
+            <title>Control Structures</title>
+            <topics>
+                <topic id="3">
+                    <title>If Statements</title>
+                    <content>If statements help your program make decisions. They're like answering "yes" or "no" questions in real life. When you use if statements, your program can do different things based on different conditions.
+
+Basic If Statements:
+
+# Simple if statement
+age = 18
+if age >= 18:
+    print("You are an adult")
+
+# If-else statement
+temperature = 25
+if temperature > 30:
+    print("It's hot today")
+else:
+    print("It's not too hot")
+
+# If-elif-else (multiple conditions)
+score = 85
+if score >= 90:
+    print("You got an A")
+elif score >= 80:
+    print("You got a B")
+elif score >= 70:
+    print("You got a C")
+else:
+    print("You need to study more")
+
+
+Working with Multiple Conditions:
+
+# Using and
+age = 25
+has_license = True
+if age >= 18 and has_license:
+    print("You can drive")
+
+# Using or
+is_weekend = True
+is_holiday = False
+if is_weekend or is_holiday:
+    print("You can sleep late")
+
+# Using not
+is_busy = False
+if not is_busy:
+    print("Let's go to the movies")
+
+
+Nested If Statements:
+
+has_ticket = True
+has_id = True
+
+if has_ticket:
+    if has_id:
+        print("Welcome to the movie")
+    else:
+        print("Sorry, you need ID")
+else:
+    print("You need to buy a ticket")
+
+
+Real World Examples:
+
+1. Simple Game Decision:
+
+player_health = 100
+has_weapon = True
+sees_enemy = True
+
+if player_health > 0:
+    if has_weapon and sees_enemy:
+        print("Ready to fight!")
+    elif sees_enemy:
+        print("Run away!")
+    else:
+        print("Keep exploring")
+else:
+    print("Game Over")
+
+
+2. Shopping Discount:
+
+total_price = 100
+is_member = True
+is_sale_day = True
+
+if is_sale_day:
+    if is_member:
+        discount = 20
+    else:
+        discount = 10
+else:
+    if is_member:
+        discount = 10
+    else:
+        discount = 0
+
+final_price = total_price * (100 - discount) / 100
+
+
+Common Mistakes to Avoid:
+
+1. Forgetting Colons:
+
+# Wrong
+if age >= 18
+    print("Adult")
+
+# Right
+if age >= 18:
+    print("Adult")
+
+
+2. Wrong Indentation:
+
+# Wrong
+if age >= 18:
+print("Adult")    # This will cause an error
+
+# Right
+if age >= 18:
+    print("Adult")  # Properly indented
+
+
+3. Using = Instead of ==:
+
+# Wrong (assigns value)
+if age = 18:
+    print("You're 18")
+
+# Right (compares values)
+if age == 18:
+    print("You're 18")
+
+
+Tips for Using If Statements:
+
+1. Keep conditions simple and clear
+
+# Hard to read
+if age >= 18 and has_license and car_available and not is_tired:
+    print("You can drive")
+
+# Better - break it down
+can_legally_drive = age >= 18 and has_license
+car_is_ready = car_available and not is_tired
+
+if can_legally_drive and car_is_ready:
+    print("You can drive")
+
+
+2. Use elif for multiple related conditions
+
+# Not so good
+if grade >= 90:
+    print("A")
+if grade >= 80:
+    print("B")
+if grade >= 70:
+    print("C")
+
+# Better
+if grade >= 90:
+    print("A")
+elif grade >= 80:
+    print("B")
+elif grade >= 70:
+    print("C")
+
+
+3. Think about all possible cases
+
+# Missing cases
+if score > 100:
+    print("Invalid score")
+elif score >= 70:
+    print("Pass")
+# What about scores below 70?
+
+# Better
+if score > 100:
+    print("Invalid score")
+elif score >= 70:
+    print("Pass")
+else:
+    print("Fail")
+
+
+Remember:
+1. Every if, elif, and else needs a colon (:)
+2. The code that runs when the condition is True must be indented
+3. You can have many elif parts, but only one else
+4. The else part is optional
+5. Conditions must give True or False answers</content>
+                </topic>
+                <topic id="3">
+                    <title>Loops</title>
+                    <content>Loops help you do the same thing many times without writing the same code over and over. Python has two main types of loops: for loops and while loops. Let's learn how to use both types.
+
+For Loops:
+These are used when you know how many times you want to do something.
+
+1. Looping through numbers:
+
+# Print numbers 0 to 4
+for i in range(5):
+    print(i)
+
+# Print numbers 1 to 5
+for i in range(1, 6):
+    print(i)
+
+# Count by 2s
+for i in range(0, 10, 2):
+    print(i)  # Prints 0, 2, 4, 6, 8
+
+
+2. Looping through lists:
+
+# Loop through a list of names
+names = ["Alice", "Bob", "Charlie"]
+for name in names:
+    print(f"Hello, {name}!")
+
+# Loop through a string
+word = "Python"
+for letter in word:
+    print(letter)
+
+
+3. Using enumerate() to get position and value:
+
+fruits = ["apple", "banana", "orange"]
+for position, fruit in enumerate(fruits):
+    print(f"{position}: {fruit}")
+
+
+While Loops:
+These run as long as a condition is True.
+
+1. Basic while loop:
+
+# Count down from 5
+count = 5
+while count > 0:
+    print(count)
+    count = count - 1
+print("Blast off!")
+
+
+2. User input loop:
+
+# Keep asking until correct
+password = ""
+while password != "secret":
+    password = input("Enter the password: ")
+print("Access granted!")
+
+
+Real World Examples:
+
+1. Simple Game Loop:
+
+health = 100
+points = 0
+
+while health > 0:
+    print(f"Health: {health}, Points: {points}")
+    
+    # Pretend game logic
+    health -= 10  # Lose some health
+    points += 5   # Gain some points
+    
+    if points >= 50:
+        print("You win!")
+        break
+
+if health &lt;= 0:
+    print("Game Over")
+
+
+2. Shopping Cart:
+
+cart = ["apple", "banana", "orange"]
+total = 0
+
+for item in cart:
+    if item == "apple":
+        price = 0.5
+    elif item == "banana":
+        price = 0.3
+    else:
+        price = 0.6
+    
+    total += price
+    print(f"{item}: ${price}")
+
+print(f"Total: ${total}")
+
+
+Loop Control:
+
+1. Break - Stop the loop completely:
+
+# Stop when we find what we want
+names = ["Alice", "Bob", "Charlie", "David"]
+for name in names:
+    if name == "Charlie":
+        print("Found Charlie!")
+        break
+    print(f"Checking {name}")
+
+
+2. Continue - Skip to the next iteration:
+
+# Skip printing even numbers
+for num in range(5):
+    if num % 2 == 0:
+        continue
+    print(num)  # Only prints 1, 3
+
+
+Common Patterns:
+
+1. Nested Loops:
+
+# Making a multiplication table
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(f"{i} x {j} = {i*j}")
+    print("--------")
+
+
+2. Loop with Counter:
+
+# Count how many times something happens
+count = 0
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for num in numbers:
+    if num % 2 == 0:  # If number is even
+        count += 1
+
+print(f"Found {count} even numbers")
+
+
+Common Mistakes to Avoid:
+
+1. Infinite Loops:
+
+# Wrong - will never end
+while True:
+    print("This is infinite!")
+
+# Better - has a way to end
+count = 0
+while count &lt; 5:
+    print(count)
+    count += 1
+
+
+2. Off-by-One Errors:
+
+# Wrong - misses last number
+for i in range(1, 5):  # Goes from 1 to 4
+    print(i)
+
+# Right - includes 5
+for i in range(1, 6):  # Goes from 1 to 5
+    print(i)
+
+
+Tips for Using Loops:
+1. Always have a way to end while loops
+2. Use for loops when you know how many times to repeat
+3. Use while loops when you don't know how many times to repeat
+4. Be careful with nested loops - they can make your program slow
+5. Remember that range(n) starts at 0 and goes up to but not including n</content>
+                </topic>
+                <topic id="3">
+                    <title>Break and Continue</title>
+                    <content>Break and Continue are special commands that help you control loops better. They're like having a remote control for your loops - Break is like the stop button, and Continue is like the skip button.
+
+Using Break:
+Break helps you exit a loop completely, even if the loop condition is still True.
+
+1. Basic Break Example:
+
+# Stop counting when we reach 5
+for i in range(10):
+    print(i)
+    if i == 5:
+        break
+# Only prints 0, 1, 2, 3, 4, 5
+
+
+2. Real World Break Examples:
+
+Finding something in a list:
+
+# Find a user in a database
+users = ["Alice", "Bob", "Charlie", "David"]
+search_name = "Charlie"
+
+for user in users:
+    print(f"Checking user: {user}")
+    if user == search_name:
+        print("Found the user!")
+        break
+
+
+Menu system:
+
+while True:
+    choice = input("""Choose an option:
+    1. Play game
+    2. Show score
+    3. Quit
+    """)
+    
+    if choice == "1":
+        print("Starting game...")
+    elif choice == "2":
+        print("Your score is 100")
+    elif choice == "3":
+        print("Goodbye!")
+        break
+    else:
+        print("Please choose 1, 2, or 3")
+
+
+Using Continue:
+Continue skips the rest of the current loop and moves to the next iteration.
+
+1. Basic Continue Example:
+
+# Skip printing even numbers
+for i in range(5):
+    if i % 2 == 0:  # If number is even
+        continue
+    print(i)
+# Only prints 1 and 3
+
+
+2. Real World Continue Examples:
+
+Processing valid data:
+
+numbers = [1, -2, 3, -4, 5, 0, 6]
+
+for num in numbers:
+    # Skip negative numbers and zero
+    if num &lt;= 0:
+        continue
+    
+    result = 10 / num
+    print(f"10 divided by {num} is {result}")
+
+
+Filtering messages:
+
+messages = ["Hi!", "", "Hello", "", "Good morning!"]
+
+for message in messages:
+    # Skip empty messages
+    if message == "":
+        continue
+    
+    print(f"Sending: {message}")
+
+
+Using Break and Continue Together:
+
+1. Processing a List Until a Condition:
+
+scores = [85, 92, 78, 65, 98, 55]
+passing_score = 70
+
+for score in scores:
+    if score &lt; passing_score:
+        print(f"Found failing score: {score}")
+        break
+        
+    if score &lt; 80:
+        continue
+        
+    print(f"Excellent score: {score}")
+
+
+2. Input Validation:
+
+while True:
+    age = input("Enter your age (or 'quit' to exit): ")
+    
+    if age == 'quit':
+        break
+        
+    if not age.isdigit():
+        print("Please enter a number")
+        continue
+        
+    age = int(age)
+    if age &lt; 0 or age > 150:
+        print("Please enter a realistic age")
+        continue
+        
+    print(f"Your age is {age}")
+
+
+Common Patterns:
+
+1. Searching with Break:
+
+def find_item(items, target):
+    for index, item in enumerate(items):
+        if item == target:
+            return index  # Found it!
+        if item > target:
+            break  # Item would be here if it existed
+    return -1  # Not found
+
+
+2. Filtering with Continue:
+
+def process_positive_numbers(numbers):
+    results = []
+    for num in numbers:
+        if num &lt;= 0:
+            continue
+        results.append(num * 2)
+    return results
+
+
+Common Mistakes to Avoid:
+
+1. Breaking the Wrong Loop:
+
+# Break only affects the innermost loop
+for i in range(3):
+    for j in range(3):
+        if j == 1:
+            break  # Only breaks the inner loop
+    print(i)  # This still runs 3 times
+
+
+2. Unreachable Code:
+
+# Wrong - code after break never runs
+for i in range(5):
+    if i > 2:
+        break
+        print("This never prints")  # Unreachable!
+    print(i)
+
+# Right
+for i in range(5):
+    if i > 2:
+        print("About to break")
+        break
+    print(i)
+
+
+Tips for Using Break and Continue:
+
+1. Use Break when you:
+   - Find what you're looking for
+   - Need to exit a loop early
+   - Want to implement a 'quit' option
+
+2. Use Continue when you:
+   - Want to skip invalid items
+   - Need to avoid nested if statements
+   - Want to make your code cleaner
+
+3. General Tips:
+   - Don't overuse break and continue
+   - Make sure you understand which loop you're controlling
+   - Add comments to explain why you're using break or continue
+   - Test your loops with different inputs</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="4">
+            <title>Functions</title>
+            <topics>
+                <topic id="4">
+                    <title>Defining Functions</title>
+                    <content>Functions are like recipes - they're sets of instructions that you can use over and over again. Instead of writing the same code many times, you can put it in a function and just use the function when you need it.
+
+Basic Function Structure:
+
+def say_hello():
+    print("Hello, World!")
+
+# Using the function
+say_hello()  # Prints: Hello, World!
+
+
+Functions with Parameters:
+Parameters are like ingredients in your recipe - they're the information your function needs to work.
+
+
+def greet(name):
+    print(f"Hello, {name}!")
+
+# Using the function
+greet("Alice")  # Prints: Hello, Alice!
+greet("Bob")    # Prints: Hello, Bob!
+
+
+Functions that Return Values:
+Some functions give back (return) a result that you can use later.
+
+
+def add_numbers(a, b):
+    result = a + b
+    return result
+
+# Using the function
+sum_result = add_numbers(5, 3)
+print(sum_result)  # Prints: 8
+
+
+Real World Examples:
+
+1. Calculator Functions:
+
+def calculate_total(price, tax_rate):
+    tax = price * tax_rate
+    total = price + tax
+    return total
+
+# Using the calculator
+shirt_price = 20
+tax_rate = 0.1  # 10% tax
+total_price = calculate_total(shirt_price, tax_rate)
+print(f"Total price: ${total_price}")
+
+
+2. User Input Helper:
+
+def get_valid_age():
+    while True:
+        age = input("Enter your age: ")
+        if age.isdigit():
+            age = int(age)
+            if 0 &lt;= age &lt;= 150:
+                return age
+        print("Please enter a valid age")
+
+# Using the function
+user_age = get_valid_age()
+print(f"Your age is: {user_age}")
+
+
+3. Game Functions:
+
+def create_player(name):
+    return {
+        "name": name,
+        "health": 100,
+        "score": 0,
+        "items": []
+    }
+
+def damage_player(player, amount):
+    player["health"] -= amount
+    if player["health"] &lt; 0:
+        player["health"] = 0
+    return player["health"] > 0
+
+# Using the functions
+player1 = create_player("Alice")
+is_alive = damage_player(player1, 30)
+print(f"Health: {player1['health']}")
+
+
+Default Parameters:
+You can give parameters default values that are used when no value is provided.
+
+
+def greet(name="Friend", greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+# Different ways to use it
+greet()                    # Prints: Hello, Friend!
+greet("Alice")            # Prints: Hello, Alice!
+greet("Bob", "Hi")        # Prints: Hi, Bob!
+greet(greeting="Hey")     # Prints: Hey, Friend!
+
+
+Common Mistakes to Avoid:
+
+1. Variable Scope:
+
+# Wrong - trying to use local variable outside function
+def add_five(number):
+    result = number + 5
+    return result
+
+add_five(10)
+print(result)  # Error! result doesn't exist here
+
+# Right - save the return value
+answer = add_five(10)
+print(answer)  # Works!
+
+
+2. Forgetting to Return:
+
+# Wrong - function doesn't return anything
+def multiply(a, b):
+    result = a * b
+    # Forgot to return!
+
+# Right
+def multiply(a, b):
+    result = a * b
+    return result
+
+
+Tips for Writing Good Functions:
+
+1. Use Clear Names:
+
+# Not clear
+def f(x):
+    return x * 2
+
+# Better
+def double_number(number):
+    return number * 2
+
+
+2. Keep Functions Simple:
+
+# Too complex
+def do_everything(data):
+    # Process data
+    # Save to file
+    # Send email
+    # Update database
+    pass
+
+# Better - split into smaller functions
+def process_data(data):
+    return processed_data
+
+def save_data(data):
+    # Save to file
+    pass
+
+def send_notification(data):
+    # Send email
+    pass
+
+
+3. Add Comments and Docstrings:
+
+def calculate_grade(score):
+    """
+    Convert a numerical score to a letter grade.
+    
+    Args:
+        score (int): Numerical score from 0 to 100
+        
+    Returns:
+        str: Letter grade (A, B, C, D, or F)
+    """
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
+    else:
+        return "F"
+
+
+Remember:
+1. Functions should do one thing well
+2. Use clear and descriptive names
+3. Add comments to explain complex parts
+4. Test your functions with different inputs
+5. Return values when you need to use the result later</content>
+                </topic>
+                <topic id="4">
+                    <title>Parameters and Arguments</title>
+                    <content>Parameters and arguments are how we give information to our functions. Think of parameters like empty boxes that a function expects to receive, and arguments as the actual things we put in those boxes.
+
+Different Ways to Use Parameters:
+
+1. Required Parameters:
+
+def make_sandwich(bread_type, main_filling):
+    return f"A {main_filling} sandwich on {bread_type} bread"
+
+# You must provide both arguments
+sandwich = make_sandwich("wheat", "cheese")
+print(sandwich)  # Prints: A cheese sandwich on wheat bread
+
+
+2. Default Parameters:
+
+def create_user(name, age, country="Unknown", is_active=True):
+    return {
+        "name": name,
+        "age": age,
+        "country": country,
+        "is_active": is_active
+    }
+
+# Different ways to use it
+user1 = create_user("Alice", 25)  # country will be "Unknown"
+user2 = create_user("Bob", 30, "USA")  # Uses provided country
+user3 = create_user("Charlie", 35, "Canada", False)  # All values provided
+
+
+3. Keyword Arguments:
+
+def print_info(name, age, city):
+    print(f"{name} is {age} years old and lives in {city}")
+
+# You can specify which argument goes where
+print_info(age=25, city="Paris", name="Alice")
+print_info(name="Bob", city="London", age=30)
+
+
+4. Variable Number of Arguments (*args):
+
+def add_numbers(*numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+# Can use with any number of arguments
+result1 = add_numbers(1, 2)           # Returns 3
+result2 = add_numbers(1, 2, 3, 4, 5)  # Returns 15
+
+
+5. Keyword Variable Arguments (**kwargs):
+
+def print_user_info(**info):
+    print("User Information:")
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+# Can provide any number of named arguments
+print_user_info(name="Alice", age=25, city="Paris")
+print_user_info(name="Bob", job="Developer")
+
+
+Real World Examples:
+
+1. Shopping Cart Calculator:
+
+def calculate_cart_total(
+    items,              # Required: list of items
+    tax_rate=0.1,       # Optional: default 10%
+    discount_code=None  # Optional: default None
+):
+    subtotal = sum(item['price'] for item in items)
+    
+    # Apply discount if code provided
+    if discount_code == "SAVE20":
+        subtotal *= 0.8  # 20% off
+    
+    # Add tax
+    total = subtotal * (1 + tax_rate)
+    
+    return round(total, 2)
+
+# Using the function
+cart_items = [
+    {"name": "Shirt", "price": 20},
+    {"name": "Pants", "price": 30}
+]
+
+# Different ways to use it
+regular_total = calculate_cart_total(cart_items)
+sale_total = calculate_cart_total(cart_items, discount_code="SAVE20")
+special_tax = calculate_cart_total(cart_items, tax_rate=0.05)
+
+
+2. Flexible Data Formatter:
+
+def format_data(*values, separator=", ", end="."):
+    """Join any number of values with a separator and ending."""
+    # Convert all values to strings
+    str_values = [str(v) for v in values]
+    
+    # Join with separator and add ending
+    result = separator.join(str_values) + end
+    
+    return result
+
+# Different uses
+print(format_data("apple", "banana", "orange"))
+# Prints: apple, banana, orange.
+
+print(format_data("Hi", "there", separator=" ", end="!"))
+# Prints: Hi there!
+
+print(format_data(1, 2, 3, separator="-", end=""))
+# Prints: 1-2-3
+
+
+Common Patterns:
+
+1. Combining Different Parameter Types:
+
+def create_report(title, *data, **settings):
+    print(f"Report: {title}")
+    
+    # Process all data items
+    for item in data:
+        print(f"- {item}")
+    
+    # Apply any settings
+    for key, value in settings.items():
+        print(f"{key}: {value}")
+
+# Using the function
+create_report(
+    "Monthly Sales",           # Regular parameter
+    "Region A: $1000",        # Part of *data
+    "Region B: $2000",        # Part of *data
+    format="detailed",        # Part of **settings
+    include_graphs=True       # Part of **settings
+)
+
+
+2. Parameter Validation:
+
+def create_account(username, password, email):
+    # Check username
+    if not 3 &lt;= len(username) &lt;= 20:
+        raise ValueError("Username must be 3-20 characters")
+    
+    # Check password
+    if len(password) &lt; 8:
+        raise ValueError("Password must be at least 8 characters")
+    
+    # Check email
+    if "@" not in email:
+        raise ValueError("Invalid email address")
+    
+    return {
+        "username": username,
+        "password": "****",  # Don't store actual password
+        "email": email
+    }
+
+# Using the function
+try:
+    account = create_account("ali", "pass123456", "ali@email.com")
+    print("Account created!")
+except ValueError as error:
+    print(f"Error: {error}")
+
+
+Common Mistakes to Avoid:
+
+1. Mutable Default Arguments:
+
+# Wrong - list is shared between calls
+def add_to_cart(item, cart=[]):
+    cart.append(item)
+    return cart
+
+# Better
+def add_to_cart(item, cart=None):
+    if cart is None:
+        cart = []
+    cart.append(item)
+    return cart
+
+
+2. Forgetting Required Order:
+
+# Wrong order - default parameters must come last
+def create_profile(username, password="default", email):
+    pass
+
+# Right order
+def create_profile(username, email, password="default"):
+    pass
+
+
+Tips for Using Parameters:
+
+1. Keep Parameter Lists Short:
+
+# Too many parameters
+def create_user(name, age, email, phone, address, city, country, postal_code):
+    pass
+
+# Better - use a dictionary
+def create_user(user_info):
+    required_fields = ["name", "email"]
+    for field in required_fields:
+        if field not in user_info:
+            raise ValueError(f"Missing required field: {field}")
+    return user_info
+
+
+2. Use Clear Parameter Names:
+
+# Not clear
+def process(x, y, z):
+    pass
+
+# Better
+def calculate_total(price, quantity, tax_rate):
+    pass
+
+
+3. Document Parameters:
+
+def register_user(username, password, email=None):
+    """
+    Register a new user in the system.
+    
+    Args:
+        username (str): User's username (3-20 characters)
+        password (str): User's password (min 8 characters)
+        email (str, optional): User's email address
+    
+    Returns:
+        dict: User information
+    
+    Raises:
+        ValueError: If username or password is invalid
+    """
+    # Function code here
+
+
+Remember:
+1. Required parameters must come before default parameters
+2. Use *args and **kwargs when you need flexibility
+3. Use keyword arguments to make code clearer
+4. Validate parameter values when needed
+5. Document what each parameter does
+6. Be careful with mutable default arguments</content>
+                </topic>
+                <topic id="4">
+                    <title>Return Values</title>
+                    <content>Return values are a key part of making useful functions in Python. When a function finishes its work, it can send back (or "return") information to the part of the program that called it. This makes functions much more powerful and useful.
+
+Let's start with the basics of return values:
+
+def add(a, b):
+    return a + b
+
+result = add(5, 3)  # result will be 8
+
+
+Functions can return different types of values. Here are some common examples:
+
+# Returning a number
+def multiply(x, y):
+    return x * y
+
+# Returning a string
+def get_greeting(name):
+    return f"Hello, {name}!"
+
+# Returning a list
+def create_number_list(start, end):
+    return list(range(start, end + 1))
+
+# Returning multiple values
+def get_player_stats():
+    health = 100
+    energy = 50
+    score = 0
+    return health, energy, score  # Returns a tuple
+
+
+Common Issues and Solutions:
+1. Forgetting to Return Values
+   
+   # Wrong way:
+   def calculate_total(prices):
+       total = sum(prices)
+       # Missing return statement!
+   
+   # Right way:
+   def calculate_total(prices):
+       total = sum(prices)
+       return total
+   
+
+2. Returning Too Early
+   
+   # Wrong way:
+   def process_numbers(numbers):
+       for num in numbers:
+           if num &lt; 0:
+               return "Found negative number"
+           # The function stops at first negative number!
+   
+   # Better way:
+   def process_numbers(numbers):
+       negative_found = False
+       for num in numbers:
+           if num &lt; 0:
+               negative_found = True
+       return "Contains negative numbers" if negative_found else "All positive"
+   
+
+Important Things to Remember:
+- A function stops running as soon as it hits a return statement
+- If you don't include a return statement, the function returns None by default
+- You can return multiple values at once (they'll be packed into a tuple)
+- Return values can be used directly in other calculations or saved in variables
+
+Here's a practical example showing how return values help in real programs:
+
+def calculate_discount(price, membership_level):
+    if membership_level == "gold":
+        return price * 0.8  # 20% discount
+    elif membership_level == "silver":
+        return price * 0.9  # 10% discount
+    else:
+        return price  # no discount
+
+def format_price(price):
+    return f"${price:.2f}"
+
+# Using multiple functions together
+original_price = 100
+membership = "gold"
+final_price = calculate_discount(original_price, membership)
+formatted_price = format_price(final_price)
+print(f"Your price is: {formatted_price}")  # Shows: Your price is: $80.00
+
+
+Related Topics to Explore:
+- Function parameters and arguments
+- Variable scope and how it affects return values
+- Type hints for return values
+- Using return values with loops and conditionals
+- Error handling with return values</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="5">
+            <title>Advanced topics</title>
+            <topics>
+                <topic id="5">
+                    <title>Classes and Objects</title>
+                    <content>Classes and Objects in Python are tools that help you create and organize code that represents real things or concepts. Think of a class as a blueprint that describes what something is and what it can do. An object is what you create using that blueprint.
+
+Basic Class Structure:
+
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def bark(self):
+        print(f"{self.name} says: Woof!")
+    
+    def celebrate_birthday(self):
+        self.age += 1
+        print(f"Happy birthday {self.name}! You are now {self.age} years old!")
+
+# Creating and using a dog object
+my_dog = Dog("Buddy", 3)
+my_dog.bark()
+my_dog.celebrate_birthday()
+
+
+Important Parts of Classes:
+1. Constructor (__init__):
+   - This is like a setup guide for creating new objects
+   - It runs automatically when you create a new object
+   - Uses 'self' to refer to the object being created
+   
+   def __init__(self, name, breed, age=0):
+       self.name = name
+       self.breed = breed
+       self.age = age
+       self.tricks = []  # Empty list to store tricks
+   
+
+2. Attributes (Object Properties):
+   
+   class Student:
+       def __init__(self, name):
+           self.name = name          # Public attribute
+           self._grade = 0           # Protected attribute
+           self.__student_id = 123   # Private attribute
+   
+
+3. Methods (Object Behaviors):
+   
+   class Car:
+       def __init__(self, brand):
+           self.brand = brand
+           self.speed = 0
+           self.is_running = False
+       
+       def start_engine(self):
+           self.is_running = True
+           print("Vroom! Engine started!")
+       
+       def accelerate(self, speed_increase):
+           if self.is_running:
+               self.speed += speed_increase
+               print(f"Now driving at {self.speed} km/h")
+           else:
+               print("Start the engine first!")
+   
+
+Common Issues and Solutions:
+1. Forgetting Self Parameter
+2. Not Initializing Attributes
+3. Mixing Instance and Class Variables
+
+Practical Example - Building a Simple Game Character:
+
+class GameCharacter:
+    def __init__(self, name, character_class):
+        self.name = name
+        self.character_class = character_class
+        self.level = 1
+        self.health = 100
+        self.experience = 0
+    
+    def gain_experience(self, amount):
+        self.experience += amount
+        if self.experience >= 100:
+            self.level_up()
+    
+    def level_up(self):
+        self.level += 1
+        self.health += 20
+        self.experience = 0
+        print(f"{self.name} reached level {self.level}!")
+
+# Using the GameCharacter class
+hero = GameCharacter("Alex", "Warrior")
+hero.gain_experience(50)
+
+
+Important Things to Remember:
+- Every method in a class needs 'self' as its first parameter
+- Objects can have both data (attributes) and actions (methods)
+- Different objects of the same class have their own separate data
+- Classes can inherit from other classes to share code
+
+Related Topics:
+- Inheritance and creating child classes
+- Class methods and static methods
+- Property decorators
+- Method overriding</content>
+                </topic>
+                <topic id="5">
+                    <title>Modules and Packages</title>
+                    <content>Modules and Packages help you organize your Python code into separate files and folders. Think of modules as chapters in a book, and packages as whole books in a library. They make it easier to reuse code and keep your programs organized.
+
+Understanding Modules:
+A module is just a Python file containing code you want to reuse. For example, if you have a file called `math_helpers.py`:
+
+
+# math_helpers.py
+def add_numbers(numbers):
+    return sum(numbers)
+
+def average(numbers):
+    return sum(numbers) / len(numbers)
+
+def is_even(number):
+    return number % 2 == 0
+
+# Constants
+PI = 3.14159
+GOLDEN_RATIO = 1.618
+
+
+Different Ways to Import:
+
+# Import the whole module
+import math_helpers
+
+# Import specific things
+from math_helpers import add_numbers, average
+
+# Import with a different name
+import math_helpers as mh
+
+
+Creating and Using Packages:
+A package is a folder containing multiple modules. Here's an example structure:
+
+my_game/
+    __init__.py
+    players.py
+    enemies.py
+    items/
+        __init__.py
+        weapons.py
+        armor.py
+        potions.py
+
+
+The `__init__.py` files tell Python that these folders are packages. They can be empty or contain initialization code.
+
+Practical Example - Creating a Simple Game Package:
+
+# game_utils/
+#   __init__.py
+#   players.py
+#   scoring.py
+
+# players.py
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.score = 0
+
+# scoring.py
+def update_score(player, points):
+    player.score += points
+    return player.score
+
+# Using the package
+from game_utils.players import Player
+from game_utils.scoring import update_score
+
+player1 = Player("Alex")
+update_score(player1, 100)
+
+
+Built-in Modules:
+Python comes with many useful built-in modules:
+
+# Working with dates
+import datetime
+today = datetime.datetime.now()
+
+# Working with random numbers
+import random
+random_number = random.randint(1, 10)
+
+# Working with files
+import os
+files = os.listdir(".")
+
+
+Important Things to Remember:
+- Keep related code in the same module
+- Use clear, descriptive names for modules and packages
+- The `__init__.py` file can be empty but must exist
+- Module names should be lowercase with underscores
+
+Related Topics:
+- Virtual environments
+- Package installation with pip
+- Creating your own packages
+- Module search path
+- Relative vs absolute imports</content>
+                </topic>
+                <topic id="5">
+                    <title>Error Handling</title>
+                    <content>Error handling is about making your programs deal with problems in a smart way instead of just crashing. In Python, we use try, except, and finally blocks to catch and handle errors (also called exceptions).
+
+Basic Error Handling Structure:
+
+try:
+    # Code that might cause an error
+    number = int(input("Enter a number: "))
+    result = 10 / number
+except ValueError:
+    # Handles invalid input
+    print("Please enter a valid number!")
+except ZeroDivisionError:
+    # Handles division by zero
+    print("You can't divide by zero!")
+else:
+    # Runs if no errors occurred
+    print(f"Result: {result}")
+finally:
+    # Always runs, whether there was an error or not
+    print("Calculation attempt completed.")
+
+
+Common Types of Errors:
+
+1. ValueError - When you try to convert invalid data:
+
+try:
+    age = int("twenty")  # This will cause ValueError
+except ValueError:
+    print("Please use numbers for age")
+
+
+2. TypeError - When you use wrong types:
+
+try:
+    text = "Hello"
+    number = 5
+    result = text + number  # Can't add string and number
+except TypeError:
+    print("Can't mix text and numbers like that!")
+
+
+Creating Custom Errors:
+
+class AgeError(Exception):
+    pass
+
+def set_age(age):
+    if age &lt; 0:
+        raise AgeError("Age cannot be negative")
+    if age > 150:
+        raise AgeError("Age seems unrealistic")
+    return age
+
+try:
+    user_age = set_age(200)
+except AgeError as error:
+    print(f"Invalid age: {error}")
+
+
+Practical Example - File Handling with Error Checking:
+
+def save_user_data(username, data):
+    try:
+        with open(f"{username}_data.txt", "w") as file:
+            file.write(data)
+    except IOError as error:
+        print(f"Could not save data: {error}")
+        return False
+    except TypeError:
+        print("Data must be a string")
+        return False
+    else:
+        print("Data saved successfully!")
+        return True
+    finally:
+        print("Save operation completed")
+
+
+Important Things to Remember:
+- Always catch specific exceptions instead of using bare except
+- Use finally for cleanup code that must always run
+- The else block runs only if no exception occurred
+- Use with statements for files and other resources
+
+Real-World Example - Database Connection:
+
+import sqlite3
+
+def get_user_info(user_id):
+    connection = None
+    try:
+        connection = sqlite3.connect("users.db")
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+        result = cursor.fetchone()
+        if result is None:
+            raise ValueError(f"No user found with ID {user_id}")
+        return result
+    except sqlite3.Error as db_error:
+        print(f"Database error: {db_error}")
+        return None
+    finally:
+        if connection:
+            connection.close()
+
+
+Related Topics:
+- Context managers (with statement)
+- Debugging techniques
+- Logging instead of print statements
+- Exception hierarchies
+- Best practices for error messages</content>
+                </topic>
+            </topics>
+        </section>
+    </sections>
+    <quizes>
+        <quiz id="1">
+            <question id="1">
+                <text>Which of these features best describes Python's syntax?</text>
+                <answers id="1">
+                    <answer correct="false">It uses complex mathematical symbols</answer>
+                    <answer correct="true">It uses simple English words and spaces</answer>
+                    <answer correct="false">It requires special characters for every line</answer>
+                    <answer correct="false">It needs to be compiled before each run</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Which tools are mentioned for working with data in Python?</text>
+                <answers id="1">
+                    <answer correct="false">React and Angular</answer>
+                    <answer correct="false">Maven and Gradle</answer>
+                    <answer correct="true">NumPy and Pandas</answer>
+                    <answer correct="false">Jenkins and Docker</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>What is mentioned as a key benefit of VS Code?</text>
+                <answers id="1">
+                    <answer correct="false">It has more features than PyCharm Professional</answer>
+                    <answer correct="false">It only works with Python</answer>
+                    <answer correct="false">It requires a very powerful computer</answer>
+                    <answer correct="true">It works well even on less powerful computers</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Where can Python developers find free tools (packages) to use in their programs?</text>
+                <answers id="1">
+                    <answer correct="true">PyPI</answer>
+                    <answer correct="false">GitHub only</answer>
+                    <answer correct="false">Windows Store</answer>
+                    <answer correct="false">App Store</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Which IDE is described as the best choice for working with data and creating visualizations?</text>
+                <answers id="1">
+                    <answer correct="false">PyCharm</answer>
+                    <answer correct="false">VS Code</answer>
+                    <answer correct="true">Jupyter Notebook</answer>
+                    <answer correct="false">Thonny</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="2">
+            <question id="2">
+                <text>Which of these variable names is NOT valid in Python?</text>
+                <answers id="2">
+                    <answer correct="false">user_age</answer>
+                    <answer correct="false">first_name</answer>
+                    <answer correct="true">1st_name</answer>
+                    <answer correct="false">isValid</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>What is the result of "Ha" * 3 in Python?</text>
+                <answers id="2">
+                    <answer correct="false">Ha3</answer>
+                    <answer correct="false">HaHa</answer>
+                    <answer correct="true">HaHaHa</answer>
+                    <answer correct="false">Error</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Which operator in Python gives you the remainder after division?</text>
+                <answers id="2">
+                    <answer correct="false">//</answer>
+                    <answer correct="true">%</answer>
+                    <answer correct="false">/</answer>
+                    <answer correct="false">**</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>What is the result of 17 // 5 in Python?</text>
+                <answers id="2">
+                    <answer correct="false">3.4</answer>
+                    <answer correct="true">3</answer>
+                    <answer correct="false">4</answer>
+                    <answer correct="false">2</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Which of these is a correct way to format a string using f-strings in Python?</text>
+                <answers id="2">
+                    <answer correct="false">"{name} is {age}".format(name, age)</answer>
+                    <answer correct="false">"name is age"</answer>
+                    <answer correct="true">f"{name} is {age}"</answer>
+                    <answer correct="false">"%s is %d" % name, age</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="3">
+            <question id="3">
+                <text>What will be the output of this code:
+for i in range(0, 10, 2):
+    print(i)</text>
+                <answers id="3">
+                    <answer correct="false">1, 3, 5, 7, 9</answer>
+                    <answer correct="true">0, 2, 4, 6, 8</answer>
+                    <answer correct="false">2, 4, 6, 8, 10</answer>
+                    <answer correct="false">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>What will this code print?
+is_weekend = True
+is_holiday = False
+is_sunny = True
+if is_weekend or is_holiday and is_sunny:
+    print("Let's go to the beach!")
+else:
+    print("Stay home")</text>
+                <answers id="3">
+                    <answer correct="true">Let's go to the beach!</answer>
+                    <answer correct="false">Stay home</answer>
+                    <answer correct="false">Error - invalid syntax</answer>
+                    <answer correct="false">Nothing - the code won't print anything</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>What is the purpose of the 'continue' statement in a loop?</text>
+                <answers id="3">
+                    <answer correct="false">It ends the loop completely</answer>
+                    <answer correct="false">It starts the loop over from the beginning</answer>
+                    <answer correct="true">It skips the rest of the current iteration and moves to the next one</answer>
+                    <answer correct="false">It pauses the loop for one second</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>What will this code print?
+count = 5
+while count > 0:
+    print(count)
+    count -= 1</text>
+                <answers id="3">
+                    <answer correct="false">1, 2, 3, 4, 5</answer>
+                    <answer correct="true">5, 4, 3, 2, 1</answer>
+                    <answer correct="false">4, 3, 2, 1, 0</answer>
+                    <answer correct="false">5, 4, 3, 2, 1, 0</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Which of these is a common mistake when using if statements in Python?</text>
+                <answers id="3">
+                    <answer correct="false">Using too many elif statements</answer>
+                    <answer correct="false">Having an else statement</answer>
+                    <answer correct="true">Using = instead of == for comparison</answer>
+                    <answer correct="false">Using and/or operators</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="4">
+            <question id="4">
+                <text>What is the main purpose of a function in Python?</text>
+                <answers id="4">
+                    <answer correct="false">To make the code look more professional</answer>
+                    <answer correct="false">To create websites</answer>
+                    <answer correct="true">To reuse code and avoid writing the same instructions many times</answer>
+                    <answer correct="false">To make the program run faster</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Look at this code:
+def greet(name="Friend"):
+    print(f"Hello, {name}!")
+
+What will happen when we write greet()?</text>
+                <answers id="4">
+                    <answer correct="false">It will show an error</answer>
+                    <answer correct="true">It will print "Hello, Friend!"</answer>
+                    <answer correct="false">It will print "Hello, name!"</answer>
+                    <answer correct="false">Nothing will happen</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Which of these is the correct way to create a simple function that adds two numbers?</text>
+                <answers id="4">
+                    <answer correct="true">
+def add_numbers(a, b):
+    return a + b</answer>
+                    <answer correct="false">
+function add_numbers(a, b):
+    return a + b</answer>
+                    <answer correct="false">
+def add_numbers(a, b)
+    return a + b</answer>
+                    <answer correct="false">
+def add_numbers:
+    return a + b</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>What happens when a function reaches a 'return' statement?</text>
+                <answers id="4">
+                    <answer correct="false">The program stops completely</answer>
+                    <answer correct="false">The function starts again from the beginning</answer>
+                    <answer correct="false">Nothing happens, the function continues running</answer>
+                    <answer correct="true">The function stops and sends back a value to where it was called</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Look at this code:
+def calculate_price(price, discount=10, tax=20):
+    final = price - (price * discount / 100)
+    final = final + (final * tax / 100)
+    return final
+
+Which of these function calls is correct and will work?</text>
+                <answers id="4">
+                    <answer correct="false">calculate_price()</answer>
+                    <answer correct="false">calculate_price(discount=20, tax=10)</answer>
+                    <answer correct="false">calculate_price(tax=20, 100, discount=10)</answer>
+                    <answer correct="true">calculate_price(100, tax=15)</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="5">
+            <question id="5">
+                <text>What is the main purpose of the 'self' parameter in a class method?</text>
+                <answers id="5">
+                    <answer correct="false">To stop the method from running</answer>
+                    <answer correct="true">To refer to the current object being created or used</answer>
+                    <answer correct="false">To create a new object automatically</answer>
+                    <answer correct="false">To define the class type</answer>
+                </answers>
+            </question>
+            
+            <question id="5">
+                <text>How do you import a specific function from a module?</text>
+                <answers id="5">
+                    <answer correct="false">import module_name.function_name</answer>
+                    <answer correct="false">require module_name(function_name)</answer>
+                    <answer correct="true">from module_name import function_name</answer>
+                    <answer correct="false">module_name.use(function_name)</answer>
+                </answers>
+            </question>
+            
+            <question id="5">
+                <text>What is the main purpose of a try-except block in Python?</text>
+                <answers id="5">
+                    <answer correct="false">To create new variables</answer>
+                    <answer correct="false">To speed up the program</answer>
+                    <answer correct="true">To handle potential errors without stopping the program</answer>
+                    <answer correct="false">To add comments to the code</answer>
+                </answers>
+            </question>
+            
+            <question id="5">
+                <text>In Python, what is an __init__ method used for in a class?</text>
+                <answers id="5">
+                    <answer correct="true">To initialize object attributes when the object is created</answer>
+                    <answer correct="false">To delete the object after use</answer>
+                    <answer correct="false">To create multiple copies of an object</answer>
+                    <answer correct="false">To stop the object from working</answer>
+                </answers>
+            </question>
+            
+            <question id="5">
+                <text>What type of error occurs when you try to perform an operation on incompatible data types?</text>
+                <answers id="5">
+                    <answer correct="false">ValueError</answer>
+                    <answer correct="true">TypeError</answer>
+                    <answer correct="false">AttributeError</answer>
+                    <answer correct="false">RuntimeError</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="6">
+            <question id="6">
+                <text>What is a key advantage of using Python?</text>
+                <answers id="6">
+                    <answer correct="true">It is easy to read and write</answer>
+                    <answer correct="false">It requires a powerful computer</answer>
+                    <answer correct="false">It only works for web development</answer>
+                    <answer correct="false">It must be compiled before running</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>Which of these is NOT a valid variable name in Python?</text>
+                <answers id="6">
+                    <answer correct="false">user_age</answer>
+                    <answer correct="false">firstName</answer>
+                    <answer correct="true">2nd_value</answer>
+                    <answer correct="false">is_valid</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>What will be the result of 10 % 3?</text>
+                <answers id="6">
+                    <answer correct="true">1</answer>
+                    <answer correct="false">3</answer>
+                    <answer correct="false">0</answer>
+                    <answer correct="false">10</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>Which statement correctly creates a function in Python?</text>
+                <answers id="6">
+                    <answer correct="true">def my_function():</answer>
+                    <answer correct="false">function my_function():</answer>
+                    <answer correct="false">create my_function():</answer>
+                    <answer correct="false">func my_function():</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>Which Python keyword is used to exit a loop early?</text>
+                <answers id="6">
+                    <answer correct="true">break</answer>
+                    <answer correct="false">continue</answer>
+                    <answer correct="false">exit</answer>
+                    <answer correct="false">stop</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>What does the 'elif' keyword do in Python?</text>
+                <answers id="6">
+                    <answer correct="true">It allows multiple conditions in an if statement</answer>
+                    <answer correct="false">It repeats a loop</answer>
+                    <answer correct="false">It exits a function</answer>
+                    <answer correct="false">It starts a new loop</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>What will be printed by the following code?
+print("Hello" + " " + "World")</text>
+                <answers id="6">
+                    <answer correct="true">Hello World</answer>
+                    <answer correct="false">HelloWorld</answer>
+                    <answer correct="false">Hello + World</answer>
+                    <answer correct="false">Error</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>Which built-in function is used to get user input in Python?</text>
+                <answers id="6">
+                    <answer correct="true">input()</answer>
+                    <answer correct="false">read()</answer>
+                    <answer correct="false">scan()</answer>
+                    <answer correct="false">get()</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>How do you check the length of a string in Python?</text>
+                <answers id="6">
+                    <answer correct="true">len(my_string)</answer>
+                    <answer correct="false">length(my_string)</answer>
+                    <answer correct="false">size(my_string)</answer>
+                    <answer correct="false">count(my_string)</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>What type of loop is best when you know how many times it should run?</text>
+                <answers id="6">
+                    <answer correct="true">for loop</answer>
+                    <answer correct="false">while loop</answer>
+                    <answer correct="false">do-while loop</answer>
+                    <answer correct="false">switch loop</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>Which of these statements about Python lists is true?</text>
+                <answers id="6">
+                    <answer correct="true">Lists can contain different data types</answer>
+                    <answer correct="false">Lists can only contain numbers</answer>
+                    <answer correct="false">Lists are immutable</answer>
+                    <answer correct="false">Lists cannot be changed once created</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>Which keyword is used to define a class in Python?</text>
+                <answers id="6">
+                    <answer correct="true">class</answer>
+                    <answer correct="false">def</answer>
+                    <answer correct="false">struct</answer>
+                    <answer correct="false">object</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>How do you access the first element of a list called 'my_list'?</text>
+                <answers id="6">
+                    <answer correct="true">my_list[0]</answer>
+                    <answer correct="false">my_list.first()</answer>
+                    <answer correct="false">my_list(1)</answer>
+                    <answer correct="false">my_list.get(0)</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>Which method is used to remove an item from a Python list?</text>
+                <answers id="6">
+                    <answer correct="true">remove()</answer>
+                    <answer correct="false">delete()</answer>
+                    <answer correct="false">erase()</answer>
+                    <answer correct="false">discard()</answer>
+                </answers>
+            </question>
+            
+            <question id="6">
+                <text>What will happen if you try to open a file that does not exist with
+'open("file.txt", "r")'?</text>
+                <answers id="6">
+                    <answer correct="true">A FileNotFoundError will be raised</answer>
+                    <answer correct="false">The file will be created</answer>
+                    <answer correct="false">Nothing happens</answer>
+                    <answer correct="false">A warning is printed but execution continues</answer>
+                </answers>
+            </question>
+        </quiz>
+    </quizes>
+</course>

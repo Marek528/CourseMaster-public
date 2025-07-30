@@ -1,0 +1,1485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course>
+    <title>Programovanie v Pythone</title>
+    <img src="img/python_svk.png" alt="Programovanie v Pythone"/>
+    <sections>
+        <section id="1">
+            <title>Úvod do Pythonu</title>
+            <topics>
+                <topic id="1">
+                    <title>Čo je Python?</title>
+                    <content>Python je populárny programovací jazyk, ktorý bol vytvorený v roku 1991 Guidom van Rossumom. Je známy tým, že je ľahko čitateľný a zapisovateľný. Na rozdiel od iných programovacích jazykov, ktoré používajú množstvo špeciálnych symbolov, Python používa jednoduché anglické slová a medzery na usporiadanie kódu. Toto uľahčuje učenie a pochopenie najmä pre začiatočníkov.
+
+Python sa dá použiť na rôzne účely. Môžete s ním vytvárať webové stránky pomocou nástrojov ako Django a Flask. Mnoho vedcov používa Python na prácu s dátami pomocou špeciálnych knižníc ako NumPy a Pandas. Je tiež veľmi populárny pri tvorbe programov umelej inteligencie. Veľké spoločnosti ako Google, Netflix a Instagram používajú Python každý deň.
+
+Jednou z najlepších vlastností Pythonu je, že nie je potrebné kód kompilovať pred jeho spustením. Môžete napísať riadok kódu a okamžite vidieť výsledok. To z neho robí skvelý nástroj na učenie a testovanie nových nápadov. Python tiež prichádza s množstvom užitočných nástrojov, ktoré sú už zabudované, takže môžete rýchlo začať vytvárať programy bez nutnosti sťahovania ďalšieho softvéru.
+
+Python komunita je veľmi nápomocná a priateľská. Existujú tisíce bezplatných nástrojov (balíkov), ktoré vytvorili iní a ktoré môžete použiť vo svojich programoch. Tieto balíky nájdete na webovej stránke PyPI. Ak máte otázky alebo problémy, existuje mnoho webových stránok, fór a skupín, kde môžete získať pomoc.
+
+Python používajú malé aj veľké firmy. Môžete ho využiť na tvorbu malých programov, ktoré vám pomôžu s každodennými úlohami, alebo veľkých programov, ktoré používajú milióny ľudí. Jazyk sa neustále zlepšuje s novými aktualizáciami, pričom staršie programy stále fungujú s novými verziami Pythonu. To z neho robí bezpečnú voľbu pre učenie sa programovania.</content>
+                </topic>
+                <topic id="1">
+                    <title>Inštalácia Pythonu</title>
+                    <content>Inštalácia Pythonu vo vašom počítači nie je zložitá, ale existujú niektoré dôležité veci, ktoré je potrebné vedieť. Každý operačný systém (Windows, Mac alebo Linux) má svoj vlastný spôsob inštalácie Pythonu.
+
+Pre používateľov Windows:
+1. Navštívte stránku https://www.python.org/downloads/
+2. Stiahnite si najnovšiu verziu pre Windows
+3. Spustite inštalátor
+4. Uistite sa, že je zaškrtnuté políčko "Add Python to PATH" – toto je veľmi dôležité!
+5. Kliknite na Install Now
+
+Pri inštalácii Pythonu na Windows získate dve dôležité veci: samotný program Python a nástroj pip, ktorý vám pomáha inštalovať ďalšie Python balíky. Po inštalácii by ste mali otvoriť príkazový riadok (vyhľadaním "cmd" v ponuke Štart) a zadať tieto príkazy, aby ste sa uistili, že všetko funguje:
+python --version
+pip --version
+
+Ak používate Mac, Python môže byť už nainštalovaný, ale zvyčajne ide o staršiu verziu. Pre získanie najnovšej verzie môžete:
+1. Stiahnuť ho z python.org, alebo
+2. Použiť program Homebrew zadaním "brew install python" v Termináli
+
+Pre používateľov Linuxu je Python zvyčajne súčasťou systému. Pre získanie najnovšej verzie na Ubuntu môžete otvoriť Terminál a zadať:
+sudo apt update
+sudo apt install python3
+
+Po inštalácii Pythonu by ste mali vedieť o virtuálnych prostrediach. Tieto sú špeciálne priečinky, ktoré udržiavajú vaše Python projekty oddelene od seba. To je užitočné, keď rôzne projekty vyžadujú rôzne verzie nástrojov. Na vytvorenie virtuálneho prostredia zadajte:
+python -m venv my_project
+
+Bežné problémy, s ktorými sa môžete stretnúť:
+- Príkazy Pythonu nefungujú: Skontrolujte, či ste pridali Python do PATH
+- Problémy s povoleniami: Skúste spustiť príkaz s 'sudo' na Mac/Linux
+- Nedá sa inštalovať balíky: Uistite sa, že máte pripojenie na internet
+- Viacero verzií Pythonu: Ujasnite si, ktorú verziu používate
+
+Ak máte nejaké problémy, môžete:
+1. Skontrolovať, či je Python vo vašej systémovej príručke PATH
+2. Uistite sa, že máte oprávnenie inštalovať programy
+3. Skontrolujte svoje internetové pripojenie
+4. Požiadajte o pomoc na Python fórach</content>
+                </topic>
+                <topic id="1">
+                    <title>Python IDE</title>
+                    <content>IDE (Integrované vývojové prostredie) je program, ktorý vám pomáha písať Python kód. Je to ako špeciálny textový editor s dodatočnými nástrojmi pre programovanie. Výber správneho IDE môže výrazne zjednodušiť a spríjemniť programovanie.
+
+PyCharm je jedno z najpopulárnejších IDE pre Python. Ponúka dve verzie:
+1. Community Edition (zadarmo)
+2. Professional Edition (za poplatok)
+
+PyCharm vám pomáha písať kód tým, že:
+- Automaticky dopĺňa kód počas písania
+- Automaticky nachádza a opravuje chyby
+- Pomáha organizovať vaše súbory
+- Umožňuje ľahké testovanie kódu
+- Ukazuje, kde ste spravili chyby
+Jedinou nevýhodou je, že PyCharm vyžaduje pomerne výkonný počítač a jeho ovládanie môže trvať určitý čas, kým ho zvládnete.
+
+Visual Studio Code (VS Code) je ďalšia populárna voľba. Je zadarmo a funguje dobre aj na menej výkonných počítačoch. S VS Code môžete:
+- Písať Python kód s užitočnými návrhmi
+- Nachádzať chyby v kóde
+- Spúšťať a ladiť programy
+- Pracovať s Git (nástroj na správu verzií)
+- Rozšíriť funkčnosť inštaláciou rozšírení
+VS Code je dobrým kompromisom – nie je tak komplikovaný ako PyCharm, ale stále má mnoho užitočných funkcií.
+
+Jupyter Notebook je špeciálny, pretože vám umožňuje:
+- Písať kód v malých častiach (bunky)
+- Okamžite vidieť výsledky
+- Vkladať textové vysvetlenia medzi kód
+- Vytvárať grafy a vizualizácie
+Jednoducho zdieľať vašu prácu s ostatnými Je obzvlášť vhodný pre:
+- Učenie sa Pythonu
+- Prácu s dátami
+- Tvorbu správ, ktoré kombinujú text a kód
+- Výučbu programovania
+
+Pri výbere IDE premýšľajte:
+1. Aký je výkon vášho počítača
+2. Či potrebujete jednoduchý alebo pokročilý nástroj
+3. Aké špeciálne funkcie pre vaše projekty potrebujete
+4. Či chcete platiť alebo použiť bezplatný program
+
+Pre začiatočníkov sú vhodné tieto voľby:
+- Thonny: Veľmi jednoduchý a vhodný na učenie
+- VS Code: Dobrá rovnováha medzi funkciami
+- PyCharm Community: Viac funkcií, ale stále zadarmo
+
+Každé IDE má svoje dobré stránky. Vyskúšajte niekoľko rôznych, aby ste našli to, ktoré vám najviac vyhovuje. Nezabudnite, že neskôr, keď sa naučíte viac o programovaní, môžete vždy prejsť na iné IDE.</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="2">
+            <title>Základná syntax a dátové typy</title>
+            <topics>
+                <topic id="2">
+                    <title>Premenné a dátové typy</title>
+                    <content>V Pythone sú premenné ako kontajnery, ktoré ukladajú rôzne typy informácií. Nemusíte Pythonu hovoriť, aký typ informácií ukladáte – sám to zistí. Toto robí Python jednoduchším na používanie v porovnaní s mnohými inými programovacími jazykmi.
+
+Hlavné typy informácií, ktoré môžete ukladať v Pythone, sú:
+
+Čísla:
+
+Celé čísla (integers): Napríklad 5, -17, 1000
+Desatinné čísla (floats): Napríklad 3.14, -0.001, 99.9 Príklady:
+
+age = 25
+height = 1.75
+temperature = -5
+Text (reťazce):
+
+Akýkoľvek text uzavretý v úvodzovkách: "Hello", 'Python', "123"
+Môžete použiť jednoduché ('') alebo dvojité ("") úvodzovky
+
+Môžete ukladať aj viacriadkový text pomocou trojitých úvodzoviek Príklady:
+name = "John"
+message = 'Hello, World!'
+long_text = """Toto je dlhší text,
+ktorý zaberá viacero riadkov"""
+
+Hodnoty True/False (booleovské hodnoty):
+Používajú sa na vyjadrenie áno/nie alebo pravda/nepravda
+
+Veľmi užitočné pri rozhodovaní v kóde Príklady:
+is_student = True
+has_license = False
+is_raining = True
+
+Niekoľko dôležitých pravidiel:
+Názvy premenných nemôžu začínať číslom
+Môžu obsahovať písmená, čísla a podčiarkovníky
+Sú rozlišujúce veľkosť písmen (case-sensitive)
+Nemôžete používať rezervované slová Pythonu (napríklad 'if' alebo 'for')
+
+Dobré názvy premenných:
+user_age = 25
+first_name = "Maria"
+is_valid = True
+Zlé názvy premenných:
+
+1st_name = "John"  # Nemôže začínať číslom
+my-name = "Pete"   # Nemôžete používať pomlčky
+if = "niečo"      # Nemôžete používať rezervované slová Pythonu
+Premenné môžete aj prepísať:
+
+score = 0        # Začneme s 0
+score = 10       # Zmena na 10
+score = score + 5  # Pridanie 5 k aktuálnej hodnote
+
+
+Python je flexibilný pri práci s premennými, ale je dôležité ich používať zmysluplne:
+# Toto funguje, ale nie je to dobrá prax
+x = 5          # Začneme s číslom
+x = "Hello"    # Zmena na text
+x = True       # Zmena na boolean
+
+
+Je lepšie:
+Dávať premenným jasné, zmysluplné názvy
+Udržiavať v premennej rovnaký typ informácií
+Používať nové premenné pre rôzne typy informácií
+Pochopenie premenných a dátových typov je veľmi dôležité, pretože sú základom každého Python programu.</content>
+                </topic>
+                <topic id="2">
+                    <title>Základné operátory</title>
+                    <content>Operátory v Pythone sú špeciálne symboly, ktoré vám pomáhajú pracovať s hodnotami a premennými. Fungujú podobne ako bežné matematické symboly, ktoré používate denne, plus niektoré ďalšie špecifické pre programovanie. Pozrime sa na rôzne typy operátorov a ako sa používajú.
+
+Matematické operátory: Pracujú rovnako ako kalkulačka:
+# Sčítanie (+)
+total = 5 + 3        # rovná sa 8
+name = "Hello " + "World"  # rovná sa "Hello World"
+
+# Odčítanie (-)
+difference = 10 - 4  # rovná sa 6
+
+# Násobenie (*)
+product = 4 * 3      # rovná sa 12
+repeated = "Ha" * 3  # rovná sa "HaHaHa"
+
+# Delenie (/)
+result = 15 / 3      # rovná sa 5.0 (vždy dáva desatinné číslo)
+
+# Celé delenie (//)
+whole_number = 17 // 5  # rovná sa 3 (odstráni desatinnú časť)
+
+# Zvyšok po delení (%)
+remainder = 17 % 5   # rovná sa 2 (čo zostane po delení)
+
+# Mocnina (**)
+squared = 4 ** 2     # rovná sa 16 (4 krát 4)
+cubed = 2 ** 3      # rovná sa 8 (2 krát 2 krát 2)
+
+Porovnávacie operátory: Pomáhajú porovnávať hodnoty a vracajú True alebo False:
+# Rovná sa (==)
+5 == 5    # True
+5 == 6    # False
+
+# Nerovná sa (!=)
+5 != 6    # True
+5 != 5    # False
+
+# Väčší ako (>)
+7 > 5     # True
+5 > 7     # False
+
+# Menší ako (&lt;)
+5 &lt; 7     # True
+7 &lt; 5     # False
+
+# Väčší alebo rovný (>=)
+7 >= 7    # True
+6 >= 7    # False
+
+# Menší alebo rovný (&lt;=)
+5 &lt;= 5    # True
+6 &lt;= 5    # False
+
+
+Logické operátory: Pomáhajú kombinovať hodnoty True a False:
+# and (oboje musia byť True)
+True and True    # True
+True and False   # False
+5 > 3 and 6 &lt; 10  # True
+
+# or (aspoň jedno musí byť True)
+True or False    # True
+False or False   # False
+5 &lt; 3 or 6 &lt; 10  # True
+
+# not (premení True na False a naopak)
+not True         # False
+not False        # True
+not 5 > 10       # True
+
+
+Priraďovacie operátory: Umožňujú rýchlo meniť hodnoty premenných:
+# Základné priradenie (=)
+x = 5
+
+# Priradenie s pripočítaním (+=)
+x += 3      # Rovnaké ako: x = x + 3
+score += 10  # Pridá 10 k score
+
+# Priradenie s odčítaním (-=)
+x -= 2      # Rovnaké ako: x = x - 2
+score -= 5  # Odčíta 5 od score
+
+# Priradenie s násobením (*=)
+x *= 4      # Rovnaké ako: x = x * 4
+
+# Priradenie s delením (/=)
+x /= 2      # Rovnaké ako: x = x / 2
+
+
+Bežné príklady:
+# Výpočet celkovej ceny
+price = 10
+quantity = 3
+total = price * quantity
+
+# Kontrola, či si môžete niečo kúpiť
+money = 100
+cost = 75
+can_buy = money >= cost
+
+# Pridávanie bodov v hre
+score = 0
+score += 10  # Pridá 10 bodov
+score += 5   # Pridá ďalších 5 bodov
+
+# Kontrola podmienok v hre
+is_alive = True
+has_key = False
+can_open_door = is_alive and has_key
+
+
+Tipy pri používaní operátorov:
+- Pamätajte, že matematické operátory dodržiavajú bežné poradie operácií (PEMDAS)
+- Používajte zátvorky () pre prehľadnosť výpočtov
+- Buďte opatrní s = a == ( = slúži na priradenie, == na porovnávanie)
+- V prípade pochybností testujte operátory na jednoduchých hodnotách</content>
+                </topic>
+                <topic id="2">
+                    <title>Reťazce a metódy pre reťazce</title>
+                    <content>Reťazce v Pythone sú sekvencie textových znakov. Môžu obsahovať písmená, čísla, medzery a špeciálne znaky. Python poskytuje množstvo užitočných nástrojov (metód) na prácu s reťazcami. Pozrime sa, ako vytvoriť a upraviť text v Pythone.
+
+Vytváranie reťazcov:
+# Rôzne spôsoby vytvorenia reťazcov
+name = "Alice"
+message = 'Hello, World!'
+address = """123 Hlavná Ulica
+Bratislava, Slovensko"""
+
+Reťazcové operácie:
+# Získanie dĺžky reťazca
+name = "Alice"
+length = len(name)    # rovná sa 5
+
+# Spájanie reťazcov
+first = "Hello"
+last = "World"
+full = first + " " + last  # "Hello World"
+
+# Opakovanie reťazcov
+laugh = "ha" * 3     # rovná sa "hahaha"
+
+# Získanie jednotlivých znakov
+name = "Python"
+first_letter = name[0]   # rovná sa "P"
+last_letter = name[-1]   # rovná sa "n"
+
+
+Bežné metódy reťazcov:
+
+Zmena veľkosti písmen:
+text = "Hello, World!"
+upper_text = text.upper()      # "HELLO, WORLD!"
+lower_text = text.lower()      # "hello, world!"
+title_text = text.title()      # "Hello, World!"
+
+Odstraňovanie nadbytočných medzier:
+text = "   Hello, World!   "
+cleaned = text.strip()         # "Hello, World!"
+left_clean = text.lstrip()     # "Hello, World!   "
+right_clean = text.rstrip()    # "   Hello, World!"
+
+Hľadanie textu:
+message = "Hello, World!"
+position = message.find("World")   # rovná sa 7
+has_hello = "Hello" in message     # True
+has_python = "Python" in message   # False
+
+Nahradzovanie textu:
+text = "Mám rád mačky"
+new_text = text.replace("mačky", "psov")  # "Mám rád psov"
+fixed = text.replace(" ", "-")           # "Mám-rád-mačky"
+
+Rozdeľovanie a spájanie:
+# Rozdelenie reťazca na zoznam
+text = "jablko,banán,pomeranč"
+fruits = text.split(",")    # ["jablko", "banán", "pomeranč"]
+
+# Spájanie zoznamu do reťazca
+words = ["Hello", "World"]
+text = " ".join(words)      # "Hello World"
+
+
+Formátovanie reťazcov: Existujú tri hlavné spôsoby, ako vložiť premenné do reťazca:
+
+F-reťazce (najjednoduchší spôsob):
+name = "Alice"
+age = 25
+message = f"Volám sa {name} a mám {age} rokov"
+
+Metóda format:
+name = "Bob"
+age = 30
+message = "Volám sa {} a mám {} rokov".format(name, age)
+
+Starý štýl formátovania pomocou %:
+name = "Charlie"
+age = 35
+message = "Volám sa %s a mám %d rokov" % (name, age)
+
+Práca s časťami reťazca:
+text = "Hello, World!"
+
+# Získanie častí reťazca (slicing)
+first_five = text[0:5]    # "Hello"
+last_five = text[-5:]     # "orld!"
+every_other = text[::2]   # "Hlo ol!"
+
+
+Užitočné metódy reťazcov:
+# Kontrola obsahu reťazca
+text = "Python123"
+text.isalpha()    # False (obsahuje čísla)
+text.isdigit()    # False (obsahuje písmená)
+text.isalnum()    # True (obsahuje písmená a čísla)
+
+# Kontrola začiatku/konca reťazca
+filename = "document.txt"
+filename.startswith("doc")    # True
+filename.endswith(".txt")     # True
+
+# Počítanie výskytov
+text = "hello hello hello"
+count = text.count("hello")   # rovná sa 3
+
+
+Bežné problémy a riešenia:
+
+Práca s rôznymi typmi:
+age = 25
+# Toto spôsobí chybu:
+# message = "Mám " + age
+# Opravte premenou čísla na reťazec:
+message = "Mám " + str(age)
+
+Práca so špeciálnymi znakmi:
+# Použite \n pre nový riadok
+message = "Riadok 1\nRiadok 2"
+
+# Použite \t pre tabulátor
+message = "Meno:\tJohn"
+
+# Použite \\ pre spätné lomítko
+path = "C:\\Users\\John"
+</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="3">
+            <title>Riadiace štruktúry</title>
+            <topics>
+                <topic id="3">
+                    <title>Podmienky</title>
+                    <content>Podmienky umožňujú programu robiť rozhodnutia. Sú podobné odpovediam na otázky "áno" alebo "nie" v reálnom živote. Keď použijete podmienkové príkazy, program môže vykonávať rôzne činnosti na základe splnenia alebo nesplnenia podmienok.
+
+Základné podmienkové príkazy:
+# Jednoduchý if príkaz
+age = 18
+if age >= 18:
+    print("Ste dospelý")
+
+# If-else príkaz
+temperature = 25
+if temperature > 30:
+    print("Dnes je horúco")
+else:
+    print("Nie je príliš horúco")
+
+# If-elif-else (viacero podmienok)
+score = 85
+if score >= 90:
+    print("Dostali ste A")
+elif score >= 80:
+    print("Dostali ste B")
+elif score >= 70:
+    print("Dostali ste C")
+else:
+    print("Musíte sa viac učiť")
+
+
+Práca s viacerými podmienkami:
+# Použitie and
+age = 25
+has_license = True
+if age >= 18 and has_license:
+    print("Môžete riadiť")
+
+# Použitie or
+is_weekend = True
+is_holiday = False
+if is_weekend or is_holiday:
+    print("Môžete spať dlhšie")
+
+# Použitie not
+is_busy = False
+if not is_busy:
+    print("Poďme do kina")
+
+
+Vnorené podmienkové príkazy:
+has_ticket = True
+has_id = True
+
+if has_ticket:
+    if has_id:
+        print("Vitajte na premietaní")
+    else:
+        print("Ospravedlňujeme sa, potrebujete preukaz totožnosti")
+else:
+    print("Musíte si kúpiť lístok")
+
+
+Príklady z reálneho sveta:
+
+Rozhodovanie v hre:
+
+player_health = 100
+has_weapon = True
+sees_enemy = True
+
+if player_health > 0:
+    if has_weapon and sees_enemy:
+        print("Pripravení na boj!")
+    elif sees_enemy:
+        print("Bežte preč!")
+    else:
+        print("Pokračujte v prieskume")
+else:
+    print("Koniec hry")
+
+
+Zľava v obchode:
+total_price = 100
+is_member = True
+is_sale_day = True
+
+if is_sale_day:
+    if is_member:
+        discount = 20
+    else:
+        discount = 10
+else:
+    if is_member:
+        discount = 10
+    else:
+        discount = 0
+
+final_price = total_price * (100 - discount) / 100
+
+
+Bežné chyby:
+
+Zabudnutie dvojbodky:
+
+# Nesprávne
+if age >= 18
+    print("Dospelý")
+
+# Správne
+if age >= 18:
+    print("Dospelý")
+
+Nesprávne odsadenie:
+# Nesprávne
+if age >= 18:
+print("Dospelý")  # Chyba v odsadení
+
+# Správne
+if age >= 18:
+    print("Dospelý")
+
+Použitie = namiesto ==:
+# Nesprávne (priradenie)
+if age = 18:
+    print("Máte 18 rokov")
+
+# Správne (porovnanie)
+if age == 18:
+    print("Máte 18 rokov")
+
+
+Tipy:
+- Udržujte podmienky jednoduché a prehľadné.
+- Používajte elif pre viacero súvisiacich podmienok.
+- Myslite na všetky možné prípady.</content> 
+                </topic>
+                <topic id="3">
+                    <title>Cykly</title>
+                    <content>Cykly vám umožňujú vykonávať rovnakú činnosť viackrát bez opakovania kódu. Python má dva hlavné typy cyklov: for a while.
+
+For cykly: Používajú sa, keď viete, koľkokrát sa má niečo opakovať.
+
+Iterácia cez čísla:
+
+# Vypíše čísla od 0 do 4
+for i in range(5):
+    print(i)
+
+# Vypíše čísla od 1 do 5
+for i in range(1, 6):
+    print(i)
+
+# Počítanie po dvojkách
+for i in range(0, 10, 2):
+    print(i)  # vypíše 0, 2, 4, 6, 8
+
+Iterácia cez zoznamy:
+# Prechádzanie zoznamom mien
+names = ["Alice", "Bob", "Charlie"]
+for name in names:
+    print(f"Ahoj, {name}!")
+
+# Iterácia cez reťazec
+word = "Python"
+for letter in word:
+    print(letter)
+
+Použitie enumerate():
+fruits = ["jablko", "banán", "pomeranč"]
+for position, fruit in enumerate(fruits):
+    print(f"{position}: {fruit}")
+
+While cykly: Bežia, pokiaľ je podmienka pravdivá.
+Základný while cyklus:
+
+# Odpočítavanie od 5
+count = 5
+while count > 0:
+    print(count)
+    count = count - 1
+print("Výbuch!")
+
+While cyklus s užívateľským vstupom:
+# Opakuje sa, kým nie je zadané správne heslo
+password = ""
+while password != "secret":
+    password = input("Zadajte heslo: ")
+print("Prístup povolený!")
+
+Príklady z reálneho sveta:
+
+Cyklus v hre:
+health = 100
+points = 0
+
+while health > 0:
+    print(f"Zdravie: {health}, Body: {points}")
+    
+    # Predpokladaná logika hry
+    health -= 10  # Stratíte trochu zdravia
+    points += 5   # Získate body
+    
+    if points >= 50:
+        print("Vyhrali ste!")
+        break
+
+if health &lt;= 0:
+    print("Koniec hry")
+
+Nákupný košík:
+cart = ["jablko", "banán", "pomeranč"]
+total = 0
+
+for item in cart:
+    if item == "jablko":
+        price = 0.5
+    elif item == "banán":
+        price = 0.3
+    else:
+        price = 0.6
+    
+    total += price
+    print(f"{item}: ${price}")
+
+print(f"Celkovo: ${total}")
+
+
+Ovládanie cyklov:
+
+Break – ukončí cyklus:
+names = ["Alice", "Bob", "Charlie", "David"]
+for name in names:
+    if name == "Charlie":
+        print("Nájdený Charlie!")
+        break
+    print(f"Kontrolujem {name}")
+
+Continue – preskočí aktuálnu iteráciu:
+for i in range(5):
+    if i % 2 == 0:
+        continue
+    print(i)  # vypíše 1 a 3
+
+Tipy:
+- Vždy zabezpečte ukončenie while cyklov.
+- Používajte for cykly, keď viete, koľkokrát sa má opakovať.</content>
+                </topic>
+                <topic id="3">
+                    <title>Break a Continue</title>
+                    <content>Príkazy Break a Continue vám umožňujú lepšie ovládať cykly. Break funguje ako tlačidlo na zastavenie cyklu, zatiaľ čo Continue preskočí zvyšok aktuálnej iterácie a pokračuje na ďalšiu.
+
+Použitie Break: Break ukončí cyklus úplne, aj keď je podmienka ešte splnená.
+
+Základný príklad:
+for i in range(10):
+    print(i)
+    if i == 5:
+        break
+# vypíše 0, 1, 2, 3, 4, 5
+
+Príklad z reálneho sveta:
+users = ["Alice", "Bob", "Charlie", "David"]
+search_name = "Charlie"
+
+for user in users:
+    print(f"Kontrolujem používateľa: {user}")
+    if user == search_name:
+        print("Používateľ nájdený!")
+        break
+
+
+Menu systém:
+while True:
+    choice = input("""Vyberte možnosť:
+    1. Hra
+    2. Zobraziť skóre
+    3. Ukončiť
+    """)
+    
+    if choice == "1":
+        print("Spúšťam hru...")
+    elif choice == "2":
+        print("Vaše skóre je 100")
+    elif choice == "3":
+        print("Dovidenia!")
+        break
+    else:
+        print("Prosím vyberte 1, 2, alebo 3")
+
+
+Použitie Continue:
+
+Základný príklad:
+for i in range(5):
+    if i % 2 == 0:
+        continue
+    print(i)
+# vypíše 1 a 3
+
+Príklad z reálneho sveta:
+numbers = [1, -2, 3, -4, 5, 0, 6]
+
+for num in numbers:
+    if num &lt;= 0:
+        continue
+    result = 10 / num
+    print(f"10 delené {num} je {result}")
+
+
+Tipy:
+- Použite Break, keď nájdete to, čo hľadáte, alebo ak chcete ukončiť cyklus.
+- Použite Continue na preskočenie neplatných položiek.</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="4">
+            <title>Funkcie</title>
+            <topics>
+                <topic id="4">
+                    <title>Definovanie funkcií</title>
+                    <content>Funkcie sú ako recepty – sú to sady inštrukcií, ktoré môžete opakovane používať. Namiesto opakovaného písania rovnakého kódu môžete túto logiku vložiť do funkcie a volať ju podľa potreby.
+
+Základná štruktúra funkcie:
+def say_hello():
+    print("Hello, World!")
+
+# Použitie funkcie
+say_hello()  # vypíše: Hello, World!
+
+Funkcie s parametrami: Parametre sú ako ingrediencie vo vašom recepte – sú to informácie, ktoré funkcia potrebuje na svoju prácu.
+def greet(name):
+    print(f"Ahoj, {name}!")
+
+# Použitie funkcie
+greet("Alice")  # vypíše: Ahoj, Alice!
+greet("Bob")    # vypíše: Ahoj, Bob!
+
+
+Funkcie, ktoré vracajú hodnoty: Niektoré funkcie vráti výsledok, ktorý môžete ďalej použiť.
+def add_numbers(a, b):
+    result = a + b
+    return result
+
+# Použitie funkcie
+sum_result = add_numbers(5, 3)
+print(sum_result)  # vypíše: 8
+</content>
+                </topic>
+                <topic id="4">
+                    <title>Parametre a argumenty</title>
+                    <content>Parametre a argumenty slúžia na odovzdávanie informácií funkciám. Predstavte si parametre ako prázdne boxy, ktoré funkcia očakáva, a argumenty ako hodnoty, ktoré do nich vložíte.
+
+Rôzne spôsoby použitia parametrov:
+
+1. Povinné parametre:
+def make_sandwich(bread_type, main_filling):
+    return f"Sendvič s {main_filling} na {bread_type} chlebe"
+
+# Musíte poskytnúť oba argumenty
+sandwich = make_sandwich("pšeničný", "syrom")
+print(sandwich)  # vypíše: Sendvič so syrom na pšeničnom chlebe
+
+Predvolené parametre:
+def create_user(name, age, country="Unknown", is_active=True):
+    return {
+        "name": name,
+        "age": age,
+        "country": country,
+        "is_active": is_active
+    }
+
+# Rôzne spôsoby použitia
+user1 = create_user("Alice", 25)          # country bude "Unknown"
+user2 = create_user("Bob", 30, "USA")        # Použije poskytnutú krajinu
+user3 = create_user("Charlie", 35, "Canada", False)  # Všetky hodnoty sú zadané
+
+Kľúčové argumenty:
+def print_info(name, age, city):
+    print(f"{name} má {age} rokov a býva v {city}")
+
+# Môžete špecifikovať, ktorý argument kam patrí
+print_info(age=25, city="Paríž", name="Alice")
+print_info(name="Bob", city="Londýn", age=30)
+
+Premenný počet argumentov (*args):
+def add_numbers(*numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+# Použitie s ľubovoľným počtom argumentov
+result1 = add_numbers(1, 2)            # Vráti 3
+result2 = add_numbers(1, 2, 3, 4, 5)     # Vráti 15
+
+Kľúčové premenné argumenty (**kwargs):
+def print_user_info(**info):
+    print("Informácie o používateľovi:")
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+# Môžete poskytnúť ľubovoľný počet pomenovaných argumentov
+print_user_info(name="Alice", age=25, city="Paríž")
+print_user_info(name="Bob", job="Developer")
+</content>
+                </topic>
+                <topic id="4">
+                    <title>Návratové hodnoty</title>
+                    <content>Návratové hodnoty sú kľúčové pre vytváranie užitočných funkcií v Pythone. Keď funkcia dokončí svoju prácu, môže vrátiť informácie späť do časti programu, ktorá ju zavolala. Toto robí funkcie oveľa silnejšími a užitočnejšími.
+
+Základ:
+def add(a, b):
+    return a + b
+
+result = add(5, 3)  # Výsledok bude 8
+
+
+Funkcie môžu vracať rôzne typy hodnôt:
+# Vrátenie čísla
+def multiply(x, y):
+    return x * y
+
+# Vrátenie reťazca
+def get_greeting(name):
+    return f"Ahoj, {name}!"
+
+# Vrátenie zoznamu
+def create_number_list(start, end):
+    return list(range(start, end + 1))
+
+# Vrátenie viacerých hodnôt
+def get_player_stats():
+    health = 100
+    energy = 50
+    score = 0
+    return health, energy, score  # Vráti n-ticu
+
+
+Časté chyby:
+
+Zabudnutie return:
+def calculate_total(prices):
+    total = sum(prices)
+    # Chýba return
+
+Vrátenie príliš skoro:
+def process_numbers(numbers):
+    for num in numbers:
+        if num &lt; 0:
+            return "Nájdené záporné číslo"
+    # Funkcia sa zastaví pri prvom zápornom čísle!
+
+
+Tipy:
+- Funkcia sa ukončí, keď narazí na return.
+- Ak return nezadáte, funkcia vráti None.
+- Viacero hodnôt sa vráti ako n-tica.
+- Návratové hodnoty môžete priamo použiť alebo uložiť do premennej.</content>
+                </topic>
+            </topics>
+        </section>
+        <section id="5">
+            <title>Pokročilé témy</title>
+            <topics>
+                <topic id="5">
+                    <title>Triedy a objekty</title>
+                    <content>Triedy a objekty v Pythone vám umožňujú vytvárať a organizovať kód, ktorý reprezentuje reálne veci alebo koncepty. Trieda je ako plán, ktorý opisuje, čo niečo je a čo dokáže. Objekt je vytvorený podľa tohto plánu.
+
+Základná štruktúra triedy:
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def bark(self):
+        print(f"{self.name} hovorí: Haf!")
+    
+    def celebrate_birthday(self):
+        self.age += 1
+        print(f"Všetko najlepšie {self.name}! Teraz máš {self.age} rokov!")
+        
+# Vytvorenie a použitie objektu psa
+my_dog = Dog("Buddy", 3)
+my_dog.bark()
+my_dog.celebrate_birthday()
+
+
+Dôležité časti tried:
+
+Konštruktor (init):
+Automaticky sa volá pri vytvorení objektu.
+Používa 'self' pre odkaz na aktuálny objekt.
+
+def __init__(self, name, breed, age=0):
+    self.name = name
+    self.breed = breed
+    self.age = age
+    self.tricks = []  # Prázdny zoznam pre triky
+
+
+Atribúty:
+class Student:
+    def __init__(self, name):
+        self.name = name          # Verejný atribút
+        self._grade = 0           # Chránený atribút
+        self.__student_id = 123   # Súkromný atribút
+
+
+Metódy:
+class Car:
+    def __init__(self, brand):
+        self.brand = brand
+        self.speed = 0
+        self.is_running = False
+    
+    def start_engine(self):
+        self.is_running = True
+        print("Vroom! Motor naštartovaný!")
+    
+    def accelerate(self, speed_increase):
+        if self.is_running:
+            self.speed += speed_increase
+            print(f"Teraz jazdíte rýchlosťou {self.speed} km/h")
+        else:
+            print("Najprv naštartujte motor!")
+
+
+Príklad – Vytvorenie hernej postavy:
+class GameCharacter:
+    def __init__(self, name, character_class):
+        self.name = name
+        self.character_class = character_class
+        self.level = 1
+        self.health = 100
+        self.experience = 0
+    
+    def gain_experience(self, amount):
+        self.experience += amount
+        if self.experience >= 100:
+            self.level_up()
+    
+    def level_up(self):
+        self.level += 1
+        self.health += 20
+        self.experience = 0
+        print(f"{self.name} dosiahol úroveň {self.level}!")
+        
+# Použitie triedy GameCharacter
+hero = GameCharacter("Alex", "Warrior")
+hero.gain_experience(50)
+</content>
+                </topic>
+                <topic id="5">
+                    <title>Moduly a balíky</title>
+                    <content>Moduly a balíky vám pomáhajú organizovať Python kód do samostatných súborov a priečinkov. Modul je ako kapitola v knihe a balík ako celá kniha v knižnici. Uľahčujú opätovné použitie kódu a udržiavanie programu prehľadného.
+
+Pochopenie modulov:
+
+Modul je Python súbor obsahujúci kód, ktorý chcete opätovne použiť. Napríklad, ak máte súbor s názvom math_helpers.py:
+# math_helpers.py
+def add_numbers(numbers):
+    return sum(numbers)
+
+def average(numbers):
+    return sum(numbers) / len(numbers)
+
+def is_even(number):
+    return number % 2 == 0
+
+# Konštanty
+PI = 3.14159
+GOLDEN_RATIO = 1.618
+
+Rôzne spôsoby importu:
+# Import celého modulu
+import math_helpers
+
+# Import konkrétnych funkcií
+from math_helpers import add_numbers, average
+
+# Import s aliasom
+import math_helpers as mh
+
+
+Vytváranie a používanie balíkov: Balík je priečinok obsahujúci viacero modulov. Napríklad, štruktúra:
+my_game/
+    __init__.py
+    players.py
+    enemies.py
+    items/
+        __init__.py
+        weapons.py
+        armor.py
+        potions.py
+Súbory `__init.py__` oznamujú Pythonu, že tieto priečinky sú balíky.
+
+Príklad – Vytvorenie herného balíka:
+# game_utils/
+#   __init__.py
+#   players.py
+#   scoring.py
+
+# players.py
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.score = 0
+
+# scoring.py
+def update_score(player, points):
+    player.score += points
+    return player.score
+
+# Použitie balíka
+from game_utils.players import Player
+from game_utils.scoring import update_score
+
+player1 = Player("Alex")
+update_score(player1, 100)
+
+
+Vstavané moduly: Python prichádza s množstvom vstavaných modulov:
+import datetime
+today = datetime.datetime.now()
+
+import random
+random_number = random.randint(1, 10)
+
+import os
+files = os.listdir(".")
+</content>
+                </topic>
+                <topic id="5">
+                    <title>Spracovanie chýb</title>
+                    <content>Spracovanie chýb znamená, že programy zvládnu problémy múdro namiesto toho, aby havarovali. V Pythone sa na to používajú bloky try, except a finally.
+
+Základná štruktúra:
+try:
+    number = int(input("Zadajte číslo: "))
+    result = 10 / number
+except ValueError:
+    print("Prosím zadajte platné číslo!")
+except ZeroDivisionError:
+    print("Nulou deliť nemožno!")
+else:
+    print(f"Výsledok: {result}")
+finally:
+    print("Pokus o výpočet bol ukončený.")
+
+
+Bežné chyby:
+ValueError – keď sa pokúsite konvertovať neplatné údaje:
+
+try:
+    age = int("twenty")
+except ValueError:
+    print("Prosím použite čísla pre vek")
+TypeError – keď použijete nesprávne typy:
+
+try:
+    text = "Ahoj"
+    number = 5
+    result = text + number
+except TypeError:
+    print("Nemožno kombinovať text a čísla!")
+
+
+Vytváranie vlastných chýb:
+class AgeError(Exception):
+    pass
+
+def set_age(age):
+    if age &lt; 0:
+        raise AgeError("Vek nemôže byť záporný")
+    if age > 150:
+        raise AgeError("Vek sa zdá byť nerealistický")
+    return age
+
+try:
+    user_age = set_age(200)
+except AgeError as error:
+    print(f"Neplatný vek: {error}")
+
+
+Príklad – Ukladanie dát so spracovaním chýb:
+def save_user_data(username, data):
+    try:
+        with open(f"{username}_data.txt", "w") as file:
+            file.write(data)
+    except IOError as error:
+        print(f"Nepodarilo sa uložiť dáta: {error}")
+        return False
+    except TypeError:
+        print("Dáta musia byť typu reťazec")
+        return False
+    else:
+        print("Dáta boli úspešne uložené!")
+        return True
+    finally:
+        print("Operácia ukladania dokončená")
+
+
+Príklad – Pripojenie k databáze:
+import sqlite3
+
+def get_user_info(user_id):
+    connection = None
+    try:
+        connection = sqlite3.connect("users.db")
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+        result = cursor.fetchone()
+        if result is None:
+            raise ValueError(f"Nenájdený používateľ s ID {user_id}")
+        return result
+    except sqlite3.Error as db_error:
+        print(f"Chyba databázy: {db_error}")
+        return None
+    finally:
+        if connection:
+            connection.close()
+</content>
+                </topic>
+            </topics>
+        </section>
+    </sections>
+    <quizes>
+        <quiz id="1">
+            <question id="1">
+                <text>Ktorá z týchto vlastností najlepšie opisuje syntax Pythonu?</text>
+                <answers id="1">
+                    <answer correct="false">Používa zložité matematické symboly</answer>
+                    <answer correct="true">Používa jednoduché anglické slová a medzery</answer>
+                    <answer correct="false">Pre každý riadok potrebuje špeciálne znaky</answer>
+                    <answer correct="false">Pred každým spustením je potrebná kompilácia</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Ktoré nástroje sú spomenuté pre prácu s dátami v Pythone?</text>
+                <answers id="1">
+                    <answer correct="false">React a Angular</answer>
+                    <answer correct="false">Maven a Gradle</answer>
+                    <answer correct="true">NumPy a Pandas</answer>
+                    <answer correct="false">Jenkins a Docker</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Čo je spomenuté ako kľúčová výhoda VS Code?</text>
+                <answers id="1">
+                    <answer correct="false">Má viac funkcií ako PyCharm Professional</answer>
+                    <answer correct="false">Pracuje iba s Pythonom</answer>
+                    <answer correct="false">Vyžaduje veľmi výkonný počítač</answer>
+                    <answer correct="true">Funguje dobre aj na menej výkonných počítačoch</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Kde môžu Python vývojári nájsť bezplatné nástroje (balíky) pre svoje programy?</text>
+                <answers id="1">
+                    <answer correct="true">PyPI</answer>
+                    <answer correct="false">Iba na GitHub</answer>
+                    <answer correct="false">Windows Store</answer>
+                    <answer correct="false">App Store</answer>
+                </answers>
+            </question>
+            <question id="1">
+                <text>Ktoré IDE je opísané ako najlepšia voľba pre prácu s dátami a vytváranie vizualizácií?</text>
+                <answers id="1">
+                    <answer correct="false">PyCharm</answer>
+                    <answer correct="false">VS Code</answer>
+                    <answer correct="true">Jupyter Notebook</answer>
+                    <answer correct="false">Thonny</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="2">
+            <question id="2">
+                <text>Ktoré z týchto mien premenných nie je platné v Pythone?</text>
+                <answers id="2">
+                    <answer correct="false">user_age</answer>
+                    <answer correct="false">first_name</answer>
+                    <answer correct="true">1st_name</answer>
+                    <answer correct="false">isValid</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Aký je výsledok "Ha" * 3 v Pythone?</text>
+                <answers id="2">
+                    <answer correct="false">Ha3</answer>
+                    <answer correct="false">HaHa</answer>
+                    <answer correct="true">HaHaHa</answer>
+                    <answer correct="false">Chyba</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Ktorý operátor vám dáva zvyšok po delení?</text>
+                <answers id="2">
+                    <answer correct="false">//</answer>
+                    <answer correct="true">%</answer>
+                    <answer correct="false">/</answer>
+                    <answer correct="false">**</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Aký je výsledok 17 // 5 v Pythone?</text>
+                <answers id="2">
+                    <answer correct="false">3.4</answer>
+                    <answer correct="true">3</answer>
+                    <answer correct="false">4</answer>
+                    <answer correct="false">2</answer>
+                </answers>
+            </question>
+            <question id="2">
+                <text>Ktorý z nasledujúcich spôsobov formátovania reťazca pomocou f-reťazcov je správny?</text>
+                <answers id="2">
+                    <answer correct="false">"{name} is {age}".format(name, age)</answer>
+                    <answer correct="false">"name is age"</answer>
+                    <answer correct="true">f"{name} is {age}"</answer>
+                    <answer correct="false">"%s is %d" % name, age</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="3">
+            <question id="3">
+                <text>Aký bude výstup tohto kódu:
+for i in range(0, 10, 2):
+    print(i)</text>
+                <answers id="3">
+                    <answer correct="false">1, 3, 5, 7, 9</answer>
+                    <answer correct="true">0, 2, 4, 6, 8</answer>
+                    <answer correct="false">2, 4, 6, 8, 10</answer>
+                    <answer correct="false">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Aký výstup vypíše tento kód?
+is_weekend = True
+is_holiday = False
+is_sunny = True
+if is_weekend or is_holiday and is_sunny:
+    print("Poďme na pláž!")
+else:
+    print("Zostaň doma")</text>
+                <answers id="3">
+                    <answer correct="true">Poďme na pláž!</answer>
+                    <answer correct="false">Zostaň doma</answer>
+                    <answer correct="false">Chyba - neplatná syntax</answer>
+                    <answer correct="false">Nič sa nevypíše</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Aký je účel príkazu "continue" v cykle?</text>
+                <answers id="3">
+                    <answer correct="false">Ukončí cyklus</answer>
+                    <answer correct="false">Reštartuje cyklus</answer>
+                    <answer correct="true">Preskočí zvyšok aktuálnej iterácie a pokračuje na ďalšiu</answer>
+                    <answer correct="false">Pozastaví cyklus na jednu sekundu</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Aký výstup vypíše tento kód?
+count = 5
+while count > 0:
+    print(count)
+    count -= 1</text>
+                <answers id="3">
+                    <answer correct="false">1, 2, 3, 4, 5</answer>
+                    <answer correct="true">5, 4, 3, 2, 1</answer>
+                    <answer correct="false">4, 3, 2, 1, 0</answer>
+                    <answer correct="false">5, 4, 3, 2, 1, 0</answer>
+                </answers>
+            </question>
+            <question id="3">
+                <text>Ktorá z týchto chýb je bežná pri používaní podmienkových príkazov v Pythone?</text>
+                <answers id="3">
+                    <answer correct="false">Používanie príliš veľa elif príkazov</answer>
+                    <answer correct="false">Mať else príkaz</answer>
+                    <answer correct="true">Použitie = namiesto ==</answer>
+                    <answer correct="false">Používanie and/or operátorov</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="4">
+            <question id="4">
+                <text>Aký je hlavný účel funkcie v Pythone?</text>
+                <answers id="4">
+                    <answer correct="false">Aby kód vyzeral profesionálnejšie</answer>
+                    <answer correct="false">Pre tvorbu webových stránok</answer>
+                    <answer correct="true">Pre opätovné použitie kódu a vyhnutie sa opakovaniu</answer>
+                    <answer correct="false">Pre zrýchlenie programu</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Pozrite sa na tento kód:
+def greet(name="Friend"):
+    print(f"Ahoj, {name}!")
+
+Čo sa stane, keď zavoláme greet()?</text>
+                <answers id="4">
+                    <answer correct="false">vypíše sa chyba</answer>
+                    <answer correct="true">vypíše sa "Ahoj, Friend!"</answer>
+                    <answer correct="false">vypíše sa "Ahoj, name!"</answer>
+                    <answer correct="false">Nič sa nevykoná</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Ktorý z nasledujúcich spôsobov vytvorenia funkcie, ktorá sčíta dve čísla, je správny?</text>
+                <answers id="4">
+                    <answer correct="true">
+def add_numbers(a, b):
+    return a + b</answer>
+                    <answer correct="false">
+function add_numbers(a, b):
+    return a + b</answer>
+                    <answer correct="false">
+def add_numbers(a, b)
+    return a + b</answer>
+                    <answer correct="false">
+def add_numbers:
+    return a + b</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Čo sa stane, keď funkcia narazí na príkaz "return"?</text>
+                <answers id="4">
+                    <answer correct="false">Program sa úplne zastaví</answer>
+                    <answer correct="false">Funkcia sa reštartuje od začiatku</answer>
+                    <answer correct="false">Kód pokračuje, funkcia beží ďalej</answer>
+                    <answer correct="true">Funkcia sa zastaví a vráti hodnotu tam, kde bola zavolaná</answer>
+                </answers>
+            </question>
+            <question id="4">
+                <text>Pozrite sa na tento kód:
+def calculate_price(price, discount=10, tax=20):
+    final = price - (price * discount / 100)
+    final = final + (final * tax / 100)
+    return final
+
+Ktoré volanie tejto funkcie je správne a bude fungovať?</text>
+                <answers id="4">
+                    <answer correct="false">calculate_price()</answer>
+                    <answer correct="false">calculate_price(discount=20, tax=10)</answer>
+                    <answer correct="false">calculate_price(tax=20, 100, discount=10)</answer>
+                    <answer correct="true">calculate_price(100, tax=15)</answer>
+                </answers>
+            </question>
+        </quiz>
+
+        <quiz id="5">
+            <question id="5">
+                <text>Aký je hlavný účel parametra "self" v metóde triedy?</text>
+                <answers id="5">
+                    <answer correct="false">Zastaví metódu od behu</answer>
+                    <answer correct="true">Odkazuje na aktuálny objekt, ktorý sa vytvára alebo používa</answer>
+                    <answer correct="false">Automaticky vytvorí nový objekt</answer>
+                    <answer correct="false">Definuje typ triedy</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Ako importujete konkrétnu funkciu z modulu?</text>
+                <answers id="5">
+                    <answer correct="false">import module_name.function_name</answer>
+                    <answer correct="false">require module_name(function_name)</answer>
+                    <answer correct="true">from module_name import function_name</answer>
+                    <answer correct="false">module_name.use(function_name)</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Aký je hlavný účel bloku try-except v Pythone?</text>
+                <answers id="5">
+                    <answer correct="false">Pre vytváranie nových premenných</answer>
+                    <answer correct="false">Pre zrýchlenie programu</answer>
+                    <answer correct="true">Pre spracovanie potenciálnych chýb bez zastavenia programu</answer>
+                    <answer correct="false">Pre pridávanie komentárov do kódu</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>V Pythone, na čo slúži metóda __init__ v triede?</text>
+                <answers id="5">
+                    <answer correct="true">Pre inicializáciu atribútov objektu pri jeho vytvorení</answer>
+                    <answer correct="false">Pre vymazanie objektu po použití</answer>
+                    <answer correct="false">Pre vytvorenie viacerých kópií objektu</answer>
+                    <answer correct="false">Pre zastavenie činnosti objektu</answer>
+                </answers>
+            </question>
+            <question id="5">
+                <text>Aký typ chyby nastane, keď sa pokúsite vykonať operáciu na nekompatibilných dátových typoch?</text>
+                <answers id="5">
+                    <answer correct="false">ValueError</answer>
+                    <answer correct="true">TypeError</answer>
+                    <answer correct="false">AttributeError</answer>
+                    <answer correct="false">RuntimeError</answer>
+                </answers>
+            </question>
+        </quiz>
+        <quiz id="6">
+            <question id="6">
+                <text>Aká je kľúčová výhoda používania Pythonu?</text>
+                <answers id="6">
+                    <answer correct="true">Je ľahko čitateľný a zapisovateľný</answer>
+                    <answer correct="false">Vyžaduje výkonný počítač</answer>
+                    <answer correct="false">Používa sa iba na webový vývoj</answer>
+                    <answer correct="false">Musí byť kompilovaný pred spustením</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktoré z týchto mien premenných nie je platné v Pythone?</text>
+                <answers id="6">
+                    <answer correct="false">user_age</answer>
+                    <answer correct="false">firstName</answer>
+                    <answer correct="true">2nd_value</answer>
+                    <answer correct="false">is_valid</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Aký bude výsledok 10 % 3?</text>
+                <answers id="6">
+                    <answer correct="true">1</answer>
+                    <answer correct="false">3</answer>
+                    <answer correct="false">0</answer>
+                    <answer correct="false">10</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktorá možnosť správne vytvára funkciu v Pythone?</text>
+                <answers id="6">
+                    <answer correct="true">def my_function():</answer>
+                    <answer correct="false">function my_function():</answer>
+                    <answer correct="false">create my_function():</answer>
+                    <answer correct="false">func my_function():</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Ktoré kľúčové slovo sa používa na predčasné ukončenie cyklu?</text>
+                <answers id="6">
+                    <answer correct="true">break</answer>
+                    <answer correct="false">continue</answer>
+                    <answer correct="false">exit</answer>
+                    <answer correct="false">stop</answer>
+                </answers>
+            </question>
+            <question id="6">
+                <text>Čo znamená kľúčové slovo "elif" v Pythone?</text>
+                <answers id="6">
+                    <answer correct="true">Umožňuje viacero podmienok v if príkaze</answer>
+                    <answer correct="false">Opakuje cyklus</answer>
+                    <answer correct="false">Ukončuje funkciu</answer>
+                    <answer correct="false">Začína nový cyklus</answer>
+                </answers>
+            </question>
+        </quiz>
+    </quizes>
+</course>
